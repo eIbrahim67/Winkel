@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/stroke_8dp_black"
+    android:layout_margin="10dp"
+    android:padding="10dp">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="@style/trash_background_btn"
+            android:src="@color/black_v1"
+            android:padding="10dp"
+            android:clickable="true"
+            android:contentDescription="TODO"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/orderCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            style="@style/TextColor_v3"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:text="1"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order ID:"
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"
+                android:layout_marginEnd="10dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/orderId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer ID:"
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"
+                android:layout_marginEnd="10dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/orderCustId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Farmer ID:"
+                android:textSize="18sp"
+                style="@style/TextColor_v2"
+                android:textStyle="bold"
+                android:layout_marginEnd="10dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/orderFarmerId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total price:"
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"
+                android:layout_marginEnd="10dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/orderTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

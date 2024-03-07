@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1080983313510",
+    "firebase_url": "https://winkel-eibrahim-default-rtdb.firebaseio.com",
+    "project_id": "winkel-eibrahim",
+    "storage_bucket": "winkel-eibrahim.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080983313510:android:2e5e6f5a10a43309fba1a7",
+        "android_client_info": {
+          "package_name": "com.eibrahim.winkel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMBEYdA70OKZHP9G6f0WFAq_-X8xupato"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080983313510:android:e9594f670ed3d3aefba1a7",
+        "android_client_info": {
+          "package_name": "com.example.winkel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMBEYdA70OKZHP9G6f0WFAq_-X8xupato"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

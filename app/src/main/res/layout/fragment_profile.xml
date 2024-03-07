@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/BackGround">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textSize="40sp"
+        android:fontFamily="@font/works_ans_v1"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        style="@style/TextColor_v1"
+        android:background="@android:color/transparent"/>
+
+
+    <LinearLayout
+        android:id="@+id/btnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="5dp"
+        style="@style/ripple_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/user_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Profile"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/arrow_right_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnAddNewItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        style="@style/ripple_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/much_items_background_plus"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Add new item"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/arrow_right_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnPaymentMethods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        style="@style/ripple_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/card_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Payment methods"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/arrow_right_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        style="@style/ripple_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/orders_icon_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Orders"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/arrow_right_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        style="@style/ripple_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/logout_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Log Out"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/arrow_right_src"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+</LinearLayout>

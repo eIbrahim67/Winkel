@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item android:id="@+id/home_btn"
+        android:title="Home"
+        android:icon="@drawable/home"
+        tools:ignore="HardcodedText"
+        style="@style/iconColor" />
+
+    <item android:id="@+id/wishlist_btn"
+        android:title="WishList"
+        android:icon="@drawable/unlove_icon_white"
+        tools:ignore="HardcodedText"
+        style="@style/iconColor"/>
+
+    <item android:id="@+id/checkout_btn"
+        android:title="Checkout"
+        android:icon="@drawable/basket_icon_white"
+        tools:ignore="HardcodedText"
+        style="@style/iconColor"/>
+
+    <item android:id="@+id/profile_btn"
+        android:title="Profile"
+        android:icon="@drawable/user_icon_white"
+        tools:ignore="HardcodedText"
+        style="@style/iconColor"/>
+</menu>

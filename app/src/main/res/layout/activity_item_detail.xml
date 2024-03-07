@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".secondActivity.ItemDetailActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/itemImgDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_v1"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/btn_back_home"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/back_arrow_background_btn"
+                android:padding="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="TODO" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    style="@style/share_background_btn"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:contentDescription="TODO" />
+
+                <ImageView
+                    android:id="@+id/btn_love"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/filter_background_light"
+                    android:src="@drawable/unlove_icon_white"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:contentDescription="TODO" />
+
+                <ImageView
+                    android:id="@+id/btn_basketD"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    style="@style/basket_background_btn"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:contentDescription="TODO" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+
+        <TextView
+            android:id="@+id/itemCategoryDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Men's Hoodies"
+            android:textSize="15sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/itemNameDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loose Fit Half-zip Fleece Shirt"
+                android:textSize="22sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_marginEnd="40dp"
+                tools:ignore="InefficientWeight" />
+
+            <TextView
+                android:id="@+id/itemPriceDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="$69.99"
+                android:textSize="22sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                style="@style/star_background_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="TODO" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/star_background_btn"
+                android:contentDescription="TODO" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/star_background_btn"
+                android:contentDescription="TODO" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/star_background_btn"
+                android:contentDescription="TODO" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/star_background_btn"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="944 Reviews"
+                android:textSize="15sp"
+                style="@style/TextColor_v2"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                style="@style/much_items_background_sub"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/btn_sub"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="7dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/much_items_background_sub"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="TODO" />
+
+                <TextView
+                    android:id="@+id/itemMuchDetail"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:text="1"
+                    android:textSize="20sp"
+                    style="@style/TextColor_v1"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/btn_plus"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="7dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/much_items_background_plus"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="TODO" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/addtobasket"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:layout_alignParentEnd="true"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/basket_background_btn">
+
+                <TextView
+                    android:id="@+id/addtobasketText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="ADD TO BASKET"
+                    android:textSize="15sp"
+                    style="@style/TextColor_v3"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <ImageView
+                    android:id="@+id/addtobasketImg"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    style="@style/basket_background_btn"
+                    android:padding="7dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="TODO" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

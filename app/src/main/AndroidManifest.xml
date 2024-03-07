@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Winkel"
+        tools:targetApi="31">
+        <activity
+            android:name=".secondActivity.AddItemtFragment"
+            android:exported="false" />
+        <activity
+            android:name=".sign.SigninActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondActivity.SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sign.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mianActivity.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".secondActivity.PaymentActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Winkel" />
+        <activity
+            android:name=".secondActivity.ItemDetailActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">"Ra'd"</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

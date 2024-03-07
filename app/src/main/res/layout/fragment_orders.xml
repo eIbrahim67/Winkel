@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:id="@+id/FrameLayoutAddresses"
+    tools:context=".secondActivity.OrdersFragment"
+    android:background="@color/white_v2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Orders"
+            android:textSize="40sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            style="@style/TextColor_v1"
+            android:background="@android:color/transparent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/re_orders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

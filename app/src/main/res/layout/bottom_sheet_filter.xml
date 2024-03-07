@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/filterLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/btnCloseFilter"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+
+                    android:padding="5dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:text="Filter"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:text="Reset All"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,InefficientWeight"
+                    android:layout_marginEnd="5dp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray_v1"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Category"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/works_ans_v1"
+                style="@style/TextColor_v1"
+                android:layout_marginStart="20dp"
+                tools:ignore="HardcodedText,InefficientWeight" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/btn_all">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="All"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    style="@style/TextColor_v1"
+                    android:layout_marginStart="40dp"
+                    tools:ignore="HardcodedText,InefficientWeight"/>
+
+                <RadioButton
+                    android:id="@+id/RadBtnAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:checked="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/btn_men">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Men"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    style="@style/TextColor_v1"
+                    android:layout_marginStart="40dp"
+                    tools:ignore="HardcodedText,InefficientWeight"/>
+
+                <RadioButton
+                    android:id="@+id/RadBtnMen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/btn_women">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Women"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    style="@style/TextColor_v1"
+                    android:layout_marginStart="40dp"
+                    tools:ignore="HardcodedText,InefficientWeight"/>
+
+                <RadioButton
+                    android:id="@+id/RadBtnWomen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/btn_kids">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Kids"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    style="@style/TextColor_v1"
+                    android:layout_marginStart="40dp"
+                    tools:ignore="HardcodedText,InefficientWeight"/>
+
+                <RadioButton
+                    android:id="@+id/RadBtnKid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray_v1"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Price"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/works_ans_v1"
+                style="@style/TextColor_v1"
+                android:layout_marginStart="20dp"
+                tools:ignore="HardcodedText,InefficientWeight" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="From"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    style="@style/TextColor_v1"
+                    tools:ignore="HardcodedText,InefficientWeight"
+                    android:layout_marginEnd="5dp"/>
+
+                <EditText
+                    android:id="@+id/fPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:inputType="numberDecimal"
+                    android:text="0"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,RtlCompat"
+                    android:textAlignment="center"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="To"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    style="@style/TextColor_v1"
+                    tools:ignore="HardcodedText,InefficientWeight"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/tPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:text="100000"
+                    android:inputType="number"
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText,RtlCompat"
+                    android:textAlignment="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray_v1"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Size"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/works_ans_v1"
+                style="@style/TextColor_v1"
+                tools:ignore="HardcodedText, InefficientWeight"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New"
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="M"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New"
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="L"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New"
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XL"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New"
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            style="@style/checkout_background_btn"
+            android:text="Filter"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:layout_marginTop="40dp"
+            tools:ignore="HardcodedText"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

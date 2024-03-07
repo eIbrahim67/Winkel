@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextColor_v2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/post_title"
+            style="@style/TextColor_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:fontFamily="@font/works_ans_v1"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        <TextView
+            style="@style/TextColor_v2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Category"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/post_details"
+            style="@style/TextColor_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck"
+            android:importantForAutofill="no" />
+
+        <TextView
+            style="@style/TextColor_v2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="For"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/for_men"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Men"
+                android:fontFamily="@font/works_ans_v1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:checked="true"
+                style="@style/TextColor_v1"/>
+
+            <RadioButton
+                android:id="@+id/for_women"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Women"
+                android:fontFamily="@font/works_ans_v1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                style="@style/TextColor_v1"/>
+
+            <RadioButton
+                android:id="@+id/for_kids"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kids"
+                android:fontFamily="@font/works_ans_v1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                style="@style/TextColor_v1"/>
+
+        </RadioGroup>
+
+        <TextView
+            style="@style/TextColor_v2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Price"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/works_ans_v1"
+                android:text="$"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+            <EditText
+                android:id="@+id/post_price"
+                style="@style/TextColor_v1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/works_ans_v1"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <Space
+                android:layout_width="150dp"
+                android:layout_height="0dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_8dp_black"
+                android:padding="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="profile"
+                        tools:ignore="HardcodedText"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        app:shapeAppearanceOverlay="@style/roundedImageViewPost"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                style="@style/delete_background_src"
+                android:contentDescription="image"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:baselineAligned="false">
+
+            <RelativeLayout
+                android:id="@+id/upload_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/background_add_photo"
+                android:layout_marginEnd="10dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    tools:ignore="UseCompoundDrawables,UselessParent">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/pictures_icon_gray"
+                        android:layout_gravity="center"
+                        android:contentDescription="upload"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        style="@style/TextColor_v2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:text="Upload a photo"
+                        android:textColor="@color/gray_v7"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/take_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/background_add_photo"
+                android:layout_marginStart="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    tools:ignore="UseCompoundDrawables,UselessParent">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/camera_icon_gray"
+                        android:layout_gravity="center"
+                        android:contentDescription="take a photo"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        style="@style/TextColor_v2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:text="Take a photo"
+                        android:textColor="@color/gray_v7"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/loading_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="profile"
+            tools:ignore="HardcodedText"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/upload_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Upload"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="HardcodedText"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            style="@style/checkout_background_btn"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

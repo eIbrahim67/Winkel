@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".sign.SignupActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Welcome\nSign Up!"
+            android:textSize="50sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="40dp"
+            style="@style/TextColor_v1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full name"
+            android:textSize="18sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:focusable="true"
+            android:layout_marginTop="40dp"
+            style="@style/TextColor_v2"/>
+
+        <EditText
+            android:id="@+id/name_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:inputType="textPersonName"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:focusable="true"
+            style="@style/TextColor_v1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="18sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:focusable="true"
+            android:layout_marginTop="20dp"
+            style="@style/TextColor_v2"/>
+
+        <EditText
+            android:id="@+id/email_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:focusable="true"
+            style="@style/TextColor_v1"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone No:"
+            android:textSize="18sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:focusable="true"
+            android:layout_marginTop="20dp"
+            style="@style/TextColor_v2"/>
+
+        <EditText
+            android:id="@+id/phone_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:focusable="true"
+            style="@style/TextColor_v1"
+            android:autofillHints="phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create account for:"
+            android:textSize="18sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:focusable="true"
+            android:layout_marginTop="20dp"
+            style="@style/TextColor_v2"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/radio_cust"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Customer"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:checked="true"
+                    android:focusable="true"
+                    style="@style/TextColor_v2"/>
+
+                <RadioButton
+                    android:id="@+id/radio_vendor"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Vendor"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/TextColor_v2"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/radio_admin"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Admin"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/TextColor_v2"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+    android:id="@+id/code_layout"
+    android:layout_width="match_parent"
+    android:visibility="gone"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Code"
+        android:textSize="18sp"
+        android:fontFamily="@font/works_ans_v1"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:layout_marginStart="20dp"
+        android:focusable="true"
+        android:layout_marginTop="20dp"
+        style="@style/TextColor_v2"/>
+
+    <EditText
+        android:id="@+id/code_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:inputType="textEmailAddress"
+        android:fontFamily="@font/works_ans_v1"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:focusable="true"
+        style="@style/TextColor_v1"/>
+
+</LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/licnese_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="License:"
+                android:textSize="18sp"
+                android:fontFamily="@font/works_ans_v1"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:layout_marginStart="20dp"
+                android:focusable="true"
+                android:layout_marginTop="20dp"
+                style="@style/TextColor_v2"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:id="@+id/upload_photo_lic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_add_photo"
+                    android:layout_marginEnd="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        tools:ignore="UseCompoundDrawables,UselessParent">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/pictures_icon_gray"
+                            android:layout_gravity="center"
+                            android:contentDescription="upload"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            style="@style/TextColor_v2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:fontFamily="@font/works_ans_v1"
+                            android:text="Upload a photo"
+                            android:textColor="@color/gray_v7"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/upload_pdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_add_photo"
+                    android:layout_marginStart="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        tools:ignore="UseCompoundDrawables,UselessParent">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/pdf_icon_gray"
+                            android:layout_gravity="center"
+                            android:contentDescription="take a photo"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            style="@style/TextColor_v2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:fontFamily="@font/works_ans_v1"
+                            android:text="upload a pdf"
+                            android:textColor="@color/gray_v7"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="18sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:focusable="true"
+            android:layout_marginTop="20dp"
+            style="@style/TextColor_v2"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/pass_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:inputType="textPassword"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:focusable="true"
+            style="@style/TextColor_v1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm password"
+            android:textSize="18sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:focusable="true"
+            android:layout_marginTop="20dp"
+            style="@style/TextColor_v2"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/repass_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:inputType="textPassword"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:focusable="true"
+            style="@style/TextColor_v1"/>
+
+        <CheckBox
+            android:id="@+id/check_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I agree with the terms of services"
+            style="@style/TextColor_v1"
+            tools:ignore="HardcodedText"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:fontFamily="@font/works_ans_v1"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            style="@style/checkout_background_btn"
+            android:text="Sign UP"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account? "
+                android:textSize="18sp"
+                android:fontFamily="@font/works_ans_v1"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:layout_marginStart="20dp"
+                android:focusable="true"
+                style="@style/TextColor_v2"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/btn_signin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:textSize="18sp"
+                android:fontFamily="@font/works_ans_v1"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@android:color/holo_red_dark"
+                tools:ignore="HardcodedText"
+                android:layout_marginBottom="20dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
