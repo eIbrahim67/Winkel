@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -24,27 +26,27 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
-    public HomeFragment() {
-        // Required empty public constructor
-    }
     public static final List<String> wishlistIds = new ArrayList<>();
     private RecyclerView recyclerView_filter, recyclerView_items, recyclerViewItemsMens, recyclerViewItemsWomens, recyclerViewItemsKids, recyclerViewItemsOffers;
+    public static View recyclerViewItemsMens_skeleton, recyclerViewItemsWomens_skeleton, recyclerViewItemsKids_skeleton, recyclerViewItemsOffers_skeleton;
+    public static LinearLayout recyclerView_items_skeleton;
 
     private TextView btnItemsMens, btnItemsWomen, btnItemsKids, btnItemsOffers;
 
     private SwipeRefreshLayout fragment_home;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    private ScrollView ScrollView_of_ItemsTypes;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        ScrollView_of_ItemsTypes = root.findViewById(R.id.ScrollView_of_ItemsTypes);
 
         recyclerView_filter = root.findViewById(R.id.recyclerview_filter);
         recyclerView_items = root.findViewById(R.id.recyclerview_items);
@@ -52,6 +54,13 @@ public class HomeFragment extends Fragment {
         recyclerViewItemsWomens = root.findViewById(R.id.recyclerviewItemsWomens);
         recyclerViewItemsKids = root.findViewById(R.id.recyclerviewItemsKids);
         recyclerViewItemsOffers = root.findViewById(R.id.recyclerviewItemsOffers);
+
+        //recyclerView_items_skeleton = root.findViewById(R.id.recyclerview_items_skeleton);
+        recyclerViewItemsMens_skeleton = root.findViewById(R.id.recyclerviewItemsMens_skeleton);
+        recyclerViewItemsWomens_skeleton = root.findViewById(R.id.recyclerviewItemsWomens_skeleton);
+        recyclerViewItemsKids_skeleton = root.findViewById(R.id.recyclerviewItemsKids_skeleton);
+        recyclerViewItemsOffers_skeleton = root.findViewById(R.id.recyclerviewItemsOffers_skeleton);
+
 
         btnItemsMens = root.findViewById(R.id.btnItemsMens);
         btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
@@ -89,12 +98,15 @@ public class HomeFragment extends Fragment {
 
     private void fetchData(){
 
+        HomeFragment.recyclerViewItemsMens_skeleton.setVisibility(View.VISIBLE);
+        HomeFragment.recyclerViewItemsWomens_skeleton.setVisibility(View.VISIBLE);
+        HomeFragment.recyclerViewItemsKids_skeleton.setVisibility(View.VISIBLE);
+        HomeFragment.recyclerViewItemsOffers_skeleton.setVisibility(View.VISIBLE);
+
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = String.valueOf(auth.getCurrentUser().getUid());
+        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
-        List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
 
         CollectionReference collectionRef = firestore.collection("UsersData")
                 .document(userId).collection("WishlistCollection");
@@ -129,6 +141,8 @@ public class HomeFragment extends Fragment {
             btnItemsKids.setVisibility(View.VISIBLE);
             btnItemsOffers.setVisibility(View.VISIBLE);
             recyclerView_filter.setVisibility(View.GONE);
+            ScrollView_of_ItemsTypes.setVisibility(View.VISIBLE);
+
         }
 
         if(type.equals("Mens")) {
@@ -137,7 +151,9 @@ public class HomeFragment extends Fragment {
             btnItemsWomen.setVisibility(View.GONE);
             btnItemsKids.setVisibility(View.GONE);
             btnItemsOffers.setVisibility(View.GONE);
+            ScrollView_of_ItemsTypes.setVisibility(View.GONE);
             recyclerView_filter.setVisibility(View.VISIBLE);
+
         }
 
         if(type.equals("Women")) {
@@ -145,6 +161,7 @@ public class HomeFragment extends Fragment {
             btnItemsWomen.setVisibility(View.GONE);
             btnItemsKids.setVisibility(View.GONE);
             btnItemsOffers.setVisibility(View.GONE);
+            ScrollView_of_ItemsTypes.setVisibility(View.GONE);
             recyclerView_filter.setVisibility(View.VISIBLE);
 
         }
@@ -155,6 +172,7 @@ public class HomeFragment extends Fragment {
             btnItemsWomen.setVisibility(View.GONE);
             btnItemsKids.setVisibility(View.GONE);
             btnItemsOffers.setVisibility(View.GONE);
+            ScrollView_of_ItemsTypes.setVisibility(View.GONE);
             recyclerView_filter.setVisibility(View.VISIBLE);
         }
     }

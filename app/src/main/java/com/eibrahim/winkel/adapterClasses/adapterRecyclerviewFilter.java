@@ -71,7 +71,13 @@ public class adapterRecyclerviewFilter extends RecyclerView.Adapter<adapterRecyc
 
         holder.itemCategoryType.setOnClickListener(v -> {
 
-            FetchDataFromFirebase fetchDataFromFirebase = new FetchDataFromFirebase(recyclerView_items, recyclerView_items, recyclerView_items, recyclerView_items, recyclerView_items, context);
+            FetchDataFromFirebase fetchDataFromFirebase = new FetchDataFromFirebase(
+                    recyclerView_items,
+                    recyclerView_items,
+                    recyclerView_items,
+                    recyclerView_items,
+                    recyclerView_items,
+                    context);
 
             if (Objects.equals(filter, "All")){
                 fetchDataFromFirebase.fetchData(type, fPrice, tPrice, 1, recyclerView_items);

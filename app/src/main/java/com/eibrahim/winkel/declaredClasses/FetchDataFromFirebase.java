@@ -62,7 +62,8 @@ public class FetchDataFromFirebase {
                             if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
                                 dataOfRvItems.add(dataObject);
                     }
-                     adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, 1);
+
+                    adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, 1, type);
                     recyclerViewItems.setLayoutManager(new GridLayoutManager(context, 2));
                     recyclerViewItems.setAdapter(adapterRvItems);
                 })
@@ -78,7 +79,7 @@ public class FetchDataFromFirebase {
             fetchData("Kids", fPrice, tPrice, 2, recyclerViewItemsKids);
             fetchData("Offers", fPrice, tPrice, 1, recyclerViewItemsOffers);
             List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
-             adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, 1);
+            adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, 1, type);
             recyclerView.setAdapter(adapterRvItems);
             return;
         }
@@ -102,7 +103,7 @@ public class FetchDataFromFirebase {
                             if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
                                 dataOfRvItems.add(dataObject);
                         }
-                         adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, 1);
+                        adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, 1, type);
                         if(stateShow == 1)
                             recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                         else if(stateShow == 2)
@@ -113,7 +114,7 @@ public class FetchDataFromFirebase {
                     .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
         }
         List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
-         adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, 1);
+        adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, 1, type);
         recyclerView.setAdapter(adapterRvItems);
         recyclerViewItemsMens.setAdapter(adapterRvItems);
         recyclerViewItemsWomens.setAdapter(adapterRvItems);

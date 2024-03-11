@@ -60,7 +60,7 @@ public class AddToShop {
         FirebaseStorage fStorage = FirebaseStorage.getInstance();
         StorageReference storageReference = fStorage.getReference();
 
-        String imageName = System.currentTimeMillis() + ".jpg";
+        String imageName = System.currentTimeMillis() + ".png";
         StorageReference imageRef = storageReference.child("images of products/" + imageName);
 
         imageRef.putFile(uri)

@@ -15,32 +15,37 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.eibrahim.winkel.secondActivity.ItemDetailActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
-import com.eibrahim.winkel.declaredClasses.AddToWishlist;
 import com.eibrahim.winkel.mianActivity.HomeFragment;
 import com.eibrahim.winkel.mianActivity.WishlistFragment;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecyclerviewItems.ViewHolder> {
 
     private final Context context;
     private final List<DataRecyclerviewItem> itemList;
-
-    private final int type;
+    private final String cate;
 
     private List<String> wishlistIds = new ArrayList<>();
 
     public WishlistFragment wishlistFragment = new WishlistFragment();
-    public adapterRecyclerviewItems(Context context, List<DataRecyclerviewItem> itemList, int type) {
+    FirebaseFirestore firestore;
+    public adapterRecyclerviewItems(Context context, List<DataRecyclerviewItem> itemList, int type, String cate) {
         this.context = context;
         this.itemList = itemList;
-        this.type = type;
+        this.cate = cate;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -78,13 +83,14 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
             wishlistIds = HomeFragment.wishlistIds;
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
         holder.itemPrice.setText("$" + currentItem.getPrice());
         holder.itemCategory.setText(currentItem.getCategory());
         holder.itemName.setText(currentItem.getName());
         Picasso.with(context)
-                .load(currentItem.getImageId()).into(holder.itemImage);
+                .load(currentItem.getImageId())
+                .into(holder.itemImage);
 
         if (wishlistIds.contains(currentItem.getItemId()))
             holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
@@ -92,53 +98,93 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         else
             holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
 
-        holder.itemImage.setOnClickListener(v -> {
+        holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
             intent.putExtra("item", currentItem);
             context.startActivity(intent);
         });
 
+        DocumentReference wishlistRef = firestore.collection("UsersData")
+                .document(auth.getCurrentUser().getUid())
+                .collection("WishlistCollection")
+                .document("wishlistDocument");
 
-        holder.btnLoveH.setOnClickListener(v -> {
-            CollectionReference aaCollection = firestore.collection("UsersData")
-                    .document(auth.getCurrentUser().getUid())
-                    .collection("WishlistCollection");
+        wishlistRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (!document.exists()) {
+                    Map<String, Object> wishlistData = new HashMap<>();
+                    wishlistRef.set(wishlistData)
+                            .addOnSuccessListener(aVoid -> {
 
-            aaCollection.get()
-                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                            })
+                            .addOnFailureListener(e -> {
 
-                        if (wishlistIds.contains(currentItem.getItemId())) {
-                            holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
-                            wishlistFragment.checkEmptyWishlist(-1);
-                            DocumentReference docRef = firestore.collection("UsersData")
-                                    .document(auth.getCurrentUser().getUid())
-                                    .collection("WishlistCollection")
-                                    .document(currentItem.getItemId());
-
-                            // Handle exceptions (e.g., logging, throwing a custom exception, etc.)
-                            docRef.delete()
-                                    .addOnSuccessListener(aVoid ->
-                                            System.out.println("Document with ID " + currentItem.getItemId() + " successfully deleted."))
-                                    .addOnFailureListener(Throwable::printStackTrace);
-                            wishlistIds.remove(currentItem.getItemId());
-                        } else {
-                            holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
-                            AddToWishlist addToWishlist = new AddToWishlist();
-                            addToWishlist.addItemToBasket(currentItem);
-                            Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show();
-                            wishlistIds.add(currentItem.getItemId());
-                        }
-
-                    })
-                    .addOnFailureListener(e -> {
-                    });
-            int adapterPosition = holder.getAdapterPosition();
-
-            if (adapterPosition != RecyclerView.NO_POSITION && type == 2) {
-                itemList.remove(adapterPosition);
-                notifyItemRemoved(adapterPosition);
+                            });
+                }
+            } else {
+                // Handle failure
             }
         });
+
+        holder.btnLoveH.setOnClickListener(v -> {
+
+            firestore = FirebaseFirestore.getInstance();
+
+            if (wishlistIds.contains(currentItem.getItemId())) {
+                holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
+
+                wishlistRef
+                        .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId()))
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(context, "Item removed from your Wishlist", Toast.LENGTH_SHORT).show();
+                                        wishlistIds.remove(currentItem.getItemId());
+                                    }
+                                })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+
+            } else {
+                holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
+
+                wishlistRef
+                        .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()))
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show();
+                                        wishlistIds.add(currentItem.getItemId());
+                                    }
+                                })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+            }
+        });
+
+
+        if (cate == "Mens"){
+            HomeFragment.recyclerViewItemsMens_skeleton.setVisibility(View.GONE);
+        }
+        else if (cate == "Womens"){
+            HomeFragment.recyclerViewItemsWomens_skeleton.setVisibility(View.GONE);
+        }
+        else if (cate == "Kids"){
+            HomeFragment.recyclerViewItemsKids_skeleton.setVisibility(View.GONE);
+        }
+        else if (cate == "Offers"){
+            HomeFragment.recyclerViewItemsOffers_skeleton.setVisibility(View.GONE);
+        }
+
     }
 
     @Override

@@ -24,26 +24,26 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class WishlistFragment extends Fragment {
 
     public static final List<String> wishlistIds = new ArrayList<>();
 
-    private int items = 0;
     private LinearLayout msgEmptyWishlist;
-
-
-    public WishlistFragment() {
-        // Required empty public constructor
-    }
+    private List<DataRecyclerviewItem> dataOfRvItems;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_wishlist, container, false);
+
         RecyclerView recyclerview_wishlist = rootView.findViewById(R.id.recyclerview_wishlist);
+
         SwipeRefreshLayout wishlist_fragment = rootView.findViewById(R.id.wishlist_fragment);
+
         msgEmptyWishlist = rootView.findViewById(R.id.msgEmptyWishlist);
+
         fetchWishlistData(recyclerview_wishlist, requireContext());
 
         wishlist_fragment.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -62,14 +62,13 @@ public class WishlistFragment extends Fragment {
 
     private void fetchWishlistData(RecyclerView recyclerView, Context context) {
 
-        items = 0;
-
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = String.valueOf(auth.getCurrentUser().getUid());
+
+        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
+        dataOfRvItems = new ArrayList<>();
 
         CollectionReference collectionRef = firestore.collection("UsersData")
                 .document(userId).collection("WishlistCollection");
@@ -85,7 +84,7 @@ public class WishlistFragment extends Fragment {
                                 (String) data.get("name"),
                                 (String) data.get("price")
                         );
-                        items++;
+
                         String documentId = document.getId();
                         wishlistIds.add(documentId);
 
@@ -93,19 +92,13 @@ public class WishlistFragment extends Fragment {
                         dataOfRvItems.add(dataObject);
                     }
 
-                    adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems, 2);
+                    adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems, 2, "");
                     adapterRvItems.wishlistFragment = WishlistFragment.this;
                     recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                     recyclerView.setAdapter(adapterRvItems);
-                    checkEmptyWishlist(0);
                 })
                 .addOnFailureListener(e -> {
                 });
 
-    }
-    public void checkEmptyWishlist(int state){
-        items += state;
-        if (items == 0)
-            msgEmptyWishlist.setVisibility(View.VISIBLE);
     }
 }
