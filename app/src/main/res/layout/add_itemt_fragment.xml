@@ -106,7 +106,6 @@
                 style="@style/TextColor_v1"/>
 
             <RadioButton
-                android:id="@+id/for_women"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Women"

@@ -20,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class SignupActivity extends AppCompatActivity {
@@ -33,11 +34,11 @@ public class SignupActivity extends AppCompatActivity {
     private RadioButton vendor;
     private EditText phone;
     private LinearLayout code_layout;
-    private LinearLayout lincese;
+    private LinearLayout license;
     private EditText code_text;
     private String username;
     private String password;
-    private String repassword;
+    private String rePassword;
     private String phoneNo;
     private String email;
     private String userType = "Customer";
@@ -60,7 +61,7 @@ public class SignupActivity extends AppCompatActivity {
         vendor = findViewById(R.id.radio_vendor);
         code_layout = findViewById(R.id.code_layout);
         code_text = findViewById(R.id.code_text);
-        lincese = findViewById(R.id.licnese_add);
+        license = findViewById(R.id.license_add);
         phone = findViewById(R.id.phone_signup);
 
         Button btnSignup = findViewById(R.id.btn_signup);
@@ -73,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
         admin.setOnClickListener(v -> {
             vendor.setChecked(false);
             cust.setChecked(false);
-            lincese.setVisibility(View.VISIBLE);
+            license.setVisibility(View.VISIBLE);
             code_layout.setVisibility(View.VISIBLE);
             userType = "Admin";
         });
@@ -81,7 +82,7 @@ public class SignupActivity extends AppCompatActivity {
         cust.setOnClickListener(v -> {
             admin.setChecked(false);
             vendor.setChecked(false);
-            lincese.setVisibility(View.GONE);
+            license.setVisibility(View.GONE);
             code_layout.setVisibility(View.GONE);
             userType = "Customer";
         });
@@ -89,7 +90,7 @@ public class SignupActivity extends AppCompatActivity {
         vendor.setOnClickListener(v -> {
             admin.setChecked(false);
             cust.setChecked(false);
-            lincese.setVisibility(View.VISIBLE);
+            license.setVisibility(View.VISIBLE);
             code_layout.setVisibility(View.GONE);
             userType = "Vendor";
         });
@@ -102,7 +103,7 @@ public class SignupActivity extends AppCompatActivity {
             username = name.getText().toString();
             email = mail.getText().toString();
             password = pass.getText().toString();
-            repassword = repass.getText().toString();
+            rePassword = repass.getText().toString();
             phoneNo = phone.getText().toString();
 
             if(username.isEmpty()){
@@ -112,13 +113,13 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(SignupActivity.this, "Add email", Toast.LENGTH_SHORT).show();
             }else if (password.isEmpty()){
                 Toast.makeText(SignupActivity.this, "Add password", Toast.LENGTH_SHORT).show();
-            }else if (repassword.isEmpty()){
-                Toast.makeText(SignupActivity.this, "Add repassword", Toast.LENGTH_SHORT).show();
-            }else if (!repassword.equals(password)){
-                Toast.makeText(SignupActivity.this, "password and repassword are not the same", Toast.LENGTH_SHORT).show();
+            }else if (rePassword.isEmpty()){
+                Toast.makeText(SignupActivity.this, "Add rePassword", Toast.LENGTH_SHORT).show();
+            }else if (!rePassword.equals(password)){
+                Toast.makeText(SignupActivity.this, "password and rePassword are not the same", Toast.LENGTH_SHORT).show();
             }else if (phoneNo.length() != 13 && phoneNo.contains("+")){
                 Toast.makeText(SignupActivity.this, "check from your phone no.", Toast.LENGTH_SHORT).show();
-            }else if (!checkes()){
+            }else if (!checks()){
                 Toast.makeText(SignupActivity.this, "error in user type.", Toast.LENGTH_SHORT).show();
             }else if (!checkSignup.isChecked()){
                 Toast.makeText(SignupActivity.this, "You should agreed on our terms of services", Toast.LENGTH_SHORT).show();
@@ -131,7 +132,7 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    private Boolean checkes(){
+    private Boolean checks(){
 
          if (admin.isChecked()){
              return code_text.getText().toString().equals("admin44");
@@ -164,7 +165,7 @@ public class SignupActivity extends AppCompatActivity {
                     }
                 });
 
-        String userId = String.valueOf(auth.getCurrentUser().getUid());
+        String userId = String.valueOf(Objects.requireNonNull(auth.getCurrentUser()).getUid());
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         DocumentReference documentRef = firestore

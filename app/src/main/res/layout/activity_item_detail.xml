@@ -95,11 +95,9 @@
             android:id="@+id/itemCategoryDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Men's Hoodies"
             android:textSize="15sp"
             style="@style/TextColor_v1"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -111,7 +109,6 @@
                 android:id="@+id/itemNameDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Loose Fit Half-zip Fleece Shirt"
                 android:textSize="22sp"
                 style="@style/TextColor_v1"
                 android:textStyle="bold"
@@ -123,7 +120,6 @@
                 android:id="@+id/itemPriceDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="$69.99"
                 android:textSize="22sp"
                 style="@style/TextColor_v1"
                 android:textStyle="bold"

@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.mianActivity;
+package com.eibrahim.winkel.mainActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -16,9 +16,7 @@ import android.widget.Toast;
 import com.eibrahim.winkel.secondActivity.SecondActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.sign.SigninActivity;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
@@ -42,15 +40,12 @@ public class ProfileFragment extends Fragment {
 
         fetchUserType();
 
-         profileFragment_layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-             @Override
-             public void onRefresh() {
+         profileFragment_layout.setOnRefreshListener(() -> {
 
-                 fetchUserType();
+             fetchUserType();
 
-                 profileFragment_layout.setRefreshing(false);
+             profileFragment_layout.setRefreshing(false);
 
-             }
          });
 
          btnAddNewItem.setOnClickListener(v -> {
@@ -109,26 +104,23 @@ public class ProfileFragment extends Fragment {
                 .collection("UserPersonalData")
                 .document("UserPersonalData")
                 .get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                .addOnSuccessListener(documentSnapshot -> {
 
-                        if (documentSnapshot.exists()){
+                    if (documentSnapshot.exists()){
 
-                            if (documentSnapshot.get("userType").equals("Admin")){
-                                btnOrders.setVisibility(View.VISIBLE);
-                                btnAddNewItem.setVisibility(View.GONE);
-                            }
-                            else if (documentSnapshot.get("userType").equals("Vendor")){
-                                btnAddNewItem.setVisibility(View.VISIBLE);
-                                btnOrders.setVisibility(View.GONE);
-                            }
-                            else if (documentSnapshot.get("userType").equals("Customer")){
-                                Toast.makeText(requireContext(), "normal Customer", Toast.LENGTH_SHORT).show();;
-                            }
+                        if (Objects.equals(documentSnapshot.get("userType"), "Admin")){
+                            btnOrders.setVisibility(View.VISIBLE);
+                            btnAddNewItem.setVisibility(View.GONE);
                         }
-
+                        else if (Objects.equals(documentSnapshot.get("userType"), "Vendor")){
+                            btnAddNewItem.setVisibility(View.VISIBLE);
+                            btnOrders.setVisibility(View.GONE);
+                        }
+                        else if (Objects.equals(documentSnapshot.get("userType"), "Customer")){
+                            Toast.makeText(requireContext(), "normal Customer", Toast.LENGTH_SHORT).show();
+                        }
                     }
+
                 });
 
     }

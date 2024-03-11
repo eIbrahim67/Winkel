@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
-import com.eibrahim.winkel.mianActivity.CheckoutFragment;
-import com.eibrahim.winkel.mianActivity.WishlistFragment;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.eibrahim.winkel.mainActivity.CheckoutFragment;
+import com.eibrahim.winkel.mainActivity.WishlistFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -45,7 +43,6 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
         final TextView itemNameCheck;
         final TextView itemPriceCheck;
         final TextView itemMuchCheck;
-        TextView itemColorCheck;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -53,7 +50,6 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
             itemNameCheck = itemView.findViewById(R.id.itemNameCheck);
             itemPriceCheck = itemView.findViewById(R.id.itemPriceCheck);
             itemMuchCheck = itemView.findViewById(R.id.itemMuchCheck);
-            //itemColorCheck = itemView.findViewById(R.id.itemColorCheck);
             itemDeleteCheck = itemView.findViewById(R.id.itemDeleteCheck);
         }
     }
@@ -73,7 +69,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
         holder.itemNameCheck.setText(currentItem.getName());
         String temp = "$" + currentItem.getPrice();
         holder.itemPriceCheck.setText(temp);
-        temp = "x" + currentItem.getmuch();
+        temp = "x" + currentItem.getMuch();
         holder.itemMuchCheck.setText(temp);
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -93,20 +89,12 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
                     .document("BasketDocument");
 
             basketRef
-                    .update("BasketCollection", FieldValue.arrayRemove(currentItem.getItemId()  + "," + currentItem.getItemType() + "," + currentItem.getmuch()))
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(context, "Item removed from your Basket", Toast.LENGTH_SHORT).show();
-                            WishlistFragment.wishlistIds.add(currentItem.getItemId());
-                        }
+                    .update("BasketCollection", FieldValue.arrayRemove(currentItem.getItemId()  + "," + currentItem.getItemType() + "," + currentItem.getMuch()))
+                    .addOnSuccessListener(unused -> {
+                        Toast.makeText(context, "Item removed from your Basket", Toast.LENGTH_SHORT).show();
+                        WishlistFragment.wishlistIds.add(currentItem.getItemId());
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
 
             int adapterPosition = holder.getAdapterPosition();
 

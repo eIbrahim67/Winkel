@@ -132,12 +132,6 @@
         <item name="cnb_iconColor">@color/gray_v4</item>
     </style>
 
-    <style name="addresses_src">
-
-        <item name="android:src">@drawable/addresses_icon_black</item>
-
-    </style>
-
     <style name="card_src">
 
         <item name="android:src">@drawable/card_icon_black</item>
@@ -150,30 +144,10 @@
 
     </style>
 
-    <style name="orders_background_btn">
-
-        <item name="android:background">@drawable/filter_background_light</item>
-        <item name="android:src">@drawable/orders_icon_white</item>
-
-    </style>
-
     <style name="orders_icon_src">
 
         <item name="android:src">@drawable/orders_icon_black</item>
 
-    </style>
-
-    <style name="returns_background_btn">
-
-        <item name="android:background">@drawable/filter_background_light</item>
-        <item name="android:src">@drawable/return_icon_white</item>
-
-    </style>
-
-    <style name="card_background_btn">
-
-        <item name="android:background">@drawable/filter_background_light</item>
-        <item name="android:src">@drawable/card_icon_white</item>
     </style>
 
     <style name="ripple_rectangle">

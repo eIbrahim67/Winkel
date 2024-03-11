@@ -22,20 +22,20 @@ public class FetchDataFromFirebase {
 
     final RecyclerView recyclerViewItems;
     final RecyclerView recyclerViewItemsMens;
-    final RecyclerView recyclerViewItemsWomens;
+    final RecyclerView recyclerViewItemsWomen;
     final RecyclerView recyclerViewItemsKids;
     final RecyclerView recyclerViewItemsOffers;
     final Context context;
 
     public FetchDataFromFirebase(RecyclerView recyclerViewItems,
                                  RecyclerView recyclerViewItemsMens,
-                                 RecyclerView recyclerViewItemsWomens,
+                                 RecyclerView recyclerViewItemsWomen,
                                  RecyclerView recyclerViewItemsKids,
                                  RecyclerView recyclerViewItemsOffers, Context context){
         this.context = context;
         this.recyclerViewItems = recyclerViewItems;
         this.recyclerViewItemsMens = recyclerViewItemsMens;
-        this.recyclerViewItemsWomens = recyclerViewItemsWomens;
+        this.recyclerViewItemsWomen = recyclerViewItemsWomen;
         this.recyclerViewItemsKids = recyclerViewItemsKids;
         this.recyclerViewItemsOffers = recyclerViewItemsOffers;
     }
@@ -53,7 +53,7 @@ public class FetchDataFromFirebase {
                         Map<String, Object> data = document.getData();
 
                         DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
-                                (String) data.get("category"),
+                                (String) Objects.requireNonNull(data).get("category"),
                                 (String) data.get("imageId"),
                                 (String) data.get("name"),
                                 (String) data.get("price"),
@@ -76,7 +76,7 @@ public class FetchDataFromFirebase {
 
         if (type.equals("All")){
             fetchData("Mens", fPrice, tPrice, 2, recyclerViewItemsMens);
-            fetchData("Womens", fPrice, tPrice, 2, recyclerViewItemsWomens);
+            fetchData("Womens", fPrice, tPrice, 2, recyclerViewItemsWomen);
             fetchData("Kids", fPrice, tPrice, 2, recyclerViewItemsKids);
             fetchData("Offers", fPrice, tPrice, 2, recyclerViewItemsOffers);
             List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
@@ -95,7 +95,7 @@ public class FetchDataFromFirebase {
                             Map<String, Object> data = document.getData();
 
                             DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
-                                    (String) data.get("category"),
+                                    (String) Objects.requireNonNull(data).get("category"),
                                     (String) data.get("imageId"),
                                     (String) data.get("name"),
                                     (String) data.get("price"),
@@ -119,7 +119,7 @@ public class FetchDataFromFirebase {
         adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
         recyclerView.setAdapter(adapterRvItems);
         recyclerViewItemsMens.setAdapter(adapterRvItems);
-        recyclerViewItemsWomens.setAdapter(adapterRvItems);
+        recyclerViewItemsWomen.setAdapter(adapterRvItems);
         recyclerViewItemsKids.setAdapter(adapterRvItems);
         recyclerViewItemsOffers.setAdapter(adapterRvItems);
     }

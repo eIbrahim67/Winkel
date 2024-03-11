@@ -12,9 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrder;
-import com.google.android.material.imageview.ShapeableImageView;
-
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.List;
 

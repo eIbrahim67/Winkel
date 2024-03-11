@@ -9,22 +9,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewOrders;
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewBasket;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrder;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrderItemData;
-import com.eibrahim.winkel.mianActivity.CheckoutFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class OrdersFragment extends Fragment {

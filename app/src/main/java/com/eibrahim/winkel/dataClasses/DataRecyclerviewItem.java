@@ -8,7 +8,7 @@ public class DataRecyclerviewItem implements Serializable {
     private String itemId;
 
     private String totalPriceItem;
-    private String type;
+    private final String type;
     private final String name;
     private final String category;
     private final String price;
@@ -25,7 +25,7 @@ public class DataRecyclerviewItem implements Serializable {
         return imageId;
     }
 
-    public String getmuch() {
+    public String getMuch() {
         return much;
     }
 
@@ -63,9 +63,5 @@ public class DataRecyclerviewItem implements Serializable {
 
     public String getItemType() {
         return type;
-    }
-
-    public void setItemType(String itemId) {
-        this.type = type;
     }
 }

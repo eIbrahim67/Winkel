@@ -10,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.mianActivity.HomeFragment;
+import com.eibrahim.winkel.mainActivity.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 
@@ -38,7 +37,6 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
         View root = inflater.inflate(R.layout.bottom_sheet_filter, container, false);
 
 
-        ImageView btnCloseFilter = root.findViewById(R.id.btnCloseFilter);
         Button btnFilter = root.findViewById(R.id.btnFilter);
 
         RelativeLayout btn_all = root.findViewById(R.id.btn_all);

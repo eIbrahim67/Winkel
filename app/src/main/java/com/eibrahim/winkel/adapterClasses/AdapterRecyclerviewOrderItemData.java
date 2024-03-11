@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrder;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrderItemData;
 
 import java.util.List;

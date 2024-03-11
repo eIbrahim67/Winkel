@@ -22,11 +22,10 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/search_container">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     style="@style/search_background_btn"
@@ -53,7 +52,8 @@
                         android:textColor="@color/black_v1"
                         android:textSize="16sp"
                         android:background="@android:color/transparent"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"
+                        android:autofillHints="" />
 
                 </LinearLayout>
 
@@ -176,14 +176,14 @@
                         android:layout_height="wrap_content">
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerviewItemsWomens"
+                            android:id="@+id/recyclerviewItemsWomen"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"/>
 
                         <include
-                            android:id="@+id/recyclerviewItemsWomens_skeleton"
+                            android:id="@+id/recyclerviewItemsWomen_skeleton"
                             layout="@layout/skeleton_item_home"/>
 
                     </RelativeLayout>

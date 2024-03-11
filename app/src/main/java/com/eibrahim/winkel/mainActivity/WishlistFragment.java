@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.mianActivity;
+package com.eibrahim.winkel.mainActivity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -44,15 +44,12 @@ public class WishlistFragment extends Fragment {
 
         fetchWishlistData(recyclerview_wishlist, requireContext());
 
-        wishlist_fragment.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+        wishlist_fragment.setOnRefreshListener(() -> {
 
-                fetchWishlistData(recyclerview_wishlist, requireContext());
+            fetchWishlistData(recyclerview_wishlist, requireContext());
 
-                wishlist_fragment.setRefreshing(false);
+            wishlist_fragment.setRefreshing(false);
 
-            }
         });
 
         return rootView;
@@ -77,6 +74,12 @@ public class WishlistFragment extends Fragment {
             if (documentSnapshot.exists()) {
                 List<String> wishlist = (List<String>) documentSnapshot.get("WishlistCollection");
                 if (wishlist != null) {
+
+                    if (wishlist.size() > 0)
+                        msgEmptyWishlist.setVisibility(View.GONE);
+                    else
+                        msgEmptyWishlist.setVisibility(View.VISIBLE);
+
                     for (String itemIdType : wishlist) {
 
                         String[] parts = itemIdType.split(",");
@@ -107,7 +110,6 @@ public class WishlistFragment extends Fragment {
                                     wishlistIds.add(itemId);
                                     dataOfRvItems.add(dataObject);
                                     adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems, itemType);
-                                    adapterRvItems.wishlistFragment = WishlistFragment.this;
                                     recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                                     recyclerView.setAdapter(adapterRvItems);
                                 }

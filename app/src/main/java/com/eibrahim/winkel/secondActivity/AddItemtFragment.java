@@ -1,16 +1,10 @@
 package com.eibrahim.winkel.secondActivity;
 
-import static android.content.ContentValues.TAG;
 
-
-import android.app.ProgressDialog;
+import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,34 +13,14 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.declaredClasses.AddToShop;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.imageview.ShapeableImageView;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.io.IOException;
-
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import android.net.Uri;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-import java.util.HashMap;
-import java.util.Map;
 
 public class AddItemtFragment extends Fragment {
 
@@ -57,7 +31,7 @@ public class AddItemtFragment extends Fragment {
     private EditText item_category;
     private EditText item_title;
     private EditText item_price;
-    private RadioButton radioButtonForMen, radioButtonForWomen, radioButtonForKids;
+    private RadioButton radioButtonForMen, radioButtonForKids;
     String title, price, category;
     String TypeFor;
 
@@ -74,7 +48,6 @@ public class AddItemtFragment extends Fragment {
         item_price = root.findViewById(R.id.post_price);
 
         radioButtonForMen = root.findViewById(R.id.for_men);
-        radioButtonForWomen = root.findViewById(R.id.for_women);
         radioButtonForKids = root.findViewById(R.id.for_kids);
 
         TextView upload_btn = root.findViewById(R.id.upload_btn);
@@ -122,14 +95,15 @@ public class AddItemtFragment extends Fragment {
     Uri selectedImage;
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+        if (takePictureIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == getActivity().RESULT_OK) {
+        getActivity();
+        if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_IMAGE_CAPTURE || requestCode == REQUEST_IMAGE_GALLERY) {
                 selectedImage = data.getData();
                 loading_image.setImageURI(selectedImage);

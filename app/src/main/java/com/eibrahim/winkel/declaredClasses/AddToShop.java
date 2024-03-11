@@ -4,24 +4,17 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.secondActivity.AddItemtFragment;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,17 +23,14 @@ public class AddToShop {
     static ProgressDialog progressDialog;
     static Context context;
     static AddItemtFragment addItemtFragment;
-    public static void addItemToShop(DataRecyclerviewItem Item, String TypeFor, Uri uri, AddItemtFragment addItemtFragmentCopy){
+    public static void addItemToShop(DataRecyclerviewItem Item, String TypeFor, Uri uri, AddItemtFragment addItemFragmentCopy){
 
-        context = addItemtFragmentCopy.requireContext();
-        addItemtFragment = addItemtFragmentCopy;
+        context = addItemFragmentCopy.requireContext();
+        addItemtFragment = addItemFragmentCopy;
 
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
-
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = String.valueOf(auth.getCurrentUser().getUid());
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         CollectionReference collectionRef = firestore.collection("Products").
@@ -64,22 +54,9 @@ public class AddToShop {
         StorageReference imageRef = storageReference.child("images of products/" + imageName);
 
         imageRef.putFile(uri)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri downloadUrl) {
-                                updateImageUrlInFirestore(downloadUrl.toString(), docId, TypeFor);
-                            }
-                        });
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        // Handle failure
-                    }
+                .addOnSuccessListener(taskSnapshot -> imageRef.getDownloadUrl().addOnSuccessListener(downloadUrl -> updateImageUrlInFirestore(downloadUrl.toString(), docId, TypeFor)))
+                .addOnFailureListener(e -> {
+                    // Handle failure
                 });
     }
 
@@ -90,21 +67,15 @@ public class AddToShop {
         updates.put("imageId", newImageUrl);
 
         usersCollection.update(updates)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context, "the new item uploaded Successfully", Toast.LENGTH_SHORT).show();
-                        progressDialog.dismiss();
-                        addItemtFragment.requireActivity().finish();
-                    }
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(context, "the new item uploaded Successfully", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    addItemtFragment.requireActivity().finish();
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, "unexpected error, the item dose not uploaded", Toast.LENGTH_SHORT).show();
-                        progressDialog.dismiss();
+                .addOnFailureListener(e -> {
+                    Toast.makeText(context, "unexpected error, the item dose not uploaded", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
 
-                    }
                 });
     }
 

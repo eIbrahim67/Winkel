@@ -1,6 +1,5 @@
 package com.eibrahim.winkel.secondActivity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,20 +12,14 @@ import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
-import com.eibrahim.winkel.mianActivity.MainActivity;
-import com.eibrahim.winkel.mianActivity.WishlistFragment;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.eibrahim.winkel.mainActivity.MainActivity;
+import com.eibrahim.winkel.mainActivity.WishlistFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
-import java.nio.file.FileStore;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class ItemDetailActivity extends AppCompatActivity {
@@ -46,10 +39,10 @@ public class ItemDetailActivity extends AppCompatActivity {
         ImageView btnSub = findViewById(R.id.btn_sub);
         TextView itemMuchDetail = findViewById(R.id.itemMuchDetail);
         TextView itemNameDetail = findViewById(R.id.itemNameDetail);
-        TextView addtobasketText = findViewById(R.id.addtobasketText);
+        TextView addToBasketText = findViewById(R.id.addtobasketText);
         ImageView btnBasketD = findViewById(R.id.btn_basketD);
-        ImageView addtobasketImg = findViewById(R.id.addtobasketImg);
-        LinearLayout addtobasket = findViewById(R.id.addtobasket);
+        ImageView addToBasketImg = findViewById(R.id.addtobasketImg);
+        LinearLayout addToBasket = findViewById(R.id.addtobasket);
         ImageView btnWishlist = findViewById(R.id.btn_love);
 
 
@@ -77,14 +70,14 @@ public class ItemDetailActivity extends AppCompatActivity {
                 .collection("BasketCollection")
                 .document("BasketDocument");
 
-        addtobasket.setOnClickListener(v -> {
+        addToBasket.setOnClickListener(v -> {
 
             String much = (String) itemMuchDetail.getText();
-            if(addtobasketText.getVisibility() == View.GONE){
+            if(addToBasketText.getVisibility() == View.GONE){
                 btnBasketD.callOnClick();
             }else {
                 currentItem.setMuch(String.valueOf(itemMuchDetail.getText()));
-                addtobasketText.setVisibility(View.GONE);
+                addToBasketText.setVisibility(View.GONE);
 
                 basketRef
                         .update("BasketCollection", FieldValue.arrayUnion(
@@ -93,25 +86,17 @@ public class ItemDetailActivity extends AppCompatActivity {
                                         much
                                 )
                         )
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
-                                WishlistFragment.wishlistIds.add(currentItem.getItemId());
-                            }
+                        .addOnSuccessListener(unused -> {
+                            Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
+                            WishlistFragment.wishlistIds.add(currentItem.getItemId());
                         })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(ItemDetailActivity.this, "unExpected error", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, "unExpected error", Toast.LENGTH_SHORT).show());
 
                 Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
             }
         });
 
-        addtobasketImg.setOnClickListener(v -> addtobasket.performClick());
+        addToBasketImg.setOnClickListener(v -> addToBasket.performClick());
 
 
         btnBasketD.setOnClickListener(v -> {

@@ -15,20 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.eibrahim.winkel.secondActivity.ItemDetailActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
-import com.eibrahim.winkel.mianActivity.HomeFragment;
-import com.eibrahim.winkel.mianActivity.WishlistFragment;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.eibrahim.winkel.mainActivity.HomeFragment;
+import com.eibrahim.winkel.mainActivity.WishlistFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecyclerviewItems.ViewHolder> {
@@ -36,7 +31,6 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
     private final Context context;
     private final List<DataRecyclerviewItem> itemList;
     private final String cate;
-    public WishlistFragment wishlistFragment = new WishlistFragment();
     FirebaseFirestore firestore;
     public adapterRecyclerviewItems(Context context, List<DataRecyclerviewItem> itemList, String cate) {
         this.context = context;
@@ -113,38 +107,22 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
 
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        Toast.makeText(context, "Item removed from your Wishlist", Toast.LENGTH_SHORT).show();
-                                        WishlistFragment.wishlistIds.remove(currentItem.getItemId());
-                                    }
+                                .addOnSuccessListener(unused -> {
+                                    Toast.makeText(context, "Item removed from your Wishlist", Toast.LENGTH_SHORT).show();
+                                    WishlistFragment.wishlistIds.remove(currentItem.getItemId());
                                 })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
+                                        .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
 
             } else {
                 holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
 
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show();
-                                        WishlistFragment.wishlistIds.add(currentItem.getItemId());
-                                    }
+                                .addOnSuccessListener(unused -> {
+                                    Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show();
+                                    WishlistFragment.wishlistIds.add(currentItem.getItemId());
                                 })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
+                                        .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -153,7 +131,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
             HomeFragment.recyclerViewItemsMens_skeleton.setVisibility(View.GONE);
         }
         else if (Objects.equals(cate, "Womens")){
-            HomeFragment.recyclerViewItemsWomens_skeleton.setVisibility(View.GONE);
+            HomeFragment.recyclerViewItemsWomen_skeleton.setVisibility(View.GONE);
         }
         else if (Objects.equals(cate, "Kids")){
             HomeFragment.recyclerViewItemsKids_skeleton.setVisibility(View.GONE);

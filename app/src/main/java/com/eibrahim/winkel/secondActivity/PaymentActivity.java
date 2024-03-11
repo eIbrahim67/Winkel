@@ -1,7 +1,6 @@
 package com.eibrahim.winkel.secondActivity;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,10 +16,7 @@ import android.widget.Toast;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewPaymentMethods;
 import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
-import com.eibrahim.winkel.mianActivity.MainActivity;
-import com.eibrahim.winkel.mianActivity.WishlistFragment;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.eibrahim.winkel.mainActivity.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -29,7 +25,6 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -38,7 +33,6 @@ import java.util.Objects;
 public class PaymentActivity extends AppCompatActivity {
 
     String userId = "";
-    TextView TotalPriceOfItems, noOfItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,32 +66,18 @@ public class PaymentActivity extends AppCompatActivity {
 
         btnPayment.setOnClickListener(v -> {
             //TODO: use donePayment instead of true
-            if (true){
+            DocumentReference basketRef = firestore.collection("Orders")
+                    .document(userId);
 
-                DocumentReference basketRef = firestore.collection("Orders")
-                        .document(userId);
+            basketRef
+                    .update("OrderCollection", FieldValue.arrayUnion(totalData))
+                    .addOnSuccessListener(unused -> Toast.makeText(PaymentActivity.this, "Payment is DONE", Toast.LENGTH_SHORT).show())
+                    .addOnFailureListener(e -> Toast.makeText(PaymentActivity.this, "unExpected error", Toast.LENGTH_SHORT).show());
 
-                basketRef
-                        .update("OrderCollection", FieldValue.arrayUnion(totalData))
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(PaymentActivity.this, "Payment is DONE", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(PaymentActivity.this, "unExpected error", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-                Intent intentHomeActivity = new Intent(PaymentActivity.this, MainActivity.class);
-                intentHomeActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intentHomeActivity);
-                finish();
-            }else
-                Toast.makeText(PaymentActivity.this, "Choose your payment method", Toast.LENGTH_SHORT).show();
+            Intent intentHomeActivity = new Intent(PaymentActivity.this, MainActivity.class);
+            intentHomeActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intentHomeActivity);
+            finish();
 
         });
     }
@@ -117,7 +97,7 @@ public class PaymentActivity extends AppCompatActivity {
                         Map<String, Object> data = document.getData();
 
                         dataRecyclerviewPaymentMethods dataObject = new dataRecyclerviewPaymentMethods(
-                                (String) data.get("type"),
+                                (String) Objects.requireNonNull(data).get("type"),
                                 (String) data.get("number"),
                                 (String) data.get("date")
                         );

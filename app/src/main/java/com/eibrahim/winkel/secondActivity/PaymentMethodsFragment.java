@@ -19,6 +19,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Objects;
+
 public class PaymentMethodsFragment extends Fragment {
 
 
@@ -47,7 +49,7 @@ public class PaymentMethodsFragment extends Fragment {
             );
 
             FirebaseAuth auth = FirebaseAuth.getInstance();
-            String userId = String.valueOf(auth.getCurrentUser().getUid());
+            String userId = String.valueOf(Objects.requireNonNull(auth.getCurrentUser()).getUid());
 
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
             CollectionReference collectionRef = firestore.collection("UsersData").

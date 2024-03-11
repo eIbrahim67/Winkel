@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.mianActivity;
+package com.eibrahim.winkel.mainActivity;
 
 import android.os.Bundle;
 
@@ -19,19 +19,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.secondActivity.PaymentActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewBasket;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -39,7 +35,7 @@ import java.util.Objects;
 public class CheckoutFragment extends Fragment {
 
     public CheckoutFragment() {}
-
+    String temp;
     String dataOfOrder = "";
     private LinearLayout msgEmptyBasket;
     private TextView TotalPriceOfItems, noOfItems;
@@ -57,15 +53,12 @@ public class CheckoutFragment extends Fragment {
 
         fetchBasketData(recyclerView_basket, requireContext());
 
-        checkout_fragment.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+        checkout_fragment.setOnRefreshListener(() -> {
 
-                fetchBasketData(recyclerView_basket, requireContext());
+            fetchBasketData(recyclerView_basket, requireContext());
 
-                checkout_fragment.setRefreshing(false);
+            checkout_fragment.setRefreshing(false);
 
-            }
         });
 
         btn_checkout.setOnClickListener(v -> {
@@ -88,6 +81,8 @@ public class CheckoutFragment extends Fragment {
         much = 0.0;
         dataOfOrder = "";
 
+        msgEmptyBasket.setVisibility(View.GONE);
+
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
@@ -104,6 +99,10 @@ public class CheckoutFragment extends Fragment {
             if (documentSnapshot.exists()) {
                 List<String> wishlist = (List<String>) documentSnapshot.get("BasketCollection");
                 if (wishlist != null) {
+
+                    if (wishlist.size() == 0)
+                        msgEmptyBasket.setVisibility(View.VISIBLE);
+
                     for (String itemIdType : wishlist) {
 
                         String[] parts = itemIdType.split(",");
@@ -134,7 +133,7 @@ public class CheckoutFragment extends Fragment {
 
                                     dataObject.setItemId((String) data.get("itemId"));
                                     dataObject.setMuch(itemMuch);
-                                    dataObject.setTotalPriceItem(String.valueOf(Double.parseDouble(dataObject.getmuch()) * Double.parseDouble(dataObject.getPrice())));
+                                    dataObject.setTotalPriceItem(String.valueOf(Double.parseDouble(dataObject.getMuch()) * Double.parseDouble(dataObject.getPrice())));
                                     dataOfRvItems.add(dataObject);
 
                                     addTotalPriceBasket(dataOfRvItems.get(items).getTotalPriceItem());
@@ -147,16 +146,17 @@ public class CheckoutFragment extends Fragment {
                                     recyclerView.setAdapter(adapterRvItems);
 
                                     if (items > 1)
-                                        noOfItems.setText(items + " items");
+                                        temp = items + " items";
                                     else
-                                        noOfItems.setText(items + " item");
-
-                                    TotalPriceOfItems.setText("$" +getTotalPriceBasket());
+                                        temp = items + " item";
 
                                     if (items == 0)
                                         msgEmptyBasket.setVisibility(View.VISIBLE);
-                                    else
-                                        msgEmptyBasket.setVisibility(View.GONE);
+
+                                    noOfItems.setText(temp);
+                                    temp = "$" +getTotalPriceBasket();
+                                    TotalPriceOfItems.setText(temp);
+
                                 }
                             }
                         });
@@ -183,11 +183,16 @@ public class CheckoutFragment extends Fragment {
         requireActivity().runOnUiThread(() -> {
             items--;
             much -= subs;
-            TotalPriceOfItems.setText("$" + String.format("%.2f", much));
+            temp = "$" + String.format("%.2f", much);
+            TotalPriceOfItems.setText(temp);
+
             if (items > 1)
-                noOfItems.setText(String.valueOf(items + " items"));
+                temp = items + " items";
             else
-                noOfItems.setText(String.valueOf(items + " item"));
+                temp = items + " item";
+
+            noOfItems.setText(temp);
+
             if (items == 0)
                 msgEmptyBasket.setVisibility(View.VISIBLE);
         });
