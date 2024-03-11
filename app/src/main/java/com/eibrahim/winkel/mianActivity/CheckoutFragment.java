@@ -31,6 +31,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -39,6 +40,7 @@ public class CheckoutFragment extends Fragment {
 
     public CheckoutFragment() {}
 
+    String dataOfOrder = "";
     private LinearLayout msgEmptyBasket;
     private TextView TotalPriceOfItems, noOfItems;
 
@@ -70,6 +72,7 @@ public class CheckoutFragment extends Fragment {
             if (items > 0){
                 Intent intent = new Intent(requireContext(), PaymentActivity.class);
                 intent.putExtra("Total price", getTotalPriceBasket());
+                intent.putExtra("Data", dataOfOrder);
                 startActivity(intent);
             } else {
                 Toast.makeText(requireContext(), "Your BASKET is empty!", Toast.LENGTH_SHORT).show();
@@ -83,6 +86,7 @@ public class CheckoutFragment extends Fragment {
 
         items = 0;
         much = 0.0;
+        dataOfOrder = "";
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
@@ -135,6 +139,8 @@ public class CheckoutFragment extends Fragment {
 
                                     addTotalPriceBasket(dataOfRvItems.get(items).getTotalPriceItem());
                                     items++;
+
+                                    dataOfOrder += itemId + "," + itemType + "," + itemMuch + "," + price + " & ";
 
                                     adapterRecyclerviewBasket adapterRvItems = new adapterRecyclerviewBasket(context, dataOfRvItems, CheckoutFragment.this);
                                     recyclerView.setLayoutManager(new GridLayoutManager(context, 1));

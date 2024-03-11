@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,26 +16,44 @@ import android.widget.Toast;
 import com.eibrahim.winkel.secondActivity.SecondActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.sign.SigninActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
 
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
+    LinearLayout btnProfile, btnPaymentMethods, btnOrders, btnLogout, btnAddNewItem;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView =inflater.inflate(R.layout.fragment_profile, container, false);
 
-        LinearLayout btnProfile = rootView.findViewById(R.id.btnProfile);
-        LinearLayout btnPaymentMethods = rootView.findViewById(R.id.btnPaymentMethods);
-        LinearLayout btnOrders = rootView.findViewById(R.id.btnOrders);
-        LinearLayout btnLogout = rootView.findViewById(R.id.btnLogout);
-        LinearLayout btnAddNewItem = rootView.findViewById(R.id.btnAddNewItem);
+         btnProfile = rootView.findViewById(R.id.btnProfile);
+         btnPaymentMethods = rootView.findViewById(R.id.btnPaymentMethods);
+         btnOrders = rootView.findViewById(R.id.btnOrders);
+         btnLogout = rootView.findViewById(R.id.btnLogout);
+         btnAddNewItem = rootView.findViewById(R.id.btnAddNewItem);
 
-        btnAddNewItem.setOnClickListener(v -> {
+         SwipeRefreshLayout profileFragment_layout = rootView.findViewById(R.id.profileFragment_layout);
+
+        fetchUserType();
+
+         profileFragment_layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+             @Override
+             public void onRefresh() {
+
+                 fetchUserType();
+
+                 profileFragment_layout.setRefreshing(false);
+
+             }
+         });
+
+         btnAddNewItem.setOnClickListener(v -> {
 
             Intent intent = new Intent(getActivity(), SecondActivity.class);
             intent.putExtra("state", 3);
@@ -42,25 +61,25 @@ public class ProfileFragment extends Fragment {
 
         });
 
-        btnProfile.setOnClickListener(v -> {
+         btnProfile.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), SecondActivity.class);
             intent.putExtra("state", 0);
             startActivity(intent);
         });
 
-        btnPaymentMethods.setOnClickListener(v -> {
+         btnPaymentMethods.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), SecondActivity.class);
             intent.putExtra("state", 1);
             startActivity(intent);
         });
 
-        btnOrders.setOnClickListener(v -> {
+         btnOrders.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), SecondActivity.class);
             intent.putExtra("state", 2);
             startActivity(intent);
         });
 
-        btnLogout.setOnClickListener(v -> {
+         btnLogout.setOnClickListener(v -> {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setMessage("Are you sure?")
@@ -80,6 +99,37 @@ public class ProfileFragment extends Fragment {
             dialog.show();
         });
 
-        return rootView;
+         return rootView;
+    }
+
+    void fetchUserType(){
+
+        FirebaseFirestore.getInstance().collection("UsersData")
+                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                .collection("UserPersonalData")
+                .document("UserPersonalData")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                        if (documentSnapshot.exists()){
+
+                            if (documentSnapshot.get("userType").equals("Admin")){
+                                btnOrders.setVisibility(View.VISIBLE);
+                                btnAddNewItem.setVisibility(View.GONE);
+                            }
+                            else if (documentSnapshot.get("userType").equals("Vendor")){
+                                btnAddNewItem.setVisibility(View.VISIBLE);
+                                btnOrders.setVisibility(View.GONE);
+                            }
+                            else if (documentSnapshot.get("userType").equals("Customer")){
+                                Toast.makeText(requireContext(), "normal Customer", Toast.LENGTH_SHORT).show();;
+                            }
+                        }
+
+                    }
+                });
+
     }
 }

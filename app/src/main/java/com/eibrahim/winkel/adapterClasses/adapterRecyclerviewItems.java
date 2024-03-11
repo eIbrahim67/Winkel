@@ -103,18 +103,6 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                 .collection("WishlistCollection")
                 .document("wishlistDocument");
 
-        wishlistRef.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                DocumentSnapshot document = task.getResult();
-                if (!document.exists()) {
-                    Map<String, Object> wishlistData = new HashMap<>();
-                    wishlistRef.set(wishlistData)
-                            .addOnSuccessListener(aVoid -> {
-
-                            });
-                }
-            }
-        });
 
         holder.btnLoveH.setOnClickListener(v -> {
 

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item ID:"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/ItemId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price of item:"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/itemPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Much of item:"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/itemMuch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total price of this item:"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/itemTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray_v2"/>
+
+</LinearLayout>

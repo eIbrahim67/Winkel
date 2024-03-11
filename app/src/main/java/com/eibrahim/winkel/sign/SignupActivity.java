@@ -40,6 +40,7 @@ public class SignupActivity extends AppCompatActivity {
     private String repassword;
     private String phoneNo;
     private String email;
+    private String userType = "Customer";
     private FirebaseAuth auth;
 
 
@@ -74,6 +75,7 @@ public class SignupActivity extends AppCompatActivity {
             cust.setChecked(false);
             lincese.setVisibility(View.VISIBLE);
             code_layout.setVisibility(View.VISIBLE);
+            userType = "Admin";
         });
 
         cust.setOnClickListener(v -> {
@@ -81,6 +83,7 @@ public class SignupActivity extends AppCompatActivity {
             vendor.setChecked(false);
             lincese.setVisibility(View.GONE);
             code_layout.setVisibility(View.GONE);
+            userType = "Customer";
         });
 
         vendor.setOnClickListener(v -> {
@@ -88,6 +91,7 @@ public class SignupActivity extends AppCompatActivity {
             cust.setChecked(false);
             lincese.setVisibility(View.VISIBLE);
             code_layout.setVisibility(View.GONE);
+            userType = "Vendor";
         });
 
 
@@ -131,8 +135,9 @@ public class SignupActivity extends AppCompatActivity {
 
          if (admin.isChecked()){
              return code_text.getText().toString().equals("admin44");
-        }
-        else return true;
+        } else if (vendor.isChecked()) {
+             return code_text.getText().toString().equals("vendor99");
+         } else return true;
     }
 
     private void createAccount(String email, String password) {
@@ -171,7 +176,7 @@ public class SignupActivity extends AppCompatActivity {
         Map<String, String> data = new HashMap<>();
         data.put("userName", username);
         data.put("phoneNo", phoneNo);
-        data.put("userType", "customer");
+        data.put("userType", userType);
 
         documentRef.set(data)
                 .addOnSuccessListener(aVoid -> Log.d("Firestore", "Document added/updated successfully"))

@@ -1,6 +1,7 @@
 package com.eibrahim.winkel.secondActivity;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,23 +18,35 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewPaymentMethods;
 import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
 import com.eibrahim.winkel.mianActivity.MainActivity;
+import com.eibrahim.winkel.mianActivity.WishlistFragment;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class PaymentActivity extends AppCompatActivity {
 
+    String userId = "";
     TextView TotalPriceOfItems, noOfItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         RecyclerView recyclerView_payment = findViewById(R.id.rv4);
         TextView TotalPriceOfItemsCheckout = findViewById(R.id.subTotalPriceOfItemsPayment);
@@ -42,19 +55,43 @@ public class PaymentActivity extends AppCompatActivity {
         ImageView btnBackCheckout = findViewById(R.id.btnBackCheckout);
         Button btnPayment = findViewById(R.id.btnPayment);
         String totalPrice = getIntent().getStringExtra("Total price");
+        String totalData = getIntent().getStringExtra("Data");
+
         double deliveryCost = 5.00;
 
-        TotalPriceOfItemsCheckout.setText("$" + totalPrice);
-        DeliveryCostPayment.setText("$" + String.format("%.2f", deliveryCost));
-        TotalPriceOfItemsPayment.setText("$" + String.valueOf(Double.parseDouble(totalPrice) + deliveryCost));
+        String temp = "$" + totalPrice;
+        TotalPriceOfItemsCheckout.setText(temp);
+        temp = "$" + String.format("%.2f", deliveryCost);
+        DeliveryCostPayment.setText(temp);
+        temp = "$" + Double.parseDouble(Objects.requireNonNull(totalPrice)) + deliveryCost;
+        TotalPriceOfItemsPayment.setText(temp);
 
         fetchPaymentMethodsData(recyclerView_payment, this);
 
         btnBackCheckout.setOnClickListener(v -> finish());
 
         btnPayment.setOnClickListener(v -> {
-            if (donePayment){
-                Toast.makeText(PaymentActivity.this, "Payment is DONE", Toast.LENGTH_SHORT).show();
+            //TODO: use donePayment instead of true
+            if (true){
+
+                DocumentReference basketRef = firestore.collection("Orders")
+                        .document(userId);
+
+                basketRef
+                        .update("OrderCollection", FieldValue.arrayUnion(totalData))
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(PaymentActivity.this, "Payment is DONE", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(PaymentActivity.this, "unExpected error", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
                 Intent intentHomeActivity = new Intent(PaymentActivity.this, MainActivity.class);
                 intentHomeActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intentHomeActivity);
@@ -66,9 +103,6 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void fetchPaymentMethodsData(RecyclerView recyclerView, Context context) {
-
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = String.valueOf(auth.getCurrentUser().getUid());
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 

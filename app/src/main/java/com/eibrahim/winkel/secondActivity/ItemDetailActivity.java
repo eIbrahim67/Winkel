@@ -77,19 +77,6 @@ public class ItemDetailActivity extends AppCompatActivity {
                 .collection("BasketCollection")
                 .document("BasketDocument");
 
-        basketRef.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                DocumentSnapshot document = task.getResult();
-                if (!document.exists()) {
-                    Map<String, Object> basketData = new HashMap<>();
-                    basketRef.set(basketData)
-                            .addOnSuccessListener(aVoid -> {
-
-                            });
-                }
-            }
-        });
-
         addtobasket.setOnClickListener(v -> {
 
             String much = (String) itemMuchDetail.getText();
@@ -116,7 +103,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(ItemDetailActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ItemDetailActivity.this, "unExpected error", Toast.LENGTH_SHORT).show();
                             }
                         });
 

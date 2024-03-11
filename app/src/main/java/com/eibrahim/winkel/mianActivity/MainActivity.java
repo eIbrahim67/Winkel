@@ -11,7 +11,14 @@ import android.os.Bundle;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     public ChipNavigationBar chipNavigationBar;
@@ -138,8 +145,65 @@ public class MainActivity extends AppCompatActivity {
 
             });
 
-        }
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+            FirebaseAuth auth = FirebaseAuth.getInstance();
+            String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
+            //
+            DocumentReference ordersRef = firestore.collection("Orders")
+                    .document(userId);
+            ordersRef.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (!document.exists()) {
+                        Map<String, Object> basketData = new HashMap<>();
+                        ordersRef.set(basketData)
+                                .addOnSuccessListener(aVoid -> {});
+                    }
+                }
+            });
+            //
+
+            //
+            DocumentReference basketRef = firestore.collection("UsersData")
+                    .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
+                    .collection("BasketCollection")
+                    .document("BasketDocument");
+            basketRef.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (!document.exists()) {
+                        Map<String, Object> basketData = new HashMap<>();
+                        basketRef.set(basketData)
+                                .addOnSuccessListener(aVoid -> {
+
+                                });
+                    }
+                }
+            });
+            //
+
+            //
+            DocumentReference wishlistRef = firestore.collection("UsersData")
+                    .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
+                    .collection("WishlistCollection")
+                    .document("wishlistDocument");
+
+            wishlistRef.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (!document.exists()) {
+                        Map<String, Object> wishlistData = new HashMap<>();
+                        wishlistRef.set(wishlistData)
+                                .addOnSuccessListener(aVoid -> {
+
+                                });
+                    }
+                }
+            });
+            //
+
+        }
 
     }
     private Fragment getLFrag(int i){

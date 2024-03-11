@@ -78,7 +78,7 @@ public class FetchDataFromFirebase {
             fetchData("Mens", fPrice, tPrice, 2, recyclerViewItemsMens);
             fetchData("Womens", fPrice, tPrice, 2, recyclerViewItemsWomens);
             fetchData("Kids", fPrice, tPrice, 2, recyclerViewItemsKids);
-            fetchData("Offers", fPrice, tPrice, 1, recyclerViewItemsOffers);
+            fetchData("Offers", fPrice, tPrice, 2, recyclerViewItemsOffers);
             List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
             adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
             recyclerView.setAdapter(adapterRvItems);

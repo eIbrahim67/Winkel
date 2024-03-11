@@ -29,14 +29,13 @@
 
         <TextView
             android:id="@+id/orderCounter"
+            style="@style/TextColor_v3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            style="@style/TextColor_v3"
             android:fontFamily="@font/works_ans_v1"
-            android:textStyle="bold"
-            android:text="1"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -46,32 +45,6 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:layout_marginStart="20dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Order ID:"
-                android:textSize="18sp"
-                style="@style/TextColor_v1"
-                android:textStyle="bold"
-                android:layout_marginEnd="10dp"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/orderId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:textSize="18sp"
-                style="@style/TextColor_v1"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -100,32 +73,16 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
             android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:visibility="gone">
+            android:background="@color/gray_v2"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Farmer ID:"
-                android:textSize="18sp"
-                style="@style/TextColor_v2"
-                android:textStyle="bold"
-                android:layout_marginEnd="10dp"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/orderFarmerId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                style="@style/TextColor_v1"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_orders_item_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -136,7 +93,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total price:"
+                android:text="Total price of order:"
                 android:textSize="18sp"
                 style="@style/TextColor_v1"
                 android:textStyle="bold"
