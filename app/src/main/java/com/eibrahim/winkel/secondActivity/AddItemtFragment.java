@@ -59,6 +59,7 @@ public class AddItemtFragment extends Fragment {
     private EditText item_price;
     private RadioButton radioButtonForMen, radioButtonForWomen, radioButtonForKids;
     String title, price, category;
+    String TypeFor;
 
 
     @Override
@@ -95,23 +96,22 @@ public class AddItemtFragment extends Fragment {
                 category = item_category.getText().toString();
                 title = item_title.getText().toString();
 
-            DataRecyclerviewItem data = new DataRecyclerviewItem(
-
-                    category,
-                    null,
-                    title,
-                    price
-
-            );
-
-            String TypeFor;
-
             if (radioButtonForMen.isChecked())
                 TypeFor = "Mens";
             else if (radioButtonForKids.isChecked())
                 TypeFor = "Kids";
             else
                 TypeFor = "Womens";
+
+            DataRecyclerviewItem data = new DataRecyclerviewItem(
+
+                    category,
+                    null,
+                    title,
+                    price,
+                    TypeFor
+
+            );
 
             AddToShop.addItemToShop(data, TypeFor, selectedImage, AddItemtFragment.this);
         });

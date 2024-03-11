@@ -19,18 +19,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.secondActivity.PaymentActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewBasket;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class CheckoutFragment extends Fragment {
 
@@ -82,58 +85,79 @@ public class CheckoutFragment extends Fragment {
         much = 0.0;
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = String.valueOf(auth.getCurrentUser().getUid());
+        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
         List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
 
-        CollectionReference collectionRef = firestore.collection("UsersData")
-                .document(userId).collection("BasketCollection");
-        collectionRef.get()
-                .addOnSuccessListener(querySnapshot -> {
-                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+        DocumentReference basketRef = firestore.collection("UsersData")
+                .document(userId)
+                .collection("BasketCollection")
+                .document("BasketDocument");
 
-                        Map<String, Object> data = document.getData();
+        basketRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                List<String> wishlist = (List<String>) documentSnapshot.get("BasketCollection");
+                if (wishlist != null) {
+                    for (String itemIdType : wishlist) {
 
-                        // TODO : assert data != null;
-                        if (data != null){
-                            DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
-                                    (String) data.get("category"),
-                                    (String) data.get("imageId"),
-                                    (String) data.get("name"),
-                                    (String) data.get("price")
-                            );
+                        String[] parts = itemIdType.split(",");
+                        String itemId = parts[0].trim();
+                        String itemType = parts[1].trim();
+                        String itemMuch = parts[2].trim();
 
-                            dataObject.setItemId((String) data.get("itemId"));
-                            dataObject.setMuch((String) data.get("much"));
-                            dataObject.setTotalPriceItem(String.valueOf(Double.parseDouble(dataObject.getmuch()) * Double.parseDouble(dataObject.getPrice())));
-                            dataOfRvItems.add(dataObject);
+                        DocumentReference documentRef = firestore.collection("Products")
+                                .document(itemType)
+                                .collection(itemType)
+                                .document(itemId);
 
-                            addTotalPriceBasket(dataOfRvItems.get(items).getTotalPriceItem());
-                            items++;
+                        documentRef.get().addOnSuccessListener(querySnapshot  -> {
+                            if (querySnapshot .exists()) {
+                                Map<String, Object> data = querySnapshot .getData();
+                                if (data != null) {
+                                    String category = (String) data.get("category");
+                                    String imageId = (String) data.get("imageId");
+                                    String name = (String) data.get("name");
+                                    String price = (String) data.get("price");
+                                    DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
+                                            category,
+                                            imageId,
+                                            name,
+                                            price,
+                                            itemType
+                                    );
 
-                        }
+                                    dataObject.setItemId((String) data.get("itemId"));
+                                    dataObject.setMuch(itemMuch);
+                                    dataObject.setTotalPriceItem(String.valueOf(Double.parseDouble(dataObject.getmuch()) * Double.parseDouble(dataObject.getPrice())));
+                                    dataOfRvItems.add(dataObject);
 
+                                    addTotalPriceBasket(dataOfRvItems.get(items).getTotalPriceItem());
+                                    items++;
+
+                                    adapterRecyclerviewBasket adapterRvItems = new adapterRecyclerviewBasket(context, dataOfRvItems, CheckoutFragment.this);
+                                    recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
+                                    recyclerView.setAdapter(adapterRvItems);
+
+                                    if (items > 1)
+                                        noOfItems.setText(items + " items");
+                                    else
+                                        noOfItems.setText(items + " item");
+
+                                    TotalPriceOfItems.setText("$" +getTotalPriceBasket());
+
+                                    if (items == 0)
+                                        msgEmptyBasket.setVisibility(View.VISIBLE);
+                                    else
+                                        msgEmptyBasket.setVisibility(View.GONE);
+                                }
+                            }
+                        });
                     }
-                    adapterRecyclerviewBasket adapterRvItems = new adapterRecyclerviewBasket(context, dataOfRvItems, CheckoutFragment.this);
-                    recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
-                    recyclerView.setAdapter(adapterRvItems);
-
-                    if (items > 1)
-                        noOfItems.setText(items + " items");
-                    else
-                        noOfItems.setText(items + " item");
-
-                    TotalPriceOfItems.setText("$" +getTotalPriceBasket());
-
-                    if (items == 0)
-                        msgEmptyBasket.setVisibility(View.VISIBLE);
-                    else
-                        msgEmptyBasket.setVisibility(View.GONE);
-                })
-                .addOnFailureListener(e -> {
-                });
+                }
+            }
+        });
 
     }
 

@@ -41,6 +41,9 @@ public class HomeFragment extends Fragment {
 
     private ScrollView ScrollView_of_ItemsTypes;
 
+    private Boolean filtered = false;
+    private String type, fPricee, tPricee;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,7 +88,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onRefresh() {
 
-                fetchData();
+                if (filtered)
+                    doFilter(type, fPricee, tPricee);
+                else
+                    fetchData();
 
                 fragment_home.setRefreshing(false);
 
@@ -142,10 +148,11 @@ public class HomeFragment extends Fragment {
             btnItemsOffers.setVisibility(View.VISIBLE);
             recyclerView_filter.setVisibility(View.GONE);
             ScrollView_of_ItemsTypes.setVisibility(View.VISIBLE);
+            filtered = false;
 
         }
 
-        if(type.equals("Mens")) {
+        else if(type.equals("Mens")) {
 
             btnItemsMens.setVisibility(View.GONE);
             btnItemsWomen.setVisibility(View.GONE);
@@ -153,31 +160,36 @@ public class HomeFragment extends Fragment {
             btnItemsOffers.setVisibility(View.GONE);
             ScrollView_of_ItemsTypes.setVisibility(View.GONE);
             recyclerView_filter.setVisibility(View.VISIBLE);
-
+            filtered = true;
         }
 
-        if(type.equals("Women")) {
+        else if(type.equals("Women")) {
             btnItemsMens.setVisibility(View.GONE);
             btnItemsWomen.setVisibility(View.GONE);
             btnItemsKids.setVisibility(View.GONE);
             btnItemsOffers.setVisibility(View.GONE);
             ScrollView_of_ItemsTypes.setVisibility(View.GONE);
             recyclerView_filter.setVisibility(View.VISIBLE);
-
+            filtered = true;
         }
 
 
-        if(type.equals("Kids")) {
+        else if(type.equals("Kids")) {
             btnItemsMens.setVisibility(View.GONE);
             btnItemsWomen.setVisibility(View.GONE);
             btnItemsKids.setVisibility(View.GONE);
             btnItemsOffers.setVisibility(View.GONE);
             ScrollView_of_ItemsTypes.setVisibility(View.GONE);
             recyclerView_filter.setVisibility(View.VISIBLE);
+            filtered = true;
         }
     }
 
     public void doFilter(String type, String fPricee, String tPricee){
+
+        this.type = type;
+        this.fPricee = fPricee;
+        this.tPricee = tPricee;
 
         FetchDataFromFirebase fetchDataFromFirebase = new FetchDataFromFirebase(
                 recyclerView_items,

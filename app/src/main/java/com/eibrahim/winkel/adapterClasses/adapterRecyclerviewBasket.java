@@ -14,8 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.mianActivity.CheckoutFragment;
+import com.eibrahim.winkel.mianActivity.WishlistFragment;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
@@ -77,19 +81,32 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
 
         holder.itemDeleteCheck.setOnClickListener(v -> {
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-            DocumentReference docRef = firestore.collection("UsersData")
-                    .document(userId)
-                    .collection("BasketCollection")
-                    .document(currentItem.getItemId());
+
             Toast.makeText(context, "Item deleted", Toast.LENGTH_SHORT).show();
             if (checkoutFragment != null) {
                 checkoutFragment.re(Double.valueOf(currentItem.getTotalPriceItem()));
             }
-            // Handle exceptions (e.g., logging, throwing a custom exception, etc.)
-            docRef.delete()
-                    .addOnSuccessListener(aVoid ->
-                            System.out.println("Document with ID " + currentItem.getItemId() + " successfully deleted."))
-                    .addOnFailureListener(Throwable::printStackTrace);
+
+            DocumentReference basketRef = firestore.collection("UsersData")
+                    .document(userId)
+                    .collection("BasketCollection")
+                    .document("BasketDocument");
+
+            basketRef
+                    .update("BasketCollection", FieldValue.arrayRemove(currentItem.getItemId()  + "," + currentItem.getItemType() + "," + currentItem.getmuch()))
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(context, "Item removed from your Basket", Toast.LENGTH_SHORT).show();
+                            WishlistFragment.wishlistIds.add(currentItem.getItemId());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
             int adapterPosition = holder.getAdapterPosition();
 

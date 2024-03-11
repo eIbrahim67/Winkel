@@ -1,5 +1,6 @@
 package com.eibrahim.winkel.secondActivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,9 +13,21 @@ import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
-import com.eibrahim.winkel.declaredClasses.AddToBasket;
 import com.eibrahim.winkel.mianActivity.MainActivity;
+import com.eibrahim.winkel.mianActivity.WishlistFragment;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
+
+import java.nio.file.FileStore;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class ItemDetailActivity extends AppCompatActivity {
 
@@ -56,17 +69,58 @@ public class ItemDetailActivity extends AppCompatActivity {
         btnWishlist.setOnClickListener(v -> {
 
         });
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
+        DocumentReference basketRef = firestore.collection("UsersData")
+                .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
+                .collection("BasketCollection")
+                .document("BasketDocument");
+
+        basketRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (!document.exists()) {
+                    Map<String, Object> basketData = new HashMap<>();
+                    basketRef.set(basketData)
+                            .addOnSuccessListener(aVoid -> {
+
+                            });
+                }
+            }
+        });
 
         addtobasket.setOnClickListener(v -> {
-            //
+
+            String much = (String) itemMuchDetail.getText();
             if(addtobasketText.getVisibility() == View.GONE){
                 btnBasketD.callOnClick();
             }else {
-                AddToBasket addToBasket = new AddToBasket();
                 currentItem.setMuch(String.valueOf(itemMuchDetail.getText()));
-                addToBasket.addItemToBasket(currentItem);
                 addtobasketText.setVisibility(View.GONE);
-                Toast.makeText(ItemDetailActivity.this, "Item added into your BASKET", Toast.LENGTH_SHORT).show();
+
+                basketRef
+                        .update("BasketCollection", FieldValue.arrayUnion(
+                                currentItem.getItemId() + "," +
+                                        currentItem.getItemType() + "," +
+                                        much
+                                )
+                        )
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
+                                WishlistFragment.wishlistIds.add(currentItem.getItemId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(ItemDetailActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
             }
         });
 

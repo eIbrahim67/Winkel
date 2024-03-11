@@ -17,8 +17,7 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -31,7 +30,6 @@ public class WishlistFragment extends Fragment {
     public static final List<String> wishlistIds = new ArrayList<>();
 
     private LinearLayout msgEmptyWishlist;
-    private List<DataRecyclerviewItem> dataOfRvItems;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,39 +64,59 @@ public class WishlistFragment extends Fragment {
 
         String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
+        List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
+
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        dataOfRvItems = new ArrayList<>();
+        DocumentReference wishlistRef = firestore.collection("UsersData")
+                .document(userId)
+                .collection("WishlistCollection")
+                .document("wishlistDocument");
 
-        CollectionReference collectionRef = firestore.collection("UsersData")
-                .document(userId).collection("WishlistCollection");
-        collectionRef.get()
-                .addOnSuccessListener(querySnapshot -> {
-                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+        wishlistRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                List<String> wishlist = (List<String>) documentSnapshot.get("WishlistCollection");
+                if (wishlist != null) {
+                    for (String itemIdType : wishlist) {
 
-                        Map<String, Object> data = document.getData();
+                        String[] parts = itemIdType.split(",");
+                        String itemId = parts[0].trim();
+                        String itemType = parts[1].trim();
 
-                        DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
-                                (String) data.get("category"),
-                                (String) data.get("imageId"),
-                                (String) data.get("name"),
-                                (String) data.get("price")
-                        );
+                        DocumentReference documentRef = firestore.collection("Products")
+                                .document(itemType)
+                                .collection(itemType)
+                                .document(itemId);
 
-                        String documentId = document.getId();
-                        wishlistIds.add(documentId);
-
-                        dataObject.setItemId((String) data.get("itemId"));
-                        dataOfRvItems.add(dataObject);
+                        documentRef.get().addOnSuccessListener(querySnapshot  -> {
+                            if (querySnapshot .exists()) {
+                                Map<String, Object> data = querySnapshot .getData();
+                                if (data != null) {
+                                    String category = (String) data.get("category");
+                                    String imageId = (String) data.get("imageId");
+                                    String name = (String) data.get("name");
+                                    String price = (String) data.get("price");
+                                    DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
+                                            category,
+                                            imageId,
+                                            name,
+                                            price,
+                                            itemType
+                                    );
+                                    dataObject.setItemId(itemId);
+                                    wishlistIds.add(itemId);
+                                    dataOfRvItems.add(dataObject);
+                                    adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems, itemType);
+                                    adapterRvItems.wishlistFragment = WishlistFragment.this;
+                                    recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+                                    recyclerView.setAdapter(adapterRvItems);
+                                }
+                            }
+                        });
                     }
-
-                    adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems, 2, "");
-                    adapterRvItems.wishlistFragment = WishlistFragment.this;
-                    recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-                    recyclerView.setAdapter(adapterRvItems);
-                })
-                .addOnFailureListener(e -> {
-                });
+                }
+            }
+        });
 
     }
 }
