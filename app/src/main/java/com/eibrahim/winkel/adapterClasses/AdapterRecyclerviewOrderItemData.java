@@ -26,10 +26,7 @@ public class AdapterRecyclerviewOrderItemData extends RecyclerView.Adapter<Adapt
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView ItemId;
-        final TextView itemPrice;
-        final TextView itemMuch;
-        final TextView itemTotalPrice;
+        final TextView ItemId, itemPrice, itemMuch, itemTotalPrice, itemSize, itemCategory;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -38,6 +35,9 @@ public class AdapterRecyclerviewOrderItemData extends RecyclerView.Adapter<Adapt
             itemPrice = itemView.findViewById(R.id.itemPrice);
             itemMuch = itemView.findViewById(R.id.itemMuch);
             itemTotalPrice = itemView.findViewById(R.id.itemTotalPrice);
+            itemSize = itemView.findViewById(R.id.itemSize);
+            itemCategory = itemView.findViewById(R.id.itemCategory);
+
         }
     }
 
@@ -56,7 +56,8 @@ public class AdapterRecyclerviewOrderItemData extends RecyclerView.Adapter<Adapt
         holder.itemPrice.setText(currentItem.getItemPrice());
         holder.itemMuch.setText(currentItem.getItemMuch());
         holder.itemTotalPrice.setText(currentItem.getItemTotalPrice());
-
+        holder.itemSize.setText(currentItem.getItemSize());
+        holder.itemCategory.setText(currentItem.getItemCategory());
 
     }
 

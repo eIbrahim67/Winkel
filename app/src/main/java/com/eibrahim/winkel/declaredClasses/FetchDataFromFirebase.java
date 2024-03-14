@@ -2,19 +2,23 @@ package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.adapterClasses. adapterRecyclerviewItems;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -85,15 +89,15 @@ public class FetchDataFromFirebase {
             return;
         }
         else {
+
             List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
             CollectionReference collectionRef = firestore.collection("Products").document(type).collection(type);
-            collectionRef.get()
+            collectionRef
+                    .get()
                     .addOnSuccessListener(querySnapshot -> {
                         for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-                            // Get the document data
                             Map<String, Object> data = document.getData();
-
                             DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
                                     (String) Objects.requireNonNull(data).get("category"),
                                     (String) data.get("imageId"),
@@ -123,5 +127,7 @@ public class FetchDataFromFirebase {
         recyclerViewItemsKids.setAdapter(adapterRvItems);
         recyclerViewItemsOffers.setAdapter(adapterRvItems);
     }
+
+
 
 }

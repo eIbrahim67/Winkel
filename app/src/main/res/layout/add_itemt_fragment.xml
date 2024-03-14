@@ -147,19 +147,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="$"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,TouchTargetSizeCheck" />
-
             <EditText
                 android:id="@+id/post_price"
                 style="@style/TextColor_v1"
@@ -167,6 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
+                android:layout_marginStart="20dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="@font/works_ans_v1"
@@ -176,6 +164,19 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/works_ans_v1"
+                android:text="LE"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
             <Space
                 android:layout_width="150dp"

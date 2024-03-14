@@ -71,11 +71,14 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         FirebaseAuth auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        String temp = "$" + currentItem.getPrice();
+        String temp = currentItem.getPrice() + " LE";
 
         holder.itemPrice.setText(temp);
         holder.itemCategory.setText(currentItem.getCategory());
         holder.itemName.setText(currentItem.getName());
+
+
+
         Picasso.with(context)
                 .load(currentItem.getImageId())
                 .into(holder.itemImage);

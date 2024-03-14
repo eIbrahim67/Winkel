@@ -1,11 +1,15 @@
 package com.eibrahim.winkel.mainActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,7 +33,7 @@ import java.util.Objects;
 public class HomeFragment extends Fragment {
 
     public static final List<String> wishlistIds = new ArrayList<>();
-    private RecyclerView recyclerView_filter, recyclerView_items, recyclerViewItemsMens, recyclerViewItemsWomen, recyclerViewItemsKids, recyclerViewItemsOffers;
+    private RecyclerView recyclerView_filter, recyclerView_items, recyclerViewItemsMens, recyclerViewItemsWomen, recyclerViewItemsKids, recyclerViewItemsOffers, recyclerview_search;
     public static View recyclerViewItemsMens_skeleton, recyclerViewItemsWomen_skeleton, recyclerViewItemsKids_skeleton, recyclerViewItemsOffers_skeleton;
 
     private TextView btnItemsMens, btnItemsWomen, btnItemsKids, btnItemsOffers;
@@ -54,6 +58,8 @@ public class HomeFragment extends Fragment {
         recyclerViewItemsWomen = root.findViewById(R.id.recyclerviewItemsWomen);
         recyclerViewItemsKids = root.findViewById(R.id.recyclerviewItemsKids);
         recyclerViewItemsOffers = root.findViewById(R.id.recyclerviewItemsOffers);
+        recyclerview_search = root.findViewById(R.id.recyclerview_search);
+
 
         //recyclerView_items_skeleton = root.findViewById(R.id.recyclerview_items_skeleton);
         recyclerViewItemsMens_skeleton = root.findViewById(R.id.recyclerviewItemsMens_skeleton);
@@ -69,15 +75,23 @@ public class HomeFragment extends Fragment {
 
         fragment_home = root.findViewById(R.id.fragment_home);
 
+        EditText search_text = root.findViewById(R.id.search_text);
+
         ImageView btnFilterH = root.findViewById(R.id.btnFilterH);
+
+        FilterBottomSheet filterBottomSheet = new FilterBottomSheet(HomeFragment.this);
 
         fetchData();
 
+        //search_text.addTextChangedListener(new TextWatcher() {});
+
         btnFilterH.setOnClickListener(v -> {
 
-            FilterBottomSheet filterBottomSheet = new FilterBottomSheet(HomeFragment.this);
-            filterBottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
+            if (filterBottomSheet.isVisible())
+                filterBottomSheet.dismiss();
+            else
+                filterBottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
 
@@ -89,7 +103,6 @@ public class HomeFragment extends Fragment {
                 fetchData();
 
             fragment_home.setRefreshing(false);
-
 
         });
 

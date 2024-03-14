@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".secondActivity.ItemDetailActivity"
     android:orientation="vertical">
 
@@ -19,66 +20,46 @@
             android:scaleType="fitXY"
             tools:ignore="ContentDescription"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+        <ImageView
+            android:id="@+id/btn_back_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="@style/back_arrow_background_btn"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Back"
+            tools:ignore="HardcodedText"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dp"/>
 
-            <ImageView
-                android:id="@+id/btn_back_home"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                style="@style/back_arrow_background_btn"
-                android:padding="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:contentDescription="TODO" />
+        <ImageView
+            android:id="@+id/btn_love"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/filter_background_light"
+            android:src="@drawable/unlove_icon_white"
+            android:padding="10dp"
+            android:clickable="true"
+            android:contentDescription="Add To Wishlist"
+            tools:ignore="HardcodedText"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    style="@style/share_background_btn"
-                    android:padding="10dp"
-                    android:clickable="true"
-                    android:contentDescription="TODO" />
-
-                <ImageView
-                    android:id="@+id/btn_love"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/filter_background_light"
-                    android:src="@drawable/unlove_icon_white"
-                    android:padding="10dp"
-                    android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:contentDescription="TODO" />
-
-                <ImageView
-                    android:id="@+id/btn_basketD"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    style="@style/basket_background_btn"
-                    android:padding="10dp"
-                    android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:contentDescription="TODO" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/btn_basketD"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="@style/basket_background_btn"
+            android:padding="10dp"
+            android:clickable="true"
+            android:contentDescription="GoTO Basket"
+            tools:ignore="HardcodedText"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"/>
 
     </RelativeLayout>
 
@@ -86,10 +67,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp">
-
 
         <TextView
             android:id="@+id/itemCategoryDetail"
@@ -109,7 +89,7 @@
                 android:id="@+id/itemNameDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:textSize="25sp"
                 style="@style/TextColor_v1"
                 android:textStyle="bold"
                 android:layout_weight="1"
@@ -120,65 +100,51 @@
                 android:id="@+id/itemPriceDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="22sp"
+                android:textSize="25sp"
+                android:fontFamily="@font/works_ans_v1"
                 style="@style/TextColor_v1"
-                android:textStyle="bold"
-                android:gravity="center"/>
+                android:textStyle="bold"/>
 
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Size"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            tools:ignore="HardcodedText, InefficientWeight"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:id="@+id/recyclerview_sizes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
-            <ImageView
+            <com.willy.ratingbar.ScaleRatingBar
+                android:id="@+id/simpleRatingBar"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="5dp"
-                style="@style/star_background_btn"
-                android:clickable="true"
-                android:focusable="true"
-                android:contentDescription="TODO" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                style="@style/star_background_btn"
-                android:contentDescription="TODO" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                style="@style/star_background_btn"
-                android:contentDescription="TODO" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                style="@style/star_background_btn"
-                android:contentDescription="TODO" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                style="@style/star_background_btn"
-                android:contentDescription="TODO" />
+                android:layout_height="wrap_content"
+                app:srb_numStars="5"
+                app:srb_minimumStars="0"
+                app:srb_starWidth="20dp"
+                app:srb_starHeight="20dp"
+                app:srb_isIndicator="false"
+                app:srb_clickable="true"
+                app:srb_clearRatingEnabled="true">
+            </com.willy.ratingbar.ScaleRatingBar>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -186,18 +152,17 @@
                 android:text="944 Reviews"
                 android:textSize="15sp"
                 style="@style/TextColor_v2"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
-
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="40dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"

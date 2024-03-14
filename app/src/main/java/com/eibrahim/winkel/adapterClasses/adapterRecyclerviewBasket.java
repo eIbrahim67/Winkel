@@ -67,7 +67,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
 
         Picasso.with(context).load(currentItem.getImageId()).into(holder.itemImage);
         holder.itemNameCheck.setText(currentItem.getName());
-        String temp = "$" + currentItem.getPrice();
+        String temp = currentItem.getPrice() + " LE" ;
         holder.itemPriceCheck.setText(temp);
         temp = "x" + currentItem.getMuch();
         holder.itemMuchCheck.setText(temp);

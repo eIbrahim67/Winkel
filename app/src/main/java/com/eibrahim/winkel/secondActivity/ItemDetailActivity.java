@@ -1,6 +1,8 @@
 package com.eibrahim.winkel.secondActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
+import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewSizes;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.mainActivity.MainActivity;
 import com.eibrahim.winkel.mainActivity.WishlistFragment;
@@ -20,11 +24,15 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class ItemDetailActivity extends AppCompatActivity {
 
     private DataRecyclerviewItem currentItem;
+
+    private RecyclerView recyclerview_sizes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +52,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         ImageView addToBasketImg = findViewById(R.id.addtobasketImg);
         LinearLayout addToBasket = findViewById(R.id.addtobasket);
         ImageView btnWishlist = findViewById(R.id.btn_love);
+        recyclerview_sizes = findViewById(R.id.recyclerview_sizes);
 
 
         Intent intent = getIntent();
@@ -52,7 +61,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
             Picasso.with(this).load(currentItem.getImageId()).into(itemImgDetail);
             itemCategoryDetail.setText(currentItem.getCategory());
-            itemPriceDetail.setText("$" + currentItem.getPrice());
+            itemPriceDetail.setText(currentItem.getPrice() + " LE");
             itemNameDetail.setText(currentItem.getName());
 
         }
@@ -110,6 +119,23 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         btnSub.setOnClickListener(v -> itemMuchDetail.setText(String.valueOf(Integer.parseInt((String) itemMuchDetail.getText()) - 1)));
 
+        declareSizes();
+
+    }
+
+    private void declareSizes(){
+
+
+        List<String> dataOfRvFilter = new ArrayList<>();
+        dataOfRvFilter.add("S");
+        dataOfRvFilter.add("M");
+        dataOfRvFilter.add("L");
+        dataOfRvFilter.add("XL");
+        dataOfRvFilter.add("Special Size");
+
+        adapterRecyclerviewSizes adapterRvSizes = new adapterRecyclerviewSizes(dataOfRvFilter, recyclerview_sizes, ItemDetailActivity.this);
+        recyclerview_sizes.setLayoutManager(new LinearLayoutManager(ItemDetailActivity.this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerview_sizes.setAdapter(adapterRvSizes);
     }
 
 }

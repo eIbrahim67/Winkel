@@ -74,7 +74,9 @@ public class OrdersFragment extends Fragment {
                                     parts2[0],
                                     parts2[3],
                                     parts2[2],
-                                    (String.valueOf(totalPriceItem))
+                                    (String.valueOf(totalPriceItem)),
+                                    parts2[4],
+                                    parts2[1]
 
                             );
 
