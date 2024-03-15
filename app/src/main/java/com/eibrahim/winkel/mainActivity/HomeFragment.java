@@ -29,7 +29,6 @@ import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
-    public static final List<String> wishlistIds = new ArrayList<>();
     private RecyclerView recyclerView_filter;
     private RecyclerView recyclerView_items;
     public static View recyclerViewItemsMens_skeleton, recyclerViewItemsWomen_skeleton, recyclerViewItemsKids_skeleton, recyclerViewItemsOffers_skeleton;
@@ -40,7 +39,8 @@ public class HomeFragment extends Fragment {
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
     private FirebaseFirestore firestore;
-    private  String userId;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -73,8 +73,6 @@ public class HomeFragment extends Fragment {
         EditText search_text = root.findViewById(R.id.search_text);
         ImageView btnFilterH = root.findViewById(R.id.btnFilterH);
         FilterBottomSheet filterBottomSheet = new FilterBottomSheet(HomeFragment.this);
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
         firestore = FirebaseFirestore.getInstance();
 
         fetchDataFromFirebase = new FetchDataFromFirebase(
@@ -87,7 +85,6 @@ public class HomeFragment extends Fragment {
         );
 
         fetchData();
-        //search_text.addTextChangedListener(new TextWatcher() {});
 
         btnFilterH.setOnClickListener(v -> {
 
@@ -120,20 +117,7 @@ public class HomeFragment extends Fragment {
         HomeFragment.recyclerViewItemsKids_skeleton.setVisibility(View.VISIBLE);
         HomeFragment.recyclerViewItemsOffers_skeleton.setVisibility(View.VISIBLE);
 
-
-        CollectionReference collectionRef = firestore.collection("UsersData")
-                .document(userId).collection("WishlistCollection");
-        collectionRef.get()
-                .addOnSuccessListener(querySnapshot -> {
-                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-
-                        String documentId = document.getId();
-                        wishlistIds.add(documentId);
-                    }
-
-                    fetchDataFromFirebase.fetchData("All", "0", "100000", 1, recyclerView_items);
-                });
-
+        fetchDataFromFirebase.fetchData("All", "0", "100000", 1, recyclerView_items);
 
     }
 

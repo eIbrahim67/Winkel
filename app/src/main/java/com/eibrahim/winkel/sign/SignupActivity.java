@@ -2,6 +2,7 @@ package com.eibrahim.winkel.sign;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.mainActivity.MainActivity;
+import com.eibrahim.winkel.secondActivity.PaymentActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -178,7 +181,11 @@ public class SignupActivity extends AppCompatActivity {
         data.put("userType", userType);
 
         documentRef.set(data)
-                .addOnSuccessListener(aVoid -> Log.d("Firestore", "Document added/updated successfully"))
-                .addOnFailureListener(e -> Log.w("Firestore", "Error adding/updating document", e));
+                .addOnSuccessListener(aVoid ->{
+                        Log.d("Firestore", "Document added/updated successfully");
+                    finish();
+                })
+                .addOnFailureListener(e -> Log.w("Firestore", "Error adding/updating document", e)
+                );
     }
 }

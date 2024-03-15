@@ -132,12 +132,13 @@ public class FetchDataFromFirebase {
                                     ""
                             );
 
-                            dataObject.setItemId(document.getId());
-
-                            assert wishlistIds != null;
-                            dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
-
                             dataObject.setItemId((String) data.get("itemId"));
+
+
+                            if (wishlistIds != null)
+                                dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
+
+
                             if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
                                 dataOfRvItems.add(dataObject);
                         }
@@ -150,6 +151,7 @@ public class FetchDataFromFirebase {
                         recyclerView.setAdapter(adapterRvItems);
                     })
                     .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
+
         }
         List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
         adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);

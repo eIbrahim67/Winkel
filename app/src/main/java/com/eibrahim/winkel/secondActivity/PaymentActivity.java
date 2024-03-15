@@ -81,12 +81,19 @@ public class PaymentActivity extends AppCompatActivity {
 
         });
     }
-
+    dataRecyclerviewPaymentMethods dataObject;
     private void fetchPaymentMethodsData(RecyclerView recyclerView, Context context) {
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
         List<dataRecyclerviewPaymentMethods> dataOfRvItems = new ArrayList<>();
+
+        dataObject = new dataRecyclerviewPaymentMethods(
+                "cash",
+                "Cash payment",
+                ""
+        );
+        dataOfRvItems.add(dataObject);
 
         CollectionReference collectionRef = firestore.collection("UsersData")
                 .document(userId).collection("PaymentMethodsCollection");
@@ -96,22 +103,19 @@ public class PaymentActivity extends AppCompatActivity {
                         // Get the document data
                         Map<String, Object> data = document.getData();
 
-                        dataRecyclerviewPaymentMethods dataObject = new dataRecyclerviewPaymentMethods(
+                        dataObject = new dataRecyclerviewPaymentMethods(
                                 (String) Objects.requireNonNull(data).get("type"),
                                 (String) data.get("number"),
                                 (String) data.get("date")
                         );
                         dataOfRvItems.add(dataObject);
                     }
-                    adapterRecyclerviewPaymentMethods adapterRvItems = new adapterRecyclerviewPaymentMethods(context, dataOfRvItems, PaymentActivity.this);
+                    adapterRecyclerviewPaymentMethods adapterRvItems = new adapterRecyclerviewPaymentMethods(context, dataOfRvItems);
                     recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
                     recyclerView.setAdapter(adapterRvItems);
                 })
                 .addOnFailureListener(e -> {
                 });
-    }
-
-    public void donePayment(boolean state){
     }
 
 }

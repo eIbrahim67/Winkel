@@ -23,11 +23,9 @@ public class adapterRecyclerviewPaymentMethods extends RecyclerView.Adapter<adap
     private final Context context;
     private final List<dataRecyclerviewPaymentMethods> itemList;
     private ViewHolder lastHolder = null;
-    private final PaymentActivity paymentActivity;
-    public adapterRecyclerviewPaymentMethods(Context context, List<dataRecyclerviewPaymentMethods> itemList, PaymentActivity paymentActivity) {
+    public adapterRecyclerviewPaymentMethods(Context context, List<dataRecyclerviewPaymentMethods> itemList) {
         this.context = context;
         this.itemList = itemList;
-        this.paymentActivity = paymentActivity;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -80,11 +78,14 @@ public class adapterRecyclerviewPaymentMethods extends RecyclerView.Adapter<adap
             holder.itemImgPaymentSelected.setImageResource(R.drawable.visa_v1);
             holder.itemImgPayment.setImageResource(R.drawable.visa_v2);
         }
-        else {
+        else  if (Objects.equals(currentItem.getType(), "paypal")){
             holder.itemImgPaymentSelected.setImageResource(R.drawable.paypal_v1);
             holder.itemImgPayment.setImageResource(R.drawable.paypal_v2);
         }
-
+        else  if (Objects.equals(currentItem.getType(), "cash")){
+            holder.itemImgPaymentSelected.setImageResource(R.drawable.cash_v1);
+            holder.itemImgPayment.setImageResource(R.drawable.cash_v2);
+        }
         holder.itemNumPaymentSelected.setText(currentItem.getNumber());
         holder.itemDatePaymentSelected.setText(currentItem.getDate());
 
@@ -93,7 +94,6 @@ public class adapterRecyclerviewPaymentMethods extends RecyclerView.Adapter<adap
         holder.itemSelected.setOnClickListener(v -> holder.itemView.callOnClick());
 
         holder.itemView.setOnClickListener(v -> {
-            paymentActivity.donePayment(true);
             if(holder.itemSelected.getVisibility() == View.GONE){
                 holder.itemSelected.setVisibility(View.VISIBLE);
                 if (lastHolder != null)
