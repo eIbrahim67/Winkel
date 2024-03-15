@@ -6,7 +6,7 @@
     tools:context=".secondActivity.PaymentActivity"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -21,24 +21,21 @@
             style="@style/back_arrow_background_btn"
             android:padding="10dp"
             android:clickable="true"
-            android:focusable="true"/>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:focusable="true"
+            android:contentDescription="Back"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/noOfItems"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:gravity="center_vertical"
             android:textSize="18sp"
             style="@style/TextColor_v1"
             android:textStyle="bold"
-            tools:ignore="InefficientWeight" />
+            android:layout_alignParentEnd="true"
+            tools:ignore="RelativeOverlap" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -149,10 +146,9 @@
             android:layout_height="1dp"
             android:background="@color/gray_v1"/>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -161,12 +157,8 @@
                 android:textSize="18sp"
                 style="@style/TextColor_v2"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical"/>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_gravity="center_vertical"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/subTotalPriceOfItemsPayment"
@@ -178,9 +170,9 @@
                 android:gravity="center"
                 android:layout_alignParentEnd="true"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -192,12 +184,8 @@
                 android:textSize="18sp"
                 style="@style/TextColor_v2"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical"/>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_gravity="center_vertical"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/DeliveryCostPayment"
@@ -209,17 +197,16 @@
                 android:gravity="center"
                 android:layout_alignParentEnd="true"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/gray_v1"/>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="10dp">
 
             <TextView
@@ -229,12 +216,8 @@
                 android:textSize="22sp"
                 style="@style/TextColor_v1"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical"/>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_gravity="center_vertical"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/TotalPriceOfItemsPayment"
@@ -246,7 +229,7 @@
                 android:gravity="center"
                 android:layout_alignParentEnd="true"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <Button
             android:id="@+id/btnPayment"

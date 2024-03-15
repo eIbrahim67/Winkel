@@ -1,30 +1,46 @@
 package com.eibrahim.winkel.mainActivity;
+import static androidx.core.content.ContextCompat.getSystemService;
+
+import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
+import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
 import com.eibrahim.winkel.bottomSheets.FilterBottomSheet;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {
@@ -38,7 +54,8 @@ public class HomeFragment extends Fragment {
     private FetchDataFromFirebase fetchDataFromFirebase;
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
-    private FirebaseFirestore firestore;
+    private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private LinearLayout search_page, search_btn;
 
 
     @Override
@@ -70,10 +87,13 @@ public class HomeFragment extends Fragment {
 
         fragment_home = root.findViewById(R.id.fragment_home);
 
-        EditText search_text = root.findViewById(R.id.search_text);
+        search_btn = root.findViewById(R.id.search_btn);
+        search_page = root.findViewById(R.id.search_page);
+
         ImageView btnFilterH = root.findViewById(R.id.btnFilterH);
         FilterBottomSheet filterBottomSheet = new FilterBottomSheet(HomeFragment.this);
-        firestore = FirebaseFirestore.getInstance();
+        EditText search_text = root.findViewById(R.id.search_text);
+
 
         fetchDataFromFirebase = new FetchDataFromFirebase(
                 recyclerView_items,
@@ -85,6 +105,67 @@ public class HomeFragment extends Fragment {
         );
 
         fetchData();
+
+        search_btn.setOnClickListener(v -> {
+
+            search_page.setVisibility(View.VISIBLE);
+            search_text.requestFocus();
+            InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(search_text, InputMethodManager.SHOW_IMPLICIT);
+        });
+
+        search_text.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String searchText = s.toString().trim();
+                if (!searchText.isEmpty()) {
+                    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+                    CollectionReference collectionRef = firestore.collection("Products").document("Mens").collection("Mens");
+                    collectionRef
+                            .get()
+                            .addOnSuccessListener(querySnapshot -> {
+                                List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
+                                for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                                    Map<String, Object> data = document.getData();
+                                    String itemName = (String) data.get("name");
+
+                                    // Perform case-insensitive partial string match
+                                    if (itemName.toLowerCase().contains(searchText.toLowerCase())) {
+                                        DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
+                                                (String) data.get("category"),
+                                                (String) data.get("imageId"),
+                                                itemName,
+                                                (String) data.get("price"),
+                                                "Mens",
+                                                ""
+                                        );
+
+                                        dataObject.setItemId((String) data.get("itemId"));
+                                        dataObject.setItemLoved(false);
+
+                                        dataOfRvItems.add(dataObject);
+                                    }
+                                }
+
+
+                                adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(requireContext(), dataOfRvItems, "Mens");
+                                recyclerview_search.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
+                                recyclerview_search.setAdapter(adapterRvItems);
+
+
+                            })
+                            .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
+                } else {
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
 
         btnFilterH.setOnClickListener(v -> {
 
@@ -109,6 +190,23 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (search_page.getVisibility() == View.VISIBLE) {
+                    search_page.setVisibility(View.GONE);
+                } else {
+                    requireActivity().moveTaskToBack(true);
+                }
+            }
+        });
+    }
+
+
 
     private void fetchData(){
 

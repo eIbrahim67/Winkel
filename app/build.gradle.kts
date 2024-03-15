@@ -54,7 +54,6 @@ dependencies {
     implementation ("androidx.navigation:navigation-runtime:2.7.5")
     implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
     implementation ("com.android.volley:volley:1.2.1")
-    implementation("com.squareup.picasso:picasso:2.5.2")
     implementation  ("com.github.ome450901:SimpleRatingBar:1.5.1")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")

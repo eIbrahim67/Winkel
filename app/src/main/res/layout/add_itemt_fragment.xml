@@ -200,22 +200,15 @@
                 android:background="@drawable/stroke_8dp_black"
                 android:padding="4dp">
 
-                <LinearLayout
+                <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:contentDescription="profile"
-                        tools:ignore="HardcodedText"
-                        android:scaleType="centerCrop"
-                        android:adjustViewBounds="true"
-                        app:shapeAppearanceOverlay="@style/roundedImageViewPost"/>
-
-                </LinearLayout>
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="profile"
+                    tools:ignore="HardcodedText"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"/>
 
             </RelativeLayout>
 

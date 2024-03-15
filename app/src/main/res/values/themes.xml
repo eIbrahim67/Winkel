@@ -8,12 +8,6 @@
     <style name="Theme.Winkel" parent="Base.Theme.Winkel" />
 
 
-    <style name="BackGround">
-
-        <item name="android:background">@color/white_v1</item>
-
-    </style>
-
     <style name="TextColor_v1">
 
         <item name="android:textColor">@color/black_v1</item>

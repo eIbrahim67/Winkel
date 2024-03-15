@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewSizes;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
@@ -19,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +61,11 @@ public class ItemDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             currentItem =(DataRecyclerviewMyItem) intent.getSerializableExtra("item");
-            Picasso.with(this).load(currentItem.getImageId()).into(itemImgDetail);
+
+            Glide.with(this)
+                    .load(currentItem.getImageId())
+                    .into(itemImgDetail);
+
             itemCategoryDetail.setText(currentItem.getCategory());
             itemPriceDetail.setText(currentItem.getPrice() + " LE");
             itemNameDetail.setText(currentItem.getName());

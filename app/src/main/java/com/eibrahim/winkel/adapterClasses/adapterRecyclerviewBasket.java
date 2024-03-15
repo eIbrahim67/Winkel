@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.mainActivity.CheckoutFragment;
@@ -18,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +64,11 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DataRecyclerviewMyItem currentItem = itemList.get(position);
 
-        Picasso.with(context).load(currentItem.getImageId()).into(holder.itemImage);
+        Glide.with(context)
+                .load(currentItem.getImageId())
+                .into(holder.itemImage);
+
+
         holder.itemNameCheck.setText(currentItem.getName());
         String temp = currentItem.getPrice() + " LE" ;
         holder.itemPriceCheck.setText(temp);

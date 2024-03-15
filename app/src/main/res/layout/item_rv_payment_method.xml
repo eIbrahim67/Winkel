@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -63,7 +64,6 @@
         android:id="@+id/itemSelected"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:background="@drawable/card_payment_background_selected_light"
         android:elevation="5dp"

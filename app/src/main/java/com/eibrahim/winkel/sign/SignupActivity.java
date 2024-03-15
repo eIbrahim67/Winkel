@@ -183,7 +183,13 @@ public class SignupActivity extends AppCompatActivity {
         documentRef.set(data)
                 .addOnSuccessListener(aVoid ->{
                         Log.d("Firestore", "Document added/updated successfully");
+
+                    Intent intent = new Intent();
+                    intent.putExtra("mail", email);
+                    intent.putExtra("pass", password);
+
                     finish();
+
                 })
                 .addOnFailureListener(e -> Log.w("Firestore", "Error adding/updating document", e)
                 );

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.secondActivity.ItemDetailActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
@@ -20,7 +21,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.Objects;
@@ -76,11 +76,10 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         holder.itemCategory.setText(currentItem.getCategory());
         holder.itemName.setText(currentItem.getName());
 
-
-
-        Picasso.with(context)
+        Glide.with(context)
                 .load(currentItem.getImageId())
                 .into(holder.itemImage);
+
 
         if (currentItem.getItemLoved())
             holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
@@ -107,10 +106,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                 currentItem.setItemLoved(false);
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
-                        // Success message
                         .addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your wishlist.", Toast.LENGTH_SHORT).show())
-
-// Failure message
                         .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
 
             } else {

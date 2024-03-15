@@ -10,81 +10,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/msgEmptyBasket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
 
-            <LinearLayout
-                android:id="@+id/msgEmptyBasket"
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                style="@style/basket_src"
+                android:layout_gravity="center_horizontal"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Oops!"
+                android:textSize="15sp"
+                style="@style/TextColor_v1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                tools:ignore="HardcodedText" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerInParent="true">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    style="@style/basket_src"
-                    android:layout_gravity="center_horizontal"/>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Oops!"
-                    android:textSize="15sp"
-                    style="@style/TextColor_v1"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    tools:ignore="HardcodedText" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="It looks like your basket is empty\nStart adding items to your basket now!"
-                    android:textSize="15sp"
-                    style="@style/TextColor_v2"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    tools:ignore="HardcodedText" />
+                android:text="It looks like your basket is empty\nStart adding items to your basket now!"
+                android:textSize="15sp"
+                style="@style/TextColor_v2"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                tools:ignore="HardcodedText" />
 
 
-            </LinearLayout>
-
-        </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
-                <TextView
-                    android:id="@+id/noOfItems"
-                    android:layout_width="wrap_content"
-                    android:layout_height="45dp"
-                    android:gravity="center_vertical"
-                    android:textSize="18sp"
-                    style="@style/TextColor_v1"
-                    android:textStyle="bold"
-                    tools:ignore="InefficientWeight" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/noOfItems"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:textStyle="bold"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                tools:ignore="InefficientWeight" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv3"
@@ -110,10 +91,9 @@
                     android:background="@color/gray_v1"
                     android:layout_marginBottom="5dp"/>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -122,12 +102,8 @@
                         android:textSize="18sp"
                         style="@style/TextColor_v1"
                         android:textStyle="bold"
-                        android:layout_gravity="center_vertical"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_gravity="center_vertical"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:id="@+id/TotalPriceOfItemsCheckout"
@@ -137,9 +113,10 @@
                         style="@style/TextColor_v1"
                         android:textStyle="bold"
                         android:gravity="center"
-                        android:layout_alignParentEnd="true"/>
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="RelativeOverlap" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
 
                 <Button
