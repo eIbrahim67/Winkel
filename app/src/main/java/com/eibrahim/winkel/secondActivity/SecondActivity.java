@@ -49,11 +49,12 @@ public class SecondActivity extends AppCompatActivity {
                 break;
             }
             case 3:
-                AddItemtFragment addItemtFragment = new AddItemtFragment();
-                fragmentTransaction.replace(R.id.FrameLayoutProfile, addItemtFragment);
+                AddItemFragment addItemFragment = new AddItemFragment();
+                fragmentTransaction.replace(R.id.FrameLayoutProfile, addItemFragment);
                 break;
             default:
-                Toast.makeText(this, "This Page Not Supported", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "This page is not supported.", Toast.LENGTH_SHORT).show();
+
         }
         fragmentTransaction.commitNow();
 

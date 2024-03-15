@@ -1,6 +1,5 @@
 package com.eibrahim.winkel.adapterClasses;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
 
 import java.util.List;
-import java.util.Objects;
 
 public class adapterRecyclerviewSizes extends RecyclerView.Adapter<adapterRecyclerviewSizes.ViewHolder> {
 

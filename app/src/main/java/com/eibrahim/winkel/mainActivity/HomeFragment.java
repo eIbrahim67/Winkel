@@ -1,7 +1,5 @@
 package com.eibrahim.winkel.mainActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +7,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,7 +17,6 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
 import com.eibrahim.winkel.bottomSheets.FilterBottomSheet;
 import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -34,7 +30,8 @@ import java.util.Objects;
 public class HomeFragment extends Fragment {
 
     public static final List<String> wishlistIds = new ArrayList<>();
-    private RecyclerView recyclerView_filter, recyclerView_items, recyclerViewItemsMens, recyclerViewItemsWomen, recyclerViewItemsKids, recyclerViewItemsOffers, recyclerview_search;
+    private RecyclerView recyclerView_filter;
+    private RecyclerView recyclerView_items;
     public static View recyclerViewItemsMens_skeleton, recyclerViewItemsWomen_skeleton, recyclerViewItemsKids_skeleton, recyclerViewItemsOffers_skeleton;
     private TextView btnItemsMens, btnItemsWomen, btnItemsKids, btnItemsOffers;
     private SwipeRefreshLayout fragment_home;
@@ -43,7 +40,6 @@ public class HomeFragment extends Fragment {
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
     private FirebaseFirestore firestore;
-    private FirebaseAuth auth;
     private  String userId;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,11 +49,11 @@ public class HomeFragment extends Fragment {
 
         recyclerView_filter = root.findViewById(R.id.recyclerview_filter);
         recyclerView_items = root.findViewById(R.id.recyclerview_items);
-        recyclerViewItemsMens = root.findViewById(R.id.recyclerviewItemsMens);
-        recyclerViewItemsWomen = root.findViewById(R.id.recyclerviewItemsWomen);
-        recyclerViewItemsKids = root.findViewById(R.id.recyclerviewItemsKids);
-        recyclerViewItemsOffers = root.findViewById(R.id.recyclerviewItemsOffers);
-        recyclerview_search = root.findViewById(R.id.recyclerview_search);
+        RecyclerView recyclerViewItemsMens = root.findViewById(R.id.recyclerviewItemsMens);
+        RecyclerView recyclerViewItemsWomen = root.findViewById(R.id.recyclerviewItemsWomen);
+        RecyclerView recyclerViewItemsKids = root.findViewById(R.id.recyclerviewItemsKids);
+        RecyclerView recyclerViewItemsOffers = root.findViewById(R.id.recyclerviewItemsOffers);
+        RecyclerView recyclerview_search = root.findViewById(R.id.recyclerview_search);
 
 
         //recyclerView_items_skeleton = root.findViewById(R.id.recyclerview_items_skeleton);
@@ -77,7 +73,7 @@ public class HomeFragment extends Fragment {
         EditText search_text = root.findViewById(R.id.search_text);
         ImageView btnFilterH = root.findViewById(R.id.btnFilterH);
         FilterBottomSheet filterBottomSheet = new FilterBottomSheet(HomeFragment.this);
-        auth = FirebaseAuth.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
         userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
         firestore = FirebaseFirestore.getInstance();
 

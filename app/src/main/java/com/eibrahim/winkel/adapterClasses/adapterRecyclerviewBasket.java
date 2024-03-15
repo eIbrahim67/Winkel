@@ -77,7 +77,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
         holder.itemDeleteCheck.setOnClickListener(v -> {
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-            Toast.makeText(context, "Item deleted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Item deleted from your basket", Toast.LENGTH_SHORT).show();
             if (checkoutFragment != null) {
                 checkoutFragment.re(Double.valueOf(currentItem.getTotalPriceItem()));
             }
@@ -95,10 +95,11 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
                                     currentItem.getItemSize()
                             )
                     )
-                    .addOnSuccessListener(unused -> {
-                        Toast.makeText(context, "Item removed from your Basket", Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
+                    // Success message
+                    .addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your basket.", Toast.LENGTH_SHORT).show())
+
+// Failure message
+                    .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
 
             int adapterPosition = holder.getAdapterPosition();
 

@@ -20,7 +20,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class FilterBottomSheet extends BottomSheetDialogFragment {
 
-    private String type = "All", fPricee = "0", tPricee = "10000";
+    private String type = "All", fPrice = "0", tPrice = "10000";
 
     private final HomeFragment homeFragment;
 
@@ -100,10 +100,10 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
                 tPrice.setText("100000");
             }
 
-            fPricee = fPrice.getText().toString();
-            tPricee = tPrice.getText().toString();
+            this.fPrice = fPrice.getText().toString();
+            this.tPrice = tPrice.getText().toString();
 
-            homeFragment.doFilter(type, fPricee, tPricee);
+            homeFragment.doFilter(type, this.fPrice, this.tPrice);
 
             dismiss();
 

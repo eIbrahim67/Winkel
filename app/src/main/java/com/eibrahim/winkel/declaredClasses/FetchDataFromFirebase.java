@@ -4,14 +4,12 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.adapterClasses. adapterRecyclerviewItems;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -20,7 +18,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -32,10 +29,9 @@ public class FetchDataFromFirebase {
     final RecyclerView recyclerViewItemsKids;
     final RecyclerView recyclerViewItemsOffers;
     final Context context;
-    private FirebaseFirestore firestore;
-    private FirebaseAuth auth;
-    private  String userId;
-
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private final FirebaseAuth auth = FirebaseAuth.getInstance();
+    private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();;
     public FetchDataFromFirebase(RecyclerView recyclerViewItems,
                                  RecyclerView recyclerViewItemsMens,
                                  RecyclerView recyclerViewItemsWomen,
@@ -47,10 +43,6 @@ public class FetchDataFromFirebase {
         this.recyclerViewItemsWomen = recyclerViewItemsWomen;
         this.recyclerViewItemsKids = recyclerViewItemsKids;
         this.recyclerViewItemsOffers = recyclerViewItemsOffers;
-
-        auth = FirebaseAuth.getInstance();
-        userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-        firestore = FirebaseFirestore.getInstance();
 
     }
 
@@ -97,25 +89,19 @@ public class FetchDataFromFirebase {
                 .collection("UsersData").document(userId)
                 .collection("WishlistCollection").document("wishlistDocument")
                 .get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                .addOnSuccessListener(documentSnapshot -> {
 
-                        if (documentSnapshot.exists()){
+                    if (documentSnapshot.exists()){
 
-                            List<String> wishlistIds = (List<String>) documentSnapshot.get("WishlistCollection");
-                            fetch(type, fPrice, tPrice, stateShow, recyclerView, wishlistIds);
-                        }
-
+                        List<String> wishlistIds = (List<String>) documentSnapshot.get("WishlistCollection");
+                        fetch(type, fPrice, tPrice, stateShow, recyclerView, wishlistIds);
                     }
+
                 });
 
     }
 
     private void fetch(String type, String fPrice, String tPrice, int stateShow, RecyclerView recyclerView, List<String> wishlistIds) {
-
-        if (wishlistIds == null)
-            Toast.makeText(context, "String.valueOf(wishlistIds.get(0))", Toast.LENGTH_SHORT).show();
 
         if (type.equals("All")){
             fetchData("Mens", fPrice, tPrice, 2, recyclerViewItemsMens);

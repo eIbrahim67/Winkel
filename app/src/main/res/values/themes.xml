@@ -72,13 +72,6 @@
     </style>
 
 
-    <style name="share_background_btn">
-
-        <item name="android:background">@drawable/filter_background_light</item>
-        <item name="android:src">@drawable/share_icon_white</item>
-    </style>
-
-
     <style name="much_items_background_sub">
 
         <item name="android:background">@drawable/much_items_circle_black</item>
@@ -89,12 +82,6 @@
 
         <item name="android:background">@drawable/much_items_circle_black</item>
         <item name="android:src">@drawable/plus_icon_black</item>
-    </style>
-
-    <style name="star_background_btn">
-        <item name="android:background">@drawable/ripple_circle_light</item>
-
-        <item name="android:src">@drawable/unstar_icon_black</item>
     </style>
 
     <style name="checkout_background_btn">

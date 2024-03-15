@@ -71,8 +71,8 @@ public class PaymentActivity extends AppCompatActivity {
 
             basketRef
                     .update("OrderCollection", FieldValue.arrayUnion(totalData))
-                    .addOnSuccessListener(unused -> Toast.makeText(PaymentActivity.this, "Payment is DONE", Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(e -> Toast.makeText(PaymentActivity.this, "unExpected error", Toast.LENGTH_SHORT).show());
+                    .addOnSuccessListener(unused -> Toast.makeText(PaymentActivity.this, "Payment successful.", Toast.LENGTH_SHORT).show())
+                    .addOnFailureListener(e -> Toast.makeText(PaymentActivity.this, "An unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show());
 
             Intent intentHomeActivity = new Intent(PaymentActivity.this, MainActivity.class);
             intentHomeActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -112,8 +112,6 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     public void donePayment(boolean state){
-        donePayment = state;
     }
 
-    private boolean donePayment = false;
 }

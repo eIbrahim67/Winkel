@@ -19,8 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_centerInParent="true"
-                android:visibility="gone">
+                android:layout_centerInParent="true">
 
                 <ImageView
                     android:layout_width="80dp"
@@ -28,13 +27,26 @@
                     style="@style/basket_src"
                     android:layout_gravity="center_horizontal"/>
 
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Oops!"
+                    android:textSize="15sp"
+                    style="@style/TextColor_v1"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    tools:ignore="HardcodedText" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Your BASKET is empty!"
-                    android:textSize="18sp"
+                    android:text="It looks like your basket is empty\nStart adding items to your basket now!"
+                    android:textSize="15sp"
                     style="@style/TextColor_v2"
+                    android:gravity="center"
                     android:textStyle="bold"
                     android:layout_gravity="center_vertical"
                     tools:ignore="HardcodedText" />

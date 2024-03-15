@@ -57,8 +57,8 @@ public class PaymentMethodsFragment extends Fragment {
             DocumentReference documentRef = collectionRef.document();
             String documentId = documentRef.getId();
             collectionRef.document(documentId).set(itemOfMethod)
-                    .addOnSuccessListener(aVoid -> Toast.makeText(getContext(), "Payment method added successfully", Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(e -> Log.w("Firestore", "Error adding document", e));
+                    .addOnSuccessListener(aVoid -> Toast.makeText(getContext(), "Payment method added successfully.", Toast.LENGTH_SHORT).show())
+                    .addOnFailureListener(e -> Toast.makeText(requireContext(), "Failed to add payment method. Please try again.", Toast.LENGTH_SHORT).show());
 
         });
 

@@ -22,7 +22,7 @@ import com.google.android.material.imageview.ShapeableImageView;
 
 import android.net.Uri;
 
-public class AddItemtFragment extends Fragment {
+public class AddItemFragment extends Fragment {
 
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -86,7 +86,7 @@ public class AddItemtFragment extends Fragment {
                     ""
             );
 
-            AddToShop.addItemToShop(data, TypeFor, selectedImage, AddItemtFragment.this);
+            AddToShop.addItemToShop(data, TypeFor, selectedImage, AddItemFragment.this);
         });
 
         return root;

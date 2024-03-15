@@ -11,39 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/msgEmptyWishlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
 
-            <LinearLayout
-                android:id="@+id/msgEmptyWishlist"
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                style="@style/basket_src"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerInParent="true"
-                android:visibility="gone">
+                android:layout_marginTop="10dp"
+                android:text="Your WishList is empty!"
+                android:textSize="18sp"
+                style="@style/TextColor_v2"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                tools:ignore="HardcodedText" />
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    style="@style/basket_src"
-                    android:layout_gravity="center_horizontal"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Your WishList is empty!"
-                    android:textSize="18sp"
-                    style="@style/TextColor_v2"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    tools:ignore="HardcodedText" />
-
-
-            </LinearLayout>
-
-        </RelativeLayout>
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_wishlist"
@@ -54,17 +47,16 @@
             android:layout_marginEnd="10dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="If you did not found your last updates, please refresh the page"
+            android:text="If you haven't found your latest updates, please refresh the page."
             android:textSize="12sp"
-            android:gravity="center"
             style="@style/TextColor_v2"
             android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/recyclerview_wishlist"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 

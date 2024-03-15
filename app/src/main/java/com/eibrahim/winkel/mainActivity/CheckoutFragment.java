@@ -38,7 +38,7 @@ public class CheckoutFragment extends Fragment {
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     long lastRefreshTime = 0;
 
-    long refreshDelayMillis = 5000;
+    final long refreshDelayMillis = 5000;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class CheckoutFragment extends Fragment {
                 intent.putExtra("Data", dataOfOrder);
                 startActivity(intent);
             } else {
-                Toast.makeText(requireContext(), "Your BASKET is empty!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Your BASKET is empty!, add something to checkout", Toast.LENGTH_SHORT).show();
             }
         });
 

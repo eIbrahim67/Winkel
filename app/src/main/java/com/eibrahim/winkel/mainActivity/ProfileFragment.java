@@ -81,7 +81,7 @@ public class ProfileFragment extends Fragment {
                     .setTitle("Log Out")
                     .setPositiveButton("Yes", (dialog, id) -> {
                         FirebaseAuth.getInstance().signOut();
-                        Toast.makeText(getActivity(), "logout successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Logged out successfully.", Toast.LENGTH_SHORT).show();
                         Intent intentHomeActivity = new Intent(getActivity(), SigninActivity.class);
                         intentHomeActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intentHomeActivity);
@@ -115,9 +115,6 @@ public class ProfileFragment extends Fragment {
                         else if (Objects.equals(documentSnapshot.get("userType"), "Vendor")){
                             btnAddNewItem.setVisibility(View.VISIBLE);
                             btnOrders.setVisibility(View.GONE);
-                        }
-                        else if (Objects.equals(documentSnapshot.get("userType"), "Customer")){
-                            Toast.makeText(requireContext(), "normal Customer", Toast.LENGTH_SHORT).show();
                         }
                     }
 

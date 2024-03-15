@@ -16,10 +16,8 @@ import android.widget.LinearLayout;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItemsWishlist;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -29,7 +27,7 @@ import java.util.Objects;
 
 public class WishlistFragment extends Fragment {
 
-    private List<String> wishlistIds = new ArrayList<>();
+    private final List<String> wishlistIds = new ArrayList<>();
 
     private LinearLayout msgEmptyWishlist;
 

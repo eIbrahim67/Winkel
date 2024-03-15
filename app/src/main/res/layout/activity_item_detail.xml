@@ -134,7 +134,6 @@
             android:layout_marginTop="10dp">
 
             <com.willy.ratingbar.ScaleRatingBar
-                android:id="@+id/simpleRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srb_numStars="5"
@@ -208,7 +207,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/addtobasket"
+                android:id="@+id/addToBasket"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
@@ -219,7 +218,7 @@
                 style="@style/basket_background_btn">
 
                 <TextView
-                    android:id="@+id/addtobasketText"
+                    android:id="@+id/addToBasketText"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="ADD TO BASKET"
@@ -231,7 +230,7 @@
                     android:layout_marginEnd="10dp"/>
 
                 <ImageView
-                    android:id="@+id/addtobasketImg"
+                    android:id="@+id/addToBasketImg"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     style="@style/basket_background_btn"

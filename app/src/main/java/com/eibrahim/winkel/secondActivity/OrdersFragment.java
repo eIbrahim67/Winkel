@@ -85,7 +85,7 @@ public class OrdersFragment extends Fragment {
 
                                 dataOfRvItemData.add(itemData);
                             }catch (Exception e) {
-                                Toast.makeText(requireContext(), String.valueOf(e), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(requireContext(), "Unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show();
                             }
                         }
 

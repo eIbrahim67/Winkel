@@ -114,7 +114,7 @@ public class adapterRecyclerviewItemsWishlist extends RecyclerView.Adapter<adapt
                             notifyItemRemoved(adapterPosition);
                         }
                     })
-                    .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
+                    .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
 
 
         });

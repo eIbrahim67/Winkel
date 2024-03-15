@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.secondActivity.ItemDetailActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
@@ -102,27 +101,26 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
 
         holder.btnLoveH.setOnClickListener(v -> {
 
-            firestore = FirebaseFirestore.getInstance();
 
             if (currentItem.getItemLoved()) {
                 holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
                 currentItem.setItemLoved(false);
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
-                                .addOnSuccessListener(unused -> {
-                                    Toast.makeText(context, "Item removed from your Wishlist", Toast.LENGTH_SHORT).show();
-                                })
-                                        .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
+                        // Success message
+                        .addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your wishlist.", Toast.LENGTH_SHORT).show())
+
+// Failure message
+                        .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
 
             } else {
                 holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
                 currentItem.setItemLoved(true);
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
-                                .addOnSuccessListener(unused -> {
-                                    Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show();
-                                })
-                                        .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
+                                .addOnSuccessListener(unused ->
+                                    Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
             }
 
 
