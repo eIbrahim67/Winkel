@@ -19,14 +19,11 @@ import java.util.Objects;
 public class adapterRecyclerviewSizes extends RecyclerView.Adapter<adapterRecyclerviewSizes.ViewHolder> {
 
     private final List<String> itemList;
-    private final RecyclerView recyclerView_items;
-    private final Context context;
     private ViewHolder lastHolder = null;
+    private String lastSize = "null";
 
-    public adapterRecyclerviewSizes(List<String> itemList, RecyclerView recyclerView_items, Context context) {
+    public adapterRecyclerviewSizes(List<String> itemList) {
         this.itemList = itemList;
-        this.recyclerView_items = recyclerView_items;
-        this.context = context;
     }
 
     @NonNull
@@ -45,10 +42,6 @@ public class adapterRecyclerviewSizes extends RecyclerView.Adapter<adapterRecycl
 
         holder.itemCategoryTypeSelected.setText(filter);
 
-        if (lastHolder == null && Objects.equals(filter, "All")){
-            holder.itemCategoryTypeSelected.setVisibility(View.VISIBLE);
-            lastHolder = holder;
-        }
 
         if (position == (getItemCount() - 1)){
             ((ViewGroup.MarginLayoutParams)holder.itemView.getLayoutParams()).setMarginEnd(0);
@@ -69,7 +62,7 @@ public class adapterRecyclerviewSizes extends RecyclerView.Adapter<adapterRecycl
                 lastHolder.itemCategoryTypeSelected.setVisibility(View.GONE);
 
             lastHolder = holder;
-
+            lastSize = filter;
             holder.itemCategoryTypeSelected.setVisibility(View.VISIBLE);
         });
 
@@ -96,6 +89,12 @@ public class adapterRecyclerviewSizes extends RecyclerView.Adapter<adapterRecycl
             spaceMarginEnd = itemView.findViewById(R.id.spaceMarginEnd);
 
         }
+    }
+
+    public String getSize(){
+
+        return lastSize;
+
     }
 
 }

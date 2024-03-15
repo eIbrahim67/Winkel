@@ -4,10 +4,7 @@ import java.io.Serializable;
 
 public class DataRecyclerviewItem implements Serializable {
     private final String imageId;
-    private String much;
     private String itemId;
-
-    private String totalPriceItem;
     private final String type;
     private final String name;
     private final String category;
@@ -25,9 +22,6 @@ public class DataRecyclerviewItem implements Serializable {
         return imageId;
     }
 
-    public String getMuch() {
-        return much;
-    }
 
     public String getName() {
         return name;
@@ -41,17 +35,6 @@ public class DataRecyclerviewItem implements Serializable {
         return price;
     }
 
-    public void setMuch(String much) {
-        this.much = much;
-    }
-
-    public void setTotalPriceItem(String totalPriceItem) {
-        this.totalPriceItem = totalPriceItem;
-    }
-
-    public String getTotalPriceItem() {
-        return totalPriceItem;
-    }
 
     public String getItemId() {
         return itemId;

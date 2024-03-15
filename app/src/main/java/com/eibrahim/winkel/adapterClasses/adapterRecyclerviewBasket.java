@@ -12,9 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.mainActivity.CheckoutFragment;
-import com.eibrahim.winkel.mainActivity.WishlistFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -27,10 +26,10 @@ import java.util.Objects;
 public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyclerviewBasket.ViewHolder> {
 
     private final Context context;
-    private final List<DataRecyclerviewItem> itemList;
+    private final List<DataRecyclerviewMyItem> itemList;
     private final CheckoutFragment checkoutFragment;
 
-    public adapterRecyclerviewBasket(Context context, List<DataRecyclerviewItem> itemList, CheckoutFragment checkoutActivity) {
+    public adapterRecyclerviewBasket(Context context, List<DataRecyclerviewMyItem> itemList, CheckoutFragment checkoutActivity) {
         this.context = context;
         this.itemList = itemList;
         this.checkoutFragment = checkoutActivity;
@@ -63,7 +62,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DataRecyclerviewItem currentItem = itemList.get(position);
+        DataRecyclerviewMyItem currentItem = itemList.get(position);
 
         Picasso.with(context).load(currentItem.getImageId()).into(holder.itemImage);
         holder.itemNameCheck.setText(currentItem.getName());
@@ -89,10 +88,15 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
                     .document("BasketDocument");
 
             basketRef
-                    .update("BasketCollection", FieldValue.arrayRemove(currentItem.getItemId()  + "," + currentItem.getItemType() + "," + currentItem.getMuch()))
+                    .update("BasketCollection", FieldValue.arrayRemove(
+                            currentItem.getItemId() + "," +
+                                    currentItem.getItemType() + "," +
+                                    currentItem.getMuch() + "," +
+                                    currentItem.getItemSize()
+                            )
+                    )
                     .addOnSuccessListener(unused -> {
                         Toast.makeText(context, "Item removed from your Basket", Toast.LENGTH_SHORT).show();
-                        WishlistFragment.wishlistIds.add(currentItem.getItemId());
                     })
                     .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
 

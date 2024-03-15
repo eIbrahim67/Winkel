@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         else {
+            chipNavigationBar = findViewById(R.id.main_menu);
             FragmentManager fragmentManager = getSupportFragmentManager();
             final FragmentTransaction[] fragmentTransaction = {fragmentManager.beginTransaction()};
 
@@ -78,11 +79,6 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction[0] = fragmentManager.beginTransaction();
             fragmentTransaction[0].add(R.id.MainActivity_layout,h );
             fragmentTransaction[0].commit();
-
-
-            chipNavigationBar = findViewById(R.id.main_menu);
-
-            chipNavigationBar.setItemSelected(R.id.home_btn, true);
 
             chipNavigationBar.setOnItemSelectedListener(i -> {
                 if (i == R.id.home_btn) {

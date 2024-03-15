@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.adapterClasses. adapterRecyclerviewItems;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,6 +32,9 @@ public class FetchDataFromFirebase {
     final RecyclerView recyclerViewItemsKids;
     final RecyclerView recyclerViewItemsOffers;
     final Context context;
+    private FirebaseFirestore firestore;
+    private FirebaseAuth auth;
+    private  String userId;
 
     public FetchDataFromFirebase(RecyclerView recyclerViewItems,
                                  RecyclerView recyclerViewItemsMens,
@@ -42,12 +47,19 @@ public class FetchDataFromFirebase {
         this.recyclerViewItemsWomen = recyclerViewItemsWomen;
         this.recyclerViewItemsKids = recyclerViewItemsKids;
         this.recyclerViewItemsOffers = recyclerViewItemsOffers;
+
+        auth = FirebaseAuth.getInstance();
+        userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+        firestore = FirebaseFirestore.getInstance();
+
     }
+
+
 
     public void fetchFilterData(String filter, String type, String fPrice, String tPrice) {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
+        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
 
         CollectionReference collectionRef = firestore.collection("Products").document(type).collection(type);
         collectionRef.get()
@@ -56,13 +68,17 @@ public class FetchDataFromFirebase {
                         // Get the document data
                         Map<String, Object> data = document.getData();
 
-                        DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
+                        DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
                                 (String) Objects.requireNonNull(data).get("category"),
                                 (String) data.get("imageId"),
                                 (String) data.get("name"),
                                 (String) data.get("price"),
-                                type
+                                type,
+                                ""
                         );
+
+                        //dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId()));
+
                         if (Objects.equals(dataObject.getCategory(), filter))
                             if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
                                 dataOfRvItems.add(dataObject);
@@ -77,20 +93,43 @@ public class FetchDataFromFirebase {
 
     public void fetchData(String type, String fPrice, String tPrice, int stateShow, RecyclerView recyclerView) {
 
+        firestore
+                .collection("UsersData").document(userId)
+                .collection("WishlistCollection").document("wishlistDocument")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                        if (documentSnapshot.exists()){
+
+                            List<String> wishlistIds = (List<String>) documentSnapshot.get("WishlistCollection");
+                            fetch(type, fPrice, tPrice, stateShow, recyclerView, wishlistIds);
+                        }
+
+                    }
+                });
+
+    }
+
+    private void fetch(String type, String fPrice, String tPrice, int stateShow, RecyclerView recyclerView, List<String> wishlistIds) {
+
+        if (wishlistIds == null)
+            Toast.makeText(context, "String.valueOf(wishlistIds.get(0))", Toast.LENGTH_SHORT).show();
 
         if (type.equals("All")){
             fetchData("Mens", fPrice, tPrice, 2, recyclerViewItemsMens);
             fetchData("Womens", fPrice, tPrice, 2, recyclerViewItemsWomen);
             fetchData("Kids", fPrice, tPrice, 2, recyclerViewItemsKids);
             fetchData("Offers", fPrice, tPrice, 2, recyclerViewItemsOffers);
-            List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
+            List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
             adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
             recyclerView.setAdapter(adapterRvItems);
             return;
         }
         else {
 
-            List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
+            List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
             CollectionReference collectionRef = firestore.collection("Products").document(type).collection(type);
             collectionRef
@@ -98,13 +137,20 @@ public class FetchDataFromFirebase {
                     .addOnSuccessListener(querySnapshot -> {
                         for (DocumentSnapshot document : querySnapshot.getDocuments()) {
                             Map<String, Object> data = document.getData();
-                            DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
+                            DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
                                     (String) Objects.requireNonNull(data).get("category"),
                                     (String) data.get("imageId"),
                                     (String) data.get("name"),
                                     (String) data.get("price"),
-                                    type
+                                    type,
+                                    ""
                             );
+
+                            dataObject.setItemId(document.getId());
+
+                            assert wishlistIds != null;
+                            dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
+
                             dataObject.setItemId((String) data.get("itemId"));
                             if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
                                 dataOfRvItems.add(dataObject);
@@ -119,15 +165,13 @@ public class FetchDataFromFirebase {
                     })
                     .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
         }
-        List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
+        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
         adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
         recyclerView.setAdapter(adapterRvItems);
         recyclerViewItemsMens.setAdapter(adapterRvItems);
         recyclerViewItemsWomen.setAdapter(adapterRvItems);
         recyclerViewItemsKids.setAdapter(adapterRvItems);
         recyclerViewItemsOffers.setAdapter(adapterRvItems);
+
     }
-
-
-
 }

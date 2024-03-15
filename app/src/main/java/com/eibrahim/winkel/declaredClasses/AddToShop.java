@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.secondActivity.AddItemtFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -23,7 +23,7 @@ public class AddToShop {
     static ProgressDialog progressDialog;
     static Context context;
     static AddItemtFragment addItemtFragment;
-    public static void addItemToShop(DataRecyclerviewItem Item, String TypeFor, Uri uri, AddItemtFragment addItemFragmentCopy){
+    public static void addItemToShop(DataRecyclerviewMyItem Item, String TypeFor, Uri uri, AddItemtFragment addItemFragmentCopy){
 
         context = addItemFragmentCopy.requireContext();
         addItemtFragment = addItemFragmentCopy;

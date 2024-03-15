@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.declaredClasses.AddToShop;
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -76,14 +76,14 @@ public class AddItemtFragment extends Fragment {
             else
                 TypeFor = "Womens";
 
-            DataRecyclerviewItem data = new DataRecyclerviewItem(
+            DataRecyclerviewMyItem data = new DataRecyclerviewMyItem(
 
                     category,
                     null,
                     title,
                     price,
-                    TypeFor
-
+                    TypeFor,
+                    ""
             );
 
             AddToShop.addItemToShop(data, TypeFor, selectedImage, AddItemtFragment.this);

@@ -12,11 +12,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.secondActivity.ItemDetailActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.mainActivity.HomeFragment;
+import com.eibrahim.winkel.secondActivity.ItemDetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -26,13 +25,13 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import java.util.Objects;
 
-public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecyclerviewItems.ViewHolder> {
+public class adapterRecyclerviewItemsWishlist extends RecyclerView.Adapter<adapterRecyclerviewItemsWishlist.ViewHolder> {
 
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
     private final String cate;
     FirebaseFirestore firestore;
-    public adapterRecyclerviewItems(Context context, List<DataRecyclerviewMyItem> itemList, String cate) {
+    public adapterRecyclerviewItemsWishlist(Context context, List<DataRecyclerviewMyItem> itemList, String cate) {
         this.context = context;
         this.itemList = itemList;
         this.cate = cate;
@@ -83,10 +82,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                 .load(currentItem.getImageId())
                 .into(holder.itemImage);
 
-        if (currentItem.getItemLoved())
-            holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
-        else
-            holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
+        holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
@@ -104,26 +100,21 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
 
             firestore = FirebaseFirestore.getInstance();
 
-            if (currentItem.getItemLoved()) {
-                holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
-                currentItem.setItemLoved(false);
-                wishlistRef
-                        .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
-                                .addOnSuccessListener(unused -> {
-                                    Toast.makeText(context, "Item removed from your Wishlist", Toast.LENGTH_SHORT).show();
-                                })
-                                        .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
+            holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
 
-            } else {
-                holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
-                currentItem.setItemLoved(true);
-                wishlistRef
-                        .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
-                                .addOnSuccessListener(unused -> {
-                                    Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show();
-                                })
-                                        .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
-            }
+            wishlistRef
+                    .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
+                    .addOnSuccessListener(unused -> {
+                        Toast.makeText(context, "Item removed from your Wishlist", Toast.LENGTH_SHORT).show();
+
+                        int adapterPosition = holder.getAdapterPosition();
+
+                        if (adapterPosition != RecyclerView.NO_POSITION) {
+                            itemList.remove(currentItem);
+                            notifyItemRemoved(adapterPosition);
+                        }
+                    })
+                    .addOnFailureListener(e -> Toast.makeText(context, "unExpected error", Toast.LENGTH_SHORT).show());
 
 
         });

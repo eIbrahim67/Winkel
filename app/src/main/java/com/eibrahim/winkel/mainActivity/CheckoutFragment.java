@@ -1,32 +1,26 @@
 package com.eibrahim.winkel.mainActivity;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.secondActivity.PaymentActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewBasket;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +33,12 @@ public class CheckoutFragment extends Fragment {
     String dataOfOrder = "";
     private LinearLayout msgEmptyBasket;
     private TextView TotalPriceOfItems, noOfItems;
+    private final FirebaseAuth auth = FirebaseAuth.getInstance();
+    private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    long lastRefreshTime = 0;
+
+    long refreshDelayMillis = 5000;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,14 +51,24 @@ public class CheckoutFragment extends Fragment {
         RecyclerView recyclerView_basket = rootView.findViewById(R.id.rv3);
         msgEmptyBasket = rootView.findViewById(R.id.msgEmptyBasket);
 
+
         fetchBasketData(recyclerView_basket, requireContext());
 
         checkout_fragment.setOnRefreshListener(() -> {
+            long currentTime = System.currentTimeMillis();
 
-            fetchBasketData(recyclerView_basket, requireContext());
+            long timeElapsed = currentTime - lastRefreshTime;
 
-            checkout_fragment.setRefreshing(false);
+            if (timeElapsed >= refreshDelayMillis) {
+                fetchBasketData(recyclerView_basket, requireContext());
+                checkout_fragment.setRefreshing(false);
 
+                lastRefreshTime = currentTime;
+            }
+            else {
+                Toast.makeText(requireContext(), "Page refreshed. Please wait 5 seconds before refreshing again.", Toast.LENGTH_SHORT).show();
+                checkout_fragment.setRefreshing(false);
+            }
         });
 
         btn_checkout.setOnClickListener(v -> {
@@ -83,12 +93,7 @@ public class CheckoutFragment extends Fragment {
 
         msgEmptyBasket.setVisibility(View.GONE);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
-        List<DataRecyclerviewItem> dataOfRvItems = new ArrayList<>();
+        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
 
         DocumentReference basketRef = firestore.collection("UsersData")
                 .document(userId)
@@ -109,6 +114,7 @@ public class CheckoutFragment extends Fragment {
                         String itemId = parts[0].trim();
                         String itemType = parts[1].trim();
                         String itemMuch = parts[2].trim();
+                        String itemSize = parts[3].trim();
 
                         DocumentReference documentRef = firestore.collection("Products")
                                 .document(itemType)
@@ -123,12 +129,13 @@ public class CheckoutFragment extends Fragment {
                                     String imageId = (String) data.get("imageId");
                                     String name = (String) data.get("name");
                                     String price = (String) data.get("price");
-                                    DataRecyclerviewItem dataObject = new DataRecyclerviewItem(
+                                    DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
                                             category,
                                             imageId,
                                             name,
                                             price,
-                                            itemType
+                                            itemType,
+                                            itemSize
                                     );
 
                                     dataObject.setItemId((String) data.get("itemId"));
@@ -139,7 +146,7 @@ public class CheckoutFragment extends Fragment {
                                     addTotalPriceBasket(dataOfRvItems.get(items).getTotalPriceItem());
                                     items++;
 
-                                    dataOfOrder += itemId + "," + itemType + "," + itemMuch + "," + price + " & ";
+                                    dataOfOrder += itemId + "," + itemType + "," + itemMuch + "," + price + "," + itemSize + " & ";
 
                                     adapterRecyclerviewBasket adapterRvItems = new adapterRecyclerviewBasket(context, dataOfRvItems, CheckoutFragment.this);
                                     recyclerView.setLayoutManager(new GridLayoutManager(context, 1));

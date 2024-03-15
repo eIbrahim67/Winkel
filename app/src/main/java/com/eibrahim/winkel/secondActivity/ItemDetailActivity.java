@@ -13,11 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewSizes;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.mainActivity.MainActivity;
-import com.eibrahim.winkel.mainActivity.WishlistFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -30,8 +28,8 @@ import java.util.Objects;
 
 public class ItemDetailActivity extends AppCompatActivity {
 
-    private DataRecyclerviewItem currentItem;
-
+    private DataRecyclerviewMyItem currentItem;
+    private adapterRecyclerviewSizes adapterRvSizes;
     private RecyclerView recyclerview_sizes;
 
     @Override
@@ -57,8 +55,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            currentItem =(DataRecyclerviewItem) intent.getSerializableExtra("item");
-
+            currentItem =(DataRecyclerviewMyItem) intent.getSerializableExtra("item");
             Picasso.with(this).load(currentItem.getImageId()).into(itemImgDetail);
             itemCategoryDetail.setText(currentItem.getCategory());
             itemPriceDetail.setText(currentItem.getPrice() + " LE");
@@ -68,9 +65,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         btnBackHome.setOnClickListener(v -> finish());
 
-        btnWishlist.setOnClickListener(v -> {
 
-        });
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
@@ -85,23 +80,31 @@ public class ItemDetailActivity extends AppCompatActivity {
             if(addToBasketText.getVisibility() == View.GONE){
                 btnBasketD.callOnClick();
             }else {
-                currentItem.setMuch(String.valueOf(itemMuchDetail.getText()));
-                addToBasketText.setVisibility(View.GONE);
 
-                basketRef
-                        .update("BasketCollection", FieldValue.arrayUnion(
-                                currentItem.getItemId() + "," +
-                                        currentItem.getItemType() + "," +
-                                        much
-                                )
-                        )
-                        .addOnSuccessListener(unused -> {
-                            Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
-                            WishlistFragment.wishlistIds.add(currentItem.getItemId());
-                        })
-                        .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, "unExpected error", Toast.LENGTH_SHORT).show());
+                if (adapterRvSizes.getSize().equals("null")){
+                    Toast.makeText(ItemDetailActivity.this, "Choose Your size, please", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    currentItem.setMuch(String.valueOf(itemMuchDetail.getText()));
+                    addToBasketText.setVisibility(View.GONE);
 
-                Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
+                    basketRef
+                            .update("BasketCollection", FieldValue.arrayUnion(
+                                            currentItem.getItemId() + "," +
+                                                    currentItem.getItemType() + "," +
+                                                    much + "," +
+                                                    adapterRvSizes.getSize()
+
+                                    )
+                            )
+                            .addOnSuccessListener(unused -> {
+                                Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
+                            })
+                            .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, "unExpected error", Toast.LENGTH_SHORT).show());
+
+                    Toast.makeText(ItemDetailActivity.this, "Item added into your Basket", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -109,9 +112,6 @@ public class ItemDetailActivity extends AppCompatActivity {
 
 
         btnBasketD.setOnClickListener(v -> {
-            Intent intentHomeActivity = new Intent(ItemDetailActivity.this, MainActivity.class);
-            intentHomeActivity.putExtra("state", 1);
-            startActivity(intentHomeActivity);
             finish();
         });
 
@@ -133,7 +133,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         dataOfRvFilter.add("XL");
         dataOfRvFilter.add("Special Size");
 
-        adapterRecyclerviewSizes adapterRvSizes = new adapterRecyclerviewSizes(dataOfRvFilter, recyclerview_sizes, ItemDetailActivity.this);
+        adapterRvSizes = new adapterRecyclerviewSizes(dataOfRvFilter);
         recyclerview_sizes.setLayoutManager(new LinearLayoutManager(ItemDetailActivity.this, LinearLayoutManager.HORIZONTAL, false));
         recyclerview_sizes.setAdapter(adapterRvSizes);
     }

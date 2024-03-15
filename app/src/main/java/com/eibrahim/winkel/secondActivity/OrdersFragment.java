@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewOrders;
@@ -58,30 +59,34 @@ public class OrdersFragment extends Fragment {
                     for (String itemIdType : orderslist) {
 
                         itemIdType =  itemIdType.substring(0, itemIdType.length() - 4);
-                        String[] parts2;
+
                         String[] parts = itemIdType.split("&");
 
                         for (String item : parts) {
 
-                            parts2 = item.split(",");
+
+                            String[] parts2 = item.split(",");
 
                             totalPriceItem = Double.parseDouble(parts2[3]) * Double.parseDouble(parts2[2]);
 
                             totalPriceOrder += totalPriceItem;
 
-                            DataRecyclerviewItemOrderItemData itemData = new DataRecyclerviewItemOrderItemData(
+                            try {
+                                DataRecyclerviewItemOrderItemData itemData = new DataRecyclerviewItemOrderItemData(
 
-                                    parts2[0],
-                                    parts2[3],
-                                    parts2[2],
-                                    (String.valueOf(totalPriceItem)),
-                                    parts2[4],
-                                    parts2[1]
+                                        parts2[0],
+                                        parts2[3],
+                                        parts2[2],
+                                        (String.valueOf(totalPriceItem)),
+                                        parts2[4],
+                                        parts2[1]
 
-                            );
+                                );
 
-                            dataOfRvItemData.add(itemData);
-
+                                dataOfRvItemData.add(itemData);
+                            }catch (Exception e) {
+                                Toast.makeText(requireContext(), String.valueOf(e), Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         DataRecyclerviewItemOrder order = new DataRecyclerviewItemOrder(

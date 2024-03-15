@@ -20,6 +20,7 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
 import com.eibrahim.winkel.bottomSheets.FilterBottomSheet;
 import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -35,17 +36,15 @@ public class HomeFragment extends Fragment {
     public static final List<String> wishlistIds = new ArrayList<>();
     private RecyclerView recyclerView_filter, recyclerView_items, recyclerViewItemsMens, recyclerViewItemsWomen, recyclerViewItemsKids, recyclerViewItemsOffers, recyclerview_search;
     public static View recyclerViewItemsMens_skeleton, recyclerViewItemsWomen_skeleton, recyclerViewItemsKids_skeleton, recyclerViewItemsOffers_skeleton;
-
     private TextView btnItemsMens, btnItemsWomen, btnItemsKids, btnItemsOffers;
-
     private SwipeRefreshLayout fragment_home;
-
     private ScrollView ScrollView_of_ItemsTypes;
-
+    private FetchDataFromFirebase fetchDataFromFirebase;
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
-
-
+    private FirebaseFirestore firestore;
+    private FirebaseAuth auth;
+    private  String userId;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -76,13 +75,22 @@ public class HomeFragment extends Fragment {
         fragment_home = root.findViewById(R.id.fragment_home);
 
         EditText search_text = root.findViewById(R.id.search_text);
-
         ImageView btnFilterH = root.findViewById(R.id.btnFilterH);
-
         FilterBottomSheet filterBottomSheet = new FilterBottomSheet(HomeFragment.this);
+        auth = FirebaseAuth.getInstance();
+        userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+        firestore = FirebaseFirestore.getInstance();
+
+        fetchDataFromFirebase = new FetchDataFromFirebase(
+                recyclerView_items,
+                recyclerViewItemsMens,
+                recyclerViewItemsWomen,
+                recyclerViewItemsKids,
+                recyclerViewItemsOffers,
+                requireContext()
+        );
 
         fetchData();
-
         //search_text.addTextChangedListener(new TextWatcher() {});
 
         btnFilterH.setOnClickListener(v -> {
@@ -116,10 +124,6 @@ public class HomeFragment extends Fragment {
         HomeFragment.recyclerViewItemsKids_skeleton.setVisibility(View.VISIBLE);
         HomeFragment.recyclerViewItemsOffers_skeleton.setVisibility(View.VISIBLE);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
         CollectionReference collectionRef = firestore.collection("UsersData")
                 .document(userId).collection("WishlistCollection");
@@ -130,17 +134,8 @@ public class HomeFragment extends Fragment {
                         String documentId = document.getId();
                         wishlistIds.add(documentId);
                     }
-                    FetchDataFromFirebase fetchDataFromFirebase = new FetchDataFromFirebase(
-                            recyclerView_items,
-                            recyclerViewItemsMens,
-                            recyclerViewItemsWomen,
-                            recyclerViewItemsKids,
-                            recyclerViewItemsOffers,
-                            requireContext()
-                    );
+
                     fetchDataFromFirebase.fetchData("All", "0", "100000", 1, recyclerView_items);
-                })
-                .addOnFailureListener(e -> {
                 });
 
 
@@ -179,14 +174,6 @@ public class HomeFragment extends Fragment {
         this.fPrice = fPrice;
         this.tPrice = tPrice;
 
-        FetchDataFromFirebase fetchDataFromFirebase = new FetchDataFromFirebase(
-                recyclerView_items,
-                recyclerViewItemsMens,
-                recyclerViewItemsWomen,
-                recyclerViewItemsKids,
-                recyclerViewItemsOffers,
-                requireContext()
-        );
         fetchDataFromFirebase.fetchData(type, fPrice, tPrice, 1, recyclerView_items);
         fetchCategory(type, fPrice, tPrice);
 
@@ -203,7 +190,6 @@ public class HomeFragment extends Fragment {
 
         List<String> dataOfRvFilter = new ArrayList<>();
 
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         DocumentReference docReference = firestore.collection("Data").document("Categories" + type);
 
         docReference.get().addOnSuccessListener(documentSnapshot -> {
