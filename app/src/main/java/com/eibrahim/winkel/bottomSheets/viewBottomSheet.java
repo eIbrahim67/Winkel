@@ -4,11 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,11 +12,12 @@ import androidx.annotation.Nullable;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.mainActivity.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-public class sortBottomSheet extends BottomSheetDialogFragment {
+
+public class viewBottomSheet extends BottomSheetDialogFragment {
 
     private final HomeFragment homeFragment;
 
-    public sortBottomSheet(HomeFragment homeFragment) {
+    public viewBottomSheet(HomeFragment homeFragment) {
 
         this.homeFragment = homeFragment;
 
@@ -30,11 +27,11 @@ public class sortBottomSheet extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
 
-        View root = inflater.inflate(R.layout.bottom_sheet_sort, container, false);
+        View root = inflater.inflate(R.layout.bottom_sheet_view, container, false);
 
-        ImageView back_sort_btn = root.findViewById(R.id.back_sort_btn);
+        ImageView back_view_btn = root.findViewById(R.id.back_view_btn);
 
-        back_sort_btn.setOnClickListener(v -> {
+        back_view_btn.setOnClickListener(v -> {
 
             dismiss();
 

@@ -59,6 +59,15 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
         });
 
+        view_btn.setOnClickListener(v -> {
+
+            dismiss();
+
+            viewBottomSheet bottomSheet = new viewBottomSheet(homeFragment);
+            bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
+
+        });
+
 
         return root0;
 

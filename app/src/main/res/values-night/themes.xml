@@ -182,6 +182,8 @@
     <style name="rounded_outline_solid_white_black">
 
         <item name="android:background">@drawable/rounded_outline_white_solid_black</item>
+        <item name="android:textColor">@color/white_v1</item>
+        <item name="android:textColorHint">@color/white_v1</item>
 
     </style>
 
@@ -197,9 +199,9 @@
 
     </style>
 
-    <style name="view_icon">
+    <style name="view_grid_icon">
 
-        <item name="android:src">@drawable/view_icon_white</item>
+        <item name="android:src">@drawable/view_grid_icon_white</item>
 
     </style>
 
@@ -236,6 +238,48 @@
     <style name="radio_button_background">
 
         <item name="android:buttonTint">@color/white_v1</item>
+
+    </style>
+
+    <style name="ripple_gray">
+
+        <item name="android:background">@drawable/ripple_gray_black</item>
+
+    </style>
+
+    <style name="filter_none_icon">
+
+        <item name="android:src">@drawable/filter_none_icon_white</item>
+
+    </style>
+
+    <style name="men_icon">
+
+        <item name="android:src">@drawable/man_icon_white</item>
+
+    </style>
+
+    <style name="women_icon">
+
+        <item name="android:src">@drawable/women_icon_white</item>
+
+    </style>
+
+    <style name="kids_icon">
+
+        <item name="android:src">@drawable/kid_icon_white</item>
+
+    </style>
+
+    <style name="view_linear_horizontal_icon">
+
+        <item name="android:src">@drawable/view_linear_horizontal_white</item>
+
+    </style>
+
+    <style name="view_linear_vertical_icon">
+
+        <item name="android:src">@drawable/view_linear_vertical_white</item>
 
     </style>
 

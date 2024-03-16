@@ -103,6 +103,7 @@ public class HomeFragment extends Fragment {
         search_btn.setOnClickListener(v -> {
 
             search_page.setVisibility(View.VISIBLE);
+            MainActivity.chipNavigationBar.setVisibility(View.GONE);
             search_text.requestFocus();
             InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(search_text, InputMethodManager.SHOW_IMPLICIT);
@@ -192,7 +193,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 if (search_page.getVisibility() == View.VISIBLE) {
+
                     search_page.setVisibility(View.GONE);
+                    MainActivity.chipNavigationBar.setVisibility(View.VISIBLE);
+
                 } else {
                     requireActivity().moveTaskToBack(true);
                 }

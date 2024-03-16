@@ -2,99 +2,118 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    style="@style/background">
+    style="@style/background"
+    android:paddingBottom="40dp">
 
-    <LinearLayout
+    <View
+        android:layout_width="100dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        style="@style/circle"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:clickable="true">
+        android:clickable="true"
+        android:layout_marginTop="10dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/works_ans_v1"
+            android:layout_marginEnd="20dp"
+            android:text="Reset"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,InefficientWeight" />
+
+        <ImageView
+            android:id="@+id/back_filter_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="@style/back_arrow_background_btn"
+            android:padding="5dp"
             android:clickable="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="5dp">
+            android:layout_centerVertical="true"
+            android:focusable="true"
+            android:layout_marginStart="20dp" />
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="Filter"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,InefficientWeight" />
 
-                android:padding="5dp"
-                android:clickable="true"
-                android:focusable="true"/>
+    </RelativeLayout>
 
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Filter"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,InefficientWeight" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/gray_v1"/>
 
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Reset All"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:layout_marginEnd="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Category"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/works_ans_v1"
+        style="@style/TextColor_v1"
+        android:layout_marginStart="20dp"
+        tools:ignore="HardcodedText,InefficientWeight" />
 
-        </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/btn_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="5dp"
+        style="@style/ripple_gray"
+        android:clickable="true"
+        android:focusable="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/gray_v1"
-            android:layout_marginTop="5dp" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            style="@style/filter_none_icon"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="Category"
+            android:layout_height="match_parent"
+            android:text="All"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            android:layout_marginStart="20dp"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText,InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/btn_all">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="All"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:fontFamily="@font/works_ans_v1"
-                style="@style/TextColor_v1"
-                android:layout_marginStart="40dp"
-                tools:ignore="HardcodedText,InefficientWeight"/>
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/RadBtnAll"
@@ -102,30 +121,48 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
+                style="@style/radio_button_background"
                 android:layout_marginEnd="20dp"
                 android:checked="true"/>
 
         </RelativeLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_men"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        style="@style/ripple_gray"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            style="@style/men_icon"
+            android:layout_gravity="center_vertical"
+            android:focusable="true"
+            android:layout_marginStart="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Men"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText,InefficientWeight"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/btn_men">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="Men"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:fontFamily="@font/works_ans_v1"
-                style="@style/TextColor_v1"
-                android:layout_marginStart="40dp"
-                tools:ignore="HardcodedText,InefficientWeight"/>
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/RadBtnMen"
@@ -133,29 +170,46 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"/>
+                style="@style/radio_button_background"
+                android:layout_marginEnd="20dp" />
 
         </RelativeLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_women"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        style="@style/ripple_gray"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            style="@style/women_icon"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Women"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText,InefficientWeight"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/btn_women">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="Women"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:fontFamily="@font/works_ans_v1"
-                style="@style/TextColor_v1"
-                android:layout_marginStart="40dp"
-                tools:ignore="HardcodedText,InefficientWeight"/>
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/RadBtnWomen"
@@ -163,145 +217,143 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"/>
+                style="@style/radio_button_background"
+                android:layout_marginEnd="20dp" />
 
         </RelativeLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_kids"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        style="@style/ripple_gray"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            style="@style/kids_icon"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Kids"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText,InefficientWeight"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/btn_kids">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="Kids"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:fontFamily="@font/works_ans_v1"
-                style="@style/TextColor_v1"
-                android:layout_marginStart="40dp"
-                tools:ignore="HardcodedText,InefficientWeight"/>
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/RadBtnKid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:clickable="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"/>
+                style="@style/radio_button_background"
+                android:layout_marginEnd="20dp" />
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/gray_v1"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray_v1"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Price"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/works_ans_v1"
+        style="@style/TextColor_v1"
+        android:layout_marginStart="20dp"
+        tools:ignore="HardcodedText,InefficientWeight" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Price"
+            android:text="From"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            android:layout_marginStart="20dp"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="HardcodedText,InefficientWeight"
+            android:layout_marginEnd="10dp"/>
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/fPrice"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp">
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:inputType="numberDecimal"
+            android:text="0"
+            android:textSize="20sp"
+            style="@style/rounded_outline_solid_white_black"
+            tools:ignore="HardcodedText,RtlCompat"
+            android:textAlignment="center"
+            android:layout_weight="1"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="From"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:fontFamily="@font/works_ans_v1"
-                style="@style/TextColor_v1"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:layout_marginEnd="5dp"/>
-
-            <EditText
-                android:id="@+id/fPrice"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:inputType="numberDecimal"
-                android:text="0"
-                android:textSize="16sp"
-                tools:ignore="HardcodedText,RtlCompat"
-                android:textAlignment="center"
-                android:layout_weight="1"
-                android:layout_marginEnd="5dp"
-                android:autofillHints="" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="To"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:fontFamily="@font/works_ans_v1"
-                style="@style/TextColor_v1"
-                tools:ignore="HardcodedText,InefficientWeight"
-                android:layout_marginEnd="5dp" />
-
-            <EditText
-                android:id="@+id/tPrice"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:text="1000"
-                android:inputType="number"
-                android:textSize="16sp"
-                android:layout_weight="1"
-                tools:ignore="HardcodedText,RtlCompat"
-                android:textAlignment="center"
-                android:autofillHints="" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/gray_v1"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp" />
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Color"
+            android:text="to"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText, InefficientWeight"/>
+            tools:ignore="HardcodedText,InefficientWeight"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp" />
+
+        <EditText
+            android:id="@+id/tPrice"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:text="1000"
+            style="@style/rounded_outline_solid_white_black"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            tools:ignore="HardcodedText,RtlCompat"
+            android:textAlignment="center"
+            android:autofillHints="" />
 
     </LinearLayout>
 

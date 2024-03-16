@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    public ChipNavigationBar chipNavigationBar;
+    public static ChipNavigationBar chipNavigationBar;
 
     private HomeFragment h;
     private WishlistFragment w;

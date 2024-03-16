@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:layout_width="30dp"
@@ -36,12 +36,19 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/works_ans_v1"
-            android:text="More Functions"
-            android:textSize="24sp"
+            android:text="More functions"
+            android:textSize="26sp"
             android:textStyle="bold"
             tools:ignore="HardcodedText,InefficientWeight" />
 
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/gray_v1"/>
 
     <RelativeLayout
         android:id="@+id/sort_btn"
@@ -54,7 +61,6 @@
         android:paddingBottom="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
         android:clickable="true"
         android:focusable="true">
 
@@ -149,7 +155,7 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            style="@style/view_icon"
+            style="@style/view_grid_icon"
             android:padding="5dp"
             android:layout_alignParentEnd="true"/>
 

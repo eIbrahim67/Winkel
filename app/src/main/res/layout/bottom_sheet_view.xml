@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp">
 
         <ImageView
-            android:id="@+id/back_sort_btn"
+            android:id="@+id/back_view_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
             style="@style/back_arrow_background_btn"
@@ -40,7 +40,7 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/works_ans_v1"
-            android:text="Sort By"
+            android:text="View"
             android:textSize="26sp"
             android:textStyle="bold"
             tools:ignore="HardcodedText,InefficientWeight" />
@@ -55,7 +55,7 @@
         android:background="@color/gray_v1"/>
 
     <LinearLayout
-        android:id="@+id/btn_random"
+        android:id="@+id/btn_grid_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -68,14 +68,14 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            style="@style/sort_icon"
+            style="@style/view_grid_icon"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Main"
+            android:text="Grid view"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -102,7 +102,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/btn_HTL"
+        android:id="@+id/btn_linear_horizontal_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -115,7 +115,7 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            style="@style/sort_ascending_icon"
+            style="@style/view_linear_horizontal_icon"
             android:layout_gravity="center_vertical"
             android:focusable="true"
             android:layout_marginStart="20dp" />
@@ -123,7 +123,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Price: High to Low"
+            android:text="Linear horizontal view"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -149,7 +149,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/btn_LTH"
+        android:id="@+id/btn_linear_vertical_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
@@ -162,14 +162,14 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            style="@style/sort_descending_icon"
+            style="@style/view_linear_vertical_icon"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Price: Low to High"
+            android:text="Linear vertical view"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -194,97 +194,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/btn_ATZ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        style="@style/ripple_gray"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            style="@style/az_sort_icon"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Name: A to Z"
-            android:gravity="center_vertical"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/works_ans_v1"
-            style="@style/TextColor_v1"
-            android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
-                style="@style/radio_button_background"
-                android:layout_marginEnd="20dp" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/btn_ZTA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        style="@style/ripple_gray"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            style="@style/za_sort_icon"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Name: Z to A"
-            android:gravity="center_vertical"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/works_ans_v1"
-            style="@style/TextColor_v1"
-            android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
-                style="@style/radio_button_background"
-                android:layout_marginEnd="20dp" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/btnsort"
@@ -293,10 +202,10 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         style="@style/checkout_background_btn"
-        android:text="Sort"
+        android:text="View"
         android:textSize="20sp"
         android:textAllCaps="false"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         tools:ignore="HardcodedText"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"

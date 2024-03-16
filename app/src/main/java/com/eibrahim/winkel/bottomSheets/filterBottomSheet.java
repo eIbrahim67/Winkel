@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 
@@ -37,10 +39,10 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
 
         Button btnFilter = root.findViewById(R.id.btnFilter);
 
-        RelativeLayout btn_all = root.findViewById(R.id.btn_all);
-        RelativeLayout btn_men = root.findViewById(R.id.btn_men);
-        RelativeLayout btn_women = root.findViewById(R.id.btn_women);
-        RelativeLayout btn_kids = root.findViewById(R.id.btn_kids);
+        LinearLayout btn_all = root.findViewById(R.id.btn_all);
+        LinearLayout btn_men = root.findViewById(R.id.btn_men);
+        LinearLayout btn_women = root.findViewById(R.id.btn_women);
+        LinearLayout btn_kids = root.findViewById(R.id.btn_kids);
 
         RadioButton RadBtnAll = root.findViewById(R.id.RadBtnAll);
         RadioButton RadBtnMen = root.findViewById(R.id.RadBtnMen);
@@ -49,6 +51,17 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
 
         EditText fPrice = root.findViewById(R.id.fPrice);
         EditText tPrice = root.findViewById(R.id.tPrice);
+
+        ImageView back_filter_btn = root.findViewById(R.id.back_filter_btn);
+
+        back_filter_btn.setOnClickListener(v -> {
+
+            dismiss();
+
+            functionsBottomSheet bottomSheet = new functionsBottomSheet(homeFragment);
+            bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
+
+        });
 
         btn_all.setOnClickListener(v -> {
             RadBtnAll.setChecked(true);
