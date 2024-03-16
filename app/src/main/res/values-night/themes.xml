@@ -28,10 +28,10 @@
     </style>
 
 
-    <style name="filter_background_btn">
+    <style name="options_background_btn">
 
         <item name="android:background">@drawable/filter_background_dark</item>
-        <item name="android:src">@drawable/filter_icon_black</item>
+        <item name="android:src">@drawable/options_icon_black</item>
 
     </style>
 
@@ -164,6 +164,42 @@
 
         <item name="android:background">@drawable/btn_background_filter_dark</item>
         <item name="android:textColor">@color/white_v1</item>
+
+    </style>
+
+    <style name="close_background_btn">
+
+        <item name="android:src">@drawable/close_icon_white</item>
+
+    </style>
+
+    <style name="rounded_outline_solid_white_black">
+
+        <item name="android:background">@drawable/rounded_outline_white_solid_black</item>
+
+    </style>
+
+    <style name="sort_icon">
+
+        <item name="android:src">@drawable/sort_icon_white</item>
+
+    </style>
+
+    <style name="filter_icon">
+
+        <item name="android:src">@drawable/filter_icon_white</item>
+
+    </style>
+
+    <style name="view_icon">
+
+        <item name="android:src">@drawable/view_icon_white</item>
+
+    </style>
+
+    <style name="circle">
+
+        <item name="android:background">@drawable/circle_white</item>
 
     </style>
 

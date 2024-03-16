@@ -1,5 +1,4 @@
 package com.eibrahim.winkel.mainActivity;
-import static androidx.core.content.ContextCompat.getSystemService;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,11 +14,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -27,16 +24,13 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
-import com.eibrahim.winkel.bottomSheets.FilterBottomSheet;
+import com.eibrahim.winkel.bottomSheets.functionsBottomSheet;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,8 +84,8 @@ public class HomeFragment extends Fragment {
         search_btn = root.findViewById(R.id.search_btn);
         search_page = root.findViewById(R.id.search_page);
 
-        ImageView btnFilterH = root.findViewById(R.id.btnFilterH);
-        FilterBottomSheet filterBottomSheet = new FilterBottomSheet(HomeFragment.this);
+        ImageView btnFilterH = root.findViewById(R.id.btnFunctions);
+        functionsBottomSheet functionsBottomSheet = new functionsBottomSheet(HomeFragment.this);
         EditText search_text = root.findViewById(R.id.search_text);
 
 
@@ -170,10 +164,10 @@ public class HomeFragment extends Fragment {
         btnFilterH.setOnClickListener(v -> {
 
 
-            if (filterBottomSheet.isVisible())
-                filterBottomSheet.dismiss();
+            if (functionsBottomSheet.isVisible())
+                functionsBottomSheet.dismiss();
             else
-                filterBottomSheet.show(requireActivity().getSupportFragmentManager(), "");
+                functionsBottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
 

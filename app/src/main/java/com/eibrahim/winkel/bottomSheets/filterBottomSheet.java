@@ -1,10 +1,6 @@
 package com.eibrahim.winkel.bottomSheets;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,18 +9,21 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.mainActivity.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 
-public class FilterBottomSheet extends BottomSheetDialogFragment {
+public class filterBottomSheet extends BottomSheetDialogFragment {
 
     private String type = "All", fPrice = "0", tPrice = "10000";
 
     private final HomeFragment homeFragment;
 
-    public FilterBottomSheet(HomeFragment homeFragment) {
+    public filterBottomSheet(HomeFragment homeFragment) {
 
         this.homeFragment = homeFragment;
 
@@ -35,7 +34,6 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
 
         View root = inflater.inflate(R.layout.bottom_sheet_filter, container, false);
-
 
         Button btnFilter = root.findViewById(R.id.btnFilter);
 
@@ -97,7 +95,7 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
                 fPrice.setText("0");
             }
             if (tPrice.getText() == null || tPrice.getText().toString().isEmpty()) {
-                tPrice.setText("100000");
+                tPrice.setText("1000");
             }
 
             this.fPrice = fPrice.getText().toString();
@@ -108,6 +106,7 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
             dismiss();
 
         });
+
 
         return root;
 

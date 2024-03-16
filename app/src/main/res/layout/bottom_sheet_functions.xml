@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        style="@style/circle"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            style="@style/close_background_btn"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:focusable="true"
+            android:layout_marginStart="20dp" />
+
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/works_ans_v1"
+            android:text="More Functions"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,InefficientWeight" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sort_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/rounded_outline_solid_white_black"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Sort By"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            tools:ignore="HardcodedText,InefficientWeight" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            style="@style/sort_icon"
+            android:padding="5dp"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/filter_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/rounded_outline_solid_white_black"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Filter"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            tools:ignore="HardcodedText,InefficientWeight" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            style="@style/filter_icon"
+            android:padding="5dp"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/rounded_outline_solid_white_black"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="View Product"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            tools:ignore="HardcodedText,InefficientWeight" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            style="@style/view_icon"
+            android:padding="5dp"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

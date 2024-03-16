@@ -62,10 +62,10 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/btnFilterH"
+                        android:id="@+id/btnFunctions"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        style="@style/filter_background_btn"
+                        style="@style/options_background_btn"
                         android:padding="12dp"
                         android:clickable="true"
                         android:layout_gravity="center_vertical"
