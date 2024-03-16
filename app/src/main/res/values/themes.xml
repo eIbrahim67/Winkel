@@ -7,6 +7,11 @@
 
     <style name="Theme.Winkel" parent="Base.Theme.Winkel" />
 
+    <style name="background">
+
+        <item name="android:background">@color/white_v1</item>
+
+    </style>
 
     <style name="TextColor_v1">
 
@@ -205,5 +210,36 @@
         <item name="android:background">@drawable/circle_black</item>
 
     </style>
+
+    <style name="az_sort_icon">
+
+        <item name="android:src">@drawable/az_sort_icon_black</item>
+
+    </style>
+
+    <style name="za_sort_icon">
+
+        <item name="android:src">@drawable/za_sort_icon_black</item>
+
+    </style>
+
+    <style name="sort_ascending_icon">
+
+        <item name="android:src">@drawable/sort_ascending_icon_black</item>
+
+    </style>
+
+    <style name="sort_descending_icon">
+
+        <item name="android:src">@drawable/sort_descending_icon_black</item>
+
+    </style>
+
+    <style name="radio_button_background">
+
+        <item name="android:buttonTint">@color/black_v1</item>
+
+    </style>
+
 
 </resources>

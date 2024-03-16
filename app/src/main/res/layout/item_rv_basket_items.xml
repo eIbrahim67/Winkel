@@ -9,7 +9,8 @@
     android:orientation="horizontal"
     android:clickable="true"
     android:focusable="true"
-    android:padding="3dp">
+    android:padding="3dp"
+    style="@style/background">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/itemImgCheck"

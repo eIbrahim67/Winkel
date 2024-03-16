@@ -6,6 +6,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="background">
+
+        <item name="android:background">@color/black_v2</item>
+
+    </style>
+
     <style name="TextColor_v1">
 
         <item name="android:textColor">@color/white_v1</item>
@@ -200,6 +206,36 @@
     <style name="circle">
 
         <item name="android:background">@drawable/circle_white</item>
+
+    </style>
+
+    <style name="az_sort_icon">
+
+        <item name="android:src">@drawable/az_sort_icon_white</item>
+
+    </style>
+
+    <style name="za_sort_icon">
+
+        <item name="android:src">@drawable/za_sort_icon_white</item>
+
+    </style>
+
+    <style name="sort_ascending_icon">
+
+        <item name="android:src">@drawable/sort_ascending_icon_white</item>
+
+    </style>
+
+    <style name="sort_descending_icon">
+
+        <item name="android:src">@drawable/sort_descending_icon_white</item>
+
+    </style>
+
+    <style name="radio_button_background">
+
+        <item name="android:buttonTint">@color/white_v1</item>
 
     </style>
 

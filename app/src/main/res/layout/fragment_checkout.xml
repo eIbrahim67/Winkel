@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mainActivity.CheckoutFragment"
-    android:id="@+id/checkout_fragment">
+    android:id="@+id/checkout_fragment"
+    style="@style/background">
 
     <RelativeLayout
         android:layout_width="match_parent"

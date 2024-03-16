@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondActivity.AccountFragment">
+    tools:context=".secondActivity.AccountFragment"
+    style="@style/background">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
