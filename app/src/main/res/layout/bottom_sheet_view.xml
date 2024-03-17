@@ -3,18 +3,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     style="@style/background"
     android:paddingBottom="40dp">
-
-    <View
-        android:layout_width="100dp"
-        android:layout_height="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center_horizontal"
-        style="@style/circle"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,8 +17,8 @@
 
         <ImageView
             android:id="@+id/back_view_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             style="@style/back_arrow_background_btn"
             android:padding="5dp"
             android:clickable="true"
@@ -39,9 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/works_ans_v1"
+            android:fontFamily="@font/fugaz_one_regular"
+            android:textSize="32sp"
             android:text="View"
-            android:textSize="26sp"
             android:textStyle="bold"
             tools:ignore="HardcodedText,InefficientWeight" />
 

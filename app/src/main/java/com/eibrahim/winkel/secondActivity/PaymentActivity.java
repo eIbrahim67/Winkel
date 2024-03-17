@@ -32,15 +32,13 @@ import java.util.Objects;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    String userId = "";
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         RecyclerView recyclerView_payment = findViewById(R.id.rv4);
         TextView TotalPriceOfItemsCheckout = findViewById(R.id.subTotalPriceOfItemsPayment);
@@ -88,13 +86,6 @@ public class PaymentActivity extends AppCompatActivity {
 
         List<dataRecyclerviewPaymentMethods> dataOfRvItems = new ArrayList<>();
 
-        dataObject = new dataRecyclerviewPaymentMethods(
-                "cash",
-                "Cash payment",
-                ""
-        );
-        dataOfRvItems.add(dataObject);
-
         CollectionReference collectionRef = firestore.collection("UsersData")
                 .document(userId).collection("PaymentMethodsCollection");
         collectionRef.get()
@@ -104,9 +95,10 @@ public class PaymentActivity extends AppCompatActivity {
                         Map<String, Object> data = document.getData();
 
                         dataObject = new dataRecyclerviewPaymentMethods(
-                                (String) Objects.requireNonNull(data).get("type"),
+                                (String) Objects.requireNonNull(data).get("holder_name"),
+                                (String) data.get("type"),
                                 (String) data.get("number"),
-                                (String) data.get("date")
+                                (String) data.get("cvv")
                         );
                         dataOfRvItems.add(dataObject);
                     }

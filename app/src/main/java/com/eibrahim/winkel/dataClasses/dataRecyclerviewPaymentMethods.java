@@ -4,14 +4,16 @@ public class dataRecyclerviewPaymentMethods {
 
     private final String type;
     private final String number;
-    private final String date;
+    private final String cvv;
+    private final String holder_name;
 
 
 
-    public dataRecyclerviewPaymentMethods(String type, String number, String date) {
+    public dataRecyclerviewPaymentMethods(String holder_name, String type, String number, String cvv) {
         this.type = type;
         this.number = number;
-        this.date = date;
+        this.cvv = cvv;
+        this.holder_name = holder_name;
     }
 
     public String getType() {
@@ -22,7 +24,10 @@ public class dataRecyclerviewPaymentMethods {
         return number;
     }
 
-    public String getDate() {
-        return date;
+    public String getCvv() {
+        return cvv;
+    }
+    public String getHolder_name() {
+        return holder_name;
     }
 }

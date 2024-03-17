@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.eibrahim.winkel.secondActivity.PaymentActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
 
@@ -29,36 +29,30 @@ public class adapterRecyclerviewPaymentMethods extends RecyclerView.Adapter<adap
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        final ImageView itemImgPayment;
-        final ImageView itemImgPaymentSelected;
-        final TextView itemNumPayment;
-        final TextView itemNumPaymentSelected;
-        final TextView itemDatePayment;
-        final TextView itemDatePaymentSelected;
-        final LinearLayout itemSelected;
-        final LinearLayout item;
+        final TextView holder_name_mastercard, cvv_mastercard, number_mastercard, holder_name_visa, cvv_visa, number_visa ;
+        final RelativeLayout visa, mastercard;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            itemImgPayment = itemView.findViewById(R.id.itemImgPayment);
-            itemNumPayment = itemView.findViewById(R.id.itemNumPayment);
-            itemDatePayment = itemView.findViewById(R.id.itemDatePayment);
+            holder_name_mastercard = itemView.findViewById(R.id.holder_name_mastercard);
+            cvv_mastercard = itemView.findViewById(R.id.cvv_mastercard);
+            number_mastercard = itemView.findViewById(R.id.number_mastercard);
 
-            itemSelected = itemView.findViewById(R.id.itemSelected);
-            item = itemView.findViewById(R.id.item);
+            holder_name_visa = itemView.findViewById(R.id.holder_name_visa);
+            cvv_visa = itemView.findViewById(R.id.cvv_visa);
+            number_visa = itemView.findViewById(R.id.number_visa);
 
-            itemImgPaymentSelected = itemView.findViewById(R.id.itemImgPaymentSelected);
-            itemNumPaymentSelected = itemView.findViewById(R.id.itemNumPaymentSelected);
-            itemDatePaymentSelected = itemView.findViewById(R.id.itemDatePaymentSelected);
+            visa = itemView.findViewById(R.id.visa);
+            mastercard = itemView.findViewById(R.id.mastercard);
+
         }
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_rv_payment_method, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.credit_card, parent, false);
         return new ViewHolder(view);
     }
 
@@ -66,41 +60,23 @@ public class adapterRecyclerviewPaymentMethods extends RecyclerView.Adapter<adap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         dataRecyclerviewPaymentMethods currentItem = itemList.get(position);
 
-        holder.itemDatePayment.setText(currentItem.getDate());
-        holder.itemNumPayment.setText(currentItem.getNumber());
+        switch (currentItem.getType()){
 
+            case "visa":
+                holder.number_visa.setText(currentItem.getNumber());
+                holder.holder_name_visa.setText(currentItem.getHolder_name());
+                holder.cvv_visa.setText(currentItem.getCvv());
+                holder.visa.setVisibility(View.VISIBLE);
+                break;
 
-        if (Objects.equals(currentItem.getType(), "master card")){
-            holder.itemImgPaymentSelected.setImageResource(R.drawable.mastercard_v1);
-            holder.itemImgPayment.setImageResource(R.drawable.mastercard_v2);
+            case "mastercard":
+                holder.number_mastercard.setText(currentItem.getNumber());
+                holder.holder_name_mastercard.setText(currentItem.getHolder_name());
+                holder.cvv_mastercard.setText(currentItem.getCvv());
+                holder.mastercard.setVisibility(View.VISIBLE);
+                break;
         }
-        else if (Objects.equals(currentItem.getType(), "visa")){
-            holder.itemImgPaymentSelected.setImageResource(R.drawable.visa_v1);
-            holder.itemImgPayment.setImageResource(R.drawable.visa_v2);
-        }
-        else  if (Objects.equals(currentItem.getType(), "paypal")){
-            holder.itemImgPaymentSelected.setImageResource(R.drawable.paypal_v1);
-            holder.itemImgPayment.setImageResource(R.drawable.paypal_v2);
-        }
-        else  if (Objects.equals(currentItem.getType(), "cash")){
-            holder.itemImgPaymentSelected.setImageResource(R.drawable.cash_v1);
-            holder.itemImgPayment.setImageResource(R.drawable.cash_v2);
-        }
-        holder.itemNumPaymentSelected.setText(currentItem.getNumber());
-        holder.itemDatePaymentSelected.setText(currentItem.getDate());
 
-        holder.item.setOnClickListener(v -> holder.itemView.callOnClick());
-
-        holder.itemSelected.setOnClickListener(v -> holder.itemView.callOnClick());
-
-        holder.itemView.setOnClickListener(v -> {
-            if(holder.itemSelected.getVisibility() == View.GONE){
-                holder.itemSelected.setVisibility(View.VISIBLE);
-                if (lastHolder != null)
-                    lastHolder.itemSelected.setVisibility(View.GONE);
-                lastHolder = holder;
-            }
-        });
     }
     @Override
     public int getItemCount() {

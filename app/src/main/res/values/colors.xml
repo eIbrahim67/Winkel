@@ -19,6 +19,11 @@
     <color name="gray_v7">#607D8B</color>
     <color name="gray_v8">#DCDEDD</color>
     <color name="gray_v9">#F3F4F6</color>
+    <color name="gray_v10">#313A47</color>
+    <color name="gray_v11">#E4E2DC</color>
+    <color name="gray_v12">#F6F6F6</color>
+
+    <color name="blue_v1">#0153A1</color>
 
 
 </resources>

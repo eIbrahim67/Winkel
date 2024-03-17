@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".secondActivity.addPaymentMethodActivity"
+    style="@style/background">
+
+    <TextView
+        style="@style/TextColor_v1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/works_ans_v1"
+        android:text="Add new payment method"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        tools:ignore="HardcodedText,InefficientWeight" />
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <RelativeLayout
+            android:id="@+id/mastercard_new"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/credit_card_gray"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/world_white"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mastercard"
+                style="@style/TextColor_v3"
+                android:fontFamily="@font/works_ans_v1"
+                android:textStyle="bold"
+                android:textSize="26sp"
+                tools:ignore="HardcodedText"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/signal_icon_white"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/number_mastercard_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0000000000000000"
+                    style="@style/TextColor_v3"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    tools:ignore="HardcodedText"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VALID THRU"
+                    style="@style/TextColor_v3"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:textStyle="bold"
+                    android:textSize="8sp"
+                    tools:ignore="HardcodedText"/>
+
+                <TextView
+                    android:id="@+id/cvv_mastercard_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00/00"
+                    style="@style/TextColor_v3"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText"/>
+
+                <TextView
+                    android:id="@+id/holder_name_mastercard_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XXXXXX X. XXXXXX"
+                    style="@style/TextColor_v3"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText"/>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/mastercard_v1"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/visa_new"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/credit_card_blue"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visa"
+                style="@style/TextColor_v3"
+                android:fontFamily="@font/works_ans_v1"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                tools:ignore="HardcodedText"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/chip_icon_gold"
+                        android:layout_marginEnd="10dp"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/signal_icon_white"
+                        android:layout_gravity="center_vertical"/>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/number_visa_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0000 0000 0000 0000"
+                    style="@style/TextColor_v3"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    tools:ignore="HardcodedText"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="end">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="GOOD\nTHRU"
+                            style="@style/TextColor_v3"
+                            android:fontFamily="@font/works_ans_v1"
+                            android:textStyle="bold"
+                            android:textSize="10sp"
+                            android:layout_marginEnd="5dp"
+                            tools:ignore="HardcodedText"/>
+
+                        <TextView
+                            android:id="@+id/cvv_visa_new"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00/00"
+                            style="@style/TextColor_v3"
+                            android:fontFamily="@font/works_ans_v1"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            tools:ignore="HardcodedText"
+                            android:layout_alignParentEnd="true"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/holder_name_visa_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XXXXXX X. XXXXXX"
+                        style="@style/TextColor_v3"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/visa_icon_white"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="-15dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        style="@style/rounded_outline_solid_white_black">
+
+        <EditText
+            android:id="@+id/holder_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Card Holder Name"
+            android:textSize="18sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"
+            tools:ignore="HardcodedText,RtlCompat" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        style="@style/rounded_outline_solid_white_black">
+
+        <EditText
+            android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Card Number"
+            android:inputType="numberDecimal"
+            android:textSize="18sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"
+            tools:ignore="HardcodedText,RtlCompat" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/rounded_outline_solid_white_black"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Expiry Date"
+                android:inputType="date"
+                android:textSize="18sp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                tools:ignore="HardcodedText,RtlCompat"
+                android:layout_weight="1"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/rounded_outline_solid_white_black"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/cvv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="CVV"
+                android:inputType="numberPassword"
+                android:textSize="18sp"
+                android:paddingTop="15dp"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                android:paddingBottom="15dp"
+                tools:ignore="HardcodedText,RtlCompat" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addMethod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        style="@style/checkout_background_btn"
+        android:text="Add method"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:layout_marginTop="40dp"
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"/>
+
+
+</LinearLayout>

@@ -39,8 +39,8 @@ public class SecondActivity extends AppCompatActivity {
                 break;
             }
             case 1:{
-                PaymentMethodsFragment paymentMethodsFragment = new PaymentMethodsFragment();
-                fragmentTransaction.replace(R.id.FrameLayoutProfile, paymentMethodsFragment);
+                myPaymentMethodsFragment myPaymentMethodsFragment = new myPaymentMethodsFragment();
+                fragmentTransaction.replace(R.id.FrameLayoutProfile, myPaymentMethodsFragment);
                 break;
             }
             case 2:{
