@@ -30,6 +30,8 @@ public class SignupActivity extends AppCompatActivity {
     private EditText mail;
     private EditText pass;
     private EditText repass;
+    private EditText pin;
+    private EditText repin;
     private RadioButton admin;
     private RadioButton cust;
     private RadioButton vendor;
@@ -39,6 +41,8 @@ public class SignupActivity extends AppCompatActivity {
     private EditText code_text;
     private String username;
     private String password;
+    private String pinNum;
+    private String repinNum;
     private String rePassword;
     private String phoneNo;
     private String email;
@@ -64,6 +68,8 @@ public class SignupActivity extends AppCompatActivity {
         code_text = findViewById(R.id.code_text);
         license = findViewById(R.id.license_add);
         phone = findViewById(R.id.phone_signup);
+        pin = findViewById(R.id.pin_signup);
+        repin = findViewById(R.id.re_pin_signup);
 
         Button btnSignup = findViewById(R.id.btn_signup);
         TextView btnSignin = findViewById(R.id.btn_signin2);
@@ -106,12 +112,20 @@ public class SignupActivity extends AppCompatActivity {
             password = pass.getText().toString();
             rePassword = repass.getText().toString();
             phoneNo = phone.getText().toString();
+            pinNum = pin.getText().toString();
+            repinNum = repin.getText().toString();
 
             if (username.isEmpty()) {
                 Toast.makeText(SignupActivity.this, "Please enter a username.", Toast.LENGTH_SHORT).show();
             } else if (email.isEmpty()) {
                 Toast.makeText(SignupActivity.this, "Please enter an email address.", Toast.LENGTH_SHORT).show();
-            } else if (password.isEmpty()) {
+            } else if (pinNum.isEmpty()) {
+                Toast.makeText(SignupActivity.this, "Please enter the Pin.", Toast.LENGTH_SHORT).show();
+            } else if (repinNum.isEmpty()) {
+                Toast.makeText(SignupActivity.this, "Please re-enter the Pin.", Toast.LENGTH_SHORT).show();
+            }  else if (!pinNum.equals(repinNum)) {
+                Toast.makeText(SignupActivity.this, "Pins do not match.", Toast.LENGTH_SHORT).show();
+            }else if (password.isEmpty()) {
                 Toast.makeText(SignupActivity.this, "Please enter a password.", Toast.LENGTH_SHORT).show();
             } else if (rePassword.isEmpty()) {
                 Toast.makeText(SignupActivity.this, "Please re-enter the password.", Toast.LENGTH_SHORT).show();
@@ -177,6 +191,7 @@ public class SignupActivity extends AppCompatActivity {
         data.put("userName", username);
         data.put("phoneNo", phoneNo);
         data.put("userType", userType);
+        data.put("pin", pinNum);
 
         documentRef.set(data)
                 .addOnSuccessListener(aVoid ->{

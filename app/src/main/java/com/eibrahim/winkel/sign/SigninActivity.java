@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.mainActivity.MainActivity;
+import com.eibrahim.winkel.mainPages.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 

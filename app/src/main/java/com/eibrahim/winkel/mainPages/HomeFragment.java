@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.mainActivity;
+package com.eibrahim.winkel.mainPages;
 
 import android.content.Context;
 import android.os.Bundle;

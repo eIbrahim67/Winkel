@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.secondActivity.addPaymentMethodActivity;
+import com.eibrahim.winkel.secondPages.activities.addPaymentMethodActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 

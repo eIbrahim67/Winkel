@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.mainActivity;
+package com.eibrahim.winkel.mainPages;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.eibrahim.winkel.secondActivity.PinActivity;
-import com.eibrahim.winkel.secondActivity.SecondActivity;
+import com.eibrahim.winkel.secondPages.activities.PinActivity;
+import com.eibrahim.winkel.secondPages.activities.SecondActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;

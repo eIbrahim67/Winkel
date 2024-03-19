@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.mainActivity.HomeFragment;
+import com.eibrahim.winkel.mainPages.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 

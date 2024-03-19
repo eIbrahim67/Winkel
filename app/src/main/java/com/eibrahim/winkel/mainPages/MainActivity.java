@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.mainActivity;
+package com.eibrahim.winkel.mainPages;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

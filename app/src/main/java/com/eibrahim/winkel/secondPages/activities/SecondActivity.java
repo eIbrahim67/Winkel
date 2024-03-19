@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondActivity;
+package com.eibrahim.winkel.secondPages.activities;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -12,6 +12,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.secondPages.fragments.AccountFragment;
+import com.eibrahim.winkel.secondPages.fragments.AddItemFragment;
+import com.eibrahim.winkel.secondPages.fragments.OrdersFragment;
+import com.eibrahim.winkel.secondPages.fragments.myPaymentMethodsFragment;
 
 public class SecondActivity extends AppCompatActivity {
 

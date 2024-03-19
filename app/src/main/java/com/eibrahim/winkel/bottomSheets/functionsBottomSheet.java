@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.mainActivity.HomeFragment;
+import com.eibrahim.winkel.mainPages.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 

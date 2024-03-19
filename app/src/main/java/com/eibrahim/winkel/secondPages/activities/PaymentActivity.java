@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondActivity;
+package com.eibrahim.winkel.secondPages.activities;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewPaymentMethods;
 import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
-import com.eibrahim.winkel.mainActivity.MainActivity;
+import com.eibrahim.winkel.mainPages.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;

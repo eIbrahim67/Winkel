@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.secondActivity.AddItemFragment;
+import com.eibrahim.winkel.secondPages.fragments.AddItemFragment;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;

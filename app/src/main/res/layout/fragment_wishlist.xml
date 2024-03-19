@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainActivity.WishlistFragment"
+    tools:context=".mainPages.WishlistFragment"
     android:id="@+id/wishlist_fragment"
     style="@style/background">
 

@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondActivity;
+package com.eibrahim.winkel.secondPages.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

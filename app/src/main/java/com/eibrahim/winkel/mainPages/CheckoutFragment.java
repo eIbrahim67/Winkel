@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.mainActivity;
+package com.eibrahim.winkel.mainPages;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.secondActivity.PaymentActivity;
+import com.eibrahim.winkel.secondPages.activities.PaymentActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewBasket;
 import com.google.firebase.auth.FirebaseAuth;

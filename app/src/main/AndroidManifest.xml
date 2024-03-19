@@ -19,25 +19,25 @@
         android:theme="@style/Theme.Winkel"
         tools:targetApi="31">
         <activity
-            android:name=".secondActivity.PinActivity"
+            android:name=".secondPages.activities.PinActivity"
             android:exported="false" />
         <activity
-            android:name=".secondActivity.addPaymentMethodActivity"
+            android:name=".secondPages.activities.addPaymentMethodActivity"
             android:exported="false" />
         <activity
-            android:name=".secondActivity.AddItemFragment"
+            android:name=".secondPages.fragments.AddItemFragment"
             android:exported="false" />
         <activity
             android:name=".sign.SigninActivity"
             android:exported="false" />
         <activity
-            android:name=".secondActivity.SecondActivity"
+            android:name=".secondPages.activities.SecondActivity"
             android:exported="false" />
         <activity
             android:name=".sign.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".mainActivity.MainActivity"
+            android:name=".mainPages.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,11 +46,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".secondActivity.PaymentActivity"
+            android:name=".secondPages.activities.PaymentActivity"
             android:exported="false"
             android:theme="@style/Theme.Winkel" />
         <activity
-            android:name=".secondActivity.ItemDetailActivity"
+            android:name=".secondPages.activities.ItemDetailActivity"
             android:exported="false" />
     </application>
 
