@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/fugaz_one_regular"
+            android:fontFamily="@font/font_type_2"
             android:textSize="32sp"
             android:text="View"
             android:textStyle="bold"
@@ -48,7 +48,6 @@
         android:background="@color/gray_v1"/>
 
     <LinearLayout
-        android:id="@+id/btn_grid_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -95,7 +94,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/btn_linear_horizontal_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -142,7 +140,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/btn_linear_vertical_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
@@ -189,7 +186,6 @@
 
 
     <Button
-        android:id="@+id/btnsort"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="15dp"

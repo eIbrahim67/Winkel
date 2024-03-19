@@ -1,7 +1,6 @@
 package com.eibrahim.winkel.secondActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -128,7 +127,7 @@ public class addPaymentMethodActivity extends AppCompatActivity {
             );
 
             FirebaseAuth auth = FirebaseAuth.getInstance();
-            String userId = String.valueOf(Objects.requireNonNull(auth.getCurrentUser()).getUid());
+            String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
             CollectionReference collectionRef = firestore.collection("UsersData").

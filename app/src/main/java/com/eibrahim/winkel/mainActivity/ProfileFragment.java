@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.eibrahim.winkel.secondActivity.PinActivity;
 import com.eibrahim.winkel.secondActivity.SecondActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.sign.SigninActivity;
@@ -57,14 +58,14 @@ public class ProfileFragment extends Fragment {
         });
 
          btnProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), SecondActivity.class);
-            intent.putExtra("state", 0);
+            Intent intent = new Intent(getActivity(), PinActivity.class);
+            intent.putExtra("goto", 0);
             startActivity(intent);
         });
 
          btnPaymentMethods.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), SecondActivity.class);
-            intent.putExtra("state", 1);
+            Intent intent = new Intent(getActivity(), PinActivity.class);
+            intent.putExtra("goto", 1);
             startActivity(intent);
         });
 

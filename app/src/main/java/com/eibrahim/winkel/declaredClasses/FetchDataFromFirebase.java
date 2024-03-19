@@ -2,7 +2,6 @@ package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.adapterClasses. adapterRecyclerviewItems;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -31,7 +29,8 @@ public class FetchDataFromFirebase {
     final Context context;
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
-    private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();;
+    private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+
     public FetchDataFromFirebase(RecyclerView recyclerViewItems,
                                  RecyclerView recyclerViewItemsMens,
                                  RecyclerView recyclerViewItemsWomen,

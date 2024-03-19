@@ -21,9 +21,9 @@
             android:visibility="gone">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                style="@style/basket_src"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/love_icon_light"
                 android:layout_gravity="center_horizontal"/>
 
             <TextView

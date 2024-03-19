@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/fugaz_one_regular"
+            android:fontFamily="@font/font_type_2"
             android:text="Add new Method"
             android:textSize="26sp"
             android:textStyle="bold"

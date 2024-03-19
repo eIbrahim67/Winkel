@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else
-                    throw new IllegalStateException("Unexpected value: " + String.valueOf(i));
+                    throw new IllegalStateException("Unexpected value: " + i);
 
             });
 

@@ -207,12 +207,6 @@
 
     </style>
 
-    <style name="circle">
-
-        <item name="android:background">@drawable/circle_black</item>
-
-    </style>
-
     <style name="az_sort_icon">
 
         <item name="android:src">@drawable/az_sort_icon_black</item>
@@ -285,5 +279,10 @@
 
     </style>
 
+    <style name="remove_icon">
+
+        <item name="android:src">@drawable/remove_icon_black</item>
+
+    </style>
 
 </resources>

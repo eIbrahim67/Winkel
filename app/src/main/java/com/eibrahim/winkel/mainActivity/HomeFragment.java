@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
     private FetchDataFromFirebase fetchDataFromFirebase;
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
-    private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private LinearLayout search_page, search_btn;
 
 

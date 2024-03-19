@@ -30,7 +30,7 @@
             android:id="@+id/mastercard_new"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/credit_card_gray"
+            android:background="@drawable/background_rounded_gray_v10"
             android:visibility="gone">
 
             <RelativeLayout
@@ -128,7 +128,7 @@
             android:id="@+id/visa_new"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/credit_card_blue"
+            android:background="@drawable/background_rounded_blue_v1"
             android:visibility="gone">
 
             <TextView
@@ -214,8 +214,7 @@
                             android:fontFamily="@font/works_ans_v1"
                             android:textStyle="bold"
                             android:textSize="18sp"
-                            tools:ignore="HardcodedText"
-                            android:layout_alignParentEnd="true"/>
+                            tools:ignore="HardcodedText"/>
 
                     </LinearLayout>
 
@@ -318,8 +317,7 @@
                 android:paddingBottom="15dp"
                 android:layout_marginStart="20dp"
                 android:background="@android:color/transparent"
-                tools:ignore="HardcodedText,RtlCompat"
-                android:layout_weight="1"/>
+                tools:ignore="HardcodedText,RtlCompat"/>
 
         </RelativeLayout>
 

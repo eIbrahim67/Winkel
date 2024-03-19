@@ -20,9 +20,9 @@ import java.util.Map;
 public class AddToShop {
 
     static ProgressDialog progressDialog;
-    static Context context;
-    static AddItemFragment addItemFragment;
-    public static void addItemToShop(DataRecyclerviewMyItem Item, String TypeFor, Uri uri, AddItemFragment addItemFragmentCopy){
+     Context context;
+     AddItemFragment addItemFragment;
+    public void addItemToShop(DataRecyclerviewMyItem Item, String TypeFor, Uri uri, AddItemFragment addItemFragmentCopy){
 
         context = addItemFragmentCopy.requireContext();
         addItemFragment = addItemFragmentCopy;
@@ -45,7 +45,7 @@ public class AddToShop {
 
     }
 
-    private static void uploadImageToFirebase(Uri uri, String docId, String TypeFor) {
+    private  void uploadImageToFirebase(Uri uri, String docId, String TypeFor) {
         FirebaseStorage fStorage = FirebaseStorage.getInstance();
         StorageReference storageReference = fStorage.getReference();
 
@@ -59,7 +59,7 @@ public class AddToShop {
                 });
     }
 
-    private static void updateImageUrlInFirestore(String newImageUrl, String docId, String TypeFor) {
+    private  void updateImageUrlInFirestore(String newImageUrl, String docId, String TypeFor) {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         DocumentReference usersCollection = firestore.collection("Products").document(TypeFor). collection(TypeFor).document(docId);
         Map<String, Object> updates = new HashMap<>();

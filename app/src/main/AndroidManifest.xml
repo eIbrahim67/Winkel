@@ -19,6 +19,9 @@
         android:theme="@style/Theme.Winkel"
         tools:targetApi="31">
         <activity
+            android:name=".secondActivity.PinActivity"
+            android:exported="false" />
+        <activity
             android:name=".secondActivity.addPaymentMethodActivity"
             android:exported="false" />
         <activity

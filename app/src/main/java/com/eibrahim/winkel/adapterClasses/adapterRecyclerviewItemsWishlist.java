@@ -82,7 +82,7 @@ public class adapterRecyclerviewItemsWishlist extends RecyclerView.Adapter<adapt
                 .load(currentItem.getImageId())
                 .into(holder.itemImage);
 
-        holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
+        holder.btnLoveH.setImageResource(R.drawable.loved_icon);
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
@@ -118,20 +118,6 @@ public class adapterRecyclerviewItemsWishlist extends RecyclerView.Adapter<adapt
 
 
         });
-
-
-        if (Objects.equals(cate, "Mens")){
-            HomeFragment.recyclerViewItemsMens_skeleton.setVisibility(View.GONE);
-        }
-        else if (Objects.equals(cate, "Womens")){
-            HomeFragment.recyclerViewItemsWomen_skeleton.setVisibility(View.GONE);
-        }
-        else if (Objects.equals(cate, "Kids")){
-            HomeFragment.recyclerViewItemsKids_skeleton.setVisibility(View.GONE);
-        }
-        else if (Objects.equals(cate, "Offers")){
-            HomeFragment.recyclerViewItemsOffers_skeleton.setVisibility(View.GONE);
-        }
 
     }
 

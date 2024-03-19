@@ -75,7 +75,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         btnBackHome.setOnClickListener(v -> finish());
 
         if (currentItem.getItemLoved())
-            btnWishlist.setImageResource(R.drawable.love_icon_light);
+            btnWishlist.setImageResource(R.drawable.loved_icon);
         btnWishlist.setOnClickListener(v -> {
 
             if (currentItem.getItemLoved()) {
@@ -94,7 +94,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                         });
 
             } else {
-                btnWishlist.setImageResource(R.drawable.love_icon_light);
+                btnWishlist.setImageResource(R.drawable.loved_icon);
                 currentItem.setItemLoved(true);
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))

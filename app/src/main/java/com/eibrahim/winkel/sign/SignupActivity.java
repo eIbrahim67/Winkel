@@ -15,8 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.mainActivity.MainActivity;
-import com.eibrahim.winkel.secondActivity.PaymentActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -166,7 +164,7 @@ public class SignupActivity extends AppCompatActivity {
                     }
                 });
 
-        String userId = String.valueOf(Objects.requireNonNull(auth.getCurrentUser()).getUid());
+        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         DocumentReference documentRef = firestore

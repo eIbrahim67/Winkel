@@ -8,9 +8,6 @@ import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 
 import com.eibrahim.winkel.R;
@@ -19,8 +16,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 
 public class functionsBottomSheet extends BottomSheetDialogFragment {
-
-    private String type = "All", fPrice = "0", tPrice = "10000";
 
     private final HomeFragment homeFragment;
 

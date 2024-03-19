@@ -54,6 +54,7 @@ public class AddItemFragment extends Fragment {
         RelativeLayout upload_photo = root.findViewById(R.id.upload_photo);
         RelativeLayout take_photo = root.findViewById(R.id.take_photo);
 
+        AddToShop addToShop = new AddToShop();
 
         take_photo.setOnClickListener(view -> dispatchTakePictureIntent());
 
@@ -86,7 +87,7 @@ public class AddItemFragment extends Fragment {
                     ""
             );
 
-            AddToShop.addItemToShop(data, TypeFor, selectedImage, AddItemFragment.this);
+            addToShop.addItemToShop(data, TypeFor, selectedImage, AddItemFragment.this);
         });
 
         return root;

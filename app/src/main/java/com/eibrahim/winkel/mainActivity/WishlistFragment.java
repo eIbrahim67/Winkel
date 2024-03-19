@@ -45,7 +45,6 @@ public class WishlistFragment extends Fragment {
 
         fetchWishlistData(recyclerview_wishlist, requireContext());
 
-
         wishlist_fragment.setOnRefreshListener(() -> {
 
             fetchWishlistData(recyclerview_wishlist, requireContext());

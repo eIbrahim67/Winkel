@@ -82,7 +82,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
 
 
         if (currentItem.getItemLoved())
-            holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
+            holder.btnLoveH.setImageResource(R.drawable.loved_icon);
         else
             holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
 
@@ -110,7 +110,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                         .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
 
             } else {
-                holder.btnLoveH.setImageResource(R.drawable.love_icon_light);
+                holder.btnLoveH.setImageResource(R.drawable.loved_icon);
                 currentItem.setItemLoved(true);
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))

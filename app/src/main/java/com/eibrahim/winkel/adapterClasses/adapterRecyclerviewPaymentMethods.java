@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,13 +14,11 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
 
 import java.util.List;
-import java.util.Objects;
 
 public class adapterRecyclerviewPaymentMethods extends RecyclerView.Adapter<adapterRecyclerviewPaymentMethods.ViewHolder> {
 
     private final Context context;
     private final List<dataRecyclerviewPaymentMethods> itemList;
-    private ViewHolder lastHolder = null;
     public adapterRecyclerviewPaymentMethods(Context context, List<dataRecyclerviewPaymentMethods> itemList) {
         this.context = context;
         this.itemList = itemList;
