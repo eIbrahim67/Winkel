@@ -8,490 +8,331 @@
     tools:context=".mainPages.ProfileFragment"
     style="@style/background">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            style="@style/TextColor_v1"
-            android:background="@android:color/transparent"/>
-        
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/btnProfile"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/user_src"
-                android:layout_gravity="center_vertical"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
-                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Personal Data"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/btnAddNewItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/much_items_background_plus"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
-
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Add new item"
-                android:textSize="16sp"
+                android:text="Profile"
+                android:textSize="40sp"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnPaymentMethods"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/card_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
-
-            <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
                 style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Payment methods"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
                 android:background="@android:color/transparent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/btnProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    style="@style/ripple_rectangle"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_rounded_gray_v4"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        style="@style/user_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:text="Personal\nData"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnPaymentMethods"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="5dp"
+                    style="@style/ripple_rectangle"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_rounded_gray_v4"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        style="@style/card_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:text="Payment\nMethods"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/btnAddNewItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        style="@style/ripple_rectangle"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="@drawable/background_rounded_gray_v4"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            style="@style/folder_add_icon"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:background="@android:color/transparent"/>
+
+                        <TextView
+                            style="@style/TextColor_v1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/works_ans_v1"
+                            android:text="Add new\nItem"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:layout_marginTop="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnOrders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        style="@style/ripple_rectangle"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="@drawable/background_rounded_gray_v4"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            style="@style/layers_icon"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:background="@android:color/transparent"/>
+
+                        <TextView
+                            style="@style/TextColor_v1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/works_ans_v1"
+                            android:text="All\nOrders"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:layout_marginTop="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="5dp"
+                    style="@style/ripple_rectangle"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_rounded_gray_v4"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        style="@style/settings_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:text="App\nSettings"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    style="@style/ripple_rectangle"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_rounded_gray_v4"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        style="@style/headphones_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:text="Help &amp;\nSupport"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="5dp"
+                    style="@style/ripple_rectangle"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_rounded_gray_v4"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        style="@style/signout_icon"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:text="Sign Out"
+                        android:textSize="20sp"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray_v1"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/card_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
-
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Settings"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/card_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
-
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Notifications"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray_v1"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/card_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
-
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="FAQs"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/card_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
-
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Help &amp; Support"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/btnOrders"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/orders_icon_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
-
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Orders"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray_v1"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
-
-        <LinearLayout
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            style="@style/ripple_rectangle"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/logout_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@android:color/transparent"/>
-
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/works_ans_v1"
-                android:text="Log Out"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                style="@style/arrow_right_src"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
