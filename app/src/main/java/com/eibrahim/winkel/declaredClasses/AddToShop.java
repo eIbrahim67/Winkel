@@ -6,8 +6,8 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.secondPages.fragments.AddItemFragment;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.secondPages.AddItemActivity;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -19,15 +19,13 @@ import java.util.Map;
 
 public class AddToShop {
 
-    static ProgressDialog progressDialog;
-     Context context;
-     AddItemFragment addItemFragment;
-    public void addItemToShop(DataRecyclerviewMyItem Item, String TypeFor, Uri uri, AddItemFragment addItemFragmentCopy){
+     ProgressDialog progressDialog;
+     AddItemActivity addItemActivity;
+    public void addItemToShop(DataRecyclerviewItem Item, String TypeFor, Uri uri, AddItemActivity addItemActivity){
 
-        context = addItemFragmentCopy.requireContext();
-        addItemFragment = addItemFragmentCopy;
+        this.addItemActivity = addItemActivity;
 
-        progressDialog = new ProgressDialog(context);
+        progressDialog = new ProgressDialog(addItemActivity);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
@@ -68,14 +66,14 @@ public class AddToShop {
         usersCollection.update(updates)
                 // Success message
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(context, "The new item was uploaded successfully.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addItemActivity, "The new item was uploaded successfully.", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
-                    addItemFragment.requireActivity().finish();
+                    addItemActivity.finish();
                 })
 
 // Failure message
                 .addOnFailureListener(e -> {
-                    Toast.makeText(context, "An unexpected error occurred. The item was not uploaded.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addItemActivity, "An unexpected error occurred. The item was not uploaded.", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 });
 

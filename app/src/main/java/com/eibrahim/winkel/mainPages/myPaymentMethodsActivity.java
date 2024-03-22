@@ -1,16 +1,11 @@
-package com.eibrahim.winkel.secondPages.fragments;
+package com.eibrahim.winkel.mainPages;
 
-import android.content.Context;
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Bundle;
 import android.widget.Button;
 
 import com.eibrahim.winkel.R;
@@ -27,38 +22,36 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class myPaymentMethodsFragment extends Fragment {
+public class myPaymentMethodsActivity extends AppCompatActivity {
 
-    private final FirebaseAuth auth = FirebaseAuth.getInstance();
-    private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+    private final String userId = FirebaseAuth.getInstance().getUid();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_my_payment_methods, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_payment_methods);
 
-        RecyclerView recyclerview_show_methods = root.findViewById(R.id.recyclerview_show_methods);
-        Button btnAddNewMethod = root.findViewById(R.id.btnAddNewMethod);
-        addMethodBottomSheet addMethodBottomSheet = new addMethodBottomSheet(requireContext());
+        RecyclerView recyclerview_show_methods = findViewById(R.id.recyclerview_show_methods);
+        Button btnAddNewMethod = findViewById(R.id.btnAddNewMethod);
+        com.eibrahim.winkel.bottomSheets.addMethodBottomSheet addMethodBottomSheet = new addMethodBottomSheet(this);
 
-        SwipeRefreshLayout myPaymentMethodsFragment_layout = root.findViewById(R.id.myPaymentMethodsFragment_layout);
+        SwipeRefreshLayout myPaymentMethodsFragment_layout = findViewById(R.id.myPaymentMethodsFragment_layout);
 
         myPaymentMethodsFragment_layout.setOnRefreshListener(() -> {
-            fetchPaymentMethodsData(recyclerview_show_methods, requireContext());
-            myPaymentMethodsFragment_layout.setRefreshing(false);
-        }
+                    fetchPaymentMethodsData(recyclerview_show_methods);
+                    myPaymentMethodsFragment_layout.setRefreshing(false);
+                }
         );
 
-        fetchPaymentMethodsData(recyclerview_show_methods, requireContext());
+        fetchPaymentMethodsData(recyclerview_show_methods);
 
-        btnAddNewMethod.setOnClickListener(v-> addMethodBottomSheet.show(requireActivity().getSupportFragmentManager(), ""));
+        btnAddNewMethod.setOnClickListener(v -> addMethodBottomSheet.show(getSupportFragmentManager(), ""));
 
-        return root;
     }
 
-    private void fetchPaymentMethodsData(RecyclerView recyclerView, Context context) {
-
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private void fetchPaymentMethodsData(RecyclerView recyclerView) {
 
         List<dataRecyclerviewPaymentMethods> dataOfRvItems = new ArrayList<>();
 
@@ -78,12 +71,11 @@ public class myPaymentMethodsFragment extends Fragment {
                         );
                         dataOfRvItems.add(dataObject);
                     }
-                    adapterRecyclerviewPaymentMethods adapterRvItems = new adapterRecyclerviewPaymentMethods(context, dataOfRvItems);
-                    recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
+                    adapterRecyclerviewPaymentMethods adapterRvItems = new adapterRecyclerviewPaymentMethods(this, dataOfRvItems);
+                    recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
                     recyclerView.setAdapter(adapterRvItems);
                 })
                 .addOnFailureListener(e -> {
                 });
     }
-
 }

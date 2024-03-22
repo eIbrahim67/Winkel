@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".secondPages.activities.PinActivity">
+    tools:context=".secondPages.PinActivity">
 
     <ImageView
+        android:id="@+id/btn_back_pin"
         android:layout_width="40dp"
         android:layout_height="40dp"
         style="@style/back_arrow_background_btn"
@@ -47,8 +48,8 @@
 
         <ImageView
             android:id="@+id/pin_p1"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:padding="15dp"
             android:background="@drawable/rounded_outline_black_solid_white"
             android:layout_marginStart="10dp"
@@ -56,8 +57,8 @@
 
         <ImageView
             android:id="@+id/pin_p2"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@drawable/rounded_outline_black_solid_white"
             android:padding="15dp"
             android:layout_marginStart="10dp"
@@ -65,8 +66,8 @@
 
         <ImageView
             android:id="@+id/pin_p3"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@drawable/rounded_outline_black_solid_white"
             android:padding="15dp"
             android:layout_marginStart="10dp"
@@ -74,8 +75,8 @@
 
         <ImageView
             android:id="@+id/pin_p4"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@drawable/rounded_outline_black_solid_white"
             android:padding="15dp"
             android:layout_marginStart="10dp"
@@ -111,10 +112,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
                 <Button
@@ -126,10 +129,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
                 <Button
@@ -141,10 +146,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
             </LinearLayout>
@@ -153,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp">
 
@@ -166,10 +173,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
                 <Button
@@ -181,10 +190,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
                 <Button
@@ -196,10 +207,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
             </LinearLayout>
@@ -208,7 +221,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp">
 
@@ -221,10 +234,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
                 <Button
@@ -236,10 +251,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
                 <Button
@@ -251,10 +268,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
             </LinearLayout>
@@ -263,22 +282,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp">
 
                 <Button
+                    android:id="@+id/btn_pin_00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="00"
                     android:textStyle="bold"
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:visibility="invisible"
-                    android:clickable="false"
-                    android:focusable="false"/>
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    style="@style/rounded_outline_solid_white_black"/>
 
                 <Button
                     android:id="@+id/btn_pin_0"
@@ -289,10 +312,12 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
                 <RelativeLayout
@@ -303,8 +328,8 @@
                     android:fontFamily="@font/works_ans_v1"
                     android:textSize="20sp"
                     android:layout_weight="1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     style="@style/rounded_outline_solid_white_black"
@@ -314,13 +339,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         style="@style/remove_icon"
-                        android:padding="12dp"/>
+                        android:padding="20dp"/>
 
                 </RelativeLayout>
 
             </LinearLayout>
 
             <TextView
+                android:id="@+id/forgetPin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forget your PIN?"

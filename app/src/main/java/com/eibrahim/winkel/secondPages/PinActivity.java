@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondPages.activities;
+package com.eibrahim.winkel.secondPages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,10 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.eibrahim.winkel.mainPages.myPaymentMethodsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
@@ -39,20 +38,37 @@ public class PinActivity extends AppCompatActivity {
         Button btnPin8 = findViewById(R.id.btn_pin_8);
         Button btnPin9 = findViewById(R.id.btn_pin_9);
         Button btnPin0 = findViewById(R.id.btn_pin_0);
+        Button btnPin00 = findViewById(R.id.btn_pin_00);
+
         RelativeLayout btnDelete = findViewById(R.id.btn_pin_delete);
+
+        ImageView btnBack = findViewById(R.id.btn_back_pin);
 
         ImageView pin1 = findViewById(R.id.pin_p1);
         ImageView pin2 = findViewById(R.id.pin_p2);
         ImageView pin3 = findViewById(R.id.pin_p3);
         ImageView pin4 = findViewById(R.id.pin_p4);
 
-        Intent intent = new Intent(this, SecondActivity.class);
-
         DocumentReference pinRef = FirebaseFirestore.getInstance()
                 .collection("UsersData").document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
                 .collection("UserPersonalData").document("UserPersonalData");
 
         int Goto = getIntent().getIntExtra("goto", 2);
+
+        btnBack.setOnClickListener( v -> {
+
+            finish();
+
+        });
+
+        btnPin00.setOnClickListener(v -> {
+
+            btnPin0.callOnClick();
+            if (!wrong){
+                btnPin0.callOnClick();
+            }
+
+        });
 
         View.OnClickListener numberClickListener = v -> {
             Button button = (Button) v;
@@ -121,13 +137,19 @@ public class PinActivity extends AppCompatActivity {
 
 
                                     if (Goto == 0){
+                                        try{
 
-                                        intent.putExtra("state", 0);
-                                        startActivity(intent);
-                                        finish();
+                                            Intent intent = new Intent(PinActivity.this, personalDataActivity.class);
+                                            startActivity(intent);
+                                            finish();
+
+                                        }
+                                        catch (Exception e){
+                                            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                     else if (Goto ==  1){
-                                        intent.putExtra("state", 1);
+                                        Intent intent = new Intent(this, myPaymentMethodsActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }

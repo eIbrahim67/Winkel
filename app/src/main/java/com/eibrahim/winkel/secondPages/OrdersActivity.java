@@ -1,15 +1,12 @@
-package com.eibrahim.winkel.secondPages.fragments;
+package com.eibrahim.winkel.secondPages;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewOrders;
@@ -23,19 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class OrdersFragment extends Fragment {
+public class OrdersActivity extends AppCompatActivity {
 
     Double totalPriceItem = 0.0;
     Double totalPriceOrder = 0.0;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_orders, container, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_orders);
 
-        RecyclerView recyclerView_orders = root.findViewById(R.id.re_orders);
+        RecyclerView recyclerView_orders = findViewById(R.id.re_orders);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
 
         recyclerView_orders.setLayoutManager(gridLayoutManager);
 
@@ -85,7 +82,7 @@ public class OrdersFragment extends Fragment {
 
                                 dataOfRvItemData.add(itemData);
                             }catch (Exception e) {
-                                Toast.makeText(requireContext(), "Unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(OrdersActivity.this, "Unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -102,7 +99,7 @@ public class OrdersFragment extends Fragment {
                     }
 
                     AdapterRecyclerviewOrders adapterRecyclerviewOrders = new AdapterRecyclerviewOrders(
-                            requireContext(),
+                            OrdersActivity.this,
                             dataOfRvItems
                     );
 
@@ -110,10 +107,6 @@ public class OrdersFragment extends Fragment {
                 }
             }
         });
-
-
-
-        return root;
 
     }
 }

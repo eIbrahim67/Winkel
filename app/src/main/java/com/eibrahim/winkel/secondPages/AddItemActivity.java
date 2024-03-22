@@ -1,28 +1,26 @@
-package com.eibrahim.winkel.secondPages.fragments;
+package com.eibrahim.winkel.secondPages;
 
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
+import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.declaredClasses.AddToShop;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import android.net.Uri;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-public class AddItemFragment extends Fragment {
+public class AddItemActivity extends AppCompatActivity {
 
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -35,24 +33,22 @@ public class AddItemFragment extends Fragment {
     String title, price, category;
     String TypeFor;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.add_item_activity);
 
+        loading_image = findViewById(R.id.loading_image);
+        item_category = findViewById(R.id.post_details);
+        item_title = findViewById(R.id.post_title);
+        item_price = findViewById(R.id.post_price);
 
-        View root = inflater.inflate(R.layout.add_itemt_fragment, container, false);
+        radioButtonForMen = findViewById(R.id.for_men);
+        radioButtonForKids = findViewById(R.id.for_kids);
 
-        loading_image = root.findViewById(R.id.loading_image);
-        item_category = root.findViewById(R.id.post_details);
-        item_title = root.findViewById(R.id.post_title);
-        item_price = root.findViewById(R.id.post_price);
-
-        radioButtonForMen = root.findViewById(R.id.for_men);
-        radioButtonForKids = root.findViewById(R.id.for_kids);
-
-        TextView upload_btn = root.findViewById(R.id.upload_btn);
-        RelativeLayout upload_photo = root.findViewById(R.id.upload_photo);
-        RelativeLayout take_photo = root.findViewById(R.id.take_photo);
+        TextView upload_btn = findViewById(R.id.upload_btn);
+        RelativeLayout upload_photo = findViewById(R.id.upload_photo);
+        RelativeLayout take_photo = findViewById(R.id.take_photo);
 
         AddToShop addToShop = new AddToShop();
 
@@ -66,9 +62,9 @@ public class AddItemFragment extends Fragment {
 
         upload_btn.setOnClickListener(view -> {
 
-                price = item_price.getText().toString();
-                category = item_category.getText().toString();
-                title = item_title.getText().toString();
+            price = item_price.getText().toString();
+            category = item_category.getText().toString();
+            title = item_title.getText().toString();
 
             if (radioButtonForMen.isChecked())
                 TypeFor = "Mens";
@@ -77,33 +73,31 @@ public class AddItemFragment extends Fragment {
             else
                 TypeFor = "Womens";
 
-            DataRecyclerviewMyItem data = new DataRecyclerviewMyItem(
+            DataRecyclerviewItem data = new DataRecyclerviewItem(
 
                     category,
                     null,
                     title,
                     price,
-                    TypeFor,
-                    ""
+                    TypeFor
             );
 
-            addToShop.addItemToShop(data, TypeFor, selectedImage, AddItemFragment.this);
+            addToShop.addItemToShop(data, TypeFor, selectedImage, AddItemActivity.this);
         });
-
-        return root;
+        
     }
 
     Uri selectedImage;
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
+        if (takePictureIntent.resolveActivity(this.getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        getActivity();
+
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_IMAGE_CAPTURE || requestCode == REQUEST_IMAGE_GALLERY) {
                 selectedImage = data.getData();

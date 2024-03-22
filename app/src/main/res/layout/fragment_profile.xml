@@ -201,6 +201,45 @@
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/btnMyOrders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        style="@style/ripple_rectangle"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="@drawable/background_rounded_gray_v4"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            style="@style/layers_icon"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:background="@android:color/transparent"/>
+
+                        <TextView
+                            style="@style/TextColor_v1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/works_ans_v1"
+                            android:text="My\nOrders"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:layout_marginTop="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
                 </RelativeLayout>
 
 

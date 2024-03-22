@@ -13,9 +13,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.eibrahim.winkel.secondPages.activities.PinActivity;
-import com.eibrahim.winkel.secondPages.activities.SecondActivity;
+import com.eibrahim.winkel.secondPages.OrdersActivity;
+import com.eibrahim.winkel.secondPages.PinActivity;
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.secondPages.addPaymentMethodActivity;
 import com.eibrahim.winkel.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,7 +25,7 @@ import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
 
-    LinearLayout btnProfile, btnPaymentMethods, btnOrders, btnLogout, btnAddNewItem;
+    LinearLayout btnProfile, btnPaymentMethods, btnOrders, btnLogout, btnAddNewItem, btnMyOrders;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +37,7 @@ public class ProfileFragment extends Fragment {
          btnOrders = rootView.findViewById(R.id.btnOrders);
          btnLogout = rootView.findViewById(R.id.btnLogout);
          btnAddNewItem = rootView.findViewById(R.id.btnAddNewItem);
+        btnMyOrders = rootView.findViewById(R.id.btnMyOrders);
 
          SwipeRefreshLayout profileFragment_layout = rootView.findViewById(R.id.profileFragment_layout);
 
@@ -51,8 +53,7 @@ public class ProfileFragment extends Fragment {
 
          btnAddNewItem.setOnClickListener(v -> {
 
-            Intent intent = new Intent(getActivity(), SecondActivity.class);
-            intent.putExtra("state", 3);
+            Intent intent = new Intent(getActivity(), addPaymentMethodActivity.class);
             startActivity(intent);
 
         });
@@ -70,8 +71,7 @@ public class ProfileFragment extends Fragment {
         });
 
          btnOrders.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), SecondActivity.class);
-            intent.putExtra("state", 2);
+            Intent intent = new Intent(getActivity(), OrdersActivity.class);
             startActivity(intent);
         });
 
@@ -107,15 +107,18 @@ public class ProfileFragment extends Fragment {
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
 
+                    String type = (String) documentSnapshot.get("userType");
+
                     if (documentSnapshot.exists()){
 
-                        if (Objects.equals(documentSnapshot.get("userType"), "Admin")){
-                            btnOrders.setVisibility(View.VISIBLE);
-                            btnAddNewItem.setVisibility(View.GONE);
+                        if (Objects.equals(type, "Customer")){
+                            btnMyOrders.setVisibility(View.VISIBLE);
                         }
-                        else if (Objects.equals(documentSnapshot.get("userType"), "Vendor")){
+                        else if (Objects.equals(type, "Admin")){
+                            btnOrders.setVisibility(View.VISIBLE);
+                        }
+                        else if (Objects.equals(type, "Vendor")){
                             btnAddNewItem.setVisibility(View.VISIBLE);
-                            btnOrders.setVisibility(View.GONE);
                         }
                     }
 
