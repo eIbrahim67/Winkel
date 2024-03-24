@@ -260,7 +260,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/background_add_photo"
+                    android:background="@drawable/rounded_gray_v5_black_v1_none"
                     android:layout_marginEnd="10dp"
                     android:clickable="true"
                     android:focusable="true">
@@ -302,7 +302,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/background_add_photo"
+                    android:background="@drawable/rounded_gray_v5_black_v1_none"
                     android:layout_marginStart="10dp">
 
                     <LinearLayout

@@ -12,12 +12,12 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/items_background_light"/>
+        android:background="@drawable/rounded_gray_v8_none_white_v1"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/items_background_light"
+        android:background="@drawable/rounded_gray_v8_none_white_v1"
         android:fontFamily="@font/works_ans_v1"
         android:layout_gravity="center_horizontal"
         android:textSize="18sp"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
-        android:background="@drawable/items_background_light"
+        android:background="@drawable/rounded_gray_v8_none_white_v1"
         android:textSize="15sp"
         android:gravity="center"/>
 
@@ -38,7 +38,7 @@
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/items_background_light"
+        android:background="@drawable/rounded_gray_v8_none_white_v1"
         android:fontFamily="@font/works_ans_v1"
         android:layout_gravity="center_horizontal"
         android:textSize="18sp"

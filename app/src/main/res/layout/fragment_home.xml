@@ -104,19 +104,20 @@
                             android:orientation="vertical">
 
                             <RelativeLayout
+                                android:id="@+id/btnItemsMens"
+                                style="@style/sharp_gray_v4"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:id="@+id/btnItemsMens"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Men"
                                     android:textSize="22dp"
                                     android:fontFamily="@font/works_ans_v1"
                                     android:textStyle="bold"
-                                    android:clickable="true"
-                                    android:focusable="true"
                                     android:layout_marginStart="20dp"
                                     style="@style/TextColor_v1"/>
 
@@ -155,19 +156,20 @@
                                 android:layout_marginBottom="5dp"/>
 
                             <RelativeLayout
+                                android:id="@+id/btnItemsWomen"
+                                style="@style/sharp_gray_v4"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:id="@+id/btnItemsWomen"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Women"
                                     android:textSize="22dp"
                                     android:fontFamily="@font/works_ans_v1"
                                     android:textStyle="bold"
-                                    android:clickable="true"
-                                    android:focusable="true"
                                     android:layout_marginStart="20dp"
                                     style="@style/TextColor_v1"/>
 
@@ -206,19 +208,20 @@
                                 android:layout_marginBottom="5dp"/>
 
                             <RelativeLayout
+                                android:id="@+id/btnItemsKids"
+                                style="@style/sharp_gray_v4"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:id="@+id/btnItemsKids"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Kids"
                                     android:textSize="22dp"
                                     android:fontFamily="@font/works_ans_v1"
                                     android:textStyle="bold"
-                                    android:clickable="true"
-                                    android:focusable="true"
                                     android:layout_marginStart="20dp"
                                     style="@style/TextColor_v1"/>
 

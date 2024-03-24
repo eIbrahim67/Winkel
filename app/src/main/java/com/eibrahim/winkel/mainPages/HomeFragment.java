@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -42,7 +43,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView_filter;
     private RecyclerView recyclerView_items;
     public static View recyclerViewItemsMens_skeleton, recyclerViewItemsWomen_skeleton, recyclerViewItemsKids_skeleton, recyclerViewItemsOffers_skeleton;
-    private TextView btnItemsMens, btnItemsWomen, btnItemsKids, btnItemsOffers;
+    private TextView btnItemsOffers;
+    private RelativeLayout btnItemsMens, btnItemsWomen, btnItemsKids;
     private SwipeRefreshLayout fragment_home;
     private ScrollView ScrollView_of_ItemsTypes;
     private FetchDataFromFirebase fetchDataFromFirebase;
@@ -107,6 +109,30 @@ public class HomeFragment extends Fragment {
             search_text.requestFocus();
             InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(search_text, InputMethodManager.SHOW_IMPLICIT);
+        });
+
+        btnItemsMens.setOnClickListener(v -> {
+
+            doFilter("Mens", "0", "1000");
+
+        });
+
+        btnItemsWomen.setOnClickListener(v -> {
+
+            doFilter("Womens", "0", "1000");
+
+        });
+
+        btnItemsKids.setOnClickListener(v -> {
+
+            doFilter("Kids", "0", "1000");
+
+        });
+
+        btnItemsOffers.setOnClickListener(v -> {
+
+            doFilter("Offers", "0", "1000");
+
         });
 
         search_text.addTextChangedListener(new TextWatcher() {

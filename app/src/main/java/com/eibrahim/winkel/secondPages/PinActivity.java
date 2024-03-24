@@ -79,39 +79,39 @@ public class PinActivity extends AppCompatActivity {
 
                 wrong = false;
 
-                pin1.setBackgroundResource(R.drawable.rounded_outline_black_solid_white);
+                pin1.setBackgroundResource(R.drawable.rounded_gray_v1_gray_v12_none);
                 pin1.setImageDrawable(null);
 
-                pin2.setBackgroundResource(R.drawable.rounded_outline_black_solid_white);
+                pin2.setBackgroundResource(R.drawable.rounded_gray_v1_gray_v12_none);
                 pin2.setImageDrawable(null);
 
-                pin3.setBackgroundResource(R.drawable.rounded_outline_black_solid_white);
+                pin3.setBackgroundResource(R.drawable.rounded_gray_v1_gray_v12_none);
                 pin3.setImageDrawable(null);
 
-                pin4.setBackgroundResource(R.drawable.rounded_outline_black_solid_white);
+                pin4.setBackgroundResource(R.drawable.rounded_gray_v1_gray_v12_none);
                 pin4.setImageDrawable(null);
 
             }
 
             if (pin.length() == 1){
 
-                pin1.setBackgroundResource(R.drawable.background_rounded_white_stroke_blue);
+                pin1.setBackgroundResource(R.drawable.rounded_white_v1_blue_v1_gray_v4);
                 pin1.setImageResource(R.drawable.star_icon_blue);
 
             }
             else if (pin.length() == 2){
 
-                pin2.setBackgroundResource(R.drawable.background_rounded_white_stroke_blue);
+                pin2.setBackgroundResource(R.drawable.rounded_white_v1_blue_v1_gray_v4);
                 pin2.setImageResource(R.drawable.star_icon_blue);
             }
             else if (pin.length() == 3){
 
-                pin3.setBackgroundResource(R.drawable.background_rounded_white_stroke_blue);
+                pin3.setBackgroundResource(R.drawable.rounded_white_v1_blue_v1_gray_v4);
                 pin3.setImageResource(R.drawable.star_icon_blue);
             }
             else if (pin.length() == 4){
 
-                pin4.setBackgroundResource(R.drawable.background_rounded_white_stroke_blue);
+                pin4.setBackgroundResource(R.drawable.rounded_white_v1_blue_v1_gray_v4);
                 pin4.setImageResource(R.drawable.star_icon_blue);
 
                 pinRef.get()
@@ -123,16 +123,16 @@ public class PinActivity extends AppCompatActivity {
 
                                 if (pin.equals(pinNum)){
 
-                                    pin1.setBackgroundResource(R.drawable.background_rounded_white_stroke_green);
+                                    pin1.setBackgroundResource(R.drawable.rounded_white_v1_green_v1_gray_v4);
                                     pin1.setImageResource(R.drawable.star_icon_green);
 
-                                    pin2.setBackgroundResource(R.drawable.background_rounded_white_stroke_green);
+                                    pin2.setBackgroundResource(R.drawable.rounded_white_v1_green_v1_gray_v4);
                                     pin2.setImageResource(R.drawable.star_icon_green);
 
-                                    pin3.setBackgroundResource(R.drawable.background_rounded_white_stroke_green);
+                                    pin3.setBackgroundResource(R.drawable.rounded_white_v1_green_v1_gray_v4);
                                     pin3.setImageResource(R.drawable.star_icon_green);
 
-                                    pin4.setBackgroundResource(R.drawable.background_rounded_white_stroke_green);
+                                    pin4.setBackgroundResource(R.drawable.rounded_white_v1_green_v1_gray_v4);
                                     pin4.setImageResource(R.drawable.star_icon_green);
 
 
@@ -158,16 +158,16 @@ public class PinActivity extends AppCompatActivity {
 
                                     wrong = true;
 
-                                    pin1.setBackgroundResource(R.drawable.background_rounded_white_stroke_red);
+                                    pin1.setBackgroundResource(R.drawable.rounded_white_v1_red_v1_gray_v4);
                                     pin1.setImageResource(R.drawable.star_icon_red);
 
-                                    pin2.setBackgroundResource(R.drawable.background_rounded_white_stroke_red);
+                                    pin2.setBackgroundResource(R.drawable.rounded_white_v1_red_v1_gray_v4);
                                     pin2.setImageResource(R.drawable.star_icon_red);
 
-                                    pin3.setBackgroundResource(R.drawable.background_rounded_white_stroke_red);
+                                    pin3.setBackgroundResource(R.drawable.rounded_white_v1_red_v1_gray_v4);
                                     pin3.setImageResource(R.drawable.star_icon_red);
 
-                                    pin4.setBackgroundResource(R.drawable.background_rounded_white_stroke_red);
+                                    pin4.setBackgroundResource(R.drawable.rounded_white_v1_red_v1_gray_v4);
                                     pin4.setImageResource(R.drawable.star_icon_red);
 
                                     Toast.makeText(PinActivity.this, "Wrong PIN", Toast.LENGTH_SHORT).show();
@@ -199,15 +199,15 @@ public class PinActivity extends AppCompatActivity {
             if (!pin.isEmpty()) {
 
                 if (pin.length() == 1){
-                    pin1.setBackgroundResource(R.drawable.rounded_outline_black_solid_white);
+                    pin1.setBackgroundResource(R.drawable.rounded_gray_v1_gray_v12_none);
                     pin1.setImageDrawable(null);
                 }
                 else if (pin.length() == 2){
-                    pin2.setBackgroundResource(R.drawable.rounded_outline_black_solid_white);
+                    pin2.setBackgroundResource(R.drawable.rounded_gray_v1_gray_v12_none);
                     pin2.setImageDrawable(null);
                 }
                 else if (pin.length() == 3){
-                    pin3.setBackgroundResource(R.drawable.rounded_outline_black_solid_white);
+                    pin3.setBackgroundResource(R.drawable.rounded_gray_v1_gray_v12_none);
                     pin3.setImageDrawable(null);
                 }
 

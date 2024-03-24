@@ -30,7 +30,7 @@
             android:id="@+id/mastercard_new"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/background_rounded_gray_v10"
+            android:background="@drawable/rounded_gray_v10_none_gray_v4"
             android:visibility="gone">
 
             <RelativeLayout
@@ -128,7 +128,7 @@
             android:id="@+id/visa_new"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/background_rounded_blue_v1"
+            android:background="@drawable/rounded_blue_v1_none_gray_v4"
             android:visibility="gone">
 
             <TextView

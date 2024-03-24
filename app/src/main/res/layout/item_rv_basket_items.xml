@@ -16,7 +16,7 @@
         android:id="@+id/itemImgCheck"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="@drawable/items_background_light"
+        android:background="@drawable/rounded_gray_v8_none_white_v1"
         android:layout_weight="1.5"
         android:scaleType="centerCrop"
         android:layout_marginEnd="5dp"

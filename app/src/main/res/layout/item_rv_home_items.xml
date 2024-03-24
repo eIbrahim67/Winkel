@@ -18,7 +18,7 @@
             android:id="@+id/item_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/items_background_light"/>
+            android:background="@drawable/rounded_gray_v8_none_white_v1"/>
 
         <TextView
             android:id="@+id/item_name"
@@ -60,7 +60,7 @@
         android:id="@+id/btn_loveH"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/filter_background_light"
+        android:background="@drawable/circle_black_v1_none_gray_v4"
         android:src="@drawable/unlove_icon_white"
         android:padding="10dp"
         android:layout_alignParentEnd="true"

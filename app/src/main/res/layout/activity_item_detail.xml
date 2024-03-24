@@ -38,7 +38,7 @@
             android:id="@+id/btn_love"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/filter_background_light"
+            android:background="@drawable/circle_black_v1_none_gray_v4"
             android:src="@drawable/unlove_icon_white"
             android:padding="10dp"
             android:clickable="true"

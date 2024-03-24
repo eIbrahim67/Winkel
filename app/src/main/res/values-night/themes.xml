@@ -36,14 +36,14 @@
 
     <style name="options_background_btn">
 
-        <item name="android:background">@drawable/filter_background_dark</item>
+        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
         <item name="android:src">@drawable/options_icon_black</item>
 
     </style>
 
     <style name="trash_background_btn">
 
-        <item name="android:background">@drawable/filter_background_dark</item>
+        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
         <item name="android:src">@drawable/trash_icon_black</item>
 
     </style>
@@ -57,7 +57,7 @@
 
     <style name="basket_background_btn">
 
-        <item name="android:background">@drawable/filter_background_dark</item>
+        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
         <item name="android:src">@drawable/basket_icon_black</item>
 
     </style>
@@ -65,31 +65,31 @@
 
     <style name="back_arrow_background_btn">
 
-        <item name="android:background">@drawable/filter_background_dark</item>
+        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
         <item name="android:src">@drawable/back_arrows_icon_black</item>
     </style>
 
     <style name="much_items_background_sub">
 
-        <item name="android:background">@drawable/much_items_circle_white</item>
+        <item name="android:background">@drawable/cricle_none_white_v1_gray_v4</item>
         <item name="android:src">@drawable/sub_icon_white</item>
     </style>
 
     <style name="much_items_background_plus">
 
-        <item name="android:background">@drawable/much_items_circle_black</item>
+        <item name="android:background">@drawable/circle_none_black_v1_gray_v4</item>
         <item name="android:src">@drawable/plus_icon_white</item>
     </style>
 
     <style name="checkout_background_btn">
-        <item name="android:background">@drawable/btn_chechout_background_dark</item>
+        <item name="android:background">@drawable/rounded_white_v1_none_gray_v4</item>
         <item name="android:textColor">@color/black_v1</item>
 
     </style>
 
     <style name="edit_background_btn">
 
-        <item name="android:background">@drawable/filter_background_dark</item>
+        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
         <item name="android:src">@drawable/edit_icon_black</item>
     </style>
 
@@ -102,7 +102,7 @@
     <style name="user_src">
 
         <item name="android:src">@drawable/user_icon_white</item>
-        <item name="android:background">@drawable/much_items_circle_white</item>
+        <item name="android:background">@drawable/cricle_none_white_v1_gray_v4</item>
 
     </style>
 
@@ -137,7 +137,7 @@
 
     <style name="ripple_rectangle">
 
-        <item name="android:background">@drawable/ripple_rectangle_dark</item>
+        <item name="android:background">@drawable/sharp_black_v1_none_gray_v4</item>
     </style>
 
     <style name="roundedImageViewPost" parent="">
@@ -150,7 +150,7 @@
     <style name="delete_background_src">
 
         <item name="android:src">@drawable/delete_icon_black</item>
-        <item name="android:background">@drawable/circle_ripple_light</item>
+        <item name="android:background">@drawable/circle_white_v1_none_white_v4</item>
 
     </style>
 
@@ -161,14 +161,14 @@
 
     <style name="pro_filter_selected_background_btn">
 
-        <item name="android:background">@drawable/btn_background_selected_filter_dark</item>
+        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
         <item name="android:textColor">@color/black_v1</item>
 
     </style>
 
     <style name="pro_filter_background_btn">
 
-        <item name="android:background">@drawable/btn_background_filter_dark</item>
+        <item name="android:background">@drawable/circle_none_gray_v2_gray_v4</item>
         <item name="android:textColor">@color/white_v1</item>
 
     </style>
@@ -181,7 +181,7 @@
 
     <style name="rounded_outline_solid_white_black">
 
-        <item name="android:background">@drawable/rounded_outline_white_solid_black</item>
+        <item name="android:background">@drawable/rounded_gray_v10_white_v1_gray_v4</item>
         <item name="android:textColor">@color/white_v1</item>
         <item name="android:textColorHint">@color/white_v1</item>
 
@@ -235,9 +235,9 @@
 
     </style>
 
-    <style name="ripple_gray">
+    <style name="sharp_gray_v4">
 
-        <item name="android:background">@drawable/ripple_gray_black</item>
+        <item name="android:background">@drawable/sharp_black_v2_none_gray_v4</item>
 
     </style>
 
