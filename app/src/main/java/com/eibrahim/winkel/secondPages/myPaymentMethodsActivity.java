@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.mainPages;
+package com.eibrahim.winkel.secondPages;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;

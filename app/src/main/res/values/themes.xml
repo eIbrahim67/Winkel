@@ -107,7 +107,7 @@
 
     </style>
 
-    <style name="arrow_right_src">
+    <style name="arrow_right_icon">
 
         <item name="android:src">@drawable/arrow_right_icon_black</item>
 
@@ -158,7 +158,9 @@
 
     <style name="arrow_right_background_btn">
 
-        <item name="android:src">@drawable/arrow_right_icon_black</item>
+        <item name="android:src">@drawable/arrow_right_icon_white</item>
+        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+
     </style>
 
     <style name="pro_filter_selected_background_btn">

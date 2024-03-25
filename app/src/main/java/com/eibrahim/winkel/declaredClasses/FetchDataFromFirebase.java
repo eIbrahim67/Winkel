@@ -2,6 +2,7 @@ package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -120,7 +121,9 @@ public class FetchDataFromFirebase {
             collectionRef
                     .get()
                     .addOnSuccessListener(querySnapshot -> {
+
                         for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+
                             Map<String, Object> data = document.getData();
                             DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
                                     (String) Objects.requireNonNull(data).get("category"),
@@ -140,6 +143,12 @@ public class FetchDataFromFirebase {
 
                             if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
                                 dataOfRvItems.add(dataObject);
+
+                            if (stateShow == 2){
+                                if (dataOfRvItems.size() == 4)
+                                    break;
+                            }
+
                         }
                         adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
                         if(stateShow == 1)

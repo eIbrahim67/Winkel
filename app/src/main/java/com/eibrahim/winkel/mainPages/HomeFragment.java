@@ -40,8 +40,8 @@ import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
-    private RecyclerView recyclerView_filter;
-    private RecyclerView recyclerView_items;
+    private RecyclerView recyclerView_filter, recyclerView_items;
+
     public static View recyclerViewItemsMens_skeleton, recyclerViewItemsWomen_skeleton, recyclerViewItemsKids_skeleton, recyclerViewItemsOffers_skeleton;
     private TextView btnItemsOffers;
     private RelativeLayout btnItemsMens, btnItemsWomen, btnItemsKids;
@@ -128,6 +128,7 @@ public class HomeFragment extends Fragment {
             doFilter("Kids", "0", "1000");
 
         });
+
 
         btnItemsOffers.setOnClickListener(v -> {
 

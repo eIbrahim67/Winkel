@@ -13,9 +13,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.eibrahim.winkel.secondPages.MyItemsActivity;
+import com.eibrahim.winkel.secondPages.MyOrdersActivity;
 import com.eibrahim.winkel.secondPages.OrdersActivity;
 import com.eibrahim.winkel.secondPages.PinActivity;
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.secondPages.SettingsActivity;
+import com.eibrahim.winkel.secondPages.SupportActivity;
 import com.eibrahim.winkel.secondPages.addPaymentMethodActivity;
 import com.eibrahim.winkel.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +29,7 @@ import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
 
-    LinearLayout btnProfile, btnPaymentMethods, btnOrders, btnLogout, btnAddNewItem, btnMyOrders;
+    LinearLayout btnProfile, btnPaymentMethods, btnOrders, btnLogout, btnAddNewItem, btnMyItems, btnMyOrders, btnSupport, btnSettings;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,7 +41,10 @@ public class ProfileFragment extends Fragment {
          btnOrders = rootView.findViewById(R.id.btnOrders);
          btnLogout = rootView.findViewById(R.id.btnLogout);
          btnAddNewItem = rootView.findViewById(R.id.btnAddNewItem);
-        btnMyOrders = rootView.findViewById(R.id.btnMyOrders);
+         btnMyOrders = rootView.findViewById(R.id.btnMyOrders);
+         btnSettings = rootView.findViewById(R.id.btnSettings);
+         btnSupport = rootView.findViewById(R.id.btnSupport);
+        btnMyItems = rootView.findViewById(R.id.btnMyItems);
 
          SwipeRefreshLayout profileFragment_layout = rootView.findViewById(R.id.profileFragment_layout);
 
@@ -58,6 +65,20 @@ public class ProfileFragment extends Fragment {
 
         });
 
+        btnSupport.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getActivity(), SupportActivity.class);
+            startActivity(intent);
+
+        });
+
+        btnSettings.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getActivity(), SettingsActivity.class);
+            startActivity(intent);
+
+        });
+
          btnProfile.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PinActivity.class);
             intent.putExtra("goto", 0);
@@ -72,6 +93,16 @@ public class ProfileFragment extends Fragment {
 
          btnOrders.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), OrdersActivity.class);
+            startActivity(intent);
+        });
+
+        btnMyItems.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MyItemsActivity.class);
+            startActivity(intent);
+        });
+
+        btnMyOrders.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MyOrdersActivity.class);
             startActivity(intent);
         });
 
@@ -119,6 +150,7 @@ public class ProfileFragment extends Fragment {
                         }
                         else if (Objects.equals(type, "Vendor")){
                             btnAddNewItem.setVisibility(View.VISIBLE);
+                            btnMyItems.setVisibility(View.VISIBLE);
                         }
                     }
 

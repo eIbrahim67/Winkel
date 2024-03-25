@@ -19,6 +19,9 @@
         android:theme="@style/Theme.Winkel"
         tools:targetApi="31">
         <activity
+            android:name=".secondPages.MyItemsActivity"
+            android:exported="false" />
+        <activity
             android:name=".secondPages.SupportActivity"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
             android:name=".secondPages.MyOrdersActivity"
             android:exported="false" />
         <activity
-            android:name=".mainPages.myPaymentMethodsActivity"
+            android:name=".secondPages.myPaymentMethodsActivity"
             android:exported="false" />
         <activity
             android:name=".secondPages.personalDataActivity"
