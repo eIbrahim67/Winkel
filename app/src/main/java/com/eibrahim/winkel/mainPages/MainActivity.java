@@ -201,6 +201,24 @@ public class MainActivity extends AppCompatActivity {
             });
             //
 
+            //
+            DocumentReference orderRef = firestore.collection("Orders")
+                    .document(Objects.requireNonNull(auth.getCurrentUser()).getUid());
+
+            orderRef.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (!document.exists()) {
+                        Map<String, Object> wishlistData = new HashMap<>();
+                        wishlistRef.set(wishlistData)
+                                .addOnSuccessListener(aVoid -> {
+
+                                });
+                    }
+                }
+            });
+            //
+
         }
 
     }

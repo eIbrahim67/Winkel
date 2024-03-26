@@ -1,24 +1,23 @@
 package com.eibrahim.winkel.secondPages;
 
-import android.os.Bundle;
-import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewOrders;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrder;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrderItemData;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class OrdersActivity extends AppCompatActivity {
 
@@ -26,7 +25,7 @@ public class OrdersActivity extends AppCompatActivity {
     Double totalPriceOrder = 0.0;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
 
@@ -36,76 +35,79 @@ public class OrdersActivity extends AppCompatActivity {
 
         recyclerView_orders.setLayoutManager(gridLayoutManager);
 
-
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
         List<DataRecyclerviewItemOrder> dataOfRvItems = new ArrayList<>();
         List<DataRecyclerviewItemOrderItemData> dataOfRvItemData = new ArrayList<>();
 
-        DocumentReference basketRef = firestore.collection("Orders")
-                .document(userId);
+        CollectionReference ordersRef = firestore.collection("Orders");
+
+        ordersRef.get().addOnSuccessListener(documentSnapshot -> {
+
+            for ( QueryDocumentSnapshot data :documentSnapshot) {
+
+                if (data.exists()) {
+                    List<String> orderslist = (List<String>) data.get("OrderCollection");
+
+                    if (orderslist != null) {
+                        for (String itemIdType : orderslist) {
+
+                            itemIdType =  itemIdType.substring(0, itemIdType.length() - 4);
+
+                            String[] parts = itemIdType.split("&");
+
+                            for (String item : parts) {
 
 
-        basketRef.get().addOnSuccessListener(documentSnapshot -> {
-            if (documentSnapshot.exists()) {
-                List<String> orderslist = (List<String>) documentSnapshot.get("OrderCollection");
-                if (orderslist != null) {
-                    for (String itemIdType : orderslist) {
+                                String[] parts2 = item.split(",");
 
-                        itemIdType =  itemIdType.substring(0, itemIdType.length() - 4);
+                                totalPriceItem = Double.parseDouble(parts2[3]) * Double.parseDouble(parts2[2]);
 
-                        String[] parts = itemIdType.split("&");
+                                totalPriceOrder += totalPriceItem;
 
-                        for (String item : parts) {
+                                try {
+                                    DataRecyclerviewItemOrderItemData itemData = new DataRecyclerviewItemOrderItemData(
 
+                                            parts2[0],
+                                            parts2[3],
+                                            parts2[2],
+                                            (String.valueOf(totalPriceItem)),
+                                            parts2[4],
+                                            parts2[1]
 
-                            String[] parts2 = item.split(",");
+                                    );
 
-                            totalPriceItem = Double.parseDouble(parts2[3]) * Double.parseDouble(parts2[2]);
-
-                            totalPriceOrder += totalPriceItem;
-
-                            try {
-                                DataRecyclerviewItemOrderItemData itemData = new DataRecyclerviewItemOrderItemData(
-
-                                        parts2[0],
-                                        parts2[3],
-                                        parts2[2],
-                                        (String.valueOf(totalPriceItem)),
-                                        parts2[4],
-                                        parts2[1]
-
-                                );
-
-                                dataOfRvItemData.add(itemData);
-                            }catch (Exception e) {
-                                Toast.makeText(OrdersActivity.this, "Unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show();
+                                    dataOfRvItemData.add(itemData);
+                                }catch (Exception e) {
+                                    Toast.makeText(OrdersActivity.this, "Unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show();
+                                }
                             }
+
+                            DataRecyclerviewItemOrder order = new DataRecyclerviewItemOrder(
+
+                                    data.getId(),
+                                    dataOfRvItemData,
+                                    String.valueOf(totalPriceOrder)
+
+
+                            );
+                            dataOfRvItems.add(order);
+
                         }
 
-                        DataRecyclerviewItemOrder order = new DataRecyclerviewItemOrder(
-
-                                documentSnapshot.getId(),
-                                dataOfRvItemData,
-                                String.valueOf(totalPriceOrder)
-
-
+                        AdapterRecyclerviewOrders adapterRecyclerviewOrders = new AdapterRecyclerviewOrders(
+                                OrdersActivity.this,
+                                dataOfRvItems
                         );
-                        dataOfRvItems.add(order);
 
+                        recyclerView_orders.setAdapter(adapterRecyclerviewOrders);
                     }
-
-                    AdapterRecyclerviewOrders adapterRecyclerviewOrders = new AdapterRecyclerviewOrders(
-                            OrdersActivity.this,
-                            dataOfRvItems
-                    );
-
-                    recyclerView_orders.setAdapter(adapterRecyclerviewOrders);
                 }
+
             }
+
         });
 
     }

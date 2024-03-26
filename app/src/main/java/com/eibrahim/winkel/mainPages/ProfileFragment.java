@@ -92,8 +92,10 @@ public class ProfileFragment extends Fragment {
         });
 
          btnOrders.setOnClickListener(v -> {
+
             Intent intent = new Intent(getActivity(), OrdersActivity.class);
             startActivity(intent);
+
         });
 
         btnMyItems.setOnClickListener(v -> {
