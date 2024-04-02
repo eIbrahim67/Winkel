@@ -2,6 +2,7 @@ package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -36,6 +37,10 @@ public class FetchDataFromFirebase {
                                  RecyclerView recyclerViewItemsMens,
                                  RecyclerView recyclerViewItemsWomen,
                                  RecyclerView recyclerViewItemsKids,
+//                                 View recyclerViewItemsMens_skeleton,
+//                                 View recyclerViewItemsWomen_skeleton,
+//                                 View recyclerViewItemsKids_skeleton,
+//                                 View recyclerViewItemsOffers_skeleton,
                                  RecyclerView recyclerViewItemsOffers, Context context){
         this.context = context;
         this.recyclerViewItems = recyclerViewItems;

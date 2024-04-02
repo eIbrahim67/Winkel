@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.declaredClasses.CreateBasketRef;
+import com.eibrahim.winkel.declaredClasses.CreateOrderRef;
+import com.eibrahim.winkel.declaredClasses.CreateWishlistRef;
 import com.eibrahim.winkel.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -143,80 +146,20 @@ public class MainActivity extends AppCompatActivity {
 
             });
 
-            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-            FirebaseAuth auth = FirebaseAuth.getInstance();
-            String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
             //
-            DocumentReference ordersRef = firestore.collection("Orders")
-                    .document(userId);
-            ordersRef.get().addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (!document.exists()) {
-                        Map<String, Object> basketData = new HashMap<>();
-                        ordersRef.set(basketData)
-                                .addOnSuccessListener(aVoid -> {});
-                    }
-                }
-            });
+            CreateOrderRef createOrderRef = new CreateOrderRef();
+            createOrderRef.createIt();
             //
 
             //
-            DocumentReference basketRef = firestore.collection("UsersData")
-                    .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
-                    .collection("BasketCollection")
-                    .document("BasketDocument");
-            basketRef.get().addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (!document.exists()) {
-                        Map<String, Object> basketData = new HashMap<>();
-                        basketRef.set(basketData)
-                                .addOnSuccessListener(aVoid -> {
-
-                                });
-                    }
-                }
-            });
+            CreateBasketRef createBasketRef = new CreateBasketRef();
+            createBasketRef.createIt();
             //
 
             //
-            DocumentReference wishlistRef = firestore.collection("UsersData")
-                    .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
-                    .collection("WishlistCollection")
-                    .document("wishlistDocument");
-
-            wishlistRef.get().addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (!document.exists()) {
-                        Map<String, Object> wishlistData = new HashMap<>();
-                        wishlistRef.set(wishlistData)
-                                .addOnSuccessListener(aVoid -> {
-
-                                });
-                    }
-                }
-            });
-            //
-
-            //
-            DocumentReference orderRef = firestore.collection("Orders")
-                    .document(Objects.requireNonNull(auth.getCurrentUser()).getUid());
-
-            orderRef.get().addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (!document.exists()) {
-                        Map<String, Object> wishlistData = new HashMap<>();
-                        wishlistRef.set(wishlistData)
-                                .addOnSuccessListener(aVoid -> {
-
-                                });
-                    }
-                }
-            });
+            CreateWishlistRef createWishlistRef = new CreateWishlistRef();
+            createWishlistRef.createIt();
             //
 
         }

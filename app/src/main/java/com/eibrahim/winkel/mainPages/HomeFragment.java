@@ -15,13 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
@@ -51,7 +49,7 @@ public class HomeFragment extends Fragment {
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    private LinearLayout search_page, search_btn;
+    private LinearLayout search_page;
 
 
     @Override
@@ -83,11 +81,11 @@ public class HomeFragment extends Fragment {
 
         fragment_home = root.findViewById(R.id.fragment_home);
 
-        search_btn = root.findViewById(R.id.search_btn);
+        LinearLayout search_btn = root.findViewById(R.id.search_btn);
         search_page = root.findViewById(R.id.search_page);
 
         ImageView btnFilterH = root.findViewById(R.id.btnFunctions);
-        functionsBottomSheet functionsBottomSheet = new functionsBottomSheet(HomeFragment.this);
+        functionsBottomSheet functionsBottomSheet = new functionsBottomSheet(this);
         EditText search_text = root.findViewById(R.id.search_text);
 
 
@@ -155,7 +153,8 @@ public class HomeFragment extends Fragment {
                                     String itemName = (String) data.get("name");
 
                                     // Perform case-insensitive partial string match
-                                    if (itemName.toLowerCase().contains(searchText.toLowerCase())) {
+                                    if (itemName != null &&
+                                            itemName.toLowerCase().contains(searchText.toLowerCase())) {
                                         DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
                                                 (String) data.get("category"),
                                                 (String) data.get("imageId"),
@@ -173,14 +172,16 @@ public class HomeFragment extends Fragment {
                                 }
 
 
-                                adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(requireContext(), dataOfRvItems, "Mens");
+                                adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(
+                                        requireContext(),
+                                        dataOfRvItems,
+                                        "Mens");
                                 recyclerview_search.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
                                 recyclerview_search.setAdapter(adapterRvItems);
 
 
                             })
                             .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
-                } else {
                 }
             }
 
@@ -235,10 +236,10 @@ public class HomeFragment extends Fragment {
 
     private void fetchData(){
 
-        HomeFragment.recyclerViewItemsMens_skeleton.setVisibility(View.VISIBLE);
-        HomeFragment.recyclerViewItemsWomen_skeleton.setVisibility(View.VISIBLE);
-        HomeFragment.recyclerViewItemsKids_skeleton.setVisibility(View.VISIBLE);
-        HomeFragment.recyclerViewItemsOffers_skeleton.setVisibility(View.VISIBLE);
+        recyclerViewItemsMens_skeleton.setVisibility(View.VISIBLE);
+        recyclerViewItemsWomen_skeleton.setVisibility(View.VISIBLE);
+        recyclerViewItemsKids_skeleton.setVisibility(View.VISIBLE);
+        recyclerViewItemsOffers_skeleton.setVisibility(View.VISIBLE);
 
         fetchDataFromFirebase.fetchData("All", "0", "100000", 1, recyclerView_items);
 
@@ -248,6 +249,12 @@ public class HomeFragment extends Fragment {
 
         switch (type) {
             case "All":
+
+                recyclerViewItemsMens_skeleton.setVisibility(View.VISIBLE);
+                recyclerViewItemsWomen_skeleton.setVisibility(View.VISIBLE);
+                recyclerViewItemsKids_skeleton.setVisibility(View.VISIBLE);
+                recyclerViewItemsOffers_skeleton.setVisibility(View.VISIBLE);
+
                 btnItemsMens.setVisibility(View.VISIBLE);
                 btnItemsWomen.setVisibility(View.VISIBLE);
                 btnItemsKids.setVisibility(View.VISIBLE);
@@ -276,6 +283,8 @@ public class HomeFragment extends Fragment {
         this.type = type;
         this.fPrice = fPrice;
         this.tPrice = tPrice;
+
+        recyclerviewVisibility(type);
 
         fetchDataFromFirebase.fetchData(type, fPrice, tPrice, 1, recyclerView_items);
         fetchCategory(type, fPrice, tPrice);

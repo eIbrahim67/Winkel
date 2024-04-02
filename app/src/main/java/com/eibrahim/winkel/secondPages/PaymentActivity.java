@@ -62,6 +62,11 @@ public class PaymentActivity extends AppCompatActivity {
 
         btnBackCheckout.setOnClickListener(v -> finish());
 
+        DocumentReference wishlistRef = firestore.collection("UsersData")
+                .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
+                .collection("WishlistCollection")
+                .document("wishlistDocument");
+
         btnPayment.setOnClickListener(v -> {
             //TODO: use donePayment instead of true
             DocumentReference basketRef = firestore.collection("Orders")
@@ -69,7 +74,14 @@ public class PaymentActivity extends AppCompatActivity {
 
             basketRef
                     .update("OrderCollection", FieldValue.arrayUnion(totalData))
-                    .addOnSuccessListener(unused -> Toast.makeText(PaymentActivity.this, "Payment successful.", Toast.LENGTH_SHORT).show())
+                    .addOnSuccessListener(unused -> {
+
+                        wishlistRef
+                                .update("WishlistCollection", FieldValue.delete());
+
+                        Toast.makeText(PaymentActivity.this, "Payment successful.", Toast.LENGTH_SHORT).show();
+
+                    })
                     .addOnFailureListener(e -> Toast.makeText(PaymentActivity.this, "An unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show());
 
             Intent intentHomeActivity = new Intent(PaymentActivity.this, MainActivity.class);
