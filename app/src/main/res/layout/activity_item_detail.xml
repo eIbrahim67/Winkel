@@ -122,11 +122,25 @@
             style="@style/TextColor_v1"
             tools:ignore="HardcodedText, InefficientWeight"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="5dp"
-            android:id="@+id/recyclerview_sizes"
+        <com.tans.horizontalnestedscrollview.HorizontalNestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/recyclerview_sizes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"/>
+
+            </RelativeLayout>
+
+        </com.tans.horizontalnestedscrollview.HorizontalNestedScrollView>
 
         <LinearLayout
             android:layout_width="wrap_content"

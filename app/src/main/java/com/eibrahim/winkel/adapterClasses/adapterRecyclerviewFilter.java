@@ -56,14 +56,6 @@ public class adapterRecyclerviewFilter extends RecyclerView.Adapter<adapterRecyc
             lastHolder = holder;
         }
 
-        if (position == (getItemCount() - 1)){
-            ((ViewGroup.MarginLayoutParams)holder.itemView.getLayoutParams()).setMarginEnd(0);
-            holder.spaceMarginEnd.setVisibility(View.VISIBLE);
-        }
-
-        if (position == 0){
-            holder.spaceMarginStart.setVisibility(View.VISIBLE);
-        }
 
         holder.itemView.setOnClickListener(v -> holder.itemCategoryType.callOnClick());
 
@@ -105,15 +97,11 @@ public class adapterRecyclerviewFilter extends RecyclerView.Adapter<adapterRecyc
 
         final TextView itemCategoryTypeSelected;
 
-        final Space spaceMarginStart;
-        final Space spaceMarginEnd;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemCategoryType = itemView.findViewById(R.id.itemCategoryType);
             itemCategoryTypeSelected = itemView.findViewById(R.id.itemCategoryTypeSelected);
-            spaceMarginStart = itemView.findViewById(R.id.spaceMarginStart);
-            spaceMarginEnd = itemView.findViewById(R.id.spaceMarginEnd);
 
         }
     }

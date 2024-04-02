@@ -1,64 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="10dp"
-    android:orientation="horizontal"
     style="@style/background">
 
-    <Space
-        android:id="@+id/spaceMarginStart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:visibility="gone"/>
-
-    <RelativeLayout
+    <TextView
+        android:id="@+id/itemCategoryType"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:text="New"
+        android:textSize="18dp"
+        android:fontFamily="@font/works_ans_v1"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        style="@style/pro_filter_background_btn"/>
 
-        <TextView
-            android:id="@+id/itemCategoryType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New"
-            android:textSize="18dp"
-            android:fontFamily="@font/works_ans_v1"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
-            style="@style/pro_filter_background_btn"/>
-
-        <TextView
-            android:id="@+id/itemCategoryTypeSelected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New"
-            android:textSize="18dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
-            android:fontFamily="@font/works_ans_v1"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true"
-            style="@style/pro_filter_selected_background_btn"
-            android:visibility="gone"/>
-
-    </RelativeLayout>
-
-    <Space
-        android:id="@+id/spaceMarginEnd"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
+    <TextView
+        android:id="@+id/itemCategoryTypeSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New"
+        android:textSize="18dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:fontFamily="@font/works_ans_v1"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"
+        style="@style/pro_filter_selected_background_btn"
         android:visibility="gone"/>
 
-</LinearLayout>
+</RelativeLayout>
