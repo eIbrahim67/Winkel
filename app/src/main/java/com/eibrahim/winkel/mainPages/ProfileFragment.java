@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.eibrahim.winkel.declaredClasses.FetchUserType;
+import com.eibrahim.winkel.secondPages.AllUsersActivity;
 import com.eibrahim.winkel.secondPages.MyItemsActivity;
 import com.eibrahim.winkel.secondPages.MyOrdersActivity;
 import com.eibrahim.winkel.secondPages.OrdersActivity;
@@ -29,7 +31,7 @@ import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
 
-    LinearLayout btnProfile, btnPaymentMethods, btnOrders, btnLogout, btnAddNewItem, btnMyItems, btnMyOrders, btnSupport, btnSettings;
+    LinearLayout btnProfile, btnPaymentMethods, btnOrders, btnLogout, btnAddNewItem, btnMyItems, btnMyOrders, btnSupport, btnSettings, btnAllUsers;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,15 +46,17 @@ public class ProfileFragment extends Fragment {
          btnMyOrders = rootView.findViewById(R.id.btnMyOrders);
          btnSettings = rootView.findViewById(R.id.btnSettings);
          btnSupport = rootView.findViewById(R.id.btnSupport);
-        btnMyItems = rootView.findViewById(R.id.btnMyItems);
+         btnMyItems = rootView.findViewById(R.id.btnMyItems);
+         btnAllUsers = rootView.findViewById(R.id.btnAllUsers);
 
-         SwipeRefreshLayout profileFragment_layout = rootView.findViewById(R.id.profileFragment_layout);
+        SwipeRefreshLayout profileFragment_layout = rootView.findViewById(R.id.profileFragment_layout);
 
-        fetchUserType();
+        FetchUserType fetchUserType = new FetchUserType(btnMyOrders, btnOrders, btnAddNewItem, btnMyItems, btnAllUsers);
+        fetchUserType.fetchIt();
 
          profileFragment_layout.setOnRefreshListener(() -> {
 
-             fetchUserType();
+             fetchUserType.fetchIt();
 
              profileFragment_layout.setRefreshing(false);
 
@@ -108,6 +112,11 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });
 
+        btnAllUsers.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), AllUsersActivity.class);
+            startActivity(intent);
+        });
+
          btnLogout.setOnClickListener(v -> {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -131,32 +140,4 @@ public class ProfileFragment extends Fragment {
          return rootView;
     }
 
-    void fetchUserType(){
-
-        FirebaseFirestore.getInstance().collection("UsersData")
-                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
-                .collection("UserPersonalData")
-                .document("UserPersonalData")
-                .get()
-                .addOnSuccessListener(documentSnapshot -> {
-
-                    String type = (String) documentSnapshot.get("userType");
-
-                    if (documentSnapshot.exists()){
-
-                        if (Objects.equals(type, "Customer")){
-                            btnMyOrders.setVisibility(View.VISIBLE);
-                        }
-                        else if (Objects.equals(type, "Admin")){
-                            btnOrders.setVisibility(View.VISIBLE);
-                        }
-                        else if (Objects.equals(type, "Vendor")){
-                            btnAddNewItem.setVisibility(View.VISIBLE);
-                            btnMyItems.setVisibility(View.VISIBLE);
-                        }
-                    }
-
-                });
-
-    }
 }

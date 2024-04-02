@@ -19,6 +19,9 @@
         android:theme="@style/Theme.Winkel"
         tools:targetApi="31">
         <activity
+            android:name=".secondPages.AllUsersActivity"
+            android:exported="false" />
+        <activity
             android:name=".secondPages.OrdersActivity"
             android:exported="false" />
         <activity
