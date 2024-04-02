@@ -14,22 +14,15 @@ import com.eibrahim.winkel.declaredClasses.CreateOrderRef;
 import com.eibrahim.winkel.declaredClasses.CreateWishlistRef;
 import com.eibrahim.winkel.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     public static ChipNavigationBar chipNavigationBar;
 
-    private HomeFragment h;
-    private WishlistFragment w;
-    private CheckoutFragment c;
-    private ProfileFragment p;
+    private HomeFragment homeFragment;
+    private WishlistFragment wishlistFragment;
+    private CheckoutFragment checkoutFragment;
+    private ProfileFragment profileFragment;
 
     private int LFrag = 0;
 
@@ -50,37 +43,45 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             final FragmentTransaction[] fragmentTransaction = {fragmentManager.beginTransaction()};
 
-            h = new HomeFragment();
-            w = new WishlistFragment();
-            c = new CheckoutFragment();
-            p = new ProfileFragment();
+            CreateOrderRef createOrderRef = new CreateOrderRef();
+            CreateBasketRef createBasketRef = new CreateBasketRef();
+            CreateWishlistRef createWishlistRef = new CreateWishlistRef();
+
+            createOrderRef.createIt();
+            createBasketRef.createIt();
+            createWishlistRef.createIt();
+
+            homeFragment = new HomeFragment();
+            wishlistFragment = new WishlistFragment();
+            checkoutFragment = new CheckoutFragment();
+            profileFragment = new ProfileFragment();
 
             fragmentTransaction[0] = fragmentManager.beginTransaction();
-            fragmentTransaction[0].add(R.id.MainActivity_layout, w);
+            fragmentTransaction[0].add(R.id.MainActivity_layout, wishlistFragment);
             fragmentTransaction[0].commit();
 
             fragmentTransaction[0] = fragmentManager.beginTransaction();
-            fragmentTransaction[0].hide(w);
+            fragmentTransaction[0].hide(wishlistFragment);
             fragmentTransaction[0].commit();
 
             fragmentTransaction[0] = fragmentManager.beginTransaction();
-            fragmentTransaction[0].add(R.id.MainActivity_layout,c );
+            fragmentTransaction[0].add(R.id.MainActivity_layout, checkoutFragment);
             fragmentTransaction[0].commit();
 
             fragmentTransaction[0] = fragmentManager.beginTransaction();
-            fragmentTransaction[0].hide(c);
+            fragmentTransaction[0].hide(checkoutFragment);
             fragmentTransaction[0].commit();
 
             fragmentTransaction[0] = fragmentManager.beginTransaction();
-            fragmentTransaction[0].add(R.id.MainActivity_layout,p );
+            fragmentTransaction[0].add(R.id.MainActivity_layout, profileFragment);
             fragmentTransaction[0].commit();
 
             fragmentTransaction[0] = fragmentManager.beginTransaction();
-            fragmentTransaction[0].hide(p);
+            fragmentTransaction[0].hide(profileFragment);
             fragmentTransaction[0].commit();
 
             fragmentTransaction[0] = fragmentManager.beginTransaction();
-            fragmentTransaction[0].add(R.id.MainActivity_layout,h );
+            fragmentTransaction[0].add(R.id.MainActivity_layout, homeFragment);
             fragmentTransaction[0].commit();
 
             chipNavigationBar.setItemSelected(R.id.home_btn, true);
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 if (i == R.id.home_btn) {
 
                     fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].show(h);
+                    fragmentTransaction[0].show(homeFragment);
                     fragmentTransaction[0].commit();
 
                     fragmentTransaction[0] = fragmentManager.beginTransaction();
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (i == R.id.wishlist_btn) {
 
                     fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].show(w);
+                    fragmentTransaction[0].show(wishlistFragment);
                     fragmentTransaction[0].commit();
 
                     fragmentTransaction[0] = fragmentManager.beginTransaction();
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 else if(i == R.id.checkout_btn) {
 
                     fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].show(c);
+                    fragmentTransaction[0].show(checkoutFragment);
                     fragmentTransaction[0].commit();
 
                     fragmentTransaction[0] = fragmentManager.beginTransaction();
@@ -130,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (i == R.id.profile_btn) {
 
                     fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].show(p);
+                    fragmentTransaction[0].show(profileFragment);
                     fragmentTransaction[0].commit();
 
                     fragmentTransaction[0] = fragmentManager.beginTransaction();
@@ -146,34 +147,18 @@ public class MainActivity extends AppCompatActivity {
 
             });
 
-
-            //
-            CreateOrderRef createOrderRef = new CreateOrderRef();
-            createOrderRef.createIt();
-            //
-
-            //
-            CreateBasketRef createBasketRef = new CreateBasketRef();
-            createBasketRef.createIt();
-            //
-
-            //
-            CreateWishlistRef createWishlistRef = new CreateWishlistRef();
-            createWishlistRef.createIt();
-            //
-
         }
 
     }
     private Fragment getLFrag(int i){
         if (i == 0)
-            return h;
+            return homeFragment;
         if (i == 1)
-            return w;
+            return wishlistFragment;
         if (i == 2)
-            return c;
+            return checkoutFragment;
         else
-            return p;
+            return profileFragment;
 
     }
 

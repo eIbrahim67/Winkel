@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewPaymentMethods;
 import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
+import com.eibrahim.winkel.declaredClasses.CreateOrderRef;
 import com.eibrahim.winkel.mainPages.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -62,22 +63,21 @@ public class PaymentActivity extends AppCompatActivity {
 
         btnBackCheckout.setOnClickListener(v -> finish());
 
-        DocumentReference wishlistRef = firestore.collection("UsersData")
+        DocumentReference basketRef = firestore.collection("UsersData")
                 .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
-                .collection("WishlistCollection")
-                .document("wishlistDocument");
+                .collection("BasketCollection")
+                .document("BasketDocument");
 
         btnPayment.setOnClickListener(v -> {
             //TODO: use donePayment instead of true
-            DocumentReference basketRef = firestore.collection("Orders")
+            DocumentReference orderRef = firestore.collection("Orders")
                     .document(userId);
 
-            basketRef
+            orderRef
                     .update("OrderCollection", FieldValue.arrayUnion(totalData))
                     .addOnSuccessListener(unused -> {
 
-                        wishlistRef
-                                .update("WishlistCollection", FieldValue.delete());
+                        basketRef.update("BasketCollection", FieldValue.delete());
 
                         Toast.makeText(PaymentActivity.this, "Payment successful.", Toast.LENGTH_SHORT).show();
 
