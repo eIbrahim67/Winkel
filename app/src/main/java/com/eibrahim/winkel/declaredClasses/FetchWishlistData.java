@@ -20,10 +20,10 @@ import java.util.Objects;
 
 public class FetchWishlistData {
 
-    public RecyclerView recyclerView; // Public field declaration
-    public Context context; // Public field declaration
-    public List<String> wishlistIds; // Public field declaration
-    public LinearLayout msgEmptyWishlist; // Public field declaration
+    public final RecyclerView recyclerView; // Public field declaration
+    public final Context context; // Public field declaration
+    public final List<String> wishlistIds; // Public field declaration
+    public final LinearLayout msgEmptyWishlist; // Public field declaration
 
     public FetchWishlistData(RecyclerView recyclerView, Context context, List<String> wishlistIds, LinearLayout msgEmptyWishlist) {
         this.recyclerView = recyclerView;

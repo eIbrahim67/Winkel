@@ -11,9 +11,9 @@ import java.util.Objects;
 
 public class CreateOrderRef {
 
-    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    FirebaseAuth auth = FirebaseAuth.getInstance();
-    String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+    final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    final FirebaseAuth auth = FirebaseAuth.getInstance();
+    final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
     public void createIt(){
 

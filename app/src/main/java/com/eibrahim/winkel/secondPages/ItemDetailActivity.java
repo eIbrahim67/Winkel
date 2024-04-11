@@ -30,8 +30,8 @@ public class ItemDetailActivity extends AppCompatActivity {
     private DataRecyclerviewMyItem currentItem;
     private adapterRecyclerviewSizes adapterRvSizes;
     private RecyclerView recyclerview_sizes;
-    FirebaseAuth auth = FirebaseAuth.getInstance();
-    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    final FirebaseAuth auth = FirebaseAuth.getInstance();
+    final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

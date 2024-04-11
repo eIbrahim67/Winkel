@@ -11,7 +11,6 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewOrders;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrder;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrderItemData;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;

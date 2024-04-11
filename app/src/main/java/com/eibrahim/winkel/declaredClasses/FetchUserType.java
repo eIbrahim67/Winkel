@@ -10,11 +10,11 @@ import java.util.Objects;
 
 public class FetchUserType {
 
-    public LinearLayout btnMyOrders; // Public field declaration
-    public LinearLayout btnOrders; // Public field declaration
-    public LinearLayout btnAddNewItem; // Public field declaration
-    public LinearLayout btnMyItems; // Public field declaration
-    public LinearLayout btnAllUsers; // Public field declaration
+    public final LinearLayout btnMyOrders; // Public field declaration
+    public final LinearLayout btnOrders; // Public field declaration
+    public final LinearLayout btnAddNewItem; // Public field declaration
+    public final LinearLayout btnMyItems; // Public field declaration
+    public final LinearLayout btnAllUsers; // Public field declaration
 
     public FetchUserType(LinearLayout btnMyOrders, LinearLayout btnOrders, LinearLayout btnAddNewItem, LinearLayout btnMyItems, LinearLayout btnAllUsers) {
         this.btnMyOrders = btnMyOrders;
