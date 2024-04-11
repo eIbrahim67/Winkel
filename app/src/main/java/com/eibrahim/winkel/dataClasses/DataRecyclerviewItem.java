@@ -18,33 +18,8 @@ public class DataRecyclerviewItem implements Serializable {
         this.type = type;
     }
 
-    public String getImageId() {
-        return imageId;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-
-    public String getItemId() {
-        return itemId;
-    }
-
     public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
-    public String getItemType() {
-        return type;
-    }
 }

@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewPaymentMethods;
 import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
-import com.eibrahim.winkel.declaredClasses.CreateOrderRef;
 import com.eibrahim.winkel.mainPages.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;

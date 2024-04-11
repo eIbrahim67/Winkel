@@ -35,8 +35,6 @@ public class OrdersActivity extends AppCompatActivity {
 
         recyclerView_orders.setLayoutManager(gridLayoutManager);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
         List<DataRecyclerviewItemOrder> dataOfRvItems = new ArrayList<>();

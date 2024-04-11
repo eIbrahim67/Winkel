@@ -1,7 +1,6 @@
 package com.eibrahim.winkel.declaredClasses;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;

@@ -1,10 +1,8 @@
 package com.eibrahim.winkel.mainPages;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -14,17 +12,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItemsWishlist;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.declaredClasses.FetchWishlistData;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class WishlistFragment extends Fragment {
 

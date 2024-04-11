@@ -34,7 +34,6 @@ public class addPaymentMethodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_payment_method);
 
         EditText number = findViewById(R.id.number);
-        EditText cvv = findViewById(R.id.cvv);
         EditText date = findViewById(R.id.date);
         EditText holder_name = findViewById(R.id.holder_name);
         Button addMethod = findViewById(R.id.addMethod);

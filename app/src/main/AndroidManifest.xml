@@ -54,10 +54,6 @@
         <activity
             android:name=".sign.SigninActivity"
             android:exported="false" />
-        <activity
-            android:name=".secondPages.activities.SecondActivity"
-            android:exported="false" />
-        <activity
             android:name=".sign.SignupActivity"
             android:exported="false" />
         <activity

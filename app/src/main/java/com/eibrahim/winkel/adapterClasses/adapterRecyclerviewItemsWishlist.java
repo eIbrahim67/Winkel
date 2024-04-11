@@ -28,12 +28,10 @@ public class adapterRecyclerviewItemsWishlist extends RecyclerView.Adapter<adapt
 
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
-    private final String cate;
     FirebaseFirestore firestore;
-    public adapterRecyclerviewItemsWishlist(Context context, List<DataRecyclerviewMyItem> itemList, String cate) {
+    public adapterRecyclerviewItemsWishlist(Context context, List<DataRecyclerviewMyItem> itemList) {
         this.context = context;
         this.itemList = itemList;
-        this.cate = cate;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

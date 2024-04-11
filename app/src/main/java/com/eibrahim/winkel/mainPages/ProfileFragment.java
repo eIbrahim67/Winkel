@@ -25,9 +25,6 @@ import com.eibrahim.winkel.secondPages.SupportActivity;
 import com.eibrahim.winkel.secondPages.addPaymentMethodActivity;
 import com.eibrahim.winkel.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
 

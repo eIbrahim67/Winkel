@@ -109,30 +109,14 @@ public class HomeFragment extends Fragment {
             imm.showSoftInput(search_text, InputMethodManager.SHOW_IMPLICIT);
         });
 
-        btnItemsMens.setOnClickListener(v -> {
+        btnItemsMens.setOnClickListener(v -> doFilter("Mens", "0", "1000"));
 
-            doFilter("Mens", "0", "1000");
+        btnItemsWomen.setOnClickListener(v -> doFilter("Womens", "0", "1000"));
 
-        });
-
-        btnItemsWomen.setOnClickListener(v -> {
-
-            doFilter("Womens", "0", "1000");
-
-        });
-
-        btnItemsKids.setOnClickListener(v -> {
-
-            doFilter("Kids", "0", "1000");
-
-        });
+        btnItemsKids.setOnClickListener(v -> doFilter("Kids", "0", "1000"));
 
 
-        btnItemsOffers.setOnClickListener(v -> {
-
-            doFilter("Offers", "0", "1000");
-
-        });
+        btnItemsOffers.setOnClickListener(v -> doFilter("Offers", "0", "1000"));
 
         search_text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -150,7 +134,7 @@ public class HomeFragment extends Fragment {
                                 List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
                                 for (DocumentSnapshot document : querySnapshot.getDocuments()) {
                                     Map<String, Object> data = document.getData();
-                                    String itemName = (String) data.get("name");
+                                    String itemName = (String) (data != null ? data.get("name") : null);
 
                                     // Perform case-insensitive partial string match
                                     if (itemName != null &&

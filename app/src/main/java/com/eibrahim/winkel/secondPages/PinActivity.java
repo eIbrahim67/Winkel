@@ -54,11 +54,7 @@ public class PinActivity extends AppCompatActivity {
 
         int Goto = getIntent().getIntExtra("goto", 2);
 
-        btnBack.setOnClickListener( v -> {
-
-            finish();
-
-        });
+        btnBack.setOnClickListener( v -> finish());
 
         btnPin00.setOnClickListener(v -> {
 

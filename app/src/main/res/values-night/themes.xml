@@ -71,7 +71,7 @@
 
     <style name="much_items_background_sub">
 
-        <item name="android:background">@drawable/cricle_none_white_v1_gray_v4</item>
+        <item name="android:background">@drawable/circle_none_white_v1_gray_v4</item>
         <item name="android:src">@drawable/sub_icon_white</item>
     </style>
 
@@ -102,7 +102,7 @@
     <style name="user_src">
 
         <item name="android:src">@drawable/user_icon_white</item>
-        <item name="android:background">@drawable/cricle_none_white_v1_gray_v4</item>
+        <item name="android:background">@drawable/circle_none_white_v1_gray_v4</item>
 
     </style>
 

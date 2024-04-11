@@ -85,7 +85,7 @@ public class FetchWishlistData {
                                         dataObject.setItemId(itemId);
                                         wishlistIds.add(itemId);
                                         dataOfRvItems.add(dataObject);
-                                        adapterRecyclerviewItemsWishlist adapterRvItems = new adapterRecyclerviewItemsWishlist(context, dataOfRvItems, itemType);
+                                        adapterRecyclerviewItemsWishlist adapterRvItems = new adapterRecyclerviewItemsWishlist(context, dataOfRvItems);
                                         recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                                         recyclerView.setAdapter(adapterRvItems);
                                     }
@@ -97,7 +97,7 @@ public class FetchWishlistData {
                     else{
                         msgEmptyWishlist.setVisibility(View.VISIBLE);
                         dataOfRvItems.clear();
-                        adapterRecyclerviewItemsWishlist adapterRvItems = new adapterRecyclerviewItemsWishlist(context, dataOfRvItems, null);
+                        adapterRecyclerviewItemsWishlist adapterRvItems = new adapterRecyclerviewItemsWishlist(context, dataOfRvItems);
                         recyclerView.setAdapter(adapterRvItems);
                     }
                 }
