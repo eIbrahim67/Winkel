@@ -10,7 +10,8 @@
     android:background="@drawable/stroke_8dp_black"
     android:layout_margin="10dp"
     android:padding="10dp"
-    style="@style/background">
+    style="@style/background"
+    android:baselineAligned="false">
 
 
     <RelativeLayout

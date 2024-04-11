@@ -54,8 +54,6 @@
         <activity
             android:name=".sign.SigninActivity"
             android:exported="false" />
-            android:name=".sign.SignupActivity"
-            android:exported="false" />
         <activity
             android:name=".mainPages.MainActivity"
             android:exported="true">

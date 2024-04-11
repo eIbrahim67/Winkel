@@ -99,13 +99,6 @@
 
     </style>
 
-    <style name="user_src">
-
-        <item name="android:src">@drawable/user_icon_white</item>
-        <item name="android:background">@drawable/circle_none_white_v1_gray_v4</item>
-
-    </style>
-
     <style name="arrow_right_icon">
 
         <item name="android:src">@drawable/arrow_right_icon_white</item>
@@ -115,24 +108,6 @@
     <style name="iconColor">
 
         <item name="cnb_iconColor">@color/white_v1</item>
-    </style>
-
-    <style name="card_src">
-
-        <item name="android:src">@drawable/card_icon_white</item>
-
-    </style>
-
-    <style name="logout_src">
-
-        <item name="android:src">@drawable/logout_icon_white</item>
-
-    </style>
-
-    <style name="orders_icon_src">
-
-        <item name="android:src">@drawable/orders_icon_white</item>
-
     </style>
 
     <style name="ripple_rectangle">
@@ -151,13 +126,6 @@
 
         <item name="android:src">@drawable/delete_icon_black</item>
         <item name="android:background">@drawable/circle_white_v1_none_white_v4</item>
-
-    </style>
-
-    <style name="arrow_right_background_btn">
-
-        <item name="android:src">@drawable/arrow_right_icon_black</item>
-        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
 
     </style>
 
