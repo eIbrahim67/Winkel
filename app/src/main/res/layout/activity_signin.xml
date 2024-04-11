@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="Hello\nSign In!"
+        android:text="@string/hello__sign_in"
         android:textSize="50sp"
         android:fontFamily="@font/works_ans_v1"
         android:textStyle="bold"
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/email"
         android:textSize="18sp"
         android:fontFamily="@font/works_ans_v1"
         android:textStyle="bold"
@@ -51,7 +51,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/password"
         android:textSize="18sp"
         android:fontFamily="@font/works_ans_v1"
         android:textStyle="bold"
@@ -80,7 +80,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forget password?"
+        android:text="@string/forget_password"
         android:layout_gravity="end"
         android:textSize="18sp"
         android:fontFamily="@font/works_ans_v1"
@@ -88,8 +88,7 @@
         android:clickable="true"
         android:layout_marginEnd="20dp"
         android:focusable="true"
-        style="@style/TextColor_v2"
-        tools:ignore="HardcodedText" />
+        style="@style/TextColor_v2" />
 
     <Button
         android:id="@+id/btn_signin"
@@ -98,7 +97,7 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         style="@style/checkout_background_btn"
-        android:text="Sign IN"
+        android:text="@string/sign_in"
         android:textSize="20sp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -113,7 +112,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account? "
+            android:text="@string/don_t_have_an_account"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -121,20 +120,19 @@
             android:layout_marginStart="20dp"
             android:focusable="true"
             style="@style/TextColor_v2"
-            tools:ignore="HardcodedText" />
+            android:layout_marginEnd="5dp"/>
 
         <TextView
             android:id="@+id/btn_signup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
             android:clickable="true"
             android:focusable="true"
-            android:textColor="@android:color/holo_red_dark"
-            tools:ignore="HardcodedText" />
+            android:textColor="@android:color/holo_red_dark" />
 
     </LinearLayout>
 
