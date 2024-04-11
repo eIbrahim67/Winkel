@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Welcome\nSign Up!"
+            android:text="@string/welcome__sign_up"
             android:textSize="50sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Full name"
+            android:text="@string/full_name"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -51,12 +51,12 @@
             android:layout_marginEnd="20dp"
             android:focusable="true"
             style="@style/TextColor_v1"
-            android:autofillHints="" />
+            android:autofillHints="name" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/email"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -64,7 +64,8 @@
             android:layout_marginStart="20dp"
             android:focusable="true"
             android:layout_marginTop="20dp"
-            style="@style/TextColor_v2"/>
+            style="@style/TextColor_v2"
+             />
 
         <EditText
             android:id="@+id/email_signup"
@@ -85,7 +86,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phone No:"
+            android:text="@string/phone_no"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -113,7 +114,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create account for:"
+            android:text="@string/create_account_for"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -140,7 +141,8 @@
                     android:id="@+id/radio_cust"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:text="Customer"
+                    android:layout_weight="1"
+                    android:text="@string/customer"
                     android:textSize="15sp"
                     android:fontFamily="@font/works_ans_v1"
                     android:textStyle="bold"
@@ -154,34 +156,32 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:text="Vendor"
+                    android:text="@string/vendor"
                     android:textSize="15sp"
                     android:fontFamily="@font/works_ans_v1"
                     android:textStyle="bold"
                     android:clickable="true"
                     android:focusable="true"
                     style="@style/TextColor_v2"
-                    tools:ignore="HardcodedText" />
+                     />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <RadioButton
                     android:id="@+id/radio_admin"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:text="Admin"
+                    android:text="@string/admin"
                     android:textSize="15sp"
                     android:fontFamily="@font/works_ans_v1"
                     android:textStyle="bold"
                     android:clickable="true"
                     android:focusable="true"
                     style="@style/TextColor_v2"/>
-
 
             </LinearLayout>
 
@@ -197,7 +197,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Code"
+        android:text="@string/code"
         android:textSize="18sp"
         android:fontFamily="@font/works_ans_v1"
         android:textStyle="bold"
@@ -234,7 +234,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="License:"
+                android:text="@string/license"
                 android:textSize="18sp"
                 android:fontFamily="@font/works_ans_v1"
                 android:textStyle="bold"
@@ -243,7 +243,7 @@
                 android:focusable="true"
                 android:layout_marginTop="20dp"
                 style="@style/TextColor_v2"
-                tools:ignore="HardcodedText" />
+                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -276,7 +276,7 @@
                             android:src="@drawable/pictures_icon_gray"
                             android:layout_gravity="center"
                             android:contentDescription="upload"
-                            tools:ignore="HardcodedText" />
+                             />
 
                         <TextView
                             style="@style/TextColor_v2"
@@ -286,11 +286,11 @@
                             android:clickable="true"
                             android:focusable="true"
                             android:fontFamily="@font/works_ans_v1"
-                            android:text="Upload a photo"
+                            android:text="@string/upload_a_photo"
                             android:textColor="@color/gray_v7"
                             android:textSize="15sp"
                             android:textStyle="bold"
-                            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+                            tools:ignore="TouchTargetSizeCheck" />
 
                     </LinearLayout>
 
@@ -316,7 +316,7 @@
                             android:src="@drawable/pdf_icon_gray"
                             android:layout_gravity="center"
                             android:contentDescription="take a photo"
-                            tools:ignore="HardcodedText" />
+                             />
 
                         <TextView
                             style="@style/TextColor_v2"
@@ -326,11 +326,11 @@
                             android:clickable="true"
                             android:focusable="true"
                             android:fontFamily="@font/works_ans_v1"
-                            android:text="upload a pdf"
+                            android:text="@string/upload_a_pdf"
                             android:textColor="@color/gray_v7"
                             android:textSize="15sp"
                             android:textStyle="bold"
-                            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+                            tools:ignore="TouchTargetSizeCheck" />
 
                     </LinearLayout>
 
@@ -343,7 +343,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pin"
+            android:text="@string/pin"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -400,7 +400,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -409,7 +409,7 @@
             android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"
-            tools:ignore="HardcodedText" />
+             />
 
         <EditText
             android:id="@+id/pass_signup"
@@ -429,7 +429,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirm password"
+            android:text="@string/confirm_password"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
@@ -438,7 +438,7 @@
             android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"
-            tools:ignore="HardcodedText" />
+             />
 
         <EditText
             android:id="@+id/repass_signup"
@@ -459,9 +459,9 @@
             android:id="@+id/check_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="I agree with the terms of services"
+            android:text="@string/i_agree_with_the_terms_of_services"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText"
+            
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
@@ -475,7 +475,7 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             style="@style/checkout_background_btn"
-            android:text="Sign UP"
+            android:text="@string/sign_up"
             android:textSize="20sp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -490,7 +490,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Don't have an account? "
+                android:text="@string/don_t_have_an_account"
                 android:textSize="18sp"
                 android:fontFamily="@font/works_ans_v1"
                 android:textStyle="bold"
@@ -498,20 +498,19 @@
                 android:layout_marginStart="20dp"
                 android:focusable="true"
                 style="@style/TextColor_v2"
-                tools:ignore="HardcodedText" />
+                 />
 
             <TextView
                 android:id="@+id/btn_signin2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign In"
+                android:text="@string/sign_in"
                 android:textSize="18sp"
                 android:fontFamily="@font/works_ans_v1"
                 android:textStyle="bold"
                 android:clickable="true"
                 android:focusable="true"
                 android:textColor="@android:color/holo_red_dark"
-                tools:ignore="HardcodedText"
                 android:layout_marginBottom="20dp"/>
 
         </LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome__sign_up">Welcome\nSign Up!</string>
+    <string name="full_name">Full name</string>
+    <string name="email">Email</string>
+    <string name="phone_no">Phone No:</string>
+    <string name="create_account_for">Create account for:</string>
+    <string name="customer">Customer</string>
+    <string name="vendor">Vendor</string>
+    <string name="admin">Admin</string>
+    <string name="code">Code</string>
+    <string name="license">License:</string>
+    <string name="upload_a_photo">Upload a photo</string>
+    <string name="upload_a_pdf">upload a pdf</string>
+    <string name="pin">Pin</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="i_agree_with_the_terms_of_services">I agree with the terms of services</string>
+    <string name="sign_up">Sign UP</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_in">Sign In</string>
+</resources>
