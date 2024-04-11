@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--
+
+    <string name="app_name">"وينكل"</string>
+    <string name="welcome__sign_up">مرحبًا\nسجل الدخول!</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="phone_no">رقم الهاتف:</string>
+    <string name="create_account_for">إنشاء حساب ل:</string>
+    <string name="customer">العميل</string>
+    <string name="vendor">البائع</string>
+    <string name="admin">المسؤول</string>
+    <string name="code">الرمز</string>
+    <string name="license">الترخيص:</string>
+    <string name="upload_a_photo">تحميل صورة</string>
+    <string name="upload_a_pdf">تحميل ملف بصيغة PDF</string>
+    <string name="pin">الرقم السري</string>
+    <string name="password">كلمة المرور</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="i_agree_with_the_terms_of_services">أوافق على شروط الخدمة</string>
+    <string name="sign_up">سجل</string>
+    <string name="don_t_have_an_account">ليس لديك حساب؟</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="hello__sign_in">مرحبًا\nتسجيل الدخول!</string>
+    <string name="forget_password">نسيت كلمة المرور؟</string>
+
+    -->
+</resources>

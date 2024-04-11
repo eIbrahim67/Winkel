@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">"Winkel"</string>
     <string name="welcome__sign_up">Welcome\nSign Up!</string>
     <string name="full_name">Full name</string>
     <string name="email">Email</string>
@@ -19,4 +20,6 @@
     <string name="sign_up">Sign UP</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="sign_in">Sign In</string>
+    <string name="hello__sign_in">Hello\nSign In!</string>
+    <string name="forget_password">Forget password?</string>
 </resources>
