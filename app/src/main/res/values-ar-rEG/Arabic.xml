@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--
-
     <string name="app_name">"وينكل"</string>
     <string name="welcome__sign_up">مرحبًا\nسجل الدخول!</string>
     <string name="full_name">الاسم الكامل</string>
@@ -24,6 +22,4 @@
     <string name="sign_in">تسجيل الدخول</string>
     <string name="hello__sign_in">مرحبًا\nتسجيل الدخول!</string>
     <string name="forget_password">نسيت كلمة المرور؟</string>
-
-    -->
 </resources>

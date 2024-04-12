@@ -13,9 +13,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/welcome__sign_up"
             android:textSize="50sp"
             android:fontFamily="@font/works_ans_v1"
@@ -26,7 +27,7 @@
             style="@style/TextColor_v1"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/full_name"
             android:textSize="18sp"
@@ -36,6 +37,7 @@
             android:layout_marginStart="20dp"
             android:focusable="true"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
             style="@style/TextColor_v2"/>
 
         <EditText
@@ -54,7 +56,7 @@
             android:autofillHints="name" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/email"
             android:textSize="18sp"
@@ -64,6 +66,7 @@
             android:layout_marginStart="20dp"
             android:focusable="true"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             style="@style/TextColor_v2"
              />
 
@@ -84,7 +87,7 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/phone_no"
             android:textSize="18sp"
@@ -94,6 +97,7 @@
             android:layout_marginStart="20dp"
             android:focusable="true"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             style="@style/TextColor_v2"/>
 
         <EditText
@@ -101,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:inputType="textEmailAddress"
+            android:inputType="phone"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
             android:clickable="true"
@@ -112,7 +116,7 @@
             android:autofillHints="phone" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/create_account_for"
             android:textSize="18sp"
@@ -120,6 +124,7 @@
             android:textStyle="bold"
             android:clickable="true"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"/>
@@ -341,7 +346,7 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pin"
             android:textSize="18sp"
@@ -349,6 +354,7 @@
             android:textStyle="bold"
             android:clickable="true"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"/>
@@ -398,7 +404,7 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/password"
             android:textSize="18sp"
@@ -406,6 +412,7 @@
             android:textStyle="bold"
             android:clickable="true"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"
@@ -427,7 +434,7 @@
             android:autofillHints="" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/confirm_password"
             android:textSize="18sp"
@@ -435,6 +442,7 @@
             android:textStyle="bold"
             android:clickable="true"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"
@@ -457,11 +465,11 @@
 
         <CheckBox
             android:id="@+id/check_signup"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/i_agree_with_the_terms_of_services"
             style="@style/TextColor_v1"
-            
+            android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
@@ -482,7 +490,7 @@
             android:layout_marginTop="20dp"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
@@ -509,6 +517,7 @@
                 android:fontFamily="@font/works_ans_v1"
                 android:textStyle="bold"
                 android:clickable="true"
+                android:layout_marginEnd="20dp"
                 android:focusable="true"
                 android:textColor="@android:color/holo_red_dark"
                 android:layout_marginBottom="20dp"/>
