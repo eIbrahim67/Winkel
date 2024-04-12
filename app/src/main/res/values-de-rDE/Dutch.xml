@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"Winkel"</string>
+    <string name="welcome__sign_up">Welkom\nRegistreren!</string>
+    <string name="full_name">Volledige naam</string>
+    <string name="email">E-mail</string>
+    <string name="phone_no">Telefoonnummer:</string>
+    <string name="create_account_for">Account aanmaken voor:</string>
+    <string name="customer">Klant</string>
+    <string name="vendor">Verkoper</string>
+    <string name="admin">Beheerder</string>
+    <string name="code">Code</string>
+    <string name="license">Licentie:</string>
+    <string name="upload_a_photo">Foto uploaden</string>
+    <string name="upload_a_pdf">Pdf uploaden</string>
+    <string name="pin">Pincode</string>
+    <string name="password">Wachtwoord</string>
+    <string name="confirm_password">Wachtwoord bevestigen</string>
+    <string name="i_agree_with_the_terms_of_services">Ik ga akkoord met de algemene voorwaarden</string>
+    <string name="sign_up">Registreren</string>
+    <string name="don_t_have_an_account">Heb je nog geen account?</string>
+    <string name="sign_in">Inloggen</string>
+    <string name="hello__sign_in">Hallo\nInloggen!</string>
+    <string name="forget_password">Wachtwoord vergeten?</string>
+</resources>
