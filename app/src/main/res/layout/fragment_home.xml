@@ -158,7 +158,7 @@
 
                                 <include
                                     android:id="@+id/recyclerviewItemsMens_skeleton"
-                                    layout="@layout/skeleton_item_home" />
+                                    layout="@layout/item_skeleton_home" />
 
                             </RelativeLayout>
 
@@ -210,7 +210,7 @@
 
                                 <include
                                     android:id="@+id/recyclerviewItemsWomen_skeleton"
-                                    layout="@layout/skeleton_item_home"/>
+                                    layout="@layout/item_skeleton_home"/>
 
                             </RelativeLayout>
 
@@ -262,7 +262,7 @@
 
                                 <include
                                     android:id="@+id/recyclerviewItemsKids_skeleton"
-                                    layout="@layout/skeleton_item_home"/>
+                                    layout="@layout/item_skeleton_home"/>
 
                             </RelativeLayout>
 
@@ -295,7 +295,7 @@
 
                             <include
                                 android:id="@+id/recyclerviewItemsOffers_skeleton"
-                                layout="@layout/skeleton_item_home"/>
+                                layout="@layout/item_skeleton_home"/>
 
                         </LinearLayout>
 
