@@ -28,4 +28,11 @@
     <string name="offers">Offers</string>
     <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">If you haven\'t found your latest updates, please refresh the page.</string>
     <string name="your_wishlist_is_empty">Your WishList is empty!</string>
+    <string name="oops">Oops!</string>
+    <string name="it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now">It looks like your basket is empty\nStart adding items to your basket now!</string>
+    <string name="checkout">Checkout</string>
+    <string name="item">\u00A0item</string>
+    <string name="total">Total:\u00A0</string>
+    <string name="le">\u00A0LE</string>
+    <string name="_0">0</string>
 </resources>

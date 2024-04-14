@@ -28,5 +28,12 @@
     <string name="offers">Aanbiedingen</string>
     <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">Als je de laatste updates niet hebt gevonden, vernieuw dan de pagina alsjeblieft.</string>
     <string name="your_wishlist_is_empty">Je verlanglijstje is leeg!</string>
+    <string name="oops">Oeps!</string>
+    <string name="it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now">Het lijkt erop dat je winkelmandje leeg is.\nBegin nu items toe te voegen aan je winkelmandje!</string>
+    <string name="checkout">Afrekenen</string>
+    <string name="item">\u00A0item</string>
+    <string name="total">Totaal:\u00A0</string>
+    <string name="le">\u00A0LE</string>
+    <string name="_0">0</string>
 
 </resources>

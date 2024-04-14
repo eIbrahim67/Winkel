@@ -29,24 +29,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Oops!"
+                android:text="@string/oops"
                 android:textSize="15sp"
                 style="@style/TextColor_v1"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                tools:ignore="HardcodedText" />
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="It looks like your basket is empty\nStart adding items to your basket now!"
+                android:text="@string/it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now"
                 android:textSize="15sp"
                 style="@style/TextColor_v2"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                tools:ignore="HardcodedText" />
+                android:layout_gravity="center_vertical" />
 
 
         </LinearLayout>
@@ -56,18 +54,34 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/noOfItems"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:text="0 item"
-                style="@style/TextColor_v1"
-                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_gravity="end"
                 android:layout_marginEnd="20dp"
-                tools:ignore="InefficientWeight" />
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/noOfItems"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@string/_0"
+                    style="@style/TextColor_v1"
+                    android:textStyle="bold"
+                    tools:ignore="InefficientWeight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@string/item"
+                    style="@style/TextColor_v1"
+                    android:textStyle="bold"
+                    tools:ignore="InefficientWeight" />
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv3"
@@ -99,24 +113,43 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total:"
+                        android:text="@string/total"
                         android:textSize="18sp"
                         style="@style/TextColor_v1"
                         android:textStyle="bold"
-                        android:layout_gravity="center_vertical"
-                        tools:ignore="HardcodedText" />
+                        android:layout_gravity="center_vertical" />
 
-                    <TextView
-                        android:id="@+id/TotalPriceOfItemsCheckout"
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        style="@style/TextColor_v1"
-                        android:textStyle="bold"
-                        android:text="0.0 LE"
-                        android:gravity="center"
-                        android:layout_alignParentEnd="true"
-                        tools:ignore="RelativeOverlap" />
+                        android:orientation="horizontal"
+                        android:layout_gravity="end"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/TotalPriceOfItemsCheckout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="22sp"
+                            style="@style/TextColor_v1"
+                            android:textStyle="bold"
+                            android:text="@string/_0"
+                            android:gravity="center"
+                            tools:ignore="RelativeOverlap" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="22sp"
+                            style="@style/TextColor_v1"
+                            android:textStyle="bold"
+                            android:text="@string/le"
+                            android:gravity="center"
+                            tools:ignore="RelativeOverlap" />
+
+                    </LinearLayout>
+
 
                 </RelativeLayout>
 
@@ -128,8 +161,8 @@
                     android:paddingTop="15dp"
                     android:paddingBottom="15dp"
                     style="@style/checkout_background_btn"
-                    android:text="Checkout"
-                    android:textSize="20dp"
+                    android:text="@string/checkout"
+                    android:textSize="20sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"/>
 

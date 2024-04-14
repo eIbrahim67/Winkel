@@ -28,5 +28,12 @@
     <string name="offers">عروض</string>
     <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">إذا لم تجد آخر التحديثات الخاصة بك، يرجى تحديث الصفحة.</string>
     <string name="your_wishlist_is_empty">قائمة أمانيك فارغة!</string>
+    <string name="oops">عفوًا!</string>
+    <string name="it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now">يبدو أن سلة التسوق الخاصة بك فارغة\nابدأ في إضافة العناصر إلى سلة التسوق الخاصة بك الآن!</string>
+    <string name="checkout">الدفع</string>
+    <string name="item">\u00A0عنصر</string>
+    <string name="total">الإجمالي:\u00A0</string>
+    <string name="le">\u00A0ج.م</string>
+    <string name="_0">0</string>
 
 </resources>

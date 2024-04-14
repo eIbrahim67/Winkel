@@ -152,16 +152,13 @@ public class CheckoutFragment extends Fragment {
                                     recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
                                     recyclerView.setAdapter(adapterRvItems);
 
-                                    if (items > 1)
-                                        temp = items + " items";
-                                    else
-                                        temp = items + " item";
+                                    temp = String.valueOf(items);
 
                                     if (items == 0)
                                         msgEmptyBasket.setVisibility(View.VISIBLE);
 
                                     noOfItems.setText(temp);
-                                    temp = "$" +getTotalPriceBasket();
+                                    temp = getTotalPriceBasket();
                                     TotalPriceOfItems.setText(temp);
 
                                 }
@@ -190,13 +187,10 @@ public class CheckoutFragment extends Fragment {
         requireActivity().runOnUiThread(() -> {
             items--;
             much -= subs;
-            temp = "$" + String.format("%.2f", much);
+            temp = String.format("%.2f", much);
             TotalPriceOfItems.setText(temp);
 
-            if (items > 1)
-                temp = items + " items";
-            else
-                temp = items + " item";
+            temp = String.valueOf(items);
 
             noOfItems.setText(temp);
 
