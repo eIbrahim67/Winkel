@@ -22,4 +22,11 @@
     <string name="sign_in">تسجيل الدخول</string>
     <string name="hello__sign_in">مرحبًا\nتسجيل الدخول!</string>
     <string name="forget_password">نسيت كلمة المرور؟</string>
+    <string name="men">رجال</string>
+    <string name="women">نساء</string>
+    <string name="kids">أطفال</string>
+    <string name="offers">عروض</string>
+    <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">إذا لم تجد آخر التحديثات الخاصة بك، يرجى تحديث الصفحة.</string>
+    <string name="your_wishlist_is_empty">قائمة أمانيك فارغة!</string>
+
 </resources>

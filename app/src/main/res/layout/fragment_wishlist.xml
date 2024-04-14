@@ -30,12 +30,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Your WishList is empty!"
+                android:text="@string/your_wishlist_is_empty"
                 android:textSize="18sp"
                 style="@style/TextColor_v2"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                tools:ignore="HardcodedText" />
+                android:layout_gravity="center_vertical" />
 
         </LinearLayout>
 
@@ -50,11 +49,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="If you haven't found your latest updates, please refresh the page."
+            android:text="@string/if_you_haven_t_found_your_latest_updates_please_refresh_the_page"
             android:textSize="12sp"
             style="@style/TextColor_v2"
             android:textStyle="bold"
-            tools:ignore="HardcodedText"
             android:gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:layout_alignParentBottom="true"/>

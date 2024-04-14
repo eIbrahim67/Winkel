@@ -22,4 +22,10 @@
     <string name="sign_in">Sign In</string>
     <string name="hello__sign_in">Hello\nSign In!</string>
     <string name="forget_password">Forget password?</string>
+    <string name="men">Men</string>
+    <string name="women">Women</string>
+    <string name="kids">Kids</string>
+    <string name="offers">Offers</string>
+    <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">If you haven\'t found your latest updates, please refresh the page.</string>
+    <string name="your_wishlist_is_empty">Your WishList is empty!</string>
 </resources>

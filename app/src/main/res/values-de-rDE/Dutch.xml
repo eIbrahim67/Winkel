@@ -22,4 +22,11 @@
     <string name="sign_in">Inloggen</string>
     <string name="hello__sign_in">Hallo\nInloggen!</string>
     <string name="forget_password">Wachtwoord vergeten?</string>
+    <string name="men">Mannen</string>
+    <string name="women">Vrouwen</string>
+    <string name="kids">Kinderen</string>
+    <string name="offers">Aanbiedingen</string>
+    <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">Als je de laatste updates niet hebt gevonden, vernieuw dan de pagina alsjeblieft.</string>
+    <string name="your_wishlist_is_empty">Je verlanglijstje is leeg!</string>
+
 </resources>

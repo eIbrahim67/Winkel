@@ -126,10 +126,10 @@
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Men"
-                                    android:textSize="22dp"
+                                    android:text="@string/men"
+                                    android:textSize="22sp"
                                     android:fontFamily="@font/works_ans_v1"
                                     android:textStyle="bold"
                                     android:layout_marginStart="20dp"
@@ -178,9 +178,9 @@
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Women"
+                                    android:text="@string/women"
                                     android:textSize="22dp"
                                     android:fontFamily="@font/works_ans_v1"
                                     android:textStyle="bold"
@@ -230,10 +230,10 @@
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Kids"
-                                    android:textSize="22dp"
+                                    android:text="@string/kids"
+                                    android:textSize="22sp"
                                     android:fontFamily="@font/works_ans_v1"
                                     android:textStyle="bold"
                                     android:layout_marginStart="20dp"
@@ -277,8 +277,8 @@
                                 android:id="@+id/btnItemsOffers"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Offers"
-                                android:textSize="22dp"
+                                android:text="@string/offers"
+                                android:textSize="22sp"
                                 android:fontFamily="@font/works_ans_v1"
                                 android:textStyle="bold"
                                 android:clickable="true"
