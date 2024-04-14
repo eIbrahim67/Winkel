@@ -152,7 +152,10 @@ public class CheckoutFragment extends Fragment {
                                     recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
                                     recyclerView.setAdapter(adapterRvItems);
 
-                                    temp = String.valueOf(items);
+                                    if (items > 1)
+                                        temp = items + getString(R.string.items);
+                                    else
+                                        temp = items + getString(R.string.item);
 
                                     if (items == 0)
                                         msgEmptyBasket.setVisibility(View.VISIBLE);
@@ -190,7 +193,11 @@ public class CheckoutFragment extends Fragment {
             temp = String.format("%.2f", much);
             TotalPriceOfItems.setText(temp);
 
-            temp = String.valueOf(items);
+
+            if (items > 1)
+                temp = items + getString(R.string.items);
+            else
+                temp = items + getString(R.string.item);
 
             noOfItems.setText(temp);
 

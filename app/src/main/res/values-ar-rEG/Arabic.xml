@@ -32,6 +32,7 @@
     <string name="it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now">يبدو أن سلة التسوق الخاصة بك فارغة\nابدأ في إضافة العناصر إلى سلة التسوق الخاصة بك الآن!</string>
     <string name="checkout">الدفع</string>
     <string name="item">\u00A0عنصر</string>
+    <string name="items">\u00A0عناصر</string>
     <string name="total">الإجمالي:\u00A0</string>
     <string name="le">\u00A0ج.م</string>
     <string name="_0">0</string>

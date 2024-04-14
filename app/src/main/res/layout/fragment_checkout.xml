@@ -67,16 +67,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="@string/_0"
-                    style="@style/TextColor_v1"
-                    android:textStyle="bold"
-                    tools:ignore="InefficientWeight" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="@string/item"
                     style="@style/TextColor_v1"
                     android:textStyle="bold"
                     tools:ignore="InefficientWeight" />

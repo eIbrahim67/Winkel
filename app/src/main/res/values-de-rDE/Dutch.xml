@@ -32,6 +32,7 @@
     <string name="it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now">Het lijkt erop dat je winkelmandje leeg is.\nBegin nu items toe te voegen aan je winkelmandje!</string>
     <string name="checkout">Afrekenen</string>
     <string name="item">\u00A0item</string>
+    <string name="items">\u00A0items</string>
     <string name="total">Totaal:\u00A0</string>
     <string name="le">\u00A0LE</string>
     <string name="_0">0</string>
