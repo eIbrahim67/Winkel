@@ -35,5 +35,12 @@
     <string name="total">الإجمالي:\u00A0</string>
     <string name="le">\u00A0ج.م</string>
     <string name="_0">0</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="personal__data">البيانات\nالشخصية</string>
+    <string name="payment__methods">طرق الدفع\n</string>
+    <string name="my__orders">طلباتي\n</string>
+    <string name="app__settings">إعدادات\nالتطبيق</string>
+    <string name="help_amp__support"><![CDATA[المساعدة و\nالدعم]]></string>
+    <string name="sign_out">تسجيل الخروج</string>
 
 </resources>

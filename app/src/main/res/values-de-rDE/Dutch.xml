@@ -35,5 +35,12 @@
     <string name="total">Totaal:\u00A0</string>
     <string name="le">\u00A0LE</string>
     <string name="_0">0</string>
+    <string name="profile">Profiel</string>
+    <string name="personal__data">Persoonlijke\nGegevens</string>
+    <string name="payment__methods">Betaalmethoden</string>
+    <string name="my__orders">Mijn\nBestellingen</string>
+    <string name="app__settings">App\nInstellingen</string>
+    <string name="help_amp__support"><![CDATA[Hulp &amp;\nOndersteuning]]></string>
+    <string name="sign_out">Afmelden</string>
 
 </resources>

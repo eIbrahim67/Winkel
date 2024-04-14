@@ -14,13 +14,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profile"
+                android:text="@string/profile"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:clickable="true"
@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/works_ans_v1"
-                        android:text="Personal\nData"
+                        android:text="@string/personal__data"
                         android:gravity="center"
                         android:textSize="20sp"
                         android:layout_marginTop="20dp"
@@ -104,7 +104,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/works_ans_v1"
-                        android:text="Payment\nMethods"
+                        android:text="@string/payment__methods"
                         android:textSize="20sp"
                         android:gravity="center"
                         android:layout_marginTop="20dp"
@@ -151,7 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/works_ans_v1"
-                        android:text="My\nOrders"
+                        android:text="@string/my__orders"
                         android:gravity="center"
                         android:textSize="20sp"
                         android:layout_marginTop="20dp"
@@ -191,12 +191,11 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/works_ans_v1"
-                        android:text="App\nSettings"
+                        android:text="@string/app__settings"
                         android:gravity="center"
                         android:textSize="20sp"
                         android:layout_marginTop="20dp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
@@ -412,7 +411,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/works_ans_v1"
-                        android:text="Help &amp;\nSupport"
+                        android:text="@string/help_amp__support"
                         android:textSize="20sp"
                         android:gravity="center"
                         android:layout_marginTop="20dp"
@@ -451,11 +450,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/works_ans_v1"
-                        android:text="Sign Out"
+                        android:text="@string/sign_out"
                         android:textSize="20sp"
                         android:layout_marginTop="20dp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
