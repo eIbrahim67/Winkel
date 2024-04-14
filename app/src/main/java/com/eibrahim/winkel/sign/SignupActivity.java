@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -179,10 +181,12 @@ public class SignupActivity extends AppCompatActivity {
          } else return true;
     }
 
+
     private void createAccount(String email, String password) {
+
         auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
+                .addOnCompleteListener(authResult -> {
+                    if (authResult.isSuccessful()) {
                         Toast.makeText(SignupActivity.this, "Creation Successful! Your account has been created.", Toast.LENGTH_SHORT).show();
                         loginUser(email, password);
                     } else {

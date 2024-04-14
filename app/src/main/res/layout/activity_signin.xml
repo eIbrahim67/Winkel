@@ -133,8 +133,8 @@
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginEnd="20dp"
+            android:clickable="true"
             android:focusable="true"
             android:textColor="@android:color/holo_red_dark" />
 

@@ -54,19 +54,22 @@
         <activity
             android:name=".sign.SigninActivity"
             android:exported="false" />
+
         <activity
             android:name=".mainPages.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".sign.SignupActivity"
+            android:exported="false" />
         <activity
             android:name=".secondPages.PaymentActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Winkel" />
+            android:exported="false" />
         <activity
             android:name=".secondPages.ItemDetailActivity"
             android:exported="false" />
