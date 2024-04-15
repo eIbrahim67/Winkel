@@ -60,7 +60,7 @@ public class SigninActivity extends AppCompatActivity {
 
         btnSignin.setOnClickListener(v -> {
             if (email.getText().toString().isEmpty() || pass.getText().toString().isEmpty()) {
-                Toast.makeText(SigninActivity.this, "Check from you data.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SigninActivity.this, getString(R.string.check_from_your_data),Toast.LENGTH_SHORT).show();
             } else {
 
                 username = email.getText().toString();
@@ -77,14 +77,14 @@ public class SigninActivity extends AppCompatActivity {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(SigninActivity.this, "Authentication Successful",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SigninActivity.this, getString(R.string.authentication_successful),Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SigninActivity.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         finish();
                     } else {
 
-                        Toast.makeText(SigninActivity.this, "Authentication failed,\nPlease check from your data",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SigninActivity.this, R.string.authentication_failed_message,Toast.LENGTH_SHORT).show();
                     }
                 });
     }

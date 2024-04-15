@@ -59,5 +59,8 @@
     <string name="no">Nee</string>
     <string name="page_refreshed_message">Pagina vernieuwd. Wacht alstublieft 5 seconden voordat u opnieuw vernieuwt</string>
     <string name="basket_empty_message">Uw WINKELWAGEN is leeg! Voeg iets toe om af te rekenen</string>
+    <string name="check_from_your_data">Controleer vanuit uw gegevens</string>
+    <string name="authentication_successful">Authenticatie succesvol</string>
+    <string name="authentication_failed_message">Authenticatie mislukt,\nControleer alstublieft vanuit uw gegevens</string>
 
 </resources>

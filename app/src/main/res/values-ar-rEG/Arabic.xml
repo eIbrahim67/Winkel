@@ -59,5 +59,8 @@
     <string name="no">لا</string>
     <string name="page_refreshed_message">تم تحديث الصفحة. يرجى الانتظار 5 ثواني قبل التحديث مرة أخرى</string>
     <string name="basket_empty_message">سلة التسوق الخاصة بك فارغة! يرجى إضافة شيء لإتمام الشراء</string>
+    <string name="check_from_your_data">تحقق من بياناتك</string>
+    <string name="authentication_successful">تم المصادقة بنجاح</string>
+    <string name="authentication_failed_message">فشلت عملية المصادقة،\nيرجى التحقق من بياناتك</string>
 
 </resources>

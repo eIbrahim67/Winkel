@@ -59,6 +59,9 @@
     <string name="no">No</string>
     <string name="page_refreshed_message">Page refreshed. Please wait 5 seconds before refreshing again</string>
     <string name="basket_empty_message">Your BASKET is empty! Add something to checkout</string>
+    <string name="check_from_your_data">Check from your data</string>
+    <string name="authentication_successful">Authentication Successful</string>
+    <string name="authentication_failed_message">Authentication failed,\nPlease check from your data</string>
 
 
 </resources>
