@@ -43,5 +43,6 @@
     <string name="app__settings">إعدادات\nالتطبيق</string>
     <string name="help_amp__support"><![CDATA[المساعدة و\nالدعم]]></string>
     <string name="sign_out">تسجيل الخروج</string>
+    <string name="enter_your_current_pin">أدخل الرمز السري الحالي الخاص بك</string>
 
 </resources>

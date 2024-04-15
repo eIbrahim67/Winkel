@@ -43,4 +43,5 @@
     <string name="app__settings">App\nSettings</string>
     <string name="help_amp__support"><![CDATA[Help &\nSupport]]></string>
     <string name="sign_out">Sign Out</string>
+    <string name="enter_your_current_pin">Enter your current PIN</string>
 </resources>

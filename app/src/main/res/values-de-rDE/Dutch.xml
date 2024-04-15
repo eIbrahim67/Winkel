@@ -43,5 +43,5 @@
     <string name="app__settings">App\nInstellingen</string>
     <string name="help_amp__support"><![CDATA[Hulp &amp;\nOndersteuning]]></string>
     <string name="sign_out">Afmelden</string>
-
+    "<string name="enter_your_current_pin">Voer uw huidige pincode in</string>"
 </resources>
