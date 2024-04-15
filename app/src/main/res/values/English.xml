@@ -49,4 +49,7 @@
     <string name="subtotal">Subtotal:</string>
     <string name="standard_delivery">Standard delivery:</string>
     <string name="payment">Payment</string>
+    <string name="size">Size</string>
+    <string name="add_to_basket">ADD TO BASKET</string>
+    <string name="review">\u00A0Review</string>
 </resources>

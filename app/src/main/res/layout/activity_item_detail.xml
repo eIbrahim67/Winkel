@@ -29,8 +29,6 @@
             android:padding="10dp"
             android:clickable="true"
             android:focusable="true"
-            android:contentDescription="Back"
-            tools:ignore="HardcodedText"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"/>
 
@@ -42,8 +40,6 @@
             android:src="@drawable/unlove_icon_white"
             android:padding="10dp"
             android:clickable="true"
-            android:contentDescription="Add To Wishlist"
-            tools:ignore="HardcodedText"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
@@ -56,8 +52,6 @@
             style="@style/basket_background_btn"
             android:padding="10dp"
             android:clickable="true"
-            android:contentDescription="GoTO Basket"
-            tools:ignore="HardcodedText"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"/>
@@ -113,14 +107,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Size"
+            android:text="@string/size"
             android:gravity="center_vertical"
             android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText, InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <com.tans.horizontalnestedscrollview.HorizontalNestedScrollView
             android:layout_width="match_parent"
@@ -161,9 +155,9 @@
             </com.willy.ratingbar.ScaleRatingBar>
 
             <TextView
+                android:id="@+id/reviews_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="944 Reviews"
                 android:textSize="15sp"
                 style="@style/TextColor_v2"
                 android:textStyle="bold"
@@ -236,7 +230,7 @@
                     android:id="@+id/addToBasketText"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="ADD TO BASKET"
+                    android:text="@string/add_to_basket"
                     android:textSize="15sp"
                     style="@style/TextColor_v3"
                     android:textStyle="bold"
@@ -253,8 +247,7 @@
                     android:layout_gravity="center_vertical"
                     android:clickable="true"
                     android:focusable="true"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="TODO" />
+                    android:background="@android:color/transparent" />
 
             </LinearLayout>
 

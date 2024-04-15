@@ -49,5 +49,8 @@
     <string name="subtotal">المجموع الفرعي:</string>
     <string name="standard_delivery">التوصيل القياسي:</string>
     <string name="payment">الدفع</string>
+    <string name="size">الحجم</string>
+    <string name="add_to_basket">أضف إلى السلة</string>
+    <string name="review">\u00A0مراجعة</string>
 
 </resources>

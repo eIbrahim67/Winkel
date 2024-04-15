@@ -49,5 +49,8 @@
     <string name="subtotal">Subtotaal:</string>
     <string name="standard_delivery">Standaard levering:</string>
     <string name="payment">Betaling</string>
+    <string name="size">Maat</string>
+    <string name="add_to_basket">TOEVOEGEN AAN WINKELWAGEN</string>
+    <string name="review">\u00A0Beoordeling</string>
 
 </resources>

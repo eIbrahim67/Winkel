@@ -52,6 +52,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         LinearLayout addToBasket = findViewById(R.id.addToBasket);
         ImageView btnWishlist = findViewById(R.id.btn_love);
         recyclerview_sizes = findViewById(R.id.recyclerview_sizes);
+        TextView reviews_num = findViewById(R.id.reviews_num);
 
         DocumentReference wishlistRef = firestore.collection("UsersData")
                 .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
@@ -67,9 +68,9 @@ public class ItemDetailActivity extends AppCompatActivity {
                     .into(itemImgDetail);
 
             itemCategoryDetail.setText(currentItem.getCategory());
-            itemPriceDetail.setText(currentItem.getPrice() + " LE");
+            itemPriceDetail.setText(currentItem.getPrice() + getString(R.string.le));
             itemNameDetail.setText(currentItem.getName());
-
+            reviews_num.setText("244" + getString(R.string.review));
         }
 
         btnBackHome.setOnClickListener(v -> finish());
