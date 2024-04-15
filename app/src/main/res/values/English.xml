@@ -75,6 +75,7 @@
     <string name="invalid_phone_error">Please enter a valid phone number including country code.</string>
     <string name="invalid_user_type_error">Invalid user type.</string>
     <string name="terms_of_service_error">Please agree to our terms of service.</string>
+    <string name="pin_length_error">Pin number should contain exactly four digits</string>
 
 
 </resources>

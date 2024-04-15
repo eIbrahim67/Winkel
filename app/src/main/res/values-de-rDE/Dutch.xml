@@ -75,5 +75,6 @@
     <string name="invalid_phone_error">Voer alstublieft een geldig telefoonnummer in, inclusief landcode.</string>
     <string name="invalid_user_type_error">Ongeldig gebruikerstype.</string>
     <string name="terms_of_service_error">Ga alstublieft akkoord met onze algemene voorwaarden.</string>
+    <string name="pin_length_error">Het pinnummer moet precies vier cijfers bevatten</string>
 
 </resources>

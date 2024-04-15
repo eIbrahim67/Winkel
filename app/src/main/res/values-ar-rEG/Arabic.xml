@@ -75,5 +75,6 @@
     <string name="invalid_phone_error">يرجى إدخال رقم هاتف صالح بما في ذلك الرمز الدولي.</string>
     <string name="invalid_user_type_error">نوع مستخدم غير صالح.</string>
     <string name="terms_of_service_error">يرجى الموافقة على شروط الخدمة الخاصة بنا.</string>
+    <string name="pin_length_error">يجب أن يحتوي الرقم السري على أربعة أرقام فقط</string>
 
 </resources>

@@ -95,7 +95,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (s.toString().length() > 4){
 
-                    Toast.makeText(SignupActivity.this, "Pin number should contain exactly four digits", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, R.string.pin_length_error, Toast.LENGTH_SHORT).show();
                     pin.setText(s.toString().substring(0, 4));
 
                 }
