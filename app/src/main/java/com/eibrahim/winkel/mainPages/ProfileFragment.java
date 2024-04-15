@@ -117,17 +117,17 @@ public class ProfileFragment extends Fragment {
          btnLogout.setOnClickListener(v -> {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage("Are you sure?")
-                    .setTitle("Log Out")
-                    .setPositiveButton("Yes", (dialog, id) -> {
+            builder.setMessage(R.string.are_you_sure)
+                    .setTitle(R.string.log_out)
+                    .setPositiveButton(R.string.yes, (dialog, id) -> {
                         FirebaseAuth.getInstance().signOut();
-                        Toast.makeText(getActivity(), "Logged out successfully.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), getText(R.string.logged_out_successfully), Toast.LENGTH_SHORT).show();
                         Intent intentHomeActivity = new Intent(getActivity(), SigninActivity.class);
                         intentHomeActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intentHomeActivity);
                         dialog.dismiss();
                     })
-                    .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+                    .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
 
             // Create the AlertDialog
             AlertDialog dialog = builder.create();

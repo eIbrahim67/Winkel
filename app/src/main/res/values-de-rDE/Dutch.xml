@@ -52,5 +52,10 @@
     <string name="size">Maat</string>
     <string name="add_to_basket">TOEVOEGEN AAN WINKELWAGEN</string>
     <string name="review">\u00A0Beoordeling</string>
+    <string name="logged_out_successfully">Succesvol uitgelogd</string>
+    <string name="are_you_sure">Weet je het zeker?</string>
+    <string name="log_out">Uitloggen</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nee</string>
 
 </resources>

@@ -52,5 +52,10 @@
     <string name="size">الحجم</string>
     <string name="add_to_basket">أضف إلى السلة</string>
     <string name="review">\u00A0مراجعة</string>
+    <string name="logged_out_successfully">تم تسجيل الخروج بنجاح</string>
+    <string name="are_you_sure">هل أنت متأكد؟</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
 
 </resources>
