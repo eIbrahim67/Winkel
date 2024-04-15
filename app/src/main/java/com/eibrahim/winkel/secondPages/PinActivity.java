@@ -165,7 +165,7 @@ public class PinActivity extends AppCompatActivity {
                                     pin4.setBackgroundResource(R.drawable.rounded_white_v1_red_v1_gray_v4);
                                     pin4.setImageResource(R.drawable.star_icon_red);
 
-                                    Toast.makeText(PinActivity.this, "Wrong PIN", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(PinActivity.this, getString(R.string.wrong_pin_message), Toast.LENGTH_SHORT).show();
 
                                     pin = "";
                                 }

@@ -84,5 +84,6 @@
     <string name="payment_added_success">تمت إضافة طريقة الدفع بنجاح.</string>
     <string name="payment_add_failed">فشلت عملية إضافة طريقة الدفع. يرجى المحاولة مرة أخرى.</string>
     <string name="payment_successful">تم الدفع بنجاح.</string>
+    <string name="wrong_pin_message">رمز سري خاطئ</string>
 
 </resources>
