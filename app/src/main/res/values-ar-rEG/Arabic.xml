@@ -29,7 +29,7 @@
     <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">إذا لم تجد آخر التحديثات الخاصة بك، يرجى تحديث الصفحة.</string>
     <string name="your_wishlist_is_empty">قائمة أمانيك فارغة!</string>
     <string name="oops">عفوًا!</string>
-    <string name="it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now">يبدو أن سلة التسوق الخاصة بك فارغة\nابدأ في إضافة العناصر إلى سلة التسوق الخاصة بك الآن!</string>
+    <string name="it_looks_like_your_basket_is_empty__start_adding_items_to_your_basket_now">يبدو أن سلة التسوق الخاصة بك فارغة\nابدأ في إضافة العناصر إلى سلة التسوق الخاصة بك الآن!</string>
     <string name="checkout">الدفع</string>
     <string name="item">\u00A0عنصر</string>
     <string name="items">\u00A0عناصر</string>
@@ -76,5 +76,10 @@
     <string name="invalid_user_type_error">نوع مستخدم غير صالح.</string>
     <string name="terms_of_service_error">يرجى الموافقة على شروط الخدمة الخاصة بنا.</string>
     <string name="pin_length_error">يجب أن يحتوي الرقم السري على أربعة أرقام فقط</string>
+    <string name="item_added_to_wishlist_success">تمت إضافة العنصر بنجاح إلى قائمة الرغبات الخاصة بك.</string>
+    <string name="unexpected_error_occurred">حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا.</string>
+    <string name="item_removed_from_wishlist_success">تمت إزالة العنصر بنجاح من قائمة الرغبات الخاصة بك.</string>
+    <string name="item_added_success">تمت إضافة العنصر بنجاح إلى سلة التسوق الخاصة بك</string>
+    <string name="choose_size_prompt">يرجى اختيار الحجم الخاص بك.</string>
 
 </resources>

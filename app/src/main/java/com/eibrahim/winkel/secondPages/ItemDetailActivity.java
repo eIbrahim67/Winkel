@@ -84,22 +84,18 @@ public class ItemDetailActivity extends AppCompatActivity {
                 currentItem.setItemLoved(false);
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
-                        // Success message
-                        .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, "Item successfully removed from your wishlist.", Toast.LENGTH_SHORT).show())
+                        .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, R.string.item_removed_from_wishlist_success, Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
 
-// Failure message
-                        .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, "An unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show());
 
             } else {
                 btnWishlist.setImageResource(R.drawable.loved_icon);
                 currentItem.setItemLoved(true);
                 wishlistRef
                         .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
-                        // Success message
-                        .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, "Item successfully added to your wishlist.", Toast.LENGTH_SHORT).show())
+                        .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, R.string.item_added_to_wishlist_success, Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
 
-// Failure message
-                        .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, "An unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show());
 
             }
 
@@ -121,7 +117,7 @@ public class ItemDetailActivity extends AppCompatActivity {
             }else {
 
                 if (adapterRvSizes.getSize().equals("null")){
-                    Toast.makeText(ItemDetailActivity.this, "Please choose your size.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ItemDetailActivity.this, getString(R.string.choose_size_prompt), Toast.LENGTH_SHORT).show();
                 }
                 else {
                     currentItem.setMuch(String.valueOf(itemMuchDetail.getText()));
@@ -136,13 +132,9 @@ public class ItemDetailActivity extends AppCompatActivity {
 
                                     )
                             )
-                            // Success message
-                            .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, "Item successfully added to your basket.", Toast.LENGTH_SHORT).show())
+                            .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, getString(R.string.item_added_success), Toast.LENGTH_SHORT).show())
+                            .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show());
 
-// Failure message
-                            .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, "An unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show());
-
-                    Toast.makeText(ItemDetailActivity.this, "Item successfully added to your basket.", Toast.LENGTH_SHORT).show();
                 }
 
             }

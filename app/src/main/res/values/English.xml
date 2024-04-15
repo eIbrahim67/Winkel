@@ -29,7 +29,7 @@
     <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">If you haven\'t found your latest updates, please refresh the page.</string>
     <string name="your_wishlist_is_empty">Your WishList is empty!</string>
     <string name="oops">Oops!</string>
-    <string name="it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now">It looks like your basket is empty\nStart adding items to your basket now!</string>
+    <string name="it_looks_like_your_basket_is_empty__start_adding_items_to_your_basket_now">It looks like your basket is empty\nStart adding items to your basket now!</string>
     <string name="checkout">Checkout</string>
     <string name="item">\u00A0 item</string>
     <string name="items">\u00A0 items</string>
@@ -76,6 +76,10 @@
     <string name="invalid_user_type_error">Invalid user type.</string>
     <string name="terms_of_service_error">Please agree to our terms of service.</string>
     <string name="pin_length_error">Pin number should contain exactly four digits</string>
-
+    <string name="item_added_to_wishlist_success">Item successfully added to your wishlist.</string>
+    <string name="unexpected_error_occurred">An unexpected error occurred. Please try again later.</string>
+    <string name="item_removed_from_wishlist_success">Item successfully removed from your wishlist.</string>
+    <string name="item_added_success">Item successfully added to your basket</string>
+    <string name="choose_size_prompt">Please choose your size.</string>
 
 </resources>

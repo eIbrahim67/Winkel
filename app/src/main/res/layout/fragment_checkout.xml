@@ -39,7 +39,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/it_looks_like_your_basket_is_empty_nstart_adding_items_to_your_basket_now"
+                android:text="@string/it_looks_like_your_basket_is_empty__start_adding_items_to_your_basket_now"
                 android:textSize="15sp"
                 style="@style/TextColor_v2"
                 android:gravity="center"
