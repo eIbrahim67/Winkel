@@ -57,5 +57,7 @@
     <string name="log_out">Uitloggen</string>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
+    <string name="page_refreshed_message">Pagina vernieuwd. Wacht alstublieft 5 seconden voordat u opnieuw vernieuwt</string>
+    <string name="basket_empty_message">Uw WINKELWAGEN is leeg! Voeg iets toe om af te rekenen</string>
 
 </resources>

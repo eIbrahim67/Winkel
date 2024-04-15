@@ -66,7 +66,7 @@ public class CheckoutFragment extends Fragment {
                 lastRefreshTime = currentTime;
             }
             else {
-                Toast.makeText(requireContext(), "Page refreshed. Please wait 5 seconds before refreshing again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), getText(R.string.page_refreshed_message), Toast.LENGTH_SHORT).show();
                 checkout_fragment.setRefreshing(false);
             }
         });
@@ -78,7 +78,7 @@ public class CheckoutFragment extends Fragment {
                 intent.putExtra("Data", dataOfOrder);
                 startActivity(intent);
             } else {
-                Toast.makeText(requireContext(), "Your BASKET is empty!, add something to checkout", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), getText(R.string.basket_empty_message), Toast.LENGTH_SHORT).show();
             }
         });
 

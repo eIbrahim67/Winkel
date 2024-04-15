@@ -57,5 +57,7 @@
     <string name="log_out">تسجيل الخروج</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
+    <string name="page_refreshed_message">تم تحديث الصفحة. يرجى الانتظار 5 ثواني قبل التحديث مرة أخرى</string>
+    <string name="basket_empty_message">سلة التسوق الخاصة بك فارغة! يرجى إضافة شيء لإتمام الشراء</string>
 
 </resources>

@@ -57,5 +57,8 @@
     <string name="log_out">Log Out</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="page_refreshed_message">Page refreshed. Please wait 5 seconds before refreshing again</string>
+    <string name="basket_empty_message">Your BASKET is empty! Add something to checkout</string>
+
 
 </resources>
