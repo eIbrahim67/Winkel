@@ -78,10 +78,11 @@ public class PaymentActivity extends AppCompatActivity {
 
                         basketRef.update("BasketCollection", FieldValue.delete());
 
-                        Toast.makeText(PaymentActivity.this, "Payment successful.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PaymentActivity.this, getString(R.string.payment_successful), Toast.LENGTH_SHORT).show();
+
 
                     })
-                    .addOnFailureListener(e -> Toast.makeText(PaymentActivity.this, "An unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show());
+                    .addOnFailureListener(e -> Toast.makeText(PaymentActivity.this, getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show());
 
             Intent intentHomeActivity = new Intent(PaymentActivity.this, MainActivity.class);
             intentHomeActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
