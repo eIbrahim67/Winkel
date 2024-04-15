@@ -67,7 +67,7 @@ public class adapterRecyclerviewItemsWishlist extends RecyclerView.Adapter<adapt
         FirebaseAuth auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        String temp = currentItem.getPrice() + " LE";
+        String temp = currentItem.getPrice() + context.getString(R.string.le);
 
         holder.itemPrice.setText(temp);
         holder.itemCategory.setText(currentItem.getCategory());

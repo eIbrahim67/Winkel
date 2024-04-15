@@ -70,7 +70,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         FirebaseAuth auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        String temp = currentItem.getPrice() + " LE";
+        String temp = currentItem.getPrice() + context.getString(R.string.le);
 
         holder.itemPrice.setText(temp);
         holder.itemCategory.setText(currentItem.getCategory());

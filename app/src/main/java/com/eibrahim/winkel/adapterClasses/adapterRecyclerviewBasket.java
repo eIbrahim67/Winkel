@@ -70,7 +70,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
 
 
         holder.itemNameCheck.setText(currentItem.getName());
-        String temp = currentItem.getPrice() + " LE" ;
+        String temp = currentItem.getPrice() + context.getString(R.string.le) ;
         holder.itemPriceCheck.setText(temp);
         temp = "x" + currentItem.getMuch();
         holder.itemMuchCheck.setText(temp);
