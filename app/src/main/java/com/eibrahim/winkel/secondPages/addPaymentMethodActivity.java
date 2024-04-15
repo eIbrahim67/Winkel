@@ -134,8 +134,9 @@ public class addPaymentMethodActivity extends AppCompatActivity {
             DocumentReference documentRef = collectionRef.document();
             String documentId = documentRef.getId();
             collectionRef.document(documentId).set(itemOfMethod)
-                    .addOnSuccessListener(aVoid -> Toast.makeText(addPaymentMethodActivity.this, "Payment method added successfully.", Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(e -> Toast.makeText(addPaymentMethodActivity.this, "Failed to add payment method. Please try again.", Toast.LENGTH_SHORT).show());
+                    .addOnSuccessListener(aVoid -> Toast.makeText(addPaymentMethodActivity.this, getString(R.string.payment_added_success), Toast.LENGTH_SHORT).show())
+                    .addOnFailureListener(e -> Toast.makeText(addPaymentMethodActivity.this, getString(R.string.payment_add_failed), Toast.LENGTH_SHORT).show());
+
 
         });
         

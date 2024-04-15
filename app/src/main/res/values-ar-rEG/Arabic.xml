@@ -81,5 +81,7 @@
     <string name="item_removed_from_wishlist_success">تمت إزالة العنصر بنجاح من قائمة الرغبات الخاصة بك.</string>
     <string name="item_added_success">تمت إضافة العنصر بنجاح إلى سلة التسوق الخاصة بك</string>
     <string name="choose_size_prompt">يرجى اختيار الحجم الخاص بك.</string>
+    <string name="payment_added_success">تمت إضافة طريقة الدفع بنجاح.</string>
+    <string name="payment_add_failed">فشلت عملية إضافة طريقة الدفع. يرجى المحاولة مرة أخرى.</string>
 
 </resources>

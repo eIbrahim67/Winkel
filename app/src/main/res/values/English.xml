@@ -81,5 +81,7 @@
     <string name="item_removed_from_wishlist_success">Item successfully removed from your wishlist.</string>
     <string name="item_added_success">Item successfully added to your basket</string>
     <string name="choose_size_prompt">Please choose your size.</string>
+    <string name="payment_added_success">Payment method added successfully.</string>
+    <string name="payment_add_failed">Failed to add payment method. Please try again.</string>
 
 </resources>
