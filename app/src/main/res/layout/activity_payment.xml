@@ -56,7 +56,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shipping address"
+                android:text="@string/shipping_address"
                 android:gravity="center_vertical"
                 android:textSize="20sp"
                 android:fontFamily="@font/works_ans_v1"
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="Payment method"
+            android:text="@string/payment_method"
             android:textSize="20sp"
             android:layout_weight="1"
             android:textStyle="bold"
@@ -153,12 +153,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Subtotal:"
+                android:text="@string/subtotal"
                 android:textSize="18sp"
                 style="@style/TextColor_v2"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                tools:ignore="HardcodedText" />
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/subTotalPriceOfItemsPayment"
@@ -180,7 +179,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Standard delivery:"
+                android:text="@string/standard_delivery"
                 android:textSize="18sp"
                 style="@style/TextColor_v2"
                 android:textStyle="bold"
@@ -212,12 +211,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total:"
+                android:text="@string/total"
                 android:textSize="22sp"
                 style="@style/TextColor_v1"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                tools:ignore="HardcodedText" />
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/TotalPriceOfItemsPayment"
@@ -238,11 +236,10 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             style="@style/checkout_background_btn"
-            android:text="Payment"
+            android:text="@string/payment"
             android:textSize="20sp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            tools:ignore="HardcodedText" />
+            android:layout_marginBottom="20dp" />
 
     </LinearLayout>
 

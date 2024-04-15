@@ -51,11 +51,11 @@ public class PaymentActivity extends AppCompatActivity {
 
         double deliveryCost = 5.00;
 
-        String temp = "$" + totalPrice;
+        String temp = totalPrice + getString(R.string.le);
         TotalPriceOfItemsCheckout.setText(temp);
-        temp = "$" + String.format("%.2f", deliveryCost);
+        temp = String.format("%.2f", deliveryCost) + getString(R.string.le);
         DeliveryCostPayment.setText(temp);
-        temp = "$" + Double.parseDouble(Objects.requireNonNull(totalPrice)) + deliveryCost;
+        temp = Double.parseDouble(Objects.requireNonNull(totalPrice)) + deliveryCost + getString(R.string.le);
         TotalPriceOfItemsPayment.setText(temp);
 
         fetchPaymentMethodsData(recyclerView_payment, this);

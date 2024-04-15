@@ -44,4 +44,10 @@
     <string name="help_amp__support"><![CDATA[Hulp &amp;\nOndersteuning]]></string>
     <string name="sign_out">Afmelden</string>
     "<string name="enter_your_current_pin">Voer uw huidige pincode in</string>"
+    <string name="shipping_address">Verzendadres</string>
+    <string name="payment_method">Betaalmethode</string>
+    <string name="subtotal">Subtotaal:</string>
+    <string name="standard_delivery">Standaard levering:</string>
+    <string name="payment">Betaling</string>
+
 </resources>
