@@ -78,7 +78,7 @@ public class OrdersActivity extends AppCompatActivity {
 
                                     dataOfRvItemData.add(itemData);
                                 }catch (Exception e) {
-                                    Toast.makeText(OrdersActivity.this, "Unexpected error occurred. Please try again later.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(OrdersActivity.this, getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
                                 }
                             }
 
