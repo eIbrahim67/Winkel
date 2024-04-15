@@ -61,6 +61,19 @@
     <string name="basket_empty_message">سلة التسوق الخاصة بك فارغة! يرجى إضافة شيء لإتمام الشراء</string>
     <string name="check_from_your_data">تحقق من بياناتك</string>
     <string name="authentication_successful">تم المصادقة بنجاح</string>
-    <string name="authentication_failed_message">فشلت عملية المصادقة،\nيرجى التحقق من بياناتك</string>
+    <string name="creation_successful_message">تم الإنشاء بنجاح!\nتم إنشاء حسابك</string>
+    <string name="creation_failed_message">فشلت عملية الإنشاء\nيرجى التحقق مرة أخرى من بياناتك والمحاولة مرة أخرى</string>
+    <string name="authentication_failed_message">فشلت عملية المصادقة\nيرجى التحقق مرة أخرى من معلوماتك والمحاولة مرة أخرى</string>
+    <string name="username_empty_error">يرجى إدخال اسم مستخدم.</string>
+    <string name="email_empty_error">يرجى إدخال عنوان بريد إلكتروني.</string>
+    <string name="pin_empty_error">يرجى إدخال الرمز السري.</string>
+    <string name="repin_empty_error">يرجى إعادة إدخال الرمز السري.</string>
+    <string name="pins_not_match_error">الرموز السرية غير متطابقة.</string>
+    <string name="password_empty_error">يرجى إدخال كلمة مرور.</string>
+    <string name="re_password_empty_error">يرجى إعادة إدخال كلمة المرور.</string>
+    <string name="passwords_not_match_error">كلمات المرور غير متطابقة.</string>
+    <string name="invalid_phone_error">يرجى إدخال رقم هاتف صالح بما في ذلك الرمز الدولي.</string>
+    <string name="invalid_user_type_error">نوع مستخدم غير صالح.</string>
+    <string name="terms_of_service_error">يرجى الموافقة على شروط الخدمة الخاصة بنا.</string>
 
 </resources>

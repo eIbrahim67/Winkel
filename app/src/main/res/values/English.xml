@@ -61,7 +61,20 @@
     <string name="basket_empty_message">Your BASKET is empty! Add something to checkout</string>
     <string name="check_from_your_data">Check from your data</string>
     <string name="authentication_successful">Authentication Successful</string>
-    <string name="authentication_failed_message">Authentication failed,\nPlease check from your data</string>
+    <string name="creation_successful_message">Creation Successful!\nYour account has been created</string>
+    <string name="creation_failed_message">Creation failed\nPlease double-check your data and try again</string>
+    <string name="authentication_failed_message">Authentication failed\nPlease double-check your information and try again</string>
+    <string name="username_empty_error">Please enter a username.</string>
+    <string name="email_empty_error">Please enter an email address.</string>
+    <string name="pin_empty_error">Please enter the Pin.</string>
+    <string name="repin_empty_error">Please re-enter the Pin.</string>
+    <string name="pins_not_match_error">Pins do not match.</string>
+    <string name="password_empty_error">Please enter a password.</string>
+    <string name="re_password_empty_error">Please re-enter the password.</string>
+    <string name="passwords_not_match_error">Passwords do not match.</string>
+    <string name="invalid_phone_error">Please enter a valid phone number including country code.</string>
+    <string name="invalid_user_type_error">Invalid user type.</string>
+    <string name="terms_of_service_error">Please agree to our terms of service.</string>
 
 
 </resources>

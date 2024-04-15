@@ -61,6 +61,19 @@
     <string name="basket_empty_message">Uw WINKELWAGEN is leeg! Voeg iets toe om af te rekenen</string>
     <string name="check_from_your_data">Controleer vanuit uw gegevens</string>
     <string name="authentication_successful">Authenticatie succesvol</string>
-    <string name="authentication_failed_message">Authenticatie mislukt,\nControleer alstublieft vanuit uw gegevens</string>
+    <string name="creation_successful_message">Creatie succesvol!\nUw account is aangemaakt</string>
+    <string name="creation_failed_message">Creatie mislukt\nControleer alstublieft uw gegevens en probeer het opnieuw</string>
+    <string name="authentication_failed_message">Authenticatie mislukt\nControleer alstublieft uw informatie en probeer het opnieuw</string>
+    <string name="username_empty_error">Voer alstublieft een gebruikersnaam in.</string>
+    <string name="email_empty_error">Voer alstublieft een e-mailadres in.</string>
+    <string name="pin_empty_error">Voer alstublieft de pincode in.</string>
+    <string name="repin_empty_error">Voer alstublieft de pincode opnieuw in.</string>
+    <string name="pins_not_match_error">Pincodes komen niet overeen.</string>
+    <string name="password_empty_error">Voer alstublieft een wachtwoord in.</string>
+    <string name="re_password_empty_error">Voer alstublieft het wachtwoord opnieuw in.</string>
+    <string name="passwords_not_match_error">Wachtwoorden komen niet overeen.</string>
+    <string name="invalid_phone_error">Voer alstublieft een geldig telefoonnummer in, inclusief landcode.</string>
+    <string name="invalid_user_type_error">Ongeldig gebruikerstype.</string>
+    <string name="terms_of_service_error">Ga alstublieft akkoord met onze algemene voorwaarden.</string>
 
 </resources>

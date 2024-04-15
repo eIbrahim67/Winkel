@@ -17,8 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -143,28 +141,29 @@ public class SignupActivity extends AppCompatActivity {
             repinNum = repin.getText().toString();
 
             if (username.isEmpty()) {
-                Toast.makeText(SignupActivity.this, "Please enter a username.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, R.string.username_empty_error, Toast.LENGTH_SHORT).show();
             } else if (email.isEmpty()) {
-                Toast.makeText(SignupActivity.this, "Please enter an email address.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, R.string.email_empty_error, Toast.LENGTH_SHORT).show();
             } else if (pinNum.isEmpty()) {
-                Toast.makeText(SignupActivity.this, "Please enter the Pin.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, R.string.pin_empty_error, Toast.LENGTH_SHORT).show();
             } else if (repinNum.isEmpty()) {
-                Toast.makeText(SignupActivity.this, "Please re-enter the Pin.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, R.string.repin_empty_error, Toast.LENGTH_SHORT).show();
             }  else if (!pinNum.equals(repinNum)) {
-                Toast.makeText(SignupActivity.this, "Pins do not match.", Toast.LENGTH_SHORT).show();
-            }else if (password.isEmpty()) {
-                Toast.makeText(SignupActivity.this, "Please enter a password.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, R.string.pins_not_match_error, Toast.LENGTH_SHORT).show();
+            } else if (password.isEmpty()) {
+                Toast.makeText(SignupActivity.this, R.string.password_empty_error, Toast.LENGTH_SHORT).show();
             } else if (rePassword.isEmpty()) {
-                Toast.makeText(SignupActivity.this, "Please re-enter the password.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, R.string.re_password_empty_error, Toast.LENGTH_SHORT).show();
             } else if (!rePassword.equals(password)) {
-                Toast.makeText(SignupActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
-            } else if (phoneNo.length() != 13 || !phoneNo.startsWith("+")) {
-                Toast.makeText(SignupActivity.this, "Please enter a valid phone number including country code.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, R.string.passwords_not_match_error, Toast.LENGTH_SHORT).show();
+            } else if (phoneNo.length() != 11) {
+                Toast.makeText(SignupActivity.this, R.string.invalid_phone_error, Toast.LENGTH_SHORT).show();
             } else if (!checks()) {
-                Toast.makeText(SignupActivity.this, "Invalid user type.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, R.string.invalid_user_type_error, Toast.LENGTH_SHORT).show();
             } else if (!checkSignup.isChecked()) {
-                Toast.makeText(SignupActivity.this, "Please agree to our terms of service.", Toast.LENGTH_SHORT).show();
-            } else {
+                Toast.makeText(SignupActivity.this, R.string.terms_of_service_error, Toast.LENGTH_SHORT).show();
+            }
+            else {
                 createAccount(email, password);
             }
 
@@ -187,10 +186,10 @@ public class SignupActivity extends AppCompatActivity {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(authResult -> {
                     if (authResult.isSuccessful()) {
-                        Toast.makeText(SignupActivity.this, "Creation Successful! Your account has been created.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, getText(R.string.creation_successful_message), Toast.LENGTH_SHORT).show();
                         loginUser(email, password);
                     } else {
-                        Toast.makeText(SignupActivity.this, "Creation failed. Please double-check your data and try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, R.string.creation_failed_message, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -200,10 +199,10 @@ public class SignupActivity extends AppCompatActivity {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(SignupActivity.this, "Authentication Successful! Welcome aboard!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, R.string.authentication_successful, Toast.LENGTH_SHORT).show();
                     } else {
 
-                        Toast.makeText(SignupActivity.this, "Authentication failed. Please double-check your information and try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, R.string.authentication_failed_message, Toast.LENGTH_SHORT).show();
                     }
                 });
 
