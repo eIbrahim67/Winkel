@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
 import com.eibrahim.winkel.secondPages.AddItemActivity;
 import com.google.firebase.firestore.CollectionReference;
@@ -65,14 +66,14 @@ public class AddToShop {
         usersCollection.update(updates)
                 // Success message
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(addItemActivity, "The new item was uploaded successfully.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addItemActivity, addItemActivity.getText(R.string.item_uploaded_success), Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                     addItemActivity.finish();
                 })
 
 // Failure message
                 .addOnFailureListener(e -> {
-                    Toast.makeText(addItemActivity, "An unexpected error occurred. The item was not uploaded.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addItemActivity, addItemActivity.getText(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 });
 
