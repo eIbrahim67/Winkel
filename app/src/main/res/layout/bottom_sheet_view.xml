@@ -33,10 +33,10 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/font_type_2"
+            android:text="@string/view"
             android:textSize="32sp"
-            android:text="View"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
     </RelativeLayout>
 
@@ -67,14 +67,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Grid view"
+            android:text="@string/grid_view"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -114,14 +114,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Linear horizontal view"
+            android:text="@string/linear_horizontal_view"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -159,14 +159,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Linear vertical view"
+            android:text="@string/linear_vertical_view"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -191,11 +191,10 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         style="@style/checkout_background_btn"
-        android:text="View"
+        android:text="@string/done"
         android:textSize="20sp"
         android:textAllCaps="false"
         android:layout_marginTop="30dp"
-        tools:ignore="HardcodedText"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"/>

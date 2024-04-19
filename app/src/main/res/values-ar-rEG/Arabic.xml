@@ -87,6 +87,11 @@
     <string name="payment_successful">تم الدفع بنجاح</string>
     <string name="wrong_pin_message">رقم السري خاطئ</string>
     <string name="item_uploaded_success">تم تحميل العنصر الجديد بنجاح</string>
+    <string name="view">عرض</string>
+    <string name="grid_view">عرض الشبكة</string>
+    <string name="linear_horizontal_view">عرض خطي أفقي</string>
+    <string name="linear_vertical_view">عرض خطي رأسي</string>
+    <string name="done">تم</string>
 
 
 </resources>

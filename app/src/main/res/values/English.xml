@@ -86,5 +86,9 @@
     <string name="payment_successful">Payment successful</string>
     <string name="wrong_pin_message">Wrong PIN</string>
     <string name="item_uploaded_success">The new item was uploaded successfully</string>
-
+    <string name="view">View</string>
+    <string name="grid_view">Grid view</string>
+    <string name="linear_horizontal_view">Linear horizontal view</string>
+    <string name="linear_vertical_view">Linear vertical view</string>
+    <string name="done">Done</string>
 </resources>
