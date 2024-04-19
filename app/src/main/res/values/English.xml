@@ -91,4 +91,11 @@
     <string name="linear_horizontal_view">Linear horizontal view</string>
     <string name="linear_vertical_view">Linear vertical view</string>
     <string name="done">Done</string>
+    <string name="sort_by">Sort By</string>
+    <string name="main">Main</string>
+    <string name="price_high_to_low">Price: High to Low</string>
+    <string name="price_low_to_high">Price: Low to High</string>
+    <string name="name_a_to_z">Name: A to Z</string>
+    <string name="name_z_to_a">Name: Z to A</string>
+
 </resources>

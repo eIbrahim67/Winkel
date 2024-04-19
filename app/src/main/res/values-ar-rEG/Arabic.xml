@@ -92,6 +92,12 @@
     <string name="linear_horizontal_view">عرض خطي أفقي</string>
     <string name="linear_vertical_view">عرض خطي رأسي</string>
     <string name="done">تم</string>
+    <string name="sort_by">ترتيب حسب</string>
+    <string name="main">الرئيسية</string>
+    <string name="price_high_to_low">السعر: من الأعلى إلى الأدنى</string>
+    <string name="price_low_to_high">السعر: من الأدنى إلى الأعلى</string>
+    <string name="name_a_to_z">الاسم: من أ إلى ي</string>
+    <string name="name_z_to_a">الاسم: من ي إلى أ</string>
 
 
 </resources>

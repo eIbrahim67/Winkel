@@ -33,10 +33,10 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/font_type_2"
+            android:text="@string/sort_by"
             android:textSize="32sp"
-            android:text="Sort By"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
     </RelativeLayout>
 
@@ -67,14 +67,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Main"
+            android:text="@string/main"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -114,14 +114,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Price: High to Low"
+            android:text="@string/price_high_to_low"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -159,14 +159,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Price: Low to High"
+            android:text="@string/price_low_to_high"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -204,14 +204,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Name: A to Z"
+            android:text="@string/name_a_to_z"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -249,14 +249,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Name: Z to A"
+            android:text="@string/name_z_to_a"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -280,11 +280,10 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         style="@style/checkout_background_btn"
-        android:text="Sort"
+        android:text="@string/done"
         android:textSize="20sp"
         android:textAllCaps="false"
         android:layout_marginTop="40dp"
-        tools:ignore="HardcodedText"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"/>
