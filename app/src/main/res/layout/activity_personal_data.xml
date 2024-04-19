@@ -1,17 +1,415 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".secondPages.personalDataActivity"
     style="@style/background">
 
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="Account" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_personal_data"
+            android:textSize="30sp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/full_name"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginStart="20dp"
+            tools:ignore="InefficientWeight" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            style="@style/rounded_outline_solid_white_black"
+            android:inputType="textPersonName"
+            android:autofillHints="name">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/name_edit"
+                    style="@style/TextColor_v4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:autofillHints="name"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    style="@style/edit_icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/gender"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginStart="20dp"
+            tools:ignore="InefficientWeight" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            style="@style/rounded_outline_solid_white_black"
+            android:inputType="textPersonName"
+            android:autofillHints="name">
 
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/gender_no_edit"
+                    style="@style/TextColor_v4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:background="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/email"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginStart="20dp"
+            tools:ignore="InefficientWeight" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            style="@style/rounded_outline_solid_white_black"
+            android:inputType="textPersonName"
+            android:autofillHints="name">
+
+            <TextView
+                android:id="@+id/email_no_edit"
+                style="@style/TextColor_v4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/works_ans_v1"
+                android:background="@android:color/transparent"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/phone_no"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginStart="20dp"
+            tools:ignore="InefficientWeight" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            style="@style/rounded_outline_solid_white_black"
+            android:inputType="textPersonName"
+            android:autofillHints="name">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/phone_no_edit"
+                    style="@style/TextColor_v4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:hint="01550162282"
+                    android:fontFamily="@font/works_ans_v1"
+                    android:autofillHints="name"
+                    android:background="@android:color/transparent"
+                    android:inputType="phone"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    style="@style/edit_icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/account_type"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/works_ans_v1"
+            style="@style/TextColor_v1"
+            android:layout_marginStart="20dp"
+            tools:ignore="InefficientWeight" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            style="@style/rounded_outline_solid_white_black"
+            android:inputType="textPersonName"
+            android:autofillHints="name">
+
+            <TextView
+                android:id="@+id/type_no_edit"
+                style="@style/TextColor_v4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:hint="Cutomer"
+                android:fontFamily="@font/works_ans_v1"
+                android:autofillHints="name"
+                android:background="@android:color/transparent"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/admin_edit_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginEnd="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/your_admin_code"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/works_ans_v1"
+                style="@style/TextColor_v1"
+                android:layout_marginStart="20dp"
+                tools:ignore="InefficientWeight" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                style="@style/rounded_outline_solid_white_black"
+                android:inputType="textPersonName"
+                android:autofillHints="name">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/admin_edit"
+                        style="@style/TextColor_v4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="Ac12Ddv"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:autofillHints="name"
+                        android:background="@android:color/transparent"
+                        android:layout_weight="1"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        style="@style/copy_icon"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vendor_edit_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginEnd="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/your_vendor_code"
+                android:gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/works_ans_v1"
+                style="@style/TextColor_v1"
+                android:layout_marginStart="20dp"
+                tools:ignore="InefficientWeight" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                style="@style/rounded_outline_solid_white_black"
+                android:inputType="textPersonName"
+                android:autofillHints="name">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/vendor_no_edit"
+                        style="@style/TextColor_v4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="12CffrDe"
+                        android:fontFamily="@font/works_ans_v1"
+                        android:autofillHints="name"
+                        android:background="@android:color/transparent"
+                        android:textSize="18sp"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        style="@style/copy_icon"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            style="@style/checkout_background_btn"
+            android:text="@string/done"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

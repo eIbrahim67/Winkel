@@ -35,6 +35,13 @@
 
     </style>
 
+    <style name="TextColor_v4">
+
+        <item name="android:textColor">@color/black_v1</item>
+        <item name="android:textColorHint">@color/gray_v3</item>
+
+    </style>
+
     <style name="options_background_btn">
 
         <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
@@ -97,6 +104,18 @@
     <style name="basket_src">
 
         <item name="android:src">@drawable/basket_icon_black</item>
+
+    </style>
+
+    <style name="copy_icon">
+
+        <item name="android:src">@drawable/copy_icon_black</item>
+
+    </style>
+
+    <style name="edit_icon">
+
+        <item name="android:src">@drawable/edit_2_icon_black</item>
 
     </style>
 

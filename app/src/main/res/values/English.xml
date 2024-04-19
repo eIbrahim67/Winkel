@@ -127,4 +127,10 @@
     <string name="total_price">Total price:</string>
     <string name="customer_id">Customer ID:</string>
     <string name="total_price_of_order">Total price of order:</string>
+    <string name="edit_personal_data">Edit Personal Data</string>
+    <string name="account_type">Account type</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="your_admin_code">Your admin code</string>
+    <string name="your_vendor_code">Your vendor code</string>
 </resources>

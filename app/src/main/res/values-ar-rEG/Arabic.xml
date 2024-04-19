@@ -128,6 +128,12 @@
     <string name="total_price">السعر الإجمالي:</string>
     <string name="customer_id">هوية العميل:</string>
     <string name="total_price_of_order">السعر الإجمالي للطلب:</string>
+    <string name="edit_personal_data">تعديل البيانات الشخصية</string>
+    <string name="account_type">نوع الحساب</string>
+    <string name="gender">النوع</string>
+    <string name="male">ذكر</string>
+    <string name="your_admin_code">رمز المسؤول الخاص بك</string>
+    <string name="your_vendor_code">رمز البائع الخاص بك</string>
 
 
 </resources>
