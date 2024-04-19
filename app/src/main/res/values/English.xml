@@ -107,4 +107,7 @@
     <string name="from">From</string>
     <string name="to">to</string>
     <string name="_1000">1000</string>
+    <string name="add_new_method">Add new Method</string>
+    <string name="visa">Visa</string>
+    <string name="mastercard">Mastercard</string>
 </resources>

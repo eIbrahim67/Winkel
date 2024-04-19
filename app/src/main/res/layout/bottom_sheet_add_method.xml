@@ -30,10 +30,10 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/font_type_2"
-            android:text="Add new Method"
+            android:text="@string/add_new_method"
             android:textSize="26sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
     </RelativeLayout>
 
@@ -62,14 +62,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Visa"
+            android:text="@string/visa"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
         <ImageView
             android:layout_width="35dp"
@@ -100,14 +100,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Mastercard"
+            android:text="@string/mastercard"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
         <ImageView
             android:layout_width="35dp"

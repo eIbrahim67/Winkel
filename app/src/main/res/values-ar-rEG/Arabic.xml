@@ -108,6 +108,9 @@
     <string name="from">من</string>
     <string name="to">إلى</string>
     <string name="_1000">1000</string>
+    <string name="add_new_method">إضافة طريقة دفع جديدة</string>
+    <string name="visa">فيزا</string>
+    <string name="mastercard">ماستركارد</string>
 
 
 </resources>
