@@ -124,6 +124,10 @@
     <string name="_for">ل</string>
     <string name="take_a_photo">التقط صورة</string>
     <string name="upload">تحميل</string>
+    <string name="search">بحث....</string>
+    <string name="total_price">السعر الإجمالي:</string>
+    <string name="customer_id">هوية العميل:</string>
+    <string name="total_price_of_order">السعر الإجمالي للطلب:</string>
 
 
 </resources>

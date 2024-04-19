@@ -56,14 +56,13 @@
                 android:id="@+id/itemMuchCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total price:"
+                android:text="@string/total_price"
                 android:layout_marginEnd="10dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="18sp"
                 style="@style/TextColor_v2"
                 android:textStyle="bold"
-                android:gravity="center"
-                tools:ignore="HardcodedText" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/itemPriceCheck"

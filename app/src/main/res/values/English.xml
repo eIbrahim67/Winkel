@@ -123,4 +123,8 @@
     <string name="_for">For</string>
     <string name="take_a_photo">Take a photo</string>
     <string name="upload">Upload</string>
+    <string name="search">Search....</string>
+    <string name="total_price">Total price:</string>
+    <string name="customer_id">Customer ID:</string>
+    <string name="total_price_of_order">Total price of order:</string>
 </resources>

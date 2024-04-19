@@ -57,12 +57,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Customer ID:"
+                android:text="@string/customer_id"
                 android:textSize="18sp"
                 style="@style/TextColor_v1"
                 android:textStyle="bold"
-                android:layout_marginEnd="10dp"
-                tools:ignore="HardcodedText" />
+                android:layout_marginEnd="10dp" />
 
             <TextView
                 android:id="@+id/orderCustId"
@@ -95,12 +94,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total price of order:"
+                android:text="@string/total_price_of_order"
                 android:textSize="18sp"
                 style="@style/TextColor_v1"
                 android:textStyle="bold"
-                android:layout_marginEnd="10dp"
-                tools:ignore="HardcodedText" />
+                android:layout_marginEnd="10dp" />
 
             <TextView
                 android:id="@+id/orderTotalPrice"
