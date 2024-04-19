@@ -12,12 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/works_ans_v1"
-        android:text="Add new payment method"
+        android:text="@string/add_new_payment_method"
         android:textSize="26sp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
-        tools:ignore="HardcodedText,InefficientWeight" />
+        tools:ignore="InefficientWeight" />
 
     <RelativeLayout
         android:layout_height="wrap_content"
@@ -259,13 +258,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="Card Holder Name"
+            android:hint="@string/card_holder_name"
             android:textSize="18sp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:layout_marginStart="20dp"
             android:background="@android:color/transparent"
-            tools:ignore="HardcodedText,RtlCompat" />
+            tools:ignore="RtlCompat" />
 
     </RelativeLayout>
 
@@ -281,14 +280,14 @@
             android:id="@+id/number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Card Number"
+            android:hint="@string/card_number"
             android:inputType="numberDecimal"
             android:textSize="18sp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:layout_marginStart="20dp"
             android:background="@android:color/transparent"
-            tools:ignore="HardcodedText,RtlCompat" />
+            tools:ignore="RtlCompat" />
 
     </RelativeLayout>
 
@@ -311,14 +310,14 @@
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Expiry Date"
+                android:hint="@string/expiry_date"
                 android:inputType="date"
                 android:textSize="18sp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
                 android:layout_marginStart="20dp"
                 android:background="@android:color/transparent"
-                tools:ignore="HardcodedText,RtlCompat"/>
+                tools:ignore="RtlCompat"/>
 
         </RelativeLayout>
 
@@ -334,14 +333,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="CVV"
+                android:hint="@string/cvv"
                 android:inputType="numberPassword"
                 android:textSize="18sp"
                 android:paddingTop="15dp"
                 android:layout_marginStart="20dp"
                 android:background="@android:color/transparent"
                 android:paddingBottom="15dp"
-                tools:ignore="HardcodedText,RtlCompat" />
+                tools:ignore="RtlCompat" />
 
         </RelativeLayout>
 
@@ -354,11 +353,10 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         style="@style/checkout_background_btn"
-        android:text="Add method"
+        android:text="@string/add_method"
         android:textSize="20sp"
         android:textAllCaps="false"
         android:layout_marginTop="40dp"
-        tools:ignore="HardcodedText"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"/>
