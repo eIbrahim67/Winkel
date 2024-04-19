@@ -100,5 +100,11 @@
     <string name="more_options">More options</string>
     <string name="filter">Filter</string>
     <string name="view_products">View Products</string>
-
+    <string name="reset">Reset</string>
+    <string name="category">Category</string>
+    <string name="all">All</string>
+    <string name="price">Price</string>
+    <string name="from">From</string>
+    <string name="to">to</string>
+    <string name="_1000">1000</string>
 </resources>

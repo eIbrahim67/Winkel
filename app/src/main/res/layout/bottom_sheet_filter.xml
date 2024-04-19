@@ -21,10 +21,10 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
-            android:text="Reset"
+            android:text="@string/reset"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
         <ImageView
             android:id="@+id/back_filter_btn"
@@ -43,10 +43,10 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/font_type_2"
-            android:text="Filter"
+            android:text="@string/filter"
             android:textSize="32sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
     </RelativeLayout>
 
@@ -61,14 +61,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:text="Category"
+        android:text="@string/category"
         android:gravity="center_vertical"
         android:textSize="20sp"
         android:textStyle="bold"
         android:fontFamily="@font/works_ans_v1"
         style="@style/TextColor_v1"
         android:layout_marginStart="20dp"
-        tools:ignore="HardcodedText,InefficientWeight" />
+        tools:ignore="InefficientWeight" />
 
     <LinearLayout
         android:id="@+id/btn_all"
@@ -92,14 +92,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="All"
+            android:text="@string/all"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -141,14 +141,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Men"
+            android:text="@string/men"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -188,14 +188,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Women"
+            android:text="@string/women"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -235,14 +235,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Kids"
+            android:text="@string/kids"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
-            tools:ignore="HardcodedText,InefficientWeight"/>
+            tools:ignore="InefficientWeight"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -273,7 +273,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:text="Price"
+        android:text="@string/price"
         android:gravity="center_vertical"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
@@ -281,7 +281,7 @@
         android:fontFamily="@font/works_ans_v1"
         style="@style/TextColor_v1"
         android:layout_marginStart="20dp"
-        tools:ignore="HardcodedText,InefficientWeight" />
+        tools:ignore="InefficientWeight" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -295,12 +295,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="From"
+            android:text="@string/from"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText,InefficientWeight"
+            tools:ignore="InefficientWeight"
             android:layout_marginEnd="10dp"/>
 
         <EditText
@@ -309,10 +309,10 @@
             android:layout_height="50dp"
             android:gravity="center_vertical"
             android:inputType="numberDecimal"
-            android:text="0"
+            android:text="@string/_0"
             android:textSize="20sp"
             style="@style/rounded_outline_solid_white_black"
-            tools:ignore="HardcodedText,RtlCompat"
+            tools:ignore="RtlCompat"
             android:textAlignment="center"
             android:layout_weight="1"
             android:autofillHints="" />
@@ -321,12 +321,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="to"
+            android:text="@string/to"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText,InefficientWeight"
+            tools:ignore="InefficientWeight"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp" />
 
@@ -335,12 +335,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
-            android:text="1000"
+            android:text="@string/_1000"
             style="@style/rounded_outline_solid_white_black"
             android:inputType="number"
             android:textSize="20sp"
             android:layout_weight="1"
-            tools:ignore="HardcodedText,RtlCompat"
+            tools:ignore="RtlCompat"
             android:textAlignment="center"
             android:autofillHints="" />
 
@@ -353,11 +353,10 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         style="@style/checkout_background_btn"
-        android:text="Filter"
+        android:text="@string/filter"
         android:textSize="20sp"
         android:textAllCaps="false"
         android:layout_marginTop="40dp"
-        tools:ignore="HardcodedText"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"/>

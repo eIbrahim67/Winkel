@@ -101,6 +101,13 @@
     <string name="more_options">المزيد من الخيارات</string>
     <string name="filter">تصفية</string>
     <string name="view_products">عرض المنتجات</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="category">الفئة</string>
+    <string name="all">الكل</string>
+    <string name="price">السعر</string>
+    <string name="from">من</string>
+    <string name="to">إلى</string>
+    <string name="_1000">1000</string>
 
 
 </resources>
