@@ -20,10 +20,10 @@
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/works_ans_v1"
-            android:text="Title"
+            android:text="@string/title"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/post_title"
@@ -51,10 +51,10 @@
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/works_ans_v1"
-            android:text="Category"
+            android:text="@string/category"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/post_details"
@@ -81,10 +81,10 @@
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/works_ans_v1"
-            android:text="For"
+            android:text="@string/_for"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                 android:id="@+id/for_men"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Men"
+                android:text="@string/men"
                 android:fontFamily="@font/works_ans_v1"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -109,7 +109,7 @@
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Women"
+                android:text="@string/women"
                 android:fontFamily="@font/works_ans_v1"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -120,7 +120,7 @@
                 android:id="@+id/for_kids"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kids"
+                android:text="@string/kids"
                 android:fontFamily="@font/works_ans_v1"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -138,10 +138,10 @@
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/works_ans_v1"
-            android:text="Price"
+            android:text="@string/price"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -174,10 +174,10 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="@font/works_ans_v1"
-                android:text="LE"
+                android:text="@string/le"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Space
                 android:layout_width="150dp"
@@ -270,11 +270,11 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:fontFamily="@font/works_ans_v1"
-                        android:text="Upload a photo"
+                        android:text="@string/upload_a_photo"
                         android:textColor="@color/gray_v7"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </LinearLayout>
 
@@ -311,11 +311,11 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:fontFamily="@font/works_ans_v1"
-                        android:text="Take a photo"
+                        android:text="@string/take_a_photo"
                         android:textColor="@color/gray_v7"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </LinearLayout>
 
@@ -345,14 +345,13 @@
             android:id="@+id/upload_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Upload"
+            android:text="@string/upload"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            tools:ignore="HardcodedText"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:gravity="center"

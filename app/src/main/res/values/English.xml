@@ -116,4 +116,11 @@
     <string name="expiry_date">Expiry Date</string>
     <string name="cvv">CVV</string>
     <string name="add_method">Add method</string>
+    <string name="my_orders">My Orders</string>
+    <string name="my_payment_methods">My payment methods</string>
+    <string name="all_orders">All Orders</string>
+    <string name="title">Title</string>
+    <string name="_for">For</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="upload">Upload</string>
 </resources>

@@ -117,6 +117,13 @@
     <string name="expiry_date">تاريخ انتهاء الصلاحية</string>
     <string name="cvv">CVV</string>
     <string name="add_method">إضافة الطريقة</string>
+    <string name="my_orders">طلباتي</string>
+    <string name="my_payment_methods">طرق الدفع الخاصة بي</string>
+    <string name="all_orders">كل الطلبات</string>
+    <string name="title">العنوان</string>
+    <string name="_for">ل</string>
+    <string name="take_a_photo">التقط صورة</string>
+    <string name="upload">تحميل</string>
 
 
 </resources>
