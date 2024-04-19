@@ -98,6 +98,9 @@
     <string name="price_low_to_high">السعر: من الأدنى إلى الأعلى</string>
     <string name="name_a_to_z">الاسم: من أ إلى ي</string>
     <string name="name_z_to_a">الاسم: من ي إلى أ</string>
+    <string name="more_options">المزيد من الخيارات</string>
+    <string name="filter">تصفية</string>
+    <string name="view_products">عرض المنتجات</string>
 
 
 </resources>

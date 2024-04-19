@@ -30,10 +30,10 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/font_type_2"
-            android:text="More options"
+            android:text="@string/more_options"
             android:textSize="32sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
     </RelativeLayout>
 
@@ -62,14 +62,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Sort By"
+            android:text="@string/sort_by"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
         <ImageView
             android:layout_width="35dp"
@@ -99,14 +99,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Filter"
+            android:text="@string/filter"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
         <ImageView
             android:layout_width="35dp"
@@ -137,14 +137,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="View Product"
+            android:text="@string/view_products"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
-            tools:ignore="HardcodedText,InefficientWeight" />
+            tools:ignore="InefficientWeight" />
 
         <ImageView
             android:layout_width="35dp"

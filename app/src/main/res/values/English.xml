@@ -97,5 +97,8 @@
     <string name="price_low_to_high">Price: Low to High</string>
     <string name="name_a_to_z">Name: A to Z</string>
     <string name="name_z_to_a">Name: Z to A</string>
+    <string name="more_options">More options</string>
+    <string name="filter">Filter</string>
+    <string name="view_products">View Products</string>
 
 </resources>
