@@ -291,33 +291,34 @@
 
     </style>
 
+
     <style name="settings_icon">
 
-        <item name="android:src">@drawable/setting_icon_white_black</item>
+        <item name="android:src">@drawable/setting_icon_black</item>
 
     </style>
 
     <style name="signout_icon">
 
-        <item name="android:src">@drawable/signout_icon_white_black</item>
+        <item name="android:src">@drawable/signout_icon_black</item>
 
     </style>
 
     <style name="card_icon">
 
-        <item name="android:src">@drawable/card_icon_white_black</item>
+        <item name="android:src">@drawable/card_icon_black</item>
 
     </style>
 
     <style name="user_icon">
 
-        <item name="android:src">@drawable/user_icon_white_black</item>
+        <item name="android:src">@drawable/user_icon_black</item>
 
     </style>
 
     <style name="headphones_icon">
 
-    <item name="android:src">@drawable/headphones_icon_white_black</item>
+        <item name="android:src">@drawable/headphones_icon_black</item>
 
     </style>
 
