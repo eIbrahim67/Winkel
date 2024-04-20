@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondPages.AllUsersActivity">
+    tools:context=".secondPages.AllUsersActivity"
+    style="@style/background">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
