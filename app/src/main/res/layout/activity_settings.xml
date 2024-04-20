@@ -10,20 +10,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
 
             <ImageView
                 android:id="@+id/btnBackSettings"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
                 android:padding="9dp"
                 android:clickable="true"
@@ -34,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:textSize="26sp"
                 style="@style/TextColor_v1"
                 android:text="@string/settings"
                 android:layout_gravity="center_vertical"
@@ -50,8 +51,8 @@
             android:orientation="horizontal"
             style="@style/circle_white_black_none_gray"
             android:layout_weight="1"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:clickable="true"
             android:id="@+id/search_settings_btn"
             android:layout_marginStart="20dp"
@@ -87,7 +88,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:text="@string/personalization"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
@@ -249,7 +250,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:text="@string/notifications_activity"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
@@ -412,7 +413,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:text="@string/accessibility_advanced"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 

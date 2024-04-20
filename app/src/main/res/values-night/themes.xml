@@ -8,7 +8,7 @@
 
     <style name="background">
 
-        <item name="android:background">@color/black_v2</item>
+        <item name="android:background">@color/black_v3</item>
 
     </style>
 
@@ -68,7 +68,7 @@
 
     <style name="search_icon">
 
-        <item name="android:src">@drawable/search_icon_black</item>
+        <item name="android:src">@drawable/search_icon_white</item>
 
     </style>
 
