@@ -1,8 +1,7 @@
 <resources>
-    <!-- Base application theme. -->
 
     <style name="Base.Theme.Winkel" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/gray_v14</item>
+        <item name="android:statusBarColor">@color/black_v3</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 

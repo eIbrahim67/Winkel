@@ -12,17 +12,37 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/edit_personal_data"
-            android:textSize="30sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="bold"
-            android:fontFamily="@font/works_ans_v1"
-            style="@style/TextColor_v1"
-            android:layout_marginBottom="20dp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/btnBackSettings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/back_arrow_background_btn"
+                android:padding="9dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Back"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                style="@style/TextColor_v1"
+                android:text="@string/edit_personal_data"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -31,7 +51,7 @@
             android:layout_gravity="center_vertical"
             android:text="@string/full_name"
             android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             android:textSize="20sp"
             android:fontFamily="@font/works_ans_v1"
             style="@style/TextColor_v1"
