@@ -33,7 +33,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        style="@style/search_background_btn"
+                        style="@style/circle_white_black_none_gray"
                         android:layout_weight="1"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
@@ -44,7 +44,7 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            style="@style/search_background_btn"
+                            style="@style/search_icon"
                             android:background="@android:color/transparent"
                             android:padding="10dp"
                             android:layout_marginStart="10dp"/>
@@ -318,7 +318,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                style="@style/search_background_btn"
+                style="@style/circle_white_black_none_gray"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:layout_marginStart="20dp"
@@ -330,7 +330,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    style="@style/search_background_btn"
+                    style="@style/search_icon"
                     android:background="@android:color/transparent"
                     android:padding="10dp"
                     android:layout_marginStart="10dp"/>

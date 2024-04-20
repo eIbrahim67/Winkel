@@ -3,9 +3,10 @@
 
     <color name="black_v1">#000000</color>
     <color name="black_v2">#292D32</color>
+    <color name="black_v3">#161D26</color>
 
     <color name="white_v1">#FFFFFF</color>
-    <color name="white_v4">#1A000000</color>
+    <color name="white_v3">#FDFDFD</color>
 
 
     <color name="pink_v1">#FFC8C9</color>
@@ -25,6 +26,8 @@
     <color name="gray_v9">#F3F4F6</color>
     <color name="gray_v10">#313A47</color>
     <color name="gray_v12">#F6F6F6</color>
+    <color name="gray_v13">#F4F4F6</color>
+    <color name="gray_v14">#1A000000</color>
 
     <color name="blue_v1">#0153A1</color>
     <color name="blue_v2">#051ABC</color>

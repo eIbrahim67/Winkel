@@ -57,12 +57,12 @@
                 <EditText
                     android:id="@+id/name_edit"
                     style="@style/TextColor_v4"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp"
                     android:fontFamily="@font/works_ans_v1"
                     android:autofillHints="name"
                     android:background="@android:color/transparent"
@@ -113,14 +113,13 @@
                     style="@style/TextColor_v4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp"
                     android:fontFamily="@font/works_ans_v1"
                     android:background="@android:color/transparent"
-                    android:textSize="18sp"
-                    android:layout_weight="1"/>
+                    android:textSize="18sp"/>
 
         </RelativeLayout>
 
@@ -154,10 +153,10 @@
                 style="@style/TextColor_v4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="15dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
                 android:fontFamily="@font/works_ans_v1"
                 android:background="@android:color/transparent"
                 android:textSize="18sp" />
@@ -196,19 +195,19 @@
                 <EditText
                     android:id="@+id/phone_no_edit"
                     style="@style/TextColor_v4"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="15dp"
-                    android:hint="01550162282"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp"
                     android:fontFamily="@font/works_ans_v1"
                     android:autofillHints="name"
                     android:background="@android:color/transparent"
                     android:inputType="phone"
                     android:textSize="18sp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    tools:ignore="LabelFor" />
 
                 <ImageView
                     android:layout_width="25dp"
@@ -216,7 +215,8 @@
                     style="@style/edit_icon"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="5dp"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/copy" />
 
             </LinearLayout>
 
@@ -253,11 +253,10 @@
                 style="@style/TextColor_v4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="15dp"
-                android:hint="Cutomer"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
                 android:fontFamily="@font/works_ans_v1"
                 android:autofillHints="name"
                 android:background="@android:color/transparent"
@@ -268,7 +267,8 @@
             android:id="@+id/admin_edit_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -298,18 +298,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                     <TextView
                         android:id="@+id/admin_edit"
                         style="@style/TextColor_v4"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="15dp"
-                        android:hint="Ac12Ddv"
                         android:fontFamily="@font/works_ans_v1"
                         android:autofillHints="name"
                         android:background="@android:color/transparent"
@@ -322,7 +322,8 @@
                         style="@style/copy_icon"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="5dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/copy" />
 
                 </LinearLayout>
 
@@ -334,7 +335,8 @@
             android:id="@+id/vendor_edit_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
@@ -364,18 +366,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                     <TextView
                         android:id="@+id/vendor_no_edit"
                         style="@style/TextColor_v4"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="15dp"
-                        android:hint="12CffrDe"
                         android:fontFamily="@font/works_ans_v1"
                         android:autofillHints="name"
                         android:background="@android:color/transparent"
@@ -388,7 +390,8 @@
                         style="@style/copy_icon"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="5dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/copy" />
 
                 </LinearLayout>
 

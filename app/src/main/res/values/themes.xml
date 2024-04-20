@@ -1,7 +1,7 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Winkel" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/white_v1</item>
+        <item name="android:statusBarColor">@color/white_v3</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
@@ -9,7 +9,7 @@
 
     <style name="background">
 
-        <item name="android:background">@color/white_v1</item>
+        <item name="android:background">@color/white_v3</item>
 
     </style>
 
@@ -56,9 +56,20 @@
 
     </style>
 
-    <style name="search_background_btn">
+    <style name="circle_white_black_none_gray">
 
-        <item name="android:background">@drawable/search_background_light</item>
+        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
+
+    </style>
+
+    <style name="rounded_white_black_none_gray">
+
+        <item name="android:background">@drawable/rounded_white_v1_none_gray_v4</item>
+
+    </style>
+
+    <style name="search_icon">
+
         <item name="android:src">@drawable/search_icon_black</item>
 
     </style>
@@ -73,7 +84,7 @@
 
     <style name="back_arrow_background_btn">
 
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_black_v1_none_grav4</item>
         <item name="android:src">@drawable/back_arrows_icon_white</item>
     </style>
 
@@ -313,6 +324,69 @@
     <style name="folder_add_icon">
 
         <item name="android:src">@drawable/folder_add_icon_white_black</item>
+
+    </style>
+
+    <style name="security_background_btn">
+        <item name="android:src">@drawable/security_icon_white</item>
+
+        <item name="android:background">@drawable/rounded_black_v1_none_grav4</item>
+
+    </style>
+
+    <style name="moon_background_btn">
+        <item name="android:src">@drawable/moon_icon_white</item>
+
+        <item name="android:background">@drawable/rounded_black_v1_none_grav4</item>
+
+    </style>
+
+    <style name="language_background_btn">
+        <item name="android:src">@drawable/language_icon_white</item>
+
+        <item name="android:background">@drawable/rounded_black_v1_none_grav4</item>
+
+    </style>
+
+    <style name="line">
+
+        <item name="android:background">@color/gray_v5</item>
+
+    </style>
+
+    <style name="security_icon">
+
+        <item name="android:src">@drawable/security_icon_black</item>
+
+    </style>
+
+    <style name="moon_icon">
+
+        <item name="android:src">@drawable/moon_icon_black</item>
+
+    </style>
+
+    <style name="language_icon">
+
+        <item name="android:src">@drawable/language_icon_black</item>
+
+    </style>
+
+    <style name="notification_icon">
+
+        <item name="android:src">@drawable/notification_icon_black</item>
+
+    </style>
+
+    <style name="sound_icon">
+
+        <item name="android:src">@drawable/sound_icon_black</item>
+
+    </style>
+
+    <style name="calendar_icon">
+
+        <item name="android:src">@drawable/calendar_icon_black</item>
 
     </style>
 
