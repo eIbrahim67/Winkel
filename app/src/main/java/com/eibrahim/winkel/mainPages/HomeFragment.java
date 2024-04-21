@@ -39,7 +39,7 @@ import java.util.Objects;
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView_filter, recyclerView_items;
-
+    TextView top_sales, main_categories;
     private RelativeLayout btnItemsOffers;
     private SwipeRefreshLayout fragment_home;
     private FetchDataFromFirebase fetchDataFromFirebase;
@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private LinearLayout search_page, btns_filters;
 
+    ImageView btnCloseSearch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,7 +64,10 @@ public class HomeFragment extends Fragment {
         ImageView btnItemsKids = root.findViewById(R.id.btnItemsKids);
         btns_filters = root.findViewById(R.id.btns_filters);
         btnItemsOffers = root.findViewById(R.id.btnItemsOffers);
+        main_categories = root.findViewById(R.id.main_categories);
+        top_sales = root.findViewById(R.id.top_sales);
 
+        btnCloseSearch = root.findViewById(R.id.btnCloseSearch);
 
         fragment_home = root.findViewById(R.id.fragment_home);
 
@@ -82,12 +86,12 @@ public class HomeFragment extends Fragment {
 
         fetchData();
 
+            InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         search_btn.setOnClickListener(v -> {
 
             search_page.setVisibility(View.VISIBLE);
             MainActivity.chipNavigationBar.setVisibility(View.GONE);
             search_text.requestFocus();
-            InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(search_text, InputMethodManager.SHOW_IMPLICIT);
         });
 
@@ -156,6 +160,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        btnCloseSearch.setOnClickListener(v -> {
+
+            search_page.setVisibility(View.GONE);
+            //Todo: hide keyboard
+        });
+
         btnFilterH.setOnClickListener(v -> {
 
 
@@ -212,6 +222,8 @@ public class HomeFragment extends Fragment {
             case "All":
                 btnItemsOffers.setVisibility(View.VISIBLE);
                 btns_filters.setVisibility(View.VISIBLE);
+                main_categories.setVisibility(View.VISIBLE);
+                top_sales.setVisibility(View.VISIBLE);
                 recyclerView_filter.setVisibility(View.GONE);
                 filtered = false;
 
@@ -221,6 +233,8 @@ public class HomeFragment extends Fragment {
             case "Kids":
                 btnItemsOffers.setVisibility(View.GONE);
                 btns_filters.setVisibility(View.GONE);
+                main_categories.setVisibility(View.GONE);
+                top_sales.setVisibility(View.GONE);
                 recyclerView_filter.setVisibility(View.VISIBLE);
                 filtered = true;
                 break;

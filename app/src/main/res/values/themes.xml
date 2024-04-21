@@ -181,11 +181,13 @@
 
     </style>
 
-    <style name="close_background_btn">
+    <style name="close_icon">
 
         <item name="android:src">@drawable/close_icon_black</item>
 
     </style>
+
+
 
     <style name="rounded_outline_solid_white_black">
 
@@ -415,6 +417,14 @@
         <item name="android:src">@drawable/kid_icon_black</item>
 
         <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
+
+    </style>
+
+    <style name="close_background_btn">
+
+        <item name="android:src">@drawable/close_icon_white</item>
+        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+
 
     </style>
 

@@ -177,7 +177,7 @@
 
     </style>
 
-    <style name="close_background_btn">
+    <style name="close_icon">
 
         <item name="android:src">@drawable/close_icon_white</item>
 
@@ -398,6 +398,14 @@
         <item name="android:src">@drawable/kid_icon_black</item>
 
         <item name="android:background">@drawable/circle_gray_v8_none_gray_v4</item>
+
+    </style>
+
+    <style name="close_background_btn">
+
+        <item name="android:src">@drawable/close_icon_black</item>
+        <item name="android:background">@drawable/circle_none_white_v1_gray_v4</item>
+
 
     </style>
 

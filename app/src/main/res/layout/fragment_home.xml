@@ -31,12 +31,12 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal"
                         style="@style/circle_white_black_none_gray"
                         android:layout_weight="1"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp"
                         android:layout_marginEnd="10dp"
                         android:clickable="true"
                         android:id="@+id/search_btn">
@@ -45,6 +45,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             style="@style/search_icon"
+                            android:layout_gravity="center_vertical"
                             android:background="@android:color/transparent"
                             android:padding="8dp"
                             android:layout_marginStart="10dp"/>
@@ -63,10 +64,10 @@
 
                     <ImageView
                         android:id="@+id/btnFunctions"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         style="@style/options_background_btn"
-                        android:padding="12dp"
+                        android:padding="10dp"
                         android:clickable="true"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"/>
@@ -107,9 +108,10 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/main_categories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Main Categories"
+                    android:text="@string/main_categories"
                     style="@style/TextColor_v1"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
@@ -241,6 +243,7 @@
                     </com.tans.horizontalnestedscrollview.HorizontalNestedScrollView>
 
                     <TextView
+                        android:id="@+id/top_sales"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/top_sales"
@@ -277,35 +280,54 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                style="@style/circle_white_black_none_gray"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true">
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    style="@style/circle_white_black_none_gray"
+                    android:layout_weight="1"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="7dp"
+                    android:layout_marginEnd="10dp"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        style="@style/search_icon"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/transparent"
+                        android:padding="8dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <EditText
+                        android:id="@+id/search_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/search"
+                        android:gravity="center_vertical"
+                        android:inputType="text"
+                        android:textColor="@color/blue_v3"
+                        android:textSize="16sp"
+                        android:background="@android:color/transparent"
+                        android:autofillHints="" />
+
+                </LinearLayout>
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    style="@style/search_icon"
-                    android:background="@android:color/transparent"
+                    android:id="@+id/btnCloseSearch"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    style="@style/close_background_btn"
                     android:padding="10dp"
+                    android:clickable="true"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"/>
-
-                <EditText
-                    android:id="@+id/search_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Search...."
-                    android:gravity="center_vertical"
-                    android:inputType="text"
-                    android:textColor="@color/blue_v3"
-                    android:textSize="16sp"
-                    android:background="@android:color/transparent"
-                    
-                    android:autofillHints="" />
 
             </LinearLayout>
 

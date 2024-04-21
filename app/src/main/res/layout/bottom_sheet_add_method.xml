@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            style="@style/close_background_btn"
+            style="@style/close_icon"
             android:clickable="true"
             android:layout_centerVertical="true"
             android:focusable="true"
