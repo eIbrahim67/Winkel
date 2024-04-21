@@ -41,14 +41,14 @@
 
     <style name="options_background_btn">
 
-        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
         <item name="android:src">@drawable/options_icon_black</item>
 
     </style>
 
     <style name="trash_background_btn">
 
-        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
         <item name="android:src">@drawable/trash_icon_black</item>
 
     </style>
@@ -79,7 +79,7 @@
 
     <style name="basket_background_btn">
 
-        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
         <item name="android:src">@drawable/basket_icon_black</item>
 
     </style>
@@ -111,7 +111,7 @@
 
     <style name="edit_background_btn">
 
-        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
         <item name="android:src">@drawable/edit_icon_black</item>
     </style>
 
@@ -165,7 +165,7 @@
 
     <style name="pro_filter_selected_background_btn">
 
-        <item name="android:background">@drawable/circle_white_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
         <item name="android:textColor">@color/black_v1</item>
 
     </style>
@@ -380,5 +380,25 @@
 
     </style>
 
+    <style name="men_background_btn">
+        <item name="android:src">@drawable/man_icon_black</item>
+
+        <item name="android:background">@drawable/circle_gray_v8_none_gray_v4</item>
+
+    </style>
+
+    <style name="women_background_btn">
+        <item name="android:src">@drawable/women_icon_black</item>
+
+        <item name="android:background">@drawable/circle_gray_v8_none_gray_v4</item>
+
+    </style>
+
+    <style name="kids_background_btn">
+        <item name="android:src">@drawable/kid_icon_black</item>
+
+        <item name="android:background">@drawable/circle_gray_v8_none_gray_v4</item>
+
+    </style>
 
 </resources>

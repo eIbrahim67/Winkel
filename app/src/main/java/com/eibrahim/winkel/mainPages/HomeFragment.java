@@ -40,44 +40,30 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView_filter, recyclerView_items;
 
-    public static View recyclerViewItemsMens_skeleton, recyclerViewItemsWomen_skeleton, recyclerViewItemsKids_skeleton, recyclerViewItemsOffers_skeleton;
-    private TextView btnItemsOffers;
-    private RelativeLayout btnItemsMens, btnItemsWomen, btnItemsKids;
+    private RelativeLayout btnItemsOffers;
     private SwipeRefreshLayout fragment_home;
-    private ScrollView ScrollView_of_ItemsTypes;
     private FetchDataFromFirebase fetchDataFromFirebase;
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    private LinearLayout search_page;
+    private LinearLayout search_page, btns_filters;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ScrollView_of_ItemsTypes = root.findViewById(R.id.ScrollView_of_ItemsTypes);
-
         recyclerView_filter = root.findViewById(R.id.recyclerview_filter);
         recyclerView_items = root.findViewById(R.id.recyclerview_items);
-        RecyclerView recyclerViewItemsMens = root.findViewById(R.id.recyclerviewItemsMens);
-        RecyclerView recyclerViewItemsWomen = root.findViewById(R.id.recyclerviewItemsWomen);
-        RecyclerView recyclerViewItemsKids = root.findViewById(R.id.recyclerviewItemsKids);
-        RecyclerView recyclerViewItemsOffers = root.findViewById(R.id.recyclerviewItemsOffers);
         RecyclerView recyclerview_search = root.findViewById(R.id.recyclerview_search);
 
 
-        //recyclerView_items_skeleton = root.findViewById(R.id.recyclerview_items_skeleton);
-        recyclerViewItemsMens_skeleton = root.findViewById(R.id.recyclerviewItemsMens_skeleton);
-        recyclerViewItemsWomen_skeleton = root.findViewById(R.id.recyclerviewItemsWomen_skeleton);
-        recyclerViewItemsKids_skeleton = root.findViewById(R.id.recyclerviewItemsKids_skeleton);
-        recyclerViewItemsOffers_skeleton = root.findViewById(R.id.recyclerviewItemsOffers_skeleton);
-
-
-        btnItemsMens = root.findViewById(R.id.btnItemsMens);
-        btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
-        btnItemsKids = root.findViewById(R.id.btnItemsKids);
+        ImageView btnItemsMens = root.findViewById(R.id.btnItemsMens);
+        ImageView btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
+        ImageView btnItemsKids = root.findViewById(R.id.btnItemsKids);
+        btns_filters = root.findViewById(R.id.btns_filters);
         btnItemsOffers = root.findViewById(R.id.btnItemsOffers);
+
 
         fragment_home = root.findViewById(R.id.fragment_home);
 
@@ -91,10 +77,6 @@ public class HomeFragment extends Fragment {
 
         fetchDataFromFirebase = new FetchDataFromFirebase(
                 recyclerView_items,
-                recyclerViewItemsMens,
-                recyclerViewItemsWomen,
-                recyclerViewItemsKids,
-                recyclerViewItemsOffers,
                 requireContext()
         );
 
@@ -219,13 +201,8 @@ public class HomeFragment extends Fragment {
 
 
     private void fetchData(){
-
-        recyclerViewItemsMens_skeleton.setVisibility(View.VISIBLE);
-        recyclerViewItemsWomen_skeleton.setVisibility(View.VISIBLE);
-        recyclerViewItemsKids_skeleton.setVisibility(View.VISIBLE);
-        recyclerViewItemsOffers_skeleton.setVisibility(View.VISIBLE);
-
-        fetchDataFromFirebase.fetchData("All", "0", "100000", 1, recyclerView_items);
+        //TODO: best sells
+        fetchDataFromFirebase.fetchData("Mens", "0", "100000", 1, recyclerView_items);
 
     }
 
@@ -233,29 +210,17 @@ public class HomeFragment extends Fragment {
 
         switch (type) {
             case "All":
-
-                recyclerViewItemsMens_skeleton.setVisibility(View.VISIBLE);
-                recyclerViewItemsWomen_skeleton.setVisibility(View.VISIBLE);
-                recyclerViewItemsKids_skeleton.setVisibility(View.VISIBLE);
-                recyclerViewItemsOffers_skeleton.setVisibility(View.VISIBLE);
-
-                btnItemsMens.setVisibility(View.VISIBLE);
-                btnItemsWomen.setVisibility(View.VISIBLE);
-                btnItemsKids.setVisibility(View.VISIBLE);
                 btnItemsOffers.setVisibility(View.VISIBLE);
+                btns_filters.setVisibility(View.VISIBLE);
                 recyclerView_filter.setVisibility(View.GONE);
-                ScrollView_of_ItemsTypes.setVisibility(View.VISIBLE);
                 filtered = false;
 
                 break;
             case "Mens":
             case "Womens":
             case "Kids":
-                btnItemsMens.setVisibility(View.GONE);
-                btnItemsWomen.setVisibility(View.GONE);
-                btnItemsKids.setVisibility(View.GONE);
                 btnItemsOffers.setVisibility(View.GONE);
-                ScrollView_of_ItemsTypes.setVisibility(View.GONE);
+                btns_filters.setVisibility(View.GONE);
                 recyclerView_filter.setVisibility(View.VISIBLE);
                 filtered = true;
                 break;
@@ -278,11 +243,6 @@ public class HomeFragment extends Fragment {
     private void fetchCategory(String type, String fPrice, String tPrice){
 
         recyclerviewVisibility(type);
-
-        if(type.equals("All")){
-
-            return;
-        }
 
         List<String> dataOfRvFilter = new ArrayList<>();
 

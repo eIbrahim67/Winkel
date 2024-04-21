@@ -123,19 +123,6 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         });
 
 
-        if (Objects.equals(cate, "Mens")){
-            HomeFragment.recyclerViewItemsMens_skeleton.setVisibility(View.GONE);
-        }
-        else if (Objects.equals(cate, "Womens")){
-            HomeFragment.recyclerViewItemsWomen_skeleton.setVisibility(View.GONE);
-        }
-        else if (Objects.equals(cate, "Kids")){
-            HomeFragment.recyclerViewItemsKids_skeleton.setVisibility(View.GONE);
-        }
-        else if (Objects.equals(cate, "Offers")){
-            HomeFragment.recyclerViewItemsOffers_skeleton.setVisibility(View.GONE);
-        }
-
     }
 
     @Override

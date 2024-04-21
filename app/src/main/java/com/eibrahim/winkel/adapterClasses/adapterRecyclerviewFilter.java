@@ -64,10 +64,6 @@ public class adapterRecyclerviewFilter extends RecyclerView.Adapter<adapterRecyc
 
             FetchDataFromFirebase fetchDataFromFirebase = new FetchDataFromFirebase(
                     recyclerView_items,
-                    recyclerView_items,
-                    recyclerView_items,
-                    recyclerView_items,
-                    recyclerView_items,
                     context);
 
             if (Objects.equals(filter, "All")){

@@ -22,30 +22,14 @@ import java.util.Objects;
 public class FetchDataFromFirebase {
 
     final RecyclerView recyclerViewItems;
-    final RecyclerView recyclerViewItemsMens;
-    final RecyclerView recyclerViewItemsWomen;
-    final RecyclerView recyclerViewItemsKids;
-    final RecyclerView recyclerViewItemsOffers;
     final Context context;
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
     private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
-    public FetchDataFromFirebase(RecyclerView recyclerViewItems,
-                                 RecyclerView recyclerViewItemsMens,
-                                 RecyclerView recyclerViewItemsWomen,
-                                 RecyclerView recyclerViewItemsKids,
-//                                 View recyclerViewItemsMens_skeleton,
-//                                 View recyclerViewItemsWomen_skeleton,
-//                                 View recyclerViewItemsKids_skeleton,
-//                                 View recyclerViewItemsOffers_skeleton,
-                                 RecyclerView recyclerViewItemsOffers, Context context){
+    public FetchDataFromFirebase(RecyclerView recyclerViewItems, Context context){
         this.context = context;
         this.recyclerViewItems = recyclerViewItems;
-        this.recyclerViewItemsMens = recyclerViewItemsMens;
-        this.recyclerViewItemsWomen = recyclerViewItemsWomen;
-        this.recyclerViewItemsKids = recyclerViewItemsKids;
-        this.recyclerViewItemsOffers = recyclerViewItemsOffers;
 
     }
 
@@ -106,17 +90,6 @@ public class FetchDataFromFirebase {
 
     private void fetch(String type, String fPrice, String tPrice, int stateShow, RecyclerView recyclerView, List<String> wishlistIds) {
 
-        if (type.equals("All")){
-            fetchData("Mens", fPrice, tPrice, 2, recyclerViewItemsMens);
-            fetchData("Womens", fPrice, tPrice, 2, recyclerViewItemsWomen);
-            fetchData("Kids", fPrice, tPrice, 2, recyclerViewItemsKids);
-            fetchData("Offers", fPrice, tPrice, 2, recyclerViewItemsOffers);
-            List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
-            adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
-            recyclerView.setAdapter(adapterRvItems);
-            return;
-        }
-        else {
 
             List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
@@ -163,14 +136,6 @@ public class FetchDataFromFirebase {
                     })
                     .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
 
-        }
-        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
-        adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
-        recyclerView.setAdapter(adapterRvItems);
-        recyclerViewItemsMens.setAdapter(adapterRvItems);
-        recyclerViewItemsWomen.setAdapter(adapterRvItems);
-        recyclerViewItemsKids.setAdapter(adapterRvItems);
-        recyclerViewItemsOffers.setAdapter(adapterRvItems);
 
     }
 }

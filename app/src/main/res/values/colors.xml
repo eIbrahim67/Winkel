@@ -16,6 +16,7 @@
 
     <color name="green_v1">#30d83f</color>
 
+    <color name="purple_v1">#2F1B40</color>
 
     <color name="gray_v1">#3c4455</color>
     <color name="gray_v2">#3c4455</color>
@@ -32,6 +33,7 @@
 
     <color name="blue_v1">#0153A1</color>
     <color name="blue_v2">#051ABC</color>
+    <color name="blue_v3">#000F58</color>
 
 
 </resources>
