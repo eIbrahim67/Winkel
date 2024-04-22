@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/works_ans_v1"
+            android:fontFamily="@font/font_v1"
             android:textSize="20dp"
             android:textStyle="bold" />
 

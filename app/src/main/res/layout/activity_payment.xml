@@ -59,7 +59,7 @@
                 android:text="@string/shipping_address"
                 android:gravity="center_vertical"
                 android:textSize="20sp"
-                android:fontFamily="@font/works_ans_v1"
+                android:fontFamily="@font/font_v1"
                 android:textStyle="bold"
                 style="@style/TextColor_v1"
                 tools:ignore="InefficientWeight" />

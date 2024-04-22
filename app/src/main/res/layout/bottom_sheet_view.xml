@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/font_type_2"
+            android:fontFamily="@font/font_v2"
             android:text="@string/view"
             android:textSize="32sp"
             android:textStyle="bold"
@@ -71,7 +71,7 @@
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:fontFamily="@font/works_ans_v1"
+            android:fontFamily="@font/font_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
             tools:ignore="InefficientWeight"/>
@@ -118,7 +118,7 @@
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:fontFamily="@font/works_ans_v1"
+            android:fontFamily="@font/font_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
             tools:ignore="InefficientWeight"/>
@@ -163,7 +163,7 @@
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:fontFamily="@font/works_ans_v1"
+            android:fontFamily="@font/font_v1"
             style="@style/TextColor_v1"
             android:layout_marginStart="10dp"
             tools:ignore="InefficientWeight"/>

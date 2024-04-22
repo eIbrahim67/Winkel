@@ -59,9 +59,9 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerview_search = root.findViewById(R.id.recyclerview_search);
 
 
-        ImageView btnItemsMens = root.findViewById(R.id.btnItemsMens);
-        ImageView btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
-        ImageView btnItemsKids = root.findViewById(R.id.btnItemsKids);
+        LinearLayout btnItemsMens = root.findViewById(R.id.btnItemsMens);
+        LinearLayout btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
+        LinearLayout btnItemsKids = root.findViewById(R.id.btnItemsKids);
         btns_filters = root.findViewById(R.id.btns_filters);
         btnItemsOffers = root.findViewById(R.id.btnItemsOffers);
         main_categories = root.findViewById(R.id.main_categories);

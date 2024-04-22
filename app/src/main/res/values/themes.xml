@@ -44,8 +44,8 @@
 
     <style name="options_background_btn">
 
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
-        <item name="android:src">@drawable/options_icon_white</item>
+        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
+        <item name="android:src">@drawable/options_icon_black</item>
 
     </style>
 
@@ -58,7 +58,7 @@
 
     <style name="circle_white_black_none_gray">
 
-        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
 
     </style>
 
@@ -155,7 +155,7 @@
     <style name="roundedImageViewPost" parent="">
 
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">8dp</item>
+        <item name="cornerSize">10dp</item>
         <item name="color">@color/white_v1</item>
 
     </style>
@@ -402,28 +402,28 @@
     <style name="men_background_btn">
         <item name="android:src">@drawable/man_icon_black</item>
 
-        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
 
     </style>
 
     <style name="women_background_btn">
         <item name="android:src">@drawable/women_icon_black</item>
 
-        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
 
     </style>
 
     <style name="kids_background_btn">
         <item name="android:src">@drawable/kid_icon_black</item>
 
-        <item name="android:background">@drawable/circle_gray_v13_none_gray_v4</item>
+        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
 
     </style>
 
     <style name="close_background_btn">
 
-        <item name="android:src">@drawable/close_icon_white</item>
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+        <item name="android:src">@drawable/close_icon_black</item>
+        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
 
 
     </style>

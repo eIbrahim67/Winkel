@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/my_payment_methods"
                 android:textSize="26sp"
-                android:fontFamily="@font/works_ans_v1"
+                android:fontFamily="@font/font_v1"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"

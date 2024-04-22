@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_gray_v8_none_white_v1"
-            android:fontFamily="@font/works_ans_v1"
+            android:fontFamily="@font/font_v1"
             android:layout_gravity="center_horizontal"
             android:textSize="18sp"
             android:layout_marginTop="5dp"
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_gray_v8_none_white_v1"
-            android:fontFamily="@font/works_ans_v1"
+            android:fontFamily="@font/font_v1"
             android:layout_gravity="center_horizontal"
             android:textSize="18sp"
             android:gravity="center"/>
