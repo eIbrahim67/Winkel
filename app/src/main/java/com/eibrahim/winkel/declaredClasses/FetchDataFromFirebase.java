@@ -70,7 +70,7 @@ public class FetchDataFromFirebase {
                 .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
     }
 
-    public void fetchData(String type, String fPrice, String tPrice, int stateShow, RecyclerView recyclerView) {
+    public void fetchData(String type, String fPrice, String tPrice, RecyclerView recyclerView) {
 
         firestore
                 .collection("UsersData").document(userId)
@@ -81,60 +81,54 @@ public class FetchDataFromFirebase {
                     if (documentSnapshot.exists()){
 
                         List<String> wishlistIds = (List<String>) documentSnapshot.get("WishlistCollection");
-                        fetch(type, fPrice, tPrice, stateShow, recyclerView, wishlistIds);
+                        fetch(type, fPrice, tPrice, recyclerView, wishlistIds);
                     }
 
                 });
 
     }
 
-    private void fetch(String type, String fPrice, String tPrice, int stateShow, RecyclerView recyclerView, List<String> wishlistIds) {
+    private void fetch(String type, String fPrice, String tPrice, RecyclerView recyclerView, List<String> wishlistIds) {
 
 
-            List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
-            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-            CollectionReference collectionRef = firestore.collection("Products").document(type).collection(type);
-            collectionRef
-                    .get()
-                    .addOnSuccessListener(querySnapshot -> {
+        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        CollectionReference collectionRef = firestore.collection("Products").document(type).collection(type);
+        collectionRef
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
 
-                        for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
 
-                            Map<String, Object> data = document.getData();
-                            DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
-                                    (String) Objects.requireNonNull(data).get("category"),
-                                    (String) data.get("imageId"),
-                                    (String) data.get("name"),
-                                    (String) data.get("price"),
-                                    type,
-                                    ""
-                            );
+                        Map<String, Object> data = document.getData();
+                        DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
+                                (String) Objects.requireNonNull(data).get("category"),
+                                (String) data.get("imageId"),
+                                (String) data.get("name"),
+                                (String) data.get("price"),
+                                type,
+                                ""
+                        );
 
-                            dataObject.setItemId((String) data.get("itemId"));
-
-
-                            if (wishlistIds != null)
-                                dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
+                        dataObject.setItemId((String) data.get("itemId"));
 
 
-                            if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
-                                dataOfRvItems.add(dataObject);
+                        if (wishlistIds != null)
+                            dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
 
-                            if (stateShow == 2){
-                                if (dataOfRvItems.size() == 4)
-                                    break;
-                            }
 
-                        }
-                        adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
-                        if(stateShow == 1)
-                            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-                        else if(stateShow == 2)
-                            recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+                        if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
+                            dataOfRvItems.add(dataObject);
 
-                        recyclerView.setAdapter(adapterRvItems);
-                    })
-                    .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
+
+                    }
+                    adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
+
+                    recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+
+                    recyclerView.setAdapter(adapterRvItems);
+                })
+                .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
 
 
     }

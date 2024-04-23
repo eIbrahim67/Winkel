@@ -62,6 +62,7 @@ public class HomeFragment extends Fragment {
         LinearLayout btnItemsMens = root.findViewById(R.id.btnItemsMens);
         LinearLayout btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
         LinearLayout btnItemsKids = root.findViewById(R.id.btnItemsKids);
+
         btns_filters = root.findViewById(R.id.btns_filters);
         btnItemsOffers = root.findViewById(R.id.btnItemsOffers);
         main_categories = root.findViewById(R.id.main_categories);
@@ -75,7 +76,9 @@ public class HomeFragment extends Fragment {
         search_page = root.findViewById(R.id.search_page);
 
         ImageView btnFilterH = root.findViewById(R.id.btnFunctions);
+
         functionsBottomSheet functionsBottomSheet = new functionsBottomSheet(this);
+
         EditText search_text = root.findViewById(R.id.search_text);
 
 
@@ -86,7 +89,7 @@ public class HomeFragment extends Fragment {
 
         fetchData();
 
-            InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         search_btn.setOnClickListener(v -> {
 
             search_page.setVisibility(View.VISIBLE);
@@ -212,7 +215,7 @@ public class HomeFragment extends Fragment {
 
     private void fetchData(){
         //TODO: best sells
-        fetchDataFromFirebase.fetchData("Mens", "0", "100000", 1, recyclerView_items);
+        fetchDataFromFirebase.fetchData("Mens", "0", "100000", recyclerView_items);
 
     }
 
@@ -249,7 +252,7 @@ public class HomeFragment extends Fragment {
 
         recyclerviewVisibility(type);
 
-        fetchDataFromFirebase.fetchData(type, fPrice, tPrice, 1, recyclerView_items);
+        fetchDataFromFirebase.fetchData(type, fPrice, tPrice, recyclerView_items);
         fetchCategory(type, fPrice, tPrice);
 
     }
