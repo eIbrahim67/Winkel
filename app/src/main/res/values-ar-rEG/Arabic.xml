@@ -134,6 +134,30 @@
     <string name="male">ذكر</string>
     <string name="your_admin_code">رمز المسؤول الخاص بك</string>
     <string name="your_vendor_code">رمز البائع الخاص بك</string>
+    <string name="copy">نسخ</string>
+    <string name="settings">الإعدادات</string>
+    <string name="personalization">التخصيص الشخصي</string>
+    <string name="dark_mode">الوضع الداكن</string>
+    <string name="security">الأمان</string>
+    <string name="language">اللغة</string>
+    <string name="notifications_activity"><![CDATA[الإشعارات والنشاط]]></string>
+    <string name="notifications">الإشعارات</string>
+    <string name="sound">الصوت</string>
+    <string name="events">الأحداث</string>
+    <string name="accessibility_advanced"><![CDATA[الوصولية والمتقدمة]]></string>
+    <string name="see_all">عرض الكل</string>
+    <string name="slogan_v1">اكتشف العروض\nافرح كل يوم</string>
+    <string name="_50">-50%</string>
+    <string name="top_sales">أفضل المبيعات</string>
+    <string name="main_categories">الفئات الرئيسية</string>
+    <string name="babies">الأطفال الرضع</string>
+    <string name="girls">الفتيات</string>
+    <string name="home">المنزل</string>
+    <string name="new_releases">الإصدارات الجديدة</string>
+    <string name="top_rating">أعلى التقييمات</string>
+    <string name="trendy">عصري</string>
+    <string name="recommended">موصى به</string>
+    <string name="boys">الأولاد</string>
 
 
 </resources>

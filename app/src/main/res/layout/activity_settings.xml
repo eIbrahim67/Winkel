@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="26sp"
+                android:textSize="28sp"
                 style="@style/TextColor_v1"
                 android:text="@string/settings"
                 android:layout_gravity="center_vertical"
@@ -47,24 +47,23 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            style="@style/circle_white_black_none_gray"
-            android:layout_weight="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:clickable="true"
-            android:id="@+id/search_settings_btn"
-            android:layout_marginStart="20dp"
+            style="@style/circle_white_v2_black_none_gray"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp">
+            android:clickable="true"
+            android:layout_marginStart="20dp">
 
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 style="@style/search_icon"
+                android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:layout_marginStart="10dp"/>
 
             <TextView
@@ -72,8 +71,10 @@
                 android:layout_height="match_parent"
                 android:hint="@string/search"
                 android:gravity="center_vertical"
-                android:textColor="@color/black_v1"
-                android:textSize="14sp"
+                android:textColor="@color/blue_v3"
+                android:textSize="16sp"
+                android:paddingEnd="10dp"
+                android:paddingStart="0dp"
                 android:background="@android:color/transparent"
                 android:autofillHints="" />
 
@@ -88,7 +89,8 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:text="@string/personalization"
-            android:textSize="22sp"
+            android:textSize="24sp"
+            android:fontFamily="@font/font_v3"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
@@ -99,7 +101,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            style="@style/rounded_gray_v12_black_none_gray">
+            style="@style/rounded_white_v2_black_none_gray">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -109,7 +111,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
+                style="@style/rounded_white_v2_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -123,9 +125,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dark_mode"
                     android:textSize="18sp"
+                    android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:textStyle="bold"
                     tools:ignore="RelativeOverlap" />
 
                 <View
@@ -144,9 +146,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                style="@style/line"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"/>
+                style="@style/line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
+                style="@style/rounded_white_v2_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -172,7 +172,7 @@
                     android:textSize="18sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/font_v3"
                     tools:ignore="RelativeOverlap" />
 
                 <View
@@ -191,9 +191,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                style="@style/line"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"/>
+                style="@style/line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -203,7 +201,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
+                style="@style/rounded_white_v2_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -219,7 +217,7 @@
                     android:textSize="18sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/font_v3"
                     tools:ignore="RelativeOverlap" />
 
                 <View
@@ -248,9 +246,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
+            android:fontFamily="@font/font_v3"
             android:layout_marginTop="30dp"
             android:text="@string/notifications_activity"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
@@ -261,7 +260,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            style="@style/rounded_gray_v12_black_none_gray">
+            style="@style/rounded_white_v2_black_none_gray">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -271,7 +270,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
+                style="@style/rounded_white_v2_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -287,7 +286,7 @@
                     android:textSize="18sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/font_v3"
                     tools:ignore="RelativeOverlap" />
 
                 <View
@@ -306,9 +305,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                style="@style/line"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"/>
+                style="@style/line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -318,7 +315,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
+                style="@style/rounded_white_v2_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -335,7 +332,7 @@
                     android:textSize="18sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/font_v3"
                     tools:ignore="RelativeOverlap" />
 
                 <View
@@ -354,9 +351,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                style="@style/line"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"/>
+                style="@style/line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -366,7 +361,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
+                style="@style/rounded_white_v2_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -382,7 +377,7 @@
                     android:textSize="18sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/font_v3"
                     tools:ignore="RelativeOverlap" />
 
                 <View
@@ -397,175 +392,9 @@
                     android:layout_marginEnd="10dp"/>
 
             </LinearLayout>
-
-
-
-
 
         </LinearLayout>
 
-
-        <TextView
-            style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/accessibility_advanced"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            style="@style/rounded_gray_v12_black_none_gray">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:clickable="true"
-                android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    style="@style/notification_icon"
-                    android:layout_marginStart="10dp"/>
-
-                <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/notifications"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:textStyle="bold"
-                    tools:ignore="RelativeOverlap" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
-                <ImageView
-                    style="@style/arrow_right_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="10dp"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:clickable="true"
-                android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    style="@style/sound_icon"
-                    android:layout_marginStart="10dp"
-                    android:contentDescription="@string/sound" />
-
-                <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sound"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:textStyle="bold"
-                    tools:ignore="RelativeOverlap" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
-                <ImageView
-                    style="@style/arrow_right_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="10dp"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:clickable="true"
-                android:focusable="true"
-                style="@style/rounded_gray_v12_black_none_gray">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    style="@style/calendar_icon"
-                    android:layout_marginStart="10dp"/>
-
-                <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/events"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:textStyle="bold"
-                    tools:ignore="RelativeOverlap" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
-                <ImageView
-                    style="@style/arrow_right_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="10dp"/>
-
-            </LinearLayout>
-
-
-
-
-
-        </LinearLayout>
 
     </LinearLayout>
 

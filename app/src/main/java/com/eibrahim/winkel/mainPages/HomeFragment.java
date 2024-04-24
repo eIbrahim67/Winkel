@@ -74,23 +74,23 @@ public class HomeFragment extends Fragment {
             int id = item.getItemId();
             if (id == R.id.new_releases) {
                 doFilter("NewReleases");
-                tops_titles.setText("New Releases");
+                tops_titles.setText(getString(R.string.new_releases));
                 return true;
             } else if (id == R.id.recommended_item) {
                 doFilter("Recommended");
-                tops_titles.setText("Recommended");
+                tops_titles.setText(getString(R.string.recommended));
                 return true;
             } else if (id == R.id.trendy) {
                 doFilter("Trendy");
-                tops_titles.setText("Trendy");
+                tops_titles.setText(getString(R.string.trendy));
                 return true;
             } else if (id == R.id.top_sales_item) {
                 doFilter("TopSales");
-                tops_titles.setText("Top Sales");
+                tops_titles.setText(getString(R.string.top_sales));
                 return true;
             } else if (id == R.id.top_rating_item) {
                 doFilter("TopRating");
-                tops_titles.setText("Top Rating");
+                tops_titles.setText(getString(R.string.top_rating));
                 return true;
             }
             return false;
@@ -98,7 +98,9 @@ public class HomeFragment extends Fragment {
 
         LinearLayout btnItemsMens = root.findViewById(R.id.btnItemsMens);
         LinearLayout btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
-        LinearLayout btnItemsKids = root.findViewById(R.id.btnItemsKids);
+        LinearLayout btnItemsBoys = root.findViewById(R.id.btnItemsBoys);
+        LinearLayout btnItemsGirls = root.findViewById(R.id.btnItemsGirls);
+        LinearLayout btnItemsBabies = root.findViewById(R.id.btnItemsBabies);
 
         btns_filters = root.findViewById(R.id.btns_filters);
         btnItemsOffers = root.findViewById(R.id.btnItemsOffers);
@@ -142,7 +144,9 @@ public class HomeFragment extends Fragment {
 
         btnItemsWomen.setOnClickListener(v -> doFilter("Womens", "0", "1000"));
 
-        btnItemsKids.setOnClickListener(v -> doFilter("Kids", "0", "1000"));
+        btnItemsBoys.setOnClickListener(v -> doFilter("Kids", "0", "1000"));
+        btnItemsGirls.setOnClickListener(v -> doFilter("Kids", "0", "1000"));
+        btnItemsBabies.setOnClickListener(v -> doFilter("Kids", "0", "1000"));
 
 
         search_text.addTextChangedListener(new TextWatcher() {
@@ -215,7 +219,7 @@ public class HomeFragment extends Fragment {
 
 
     private void fetchData(){
-        doFilter("TopSales");
+        doFilter("NewReleases");
     }
 
     public void recyclerviewVisibility(String type){

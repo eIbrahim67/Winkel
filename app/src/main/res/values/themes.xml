@@ -56,7 +56,7 @@
 
     </style>
 
-    <style name="circle_white_black_none_gray">
+    <style name="circle_white_v2_black_none_gray">
 
         <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
 
@@ -365,7 +365,7 @@
 
     <style name="line">
 
-        <item name="android:background">@color/gray_v5</item>
+        <item name="android:background">@color/white_v1</item>
 
     </style>
 
