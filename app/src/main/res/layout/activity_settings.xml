@@ -99,7 +99,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            style="@style/rounded_white_black_none_gray">
+            style="@style/rounded_gray_v12_black_none_gray">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -109,7 +109,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -156,7 +156,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -203,7 +203,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -261,7 +261,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            style="@style/rounded_white_black_none_gray">
+            style="@style/rounded_gray_v12_black_none_gray">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -271,7 +271,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -318,7 +318,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -366,7 +366,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -424,7 +424,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            style="@style/rounded_white_black_none_gray">
+            style="@style/rounded_gray_v12_black_none_gray">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -434,7 +434,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -481,7 +481,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -529,7 +529,7 @@
                 android:paddingBottom="15dp"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/rounded_white_black_none_gray">
+                style="@style/rounded_gray_v12_black_none_gray">
 
                 <ImageView
                     android:layout_width="30dp"

@@ -59,7 +59,7 @@
 
     </style>
 
-    <style name="rounded_white_black_none_gray">
+    <style name="rounded_gray_v12_black_none_gray">
 
         <item name="android:background">@drawable/rounded_black_v1_none_gray_v4</item>
 
