@@ -4,13 +4,17 @@ import android.content.Context;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.eibrahim.winkel.mainPages.HomeFragment;
+
 public class DoFilter {
 
     private RecyclerView recyclerView;
     private Context context;
 
-    public DoFilter(RecyclerView recyclerView, Context context) {
+    private RecyclerviewVisibility recyclerviewVisibility;
+    public DoFilter(RecyclerView recyclerView, RecyclerviewVisibility recyclerviewVisibility, Context context) {
         this.recyclerView = recyclerView;
+        this.recyclerviewVisibility = recyclerviewVisibility;
         this.context = context;
     }
 
@@ -19,7 +23,7 @@ public class DoFilter {
 
     public void doFilter(String type, String fPrice, String tPrice, RecyclerView recyclerView_filter){
 
-
+        recyclerviewVisibility.recyclerviewVisibility(type);
         fetchDataFromFirebase = new FetchDataFromFirebase(
                 recyclerView,
                 context
@@ -33,7 +37,7 @@ public class DoFilter {
 
     public void doFilter(String type, RecyclerView recyclerView_filter){
 
-
+        recyclerviewVisibility.recyclerviewVisibility(type);
         fetchDataFromFirebase = new FetchDataFromFirebase(
                 recyclerView,
                 context
@@ -46,7 +50,7 @@ public class DoFilter {
     }
 
     public void doFilter(String type){
-
+        recyclerviewVisibility.recyclerviewVisibility(type);
         FetchDataFromFirebase fetchData = new FetchDataFromFirebase(recyclerView, context);
         fetchData.fetchSpecific("Products", type, type);
 

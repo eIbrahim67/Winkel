@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,22 +17,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.declaredClasses.DoFilter;
+import com.eibrahim.winkel.declaredClasses.RecyclerviewVisibility;
 import com.eibrahim.winkel.mainPages.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import java.util.Objects;
 
 
 public class filterBottomSheet extends BottomSheetDialogFragment {
 
-    private String type = "All", fPrice = "0", tPrice = "10000";
+    private String type = "NewReleases", fPrice = "0", tPrice = "10000";
     private DoFilter doFilter;
 
     private final RecyclerView recyclerView_filter;
     private final RecyclerView recyclerView_items;
-
-    public filterBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items) {
+    private final RecyclerviewVisibility recyclerviewVisibility;
+    public filterBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility) {
 
         this.recyclerView_filter = recyclerView_filter;
         this.recyclerView_items = recyclerView_items;
+        this.recyclerviewVisibility = recyclerviewVisibility;
 
     }
 
@@ -43,7 +48,7 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
 
         Button btnFilter = root.findViewById(R.id.btnFilter);
 
-        doFilter = new DoFilter(recyclerView_items, requireContext());
+        doFilter = new DoFilter(recyclerView_items,recyclerviewVisibility, requireContext());
 
         LinearLayout btn_all = root.findViewById(R.id.btn_all);
         LinearLayout btn_men = root.findViewById(R.id.btn_men);
@@ -64,7 +69,7 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            functionsBottomSheet bottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items);
+            functionsBottomSheet bottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
@@ -74,7 +79,7 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
             RadBtnMen.setChecked(false);
             RadBtnWomen.setChecked(false);
             RadBtnKid.setChecked(false);
-            type = "TopSales";
+            type = "NewReleases";
         });
 
         btn_men.setOnClickListener(v -> {
@@ -111,10 +116,13 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
 
         btnFilter.setOnClickListener(v -> {
 
-            if (type == "TopSales")
-                doFilter.doFilter(type);
+            if (Objects.equals(type, "NewReleases")){
+
+                doFilter.doFilter("NewReleases");
+            }
             else {
 
+                Toast.makeText(requireContext() , type, Toast.LENGTH_SHORT).show();
                 if (fPrice.getText() == null || fPrice.getText().toString().isEmpty()) {
                     fPrice.setText("0");
                 }
@@ -128,7 +136,6 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
                 doFilter.doFilter(type, this.fPrice, this.tPrice, recyclerView_filter);
 
             }
-
 
             dismiss();
 

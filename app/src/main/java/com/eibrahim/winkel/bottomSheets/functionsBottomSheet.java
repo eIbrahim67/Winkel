@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.declaredClasses.RecyclerviewVisibility;
 import com.eibrahim.winkel.mainPages.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -22,10 +23,12 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
     private final RecyclerView recyclerView_items;
 
-    public functionsBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items) {
+    private final RecyclerviewVisibility recyclerviewVisibility;
+    public functionsBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility) {
 
         this.recyclerView_filter = recyclerView_filter;
         this.recyclerView_items = recyclerView_items;
+        this.recyclerviewVisibility = recyclerviewVisibility;
 
     }
 
@@ -44,7 +47,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            filterBottomSheet bottomSheet = new filterBottomSheet(recyclerView_filter, recyclerView_items);
+            filterBottomSheet bottomSheet = new filterBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
@@ -53,7 +56,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            sortBottomSheet bottomSheet = new sortBottomSheet(recyclerView_filter, recyclerView_items);
+            sortBottomSheet bottomSheet = new sortBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
@@ -62,7 +65,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            viewBottomSheet bottomSheet = new viewBottomSheet(recyclerView_filter, recyclerView_items);
+            viewBottomSheet bottomSheet = new viewBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });

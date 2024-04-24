@@ -76,201 +76,206 @@
 
                 </LinearLayout>
 
-                <RelativeLayout
+                <LinearLayout
+                    android:id="@+id/main_home_design"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:paddingBottom="20dp"
-                    android:paddingTop="20dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:id="@+id/btnItemsOffers">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/slogan_v1"
-                        style="@style/TextColor_v1"
-                        android:textSize="26sp"
-                        android:fontFamily="@font/font_v3"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/_50"
-                        style="@style/TextColor_v1"
-                        android:layout_alignParentBottom="true"
-                        android:textSize="38sp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginStart="20dp"
-                        android:fontFamily="@font/font_v3"/>
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_gravity="center_horizontal"
-                        app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                        android:src="@drawable/discount_v2"
-                        android:layout_alignParentEnd="true"
-                        android:clickable="true" />
-
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/main_categories"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/main_categories"
-                    style="@style/TextColor_v1"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="22sp"
-                    android:fontFamily="@font/font_v3"/>
-
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scrollbars="none">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:id="@+id/btns_filters"
+                        android:layout_marginEnd="20dp"
+                        style="@style/rounded_white_v2_black_none_gray"
+                        android:paddingBottom="20dp"
+                        android:paddingTop="20dp"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp">
 
-                        <LinearLayout
-                            android:id="@+id/btnItemsMens"
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginEnd="15dp">
+                            android:text="@string/slogan_v1"
+                            style="@style/TextColor_v1"
+                            android:textSize="26sp"
+                            android:fontFamily="@font/font_v3"/>
 
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center_horizontal"
-                                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                android:src="@drawable/man_v1"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_50"
+                            style="@style/TextColor_v1"
+                            android:layout_alignParentBottom="true"
+                            android:textSize="38sp"
+                            android:layout_marginStart="20dp"
+                            android:fontFamily="@font/font_v3"/>
 
-                            <TextView
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center_horizontal"
+                            app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                            android:src="@drawable/discount_v2"
+                            android:layout_alignParentEnd="true"
+                            android:clickable="true" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/main_categories"
+                        style="@style/TextColor_v1"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/font_v3"/>
+
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp">
+
+                            <LinearLayout
+                                android:id="@+id/btnItemsMens"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/men"
-                                style="@style/TextColor_v1"
-                                android:textSize="18sp"
-                                android:layout_gravity="center_horizontal"
-                                android:fontFamily="@font/font_v3"/>
+                                android:orientation="vertical"
+                                android:layout_marginEnd="15dp">
+
+                                <com.google.android.material.imageview.ShapeableImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_horizontal"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                                    android:src="@drawable/man_v1"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/men"
+                                    style="@style/TextColor_v1"
+                                    android:textSize="18sp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:fontFamily="@font/font_v3"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/btnItemsWomen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="15dp">
+
+                                <com.google.android.material.imageview.ShapeableImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_horizontal"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                                    android:src="@drawable/woman_v1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/women"
+                                    style="@style/TextColor_v1"
+                                    android:textSize="18sp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:fontFamily="@font/font_v3"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/btnItemsBoys"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="15dp">
+
+                                <com.google.android.material.imageview.ShapeableImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_horizontal"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                                    android:src="@drawable/boy_v1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/boys"
+                                    style="@style/TextColor_v1"
+                                    android:textSize="18sp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:fontFamily="@font/font_v3"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/btnItemsGirls"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="15dp">
+
+                                <com.google.android.material.imageview.ShapeableImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_horizontal"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                                    android:src="@drawable/girl_v1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/girls"
+                                    style="@style/TextColor_v1"
+                                    android:textSize="18sp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:fontFamily="@font/font_v3"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/btnItemsBabies"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="15dp">
+
+                                <com.google.android.material.imageview.ShapeableImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_horizontal"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                                    android:src="@drawable/baby_v1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/babies"
+                                    style="@style/TextColor_v1"
+                                    android:textSize="18sp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:fontFamily="@font/font_v3"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/btnItemsWomen"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginEnd="15dp">
+                    </HorizontalScrollView>
 
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center_horizontal"
-                                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                android:src="@drawable/woman_v1" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/women"
-                                style="@style/TextColor_v1"
-                                android:textSize="18sp"
-                                android:layout_gravity="center_horizontal"
-                                android:fontFamily="@font/font_v3"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/btnItemsBoys"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginEnd="15dp">
-
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center_horizontal"
-                                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                android:src="@drawable/boy_v1" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/boys"
-                                style="@style/TextColor_v1"
-                                android:textSize="18sp"
-                                android:layout_gravity="center_horizontal"
-                                android:fontFamily="@font/font_v3"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/btnItemsGirls"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginEnd="15dp">
-
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center_horizontal"
-                                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                android:src="@drawable/girl_v1" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/girls"
-                                style="@style/TextColor_v1"
-                                android:textSize="18sp"
-                                android:layout_gravity="center_horizontal"
-                                android:fontFamily="@font/font_v3"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/btnItemsBabies"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginEnd="15dp">
-
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center_horizontal"
-                                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                android:src="@drawable/baby_v1" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/babies"
-                                style="@style/TextColor_v1"
-                                android:textSize="18sp"
-                                android:layout_gravity="center_horizontal"
-                                android:fontFamily="@font/font_v3"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </HorizontalScrollView>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
