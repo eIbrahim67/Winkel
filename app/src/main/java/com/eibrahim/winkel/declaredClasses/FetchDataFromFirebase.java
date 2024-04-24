@@ -64,7 +64,7 @@ public class FetchDataFromFirebase {
                                 dataOfRvItems.add(dataObject);
                     }
 
-                    adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
+                    adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems);
                     recyclerViewItems.setLayoutManager(new GridLayoutManager(context, 2));
                     recyclerViewItems.setAdapter(adapterRvItems);
                 })
@@ -75,13 +75,13 @@ public class FetchDataFromFirebase {
 
         firestore
                 .collection("UsersData").document(userId)
-                .collection("WishlistCollection").document("wishlistDocument")
+                .collection("Wishlist").document("Wishlist")
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
 
                     if (documentSnapshot.exists()){
 
-                        List<String> wishlistIds = (List<String>) documentSnapshot.get("WishlistCollection");
+                        List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
                         fetch(type, fPrice, tPrice, recyclerView, wishlistIds);
                     }
 
@@ -113,8 +113,6 @@ public class FetchDataFromFirebase {
 
                         dataObject.setItemId((String) data.get("itemId"));
 
-                        Toast.makeText(context, dataObject.getItemId()+"hkj", Toast.LENGTH_SHORT).show();
-
                         if (wishlistIds != null)
                             dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
 
@@ -124,7 +122,7 @@ public class FetchDataFromFirebase {
 
 
                     }
-                    adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
+                    adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems);
                     recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                     recyclerView.setAdapter(adapterRvItems);
                 })

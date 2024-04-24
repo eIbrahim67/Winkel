@@ -56,8 +56,8 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         DocumentReference wishlistRef = firestore.collection("UsersData")
                 .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
-                .collection("WishlistCollection")
-                .document("wishlistDocument");
+                .collection("Wishlist")
+                .document("Wishlist");
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -83,7 +83,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                 btnWishlist.setImageResource(R.drawable.unlove_icon_white);
                 currentItem.setItemLoved(false);
                 wishlistRef
-                        .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
+                        .update("Wishlist", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
                         .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, R.string.item_removed_from_wishlist_success, Toast.LENGTH_SHORT).show())
                         .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
 
@@ -92,7 +92,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                 btnWishlist.setImageResource(R.drawable.loved_icon);
                 currentItem.setItemLoved(true);
                 wishlistRef
-                        .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
+                        .update("Wishlist", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
                         .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, R.string.item_added_to_wishlist_success, Toast.LENGTH_SHORT).show())
                         .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
 

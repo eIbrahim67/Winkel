@@ -29,12 +29,10 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
 
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
-    private final String cate;
     FirebaseFirestore firestore;
-    public adapterRecyclerviewItems(Context context, List<DataRecyclerviewMyItem> itemList, String cate) {
+    public adapterRecyclerviewItems(Context context, List<DataRecyclerviewMyItem> itemList) {
         this.context = context;
         this.itemList = itemList;
-        this.cate = cate;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -81,10 +79,6 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                 .into(holder.itemImage);
 
 
-        if (currentItem.getItemLoved())
-            holder.btnLoveH.setImageResource(R.drawable.loved_icon);
-        else
-            holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
@@ -97,6 +91,10 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                 .collection("Wishlist")
                 .document("Wishlist");
 
+        if (currentItem.getItemLoved())
+            holder.btnLoveH.setImageResource(R.drawable.loved_icon);
+        else
+            holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
 
         holder.btnLoveH.setOnClickListener(v -> {
 

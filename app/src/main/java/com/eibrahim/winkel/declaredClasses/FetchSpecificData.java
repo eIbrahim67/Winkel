@@ -1,14 +1,11 @@
 package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItemsWishlist;
+import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -29,8 +26,28 @@ public class FetchSpecificData {
         this.recyclerView = recyclerView;
         this.context = context;
     }
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private final String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
-    public void fetchIt(String coll,String doc, String type) {
+    public void fetchData(String coll, String doc, String type) {
+
+        firestore
+                .collection("UsersData").document(userId)
+                .collection("Wishlist").document("Wishlist")
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+
+                    if (documentSnapshot.exists()){
+
+                        List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
+                        fetch(coll, doc, type, wishlistIds);
+                    }
+
+                });
+
+    }
+
+    public void fetch(String coll, String doc, String type, List<String> wishlistIds) {
 
         List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
 
@@ -76,9 +93,15 @@ public class FetchSpecificData {
                                                 itemType,
                                                 ""
                                         );
+
                                         dataObject.setItemId(itemId);
+
+                                        if (wishlistIds != null)
+                                            dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
+
+
                                         dataOfRvItems.add(dataObject);
-                                        adapterRecyclerviewItemsWishlist adapterRvItems = new adapterRecyclerviewItemsWishlist(context, dataOfRvItems);
+                                        adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
                                         recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                                         recyclerView.setAdapter(adapterRvItems);
                                     }
@@ -89,7 +112,7 @@ public class FetchSpecificData {
                     }
                     else{
                         dataOfRvItems.clear();
-                        adapterRecyclerviewItemsWishlist adapterRvItems = new adapterRecyclerviewItemsWishlist(context, dataOfRvItems);
+                        adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
                         recyclerView.setAdapter(adapterRvItems);
                     }
                 }

@@ -53,8 +53,7 @@ public class Search {
 
                     adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(
                             context,
-                            dataOfRvItems,
-                            "Mens");
+                            dataOfRvItems);
                     recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
                     recyclerView.setAdapter(adapterRvItems);
 

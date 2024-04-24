@@ -4,9 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -15,31 +13,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
 import com.eibrahim.winkel.bottomSheets.functionsBottomSheet;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.declaredClasses.FetchCategory;
 import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
 import com.eibrahim.winkel.declaredClasses.FetchSpecificData;
 import com.eibrahim.winkel.declaredClasses.Search;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -265,7 +249,7 @@ public class HomeFragment extends Fragment {
 
         recyclerviewVisibility(type);
         FetchSpecificData fetchSpecificData = new FetchSpecificData(recyclerView_items, requireContext());
-        fetchSpecificData.fetchIt("Products", type, type);
+        fetchSpecificData.fetchData("Products", type, type);
 
     }
 

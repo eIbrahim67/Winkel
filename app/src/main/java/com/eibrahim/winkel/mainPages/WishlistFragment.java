@@ -37,12 +37,12 @@ public class WishlistFragment extends Fragment {
 
         FetchSpecificData fetchSpecificData = new FetchSpecificData(recyclerview_wishlist, requireContext());
 
-        fetchSpecificData.fetchIt("UsersData", userId, "Wishlist");
+        fetchSpecificData.fetchData("UsersData", userId, "Wishlist");
 
 
         wishlist_fragment.setOnRefreshListener(() -> {
 
-            fetchSpecificData.fetchIt("UsersData", userId, "Wishlist");
+            fetchSpecificData.fetchData("UsersData", userId, "Wishlist");
 
             wishlist_fragment.setRefreshing(false);
 
