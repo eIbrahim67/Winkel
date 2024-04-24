@@ -51,7 +51,6 @@ public class FetchDataFromFirebase {
                 });
 
     }
-
     private void fetch( String type, String category, String fPrice, String tPrice, List<String> wishlistIds) {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
@@ -105,7 +104,6 @@ public class FetchDataFromFirebase {
                 });
 
     }
-
     private void fetch(String type, String fPrice, String tPrice, List<String> wishlistIds) {
 
 

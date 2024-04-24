@@ -30,7 +30,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView_filter;
     private TextView tops_titles;
     private SwipeRefreshLayout fragment_home;
-    private Boolean filtered = false;
     private LinearLayout search_page;
     protected String type, tPrice, fPrice;
     private DoFilter doFilter;
@@ -59,7 +58,6 @@ public class HomeFragment extends Fragment {
         ImageView btnFilterH = root.findViewById(R.id.btnFunctions);
         EditText search_text = root.findViewById(R.id.search_text);
 
-
         InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         PopupMenu popup = new PopupMenu(requireContext(), tops_btn);
         popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
@@ -69,7 +67,7 @@ public class HomeFragment extends Fragment {
         doFilter = new DoFilter(recyclerView_items, recyclerviewVisibility, requireContext());
 
         fetchData();
-        functionsBottomSheet functionsBottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility);
+        functionsBottomSheet functionsBottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter);
         tops_btn.setOnClickListener(v -> popup.show());
         popup.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
@@ -152,11 +150,7 @@ public class HomeFragment extends Fragment {
         });
         fragment_home.setOnRefreshListener(() -> {
 
-            if (filtered){
-                doFilter.doFilter(type, fPrice, tPrice, recyclerView_filter);
-            }
-            else
-                fetchData();
+            doFilter.lastAction();
 
             fragment_home.setRefreshing(false);
 

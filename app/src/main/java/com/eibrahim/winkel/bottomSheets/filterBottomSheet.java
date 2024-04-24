@@ -27,18 +27,19 @@ import java.util.Objects;
 public class filterBottomSheet extends BottomSheetDialogFragment {
 
     private String type = "NewReleases", fPrice = "0", tPrice = "10000";
-    private DoFilter doFilter;
 
     private final RecyclerView recyclerView_filter;
     private final RecyclerView recyclerView_items;
     private final RecyclerviewVisibility recyclerviewVisibility;
-    public filterBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility) {
+    private final DoFilter doFilter;
+    public filterBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility, DoFilter doFilter) {
 
         this.recyclerView_filter = recyclerView_filter;
         this.recyclerView_items = recyclerView_items;
         this.recyclerviewVisibility = recyclerviewVisibility;
-
+        this.doFilter = doFilter;
     }
+
 
     @Nullable
     @Override
@@ -47,8 +48,6 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
         View root = inflater.inflate(R.layout.bottom_sheet_filter, container, false);
 
         Button btnFilter = root.findViewById(R.id.btnFilter);
-
-        doFilter = new DoFilter(recyclerView_items,recyclerviewVisibility, requireContext());
 
         LinearLayout btn_all = root.findViewById(R.id.btn_all);
         LinearLayout btn_men = root.findViewById(R.id.btn_men);
@@ -69,7 +68,7 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            functionsBottomSheet bottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility);
+            functionsBottomSheet bottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
