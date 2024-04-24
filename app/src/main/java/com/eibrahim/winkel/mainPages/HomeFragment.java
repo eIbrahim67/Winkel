@@ -25,7 +25,10 @@ import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewItems;
 import com.eibrahim.winkel.bottomSheets.functionsBottomSheet;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
+import com.eibrahim.winkel.declaredClasses.FetchCategory;
 import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
+import com.eibrahim.winkel.declaredClasses.FetchSpecificData;
+import com.eibrahim.winkel.declaredClasses.Search;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -45,7 +48,6 @@ public class HomeFragment extends Fragment {
     private FetchDataFromFirebase fetchDataFromFirebase;
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
-    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private LinearLayout search_page, btns_filters;
 
     ImageView btnCloseSearch;
@@ -115,47 +117,11 @@ public class HomeFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String searchText = s.toString().trim();
                 if (!searchText.isEmpty()) {
-                    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-                    CollectionReference collectionRef = firestore.collection("Products").document("Mens").collection("Mens");
-                    collectionRef
-                            .get()
-                            .addOnSuccessListener(querySnapshot -> {
-                                List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
-                                for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-                                    Map<String, Object> data = document.getData();
-                                    String itemName = (String) (data != null ? data.get("name") : null);
 
-                                    // Perform case-insensitive partial string match
-                                    if (itemName != null &&
-                                            itemName.toLowerCase().contains(searchText.toLowerCase())) {
-                                        DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
-                                                (String) data.get("category"),
-                                                (String) data.get("imageId"),
-                                                itemName,
-                                                (String) data.get("price"),
-                                                "Mens",
-                                                ""
-                                        );
+                    Search.search(requireContext(), searchText, recyclerview_search);
 
-                                        dataObject.setItemId((String) data.get("itemId"));
-                                        dataObject.setItemLoved(false);
-
-                                        dataOfRvItems.add(dataObject);
-                                    }
-                                }
-
-
-                                adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(
-                                        requireContext(),
-                                        dataOfRvItems,
-                                        "Mens");
-                                recyclerview_search.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
-                                recyclerview_search.setAdapter(adapterRvItems);
-
-
-                            })
-                            .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
                 }
+
             }
 
             @Override
@@ -170,7 +136,6 @@ public class HomeFragment extends Fragment {
         });
 
         btnFilterH.setOnClickListener(v -> {
-
 
             if (functionsBottomSheet.isVisible())
                 functionsBottomSheet.dismiss();
@@ -214,23 +179,13 @@ public class HomeFragment extends Fragment {
 
 
     private void fetchData(){
-        //TODO: best sells
-        fetchDataFromFirebase.fetchData("Mens", "0", "100000", recyclerView_items);
-
+        doFilter("TopSales");
     }
 
     public void recyclerviewVisibility(String type){
 
         switch (type) {
-            case "All":
-                btnItemsOffers.setVisibility(View.VISIBLE);
-                btns_filters.setVisibility(View.VISIBLE);
-                main_categories.setVisibility(View.VISIBLE);
-                top_sales.setVisibility(View.VISIBLE);
-                recyclerView_filter.setVisibility(View.GONE);
-                filtered = false;
 
-                break;
             case "Mens":
             case "Womens":
             case "Kids":
@@ -240,6 +195,14 @@ public class HomeFragment extends Fragment {
                 top_sales.setVisibility(View.GONE);
                 recyclerView_filter.setVisibility(View.VISIBLE);
                 filtered = true;
+                break;
+            default:
+                btnItemsOffers.setVisibility(View.VISIBLE);
+                btns_filters.setVisibility(View.VISIBLE);
+                main_categories.setVisibility(View.VISIBLE);
+                top_sales.setVisibility(View.VISIBLE);
+                recyclerView_filter.setVisibility(View.GONE);
+                filtered = false;
                 break;
         }
     }
@@ -253,30 +216,17 @@ public class HomeFragment extends Fragment {
         recyclerviewVisibility(type);
 
         fetchDataFromFirebase.fetchData(type, fPrice, tPrice, recyclerView_items);
-        fetchCategory(type, fPrice, tPrice);
+
+        FetchCategory.fetchCategory(type, fPrice, tPrice, recyclerView_filter, recyclerView_items, requireContext());
 
     }
 
-    private void fetchCategory(String type, String fPrice, String tPrice){
+    public void doFilter(String type){
 
         recyclerviewVisibility(type);
+        FetchSpecificData fetchSpecificData = new FetchSpecificData(recyclerView_items, requireContext());
+        fetchSpecificData.fetchIt("Products", type, type);
 
-        List<String> dataOfRvFilter = new ArrayList<>();
-
-        DocumentReference docReference = firestore.collection("Data").document("Categories" + type);
-
-        docReference.get().addOnSuccessListener(documentSnapshot -> {
-            if (documentSnapshot.exists()) {
-                List<Object> data = (List<Object>) documentSnapshot.get("Categories");
-                for (Object item : Objects.requireNonNull(data)) {
-                    dataOfRvFilter.add(item.toString());
-                }
-            }
-            adapterRecyclerviewFilter adapterRvFilter = new adapterRecyclerviewFilter(dataOfRvFilter, recyclerView_items, type,fPrice, tPrice, requireContext());
-            recyclerView_filter.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
-            recyclerView_filter.setAdapter(adapterRvFilter);
-        }).addOnFailureListener(e -> {
-        });
     }
 
 }

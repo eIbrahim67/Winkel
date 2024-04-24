@@ -94,8 +94,8 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
 
         DocumentReference wishlistRef = firestore.collection("UsersData")
                 .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
-                .collection("WishlistCollection")
-                .document("wishlistDocument");
+                .collection("Wishlist")
+                .document("Wishlist");
 
 
         holder.btnLoveH.setOnClickListener(v -> {
@@ -105,7 +105,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                 holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
                 currentItem.setItemLoved(false);
                 wishlistRef
-                        .update("WishlistCollection", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
+                        .update("Wishlist", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
                         .addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your wishlist.", Toast.LENGTH_SHORT).show())
                         .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
 
@@ -113,7 +113,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                 holder.btnLoveH.setImageResource(R.drawable.loved_icon);
                 currentItem.setItemLoved(true);
                 wishlistRef
-                        .update("WishlistCollection", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
+                        .update("Wishlist", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
                                 .addOnSuccessListener(unused ->
                                     Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show())
                         .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());

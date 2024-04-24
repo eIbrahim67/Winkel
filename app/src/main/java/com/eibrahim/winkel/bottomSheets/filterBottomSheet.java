@@ -67,7 +67,7 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
             RadBtnMen.setChecked(false);
             RadBtnWomen.setChecked(false);
             RadBtnKid.setChecked(false);
-            type = "All";
+            type = "TopSales";
         });
 
         btn_men.setOnClickListener(v -> {
@@ -103,17 +103,25 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
         RadBtnKid.setOnClickListener(v -> btn_kids.callOnClick());
 
         btnFilter.setOnClickListener(v -> {
-            if (fPrice.getText() == null || fPrice.getText().toString().isEmpty()) {
-                fPrice.setText("0");
-            }
-            if (tPrice.getText() == null || tPrice.getText().toString().isEmpty()) {
-                tPrice.setText("1000");
+
+            if (type == "TopSales")
+                homeFragment.doFilter(type);
+            else {
+
+                if (fPrice.getText() == null || fPrice.getText().toString().isEmpty()) {
+                    fPrice.setText("0");
+                }
+                if (tPrice.getText() == null || tPrice.getText().toString().isEmpty()) {
+                    tPrice.setText("1000");
+                }
+
+                this.fPrice = fPrice.getText().toString();
+                this.tPrice = tPrice.getText().toString();
+
+                homeFragment.doFilter(type, this.fPrice, this.tPrice);
+
             }
 
-            this.fPrice = fPrice.getText().toString();
-            this.tPrice = tPrice.getText().toString();
-
-            homeFragment.doFilter(type, this.fPrice, this.tPrice);
 
             dismiss();
 

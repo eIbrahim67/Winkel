@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.declaredClasses.FetchWishlistData;
+import com.eibrahim.winkel.declaredClasses.FetchSpecificData;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 public class WishlistFragment extends Fragment {
 
     private final List<String> wishlistIds = new ArrayList<>();
-
+    private final String userId = FirebaseAuth.getInstance().getUid();
     private LinearLayout msgEmptyWishlist;
 
     @Override
@@ -34,14 +35,14 @@ public class WishlistFragment extends Fragment {
 
         msgEmptyWishlist = rootView.findViewById(R.id.msgEmptyWishlist);
 
-        FetchWishlistData fetchWishlistData = new FetchWishlistData(recyclerview_wishlist, requireContext(), wishlistIds, msgEmptyWishlist);
+        FetchSpecificData fetchSpecificData = new FetchSpecificData(recyclerview_wishlist, requireContext());
 
-        fetchWishlistData.fetchIt();
+        fetchSpecificData.fetchIt("UsersData", userId, "Wishlist");
 
 
         wishlist_fragment.setOnRefreshListener(() -> {
 
-            fetchWishlistData.fetchIt();
+            fetchSpecificData.fetchIt("UsersData", userId, "Wishlist");
 
             wishlist_fragment.setRefreshing(false);
 

@@ -3,6 +3,7 @@ package com.eibrahim.winkel.declaredClasses;
 import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,42 +19,35 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class FetchWishlistData {
+public class FetchSpecificData {
 
     public final RecyclerView recyclerView; // Public field declaration
     public final Context context; // Public field declaration
-    public final List<String> wishlistIds; // Public field declaration
-    public final LinearLayout msgEmptyWishlist; // Public field declaration
+    //public final List<String> wishlistIds; // Public field declaration
 
-    public FetchWishlistData(RecyclerView recyclerView, Context context, List<String> wishlistIds, LinearLayout msgEmptyWishlist) {
+    public FetchSpecificData(RecyclerView recyclerView, Context context) {
         this.recyclerView = recyclerView;
         this.context = context;
-        this.wishlistIds = wishlistIds;
-        this.msgEmptyWishlist = msgEmptyWishlist;
     }
 
-    public void fetchIt() {
-
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-
-        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+    public void fetchIt(String coll,String doc, String type) {
 
         List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        DocumentReference wishlistRef = firestore.collection("UsersData")
-                .document(userId)
-                .collection("WishlistCollection")
-                .document("wishlistDocument");
+        DocumentReference wishlistRef = firestore.collection(coll)
+                .document(doc)
+                .collection(type)
+                .document(type);
 
         wishlistRef.get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()) {
-                List<String> wishlist = (List<String>) documentSnapshot.get("WishlistCollection");
+                List<String> wishlist = (List<String>) documentSnapshot.get(type);
                 if (wishlist != null) {
 
+
                     if (wishlist.size() > 0){
-                        msgEmptyWishlist.setVisibility(View.GONE);
 
                         for (String itemIdType : wishlist) {
 
@@ -83,7 +77,6 @@ public class FetchWishlistData {
                                                 ""
                                         );
                                         dataObject.setItemId(itemId);
-                                        wishlistIds.add(itemId);
                                         dataOfRvItems.add(dataObject);
                                         adapterRecyclerviewItemsWishlist adapterRvItems = new adapterRecyclerviewItemsWishlist(context, dataOfRvItems);
                                         recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
@@ -95,7 +88,6 @@ public class FetchWishlistData {
 
                     }
                     else{
-                        msgEmptyWishlist.setVisibility(View.VISIBLE);
                         dataOfRvItems.clear();
                         adapterRecyclerviewItemsWishlist adapterRvItems = new adapterRecyclerviewItemsWishlist(context, dataOfRvItems);
                         recyclerView.setAdapter(adapterRvItems);

@@ -2,6 +2,7 @@ package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -112,6 +113,7 @@ public class FetchDataFromFirebase {
 
                         dataObject.setItemId((String) data.get("itemId"));
 
+                        Toast.makeText(context, dataObject.getItemId()+"hkj", Toast.LENGTH_SHORT).show();
 
                         if (wishlistIds != null)
                             dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
@@ -123,9 +125,7 @@ public class FetchDataFromFirebase {
 
                     }
                     adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems, type);
-
                     recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-
                     recyclerView.setAdapter(adapterRvItems);
                 })
                 .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));

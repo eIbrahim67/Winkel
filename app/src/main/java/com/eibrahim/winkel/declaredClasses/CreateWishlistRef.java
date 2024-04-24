@@ -19,8 +19,8 @@ public class CreateWishlistRef {
 
         DocumentReference wishlistRef = firestore.collection("UsersData")
                 .document(userId)
-                .collection("WishlistCollection")
-                .document("wishlistDocument");
+                .collection("Wishlist")
+                .document("Wishlist");
 
         wishlistRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
