@@ -1,14 +1,11 @@
 package com.eibrahim.winkel.declaredClasses;
 
-import static androidx.core.content.ContentProviderCompat.requireContext;
-
 import android.content.Context;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewFilter;
+import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewCategories;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,7 +29,7 @@ public class FetchCategory {
                     dataOfRvFilter.add(item.toString());
                 }
             }
-            adapterRecyclerviewFilter adapterRvFilter = new adapterRecyclerviewFilter(dataOfRvFilter, recyclerView_items, type,fPrice, tPrice,context);
+            adapterRecyclerviewCategories adapterRvFilter = new adapterRecyclerviewCategories(dataOfRvFilter, recyclerView_items, type,fPrice, tPrice,context);
             recyclerView_filter.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
             recyclerView_filter.setAdapter(adapterRvFilter);
         }).addOnFailureListener(e -> {

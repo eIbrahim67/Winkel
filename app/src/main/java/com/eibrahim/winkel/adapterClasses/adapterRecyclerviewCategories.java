@@ -15,7 +15,7 @@ import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
 import java.util.List;
 import java.util.Objects;
 
-public class adapterRecyclerviewFilter extends RecyclerView.Adapter<adapterRecyclerviewFilter.ViewHolder> {
+public class adapterRecyclerviewCategories extends RecyclerView.Adapter<adapterRecyclerviewCategories.ViewHolder> {
 
     private final List<String> itemList;
     private final RecyclerView recyclerView_items;
@@ -25,7 +25,7 @@ public class adapterRecyclerviewFilter extends RecyclerView.Adapter<adapterRecyc
     private final String fPrice;
     private ViewHolder lastHolder = null;
 
-    public adapterRecyclerviewFilter(List<String> itemList, RecyclerView recyclerView_items, String type, String fPrice, String tPrice, Context context) {
+    public adapterRecyclerviewCategories(List<String> itemList, RecyclerView recyclerView_items, String type, String fPrice, String tPrice, Context context) {
         this.itemList = itemList;
         this.recyclerView_items = recyclerView_items;
         this.context = context;
@@ -69,7 +69,7 @@ public class adapterRecyclerviewFilter extends RecyclerView.Adapter<adapterRecyc
             if (Objects.equals(filter, "All")){
                 fetchDataFromFirebase.fetchData(type, fPrice, tPrice);
             }else{
-                fetchDataFromFirebase.fetchData(filter, type, fPrice, tPrice);
+                fetchDataFromFirebase.fetchData(type, filter, fPrice, tPrice);
             }
 
             if (lastHolder != null)

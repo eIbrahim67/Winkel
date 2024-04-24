@@ -34,7 +34,7 @@ public class FetchDataFromFirebase {
 
     }
 
-    public void fetchData(String type, String category, String fPrice, String tPrice) {
+    public void fetchData(String type, String category, String fPrice, String tPrice) {//
 
         firestore
                 .collection("UsersData").document(userId)
