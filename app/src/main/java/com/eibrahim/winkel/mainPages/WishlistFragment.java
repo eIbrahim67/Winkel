@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.declaredClasses.FetchSpecificData;
+import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -35,14 +35,14 @@ public class WishlistFragment extends Fragment {
 
         msgEmptyWishlist = rootView.findViewById(R.id.msgEmptyWishlist);
 
-        FetchSpecificData fetchSpecificData = new FetchSpecificData(recyclerview_wishlist, requireContext());
+        FetchDataFromFirebase fetchData = new FetchDataFromFirebase(recyclerview_wishlist, requireContext());
 
-        fetchSpecificData.fetchData("UsersData", userId, "Wishlist");
+        fetchData.fetchSpecific("UsersData", userId, "Wishlist");
 
 
         wishlist_fragment.setOnRefreshListener(() -> {
 
-            fetchSpecificData.fetchData("UsersData", userId, "Wishlist");
+            fetchData.fetchSpecific("UsersData", userId, "Wishlist");
 
             wishlist_fragment.setRefreshing(false);
 

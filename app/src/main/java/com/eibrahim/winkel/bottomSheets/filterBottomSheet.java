@@ -12,8 +12,10 @@ import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.declaredClasses.DoFilter;
 import com.eibrahim.winkel.mainPages.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -21,12 +23,15 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class filterBottomSheet extends BottomSheetDialogFragment {
 
     private String type = "All", fPrice = "0", tPrice = "10000";
+    private DoFilter doFilter;
 
-    private final HomeFragment homeFragment;
+    private final RecyclerView recyclerView_filter;
+    private final RecyclerView recyclerView_items;
 
-    public filterBottomSheet(HomeFragment homeFragment) {
+    public filterBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items) {
 
-        this.homeFragment = homeFragment;
+        this.recyclerView_filter = recyclerView_filter;
+        this.recyclerView_items = recyclerView_items;
 
     }
 
@@ -37,6 +42,8 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
         View root = inflater.inflate(R.layout.bottom_sheet_filter, container, false);
 
         Button btnFilter = root.findViewById(R.id.btnFilter);
+
+        doFilter = new DoFilter(recyclerView_items, requireContext());
 
         LinearLayout btn_all = root.findViewById(R.id.btn_all);
         LinearLayout btn_men = root.findViewById(R.id.btn_men);
@@ -57,7 +64,7 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            functionsBottomSheet bottomSheet = new functionsBottomSheet(homeFragment);
+            functionsBottomSheet bottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
@@ -105,7 +112,7 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
         btnFilter.setOnClickListener(v -> {
 
             if (type == "TopSales")
-                homeFragment.doFilter(type);
+                doFilter.doFilter(type);
             else {
 
                 if (fPrice.getText() == null || fPrice.getText().toString().isEmpty()) {
@@ -118,7 +125,7 @@ public class filterBottomSheet extends BottomSheetDialogFragment {
                 this.fPrice = fPrice.getText().toString();
                 this.tPrice = tPrice.getText().toString();
 
-                homeFragment.doFilter(type, this.fPrice, this.tPrice);
+                doFilter.doFilter(type, this.fPrice, this.tPrice, recyclerView_filter);
 
             }
 

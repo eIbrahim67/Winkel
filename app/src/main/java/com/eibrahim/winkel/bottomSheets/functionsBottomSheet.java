@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +18,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class functionsBottomSheet extends BottomSheetDialogFragment {
 
-    private final HomeFragment homeFragment;
+    private final RecyclerView recyclerView_filter;
 
-    public functionsBottomSheet(HomeFragment homeFragment) {
+    private final RecyclerView recyclerView_items;
 
-        this.homeFragment = homeFragment;
+    public functionsBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items) {
+
+        this.recyclerView_filter = recyclerView_filter;
+        this.recyclerView_items = recyclerView_items;
 
     }
 
@@ -40,7 +44,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            filterBottomSheet bottomSheet = new filterBottomSheet(homeFragment);
+            filterBottomSheet bottomSheet = new filterBottomSheet(recyclerView_filter, recyclerView_items);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
@@ -49,7 +53,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            sortBottomSheet bottomSheet = new sortBottomSheet(homeFragment);
+            sortBottomSheet bottomSheet = new sortBottomSheet(recyclerView_filter, recyclerView_items);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
@@ -58,7 +62,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            viewBottomSheet bottomSheet = new viewBottomSheet(homeFragment);
+            viewBottomSheet bottomSheet = new viewBottomSheet(recyclerView_filter, recyclerView_items);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });

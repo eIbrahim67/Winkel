@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.mainPages.HomeFragment;
@@ -15,14 +16,16 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class viewBottomSheet extends BottomSheetDialogFragment {
 
-    private final HomeFragment homeFragment;
+    private final RecyclerView recyclerView_filter;
 
-    public viewBottomSheet(HomeFragment homeFragment) {
+    private final RecyclerView recyclerView_items;
 
-        this.homeFragment = homeFragment;
+    public viewBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items) {
+
+        this.recyclerView_filter = recyclerView_filter;
+        this.recyclerView_items = recyclerView_items;
 
     }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -35,7 +38,7 @@ public class viewBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            functionsBottomSheet bottomSheet = new functionsBottomSheet(homeFragment);
+            functionsBottomSheet bottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
