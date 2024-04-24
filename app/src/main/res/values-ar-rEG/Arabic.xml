@@ -38,11 +38,10 @@
     <string name="le">\u00A0ج.م</string>
     <string name="_0">0</string>
     <string name="profile">الملف الشخصي</string>
-    <string name="personal__data">البيانات\nالشخصية</string>
-    <string name="payment__methods">طرق الدفع\n</string>
-    <string name="my__orders">طلباتي\n</string>
-    <string name="app__settings">إعدادات\nالتطبيق</string>
-    <string name="help_amp__support"><![CDATA[المساعدة و\nالدعم]]></string>
+    <string name="personal_data">البيانات الشخصية</string>
+    <string name="payment_methods">طرق الدفع</string>
+    <string name="my_orders">طلباتي</string>
+    <string name="help_and_support">المساعدة و الدعم</string>
     <string name="sign_out">تسجيل الخروج</string>
     <string name="enter_your_current_pin">أدخل الرقم السري الحالي الخاص بك</string>
     <string name="shipping_address">عنوان الشحن</string>
@@ -117,7 +116,6 @@
     <string name="expiry_date">تاريخ انتهاء الصلاحية</string>
     <string name="cvv">CVV</string>
     <string name="add_method">إضافة الطريقة</string>
-    <string name="my_orders">طلباتي</string>
     <string name="my_payment_methods">طرق الدفع الخاصة بي</string>
     <string name="all_orders">كل الطلبات</string>
     <string name="title">العنوان</string>

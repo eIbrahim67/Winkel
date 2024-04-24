@@ -10,446 +10,1073 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".secondPages.SettingsActivity"
+        style="@style/background">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/profile"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                style="@style/TextColor_v1"
-                android:background="@android:color/transparent"/>
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:baselineAligned="false">
+                style="@style/circle_white_v2_black_none_gray"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:clickable="true"
+                android:layout_marginStart="20dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    style="@style/search_icon"
+                    android:layout_gravity="center_vertical"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:layout_marginStart="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/search"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/blue_v3"
+                    android:textSize="16sp"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="0dp"
+                    android:background="@android:color/transparent"
+                    android:autofillHints="" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/account_data"
+                android:textSize="24sp"
+                android:fontFamily="@font/font_v3"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                style="@style/rounded_white_v2_black_none_gray">
 
                 <LinearLayout
                     android:id="@+id/btnProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp">
+                    style="@style/rounded_white_v2_black_none_gray">
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         style="@style/user_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp" />
+                        android:layout_marginStart="10dp"/>
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="@string/personal__data"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold" />
+                        android:text="@string/personal_data"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/font_v3"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
 
                 <LinearLayout
                     android:id="@+id/btnPaymentMethods"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="20dp">
+                    style="@style/rounded_white_v2_black_none_gray">
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         style="@style/card_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp" />
+                        android:layout_marginStart="10dp"/>
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="@string/payment__methods"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold" />
+                        android:text="@string/payment_methods"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
 
                 <LinearLayout
                     android:id="@+id/btnMyOrders"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:clickable="true"
-                    android:layout_weight="1"
                     android:focusable="true"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp">
+                    style="@style/rounded_white_v2_black_none_gray">
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         style="@style/layers_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp"
-                        android:background="@android:color/transparent"/>
+                        android:layout_marginStart="10dp"/>
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="@string/my__orders"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold" />
+                        android:text="@string/my_orders"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
 
                 </LinearLayout>
 
+            </LinearLayout>
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/personalization"
+                android:textSize="24sp"
+                android:fontFamily="@font/font_v3"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                style="@style/rounded_white_v2_black_none_gray">
 
                 <LinearLayout
-                    android:id="@+id/btnSettings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="20dp">
+                    style="@style/rounded_white_v2_black_none_gray">
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        style="@style/settings_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp"
-                        android:background="@android:color/transparent"/>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/moon_icon"
+                        android:layout_marginStart="10dp"/>
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="@string/app__settings"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold"/>
+                        android:text="@string/dark_mode"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/font_v3"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/language_icon"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/language"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/security_icon"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/security"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/for_admin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/btnAllUsers"
-                    android:layout_width="match_parent"
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        style="@style/user_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp" />
-
-                    <TextView
-                        style="@style/TextColor_v1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="All\nUsers"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    android:fontFamily="@font/font_v3"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/for_admins"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:ignore="RelativeOverlap" />
 
                 <LinearLayout
-                    android:id="@+id/btnOrders"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:visibility="gone">
+                    android:layout_marginTop="10dp"
+                    style="@style/rounded_white_v2_black_none_gray">
 
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        style="@style/layers_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp" />
-
-                    <TextView
-                        style="@style/TextColor_v1"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/btnOrders"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="All\nOrders"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        style="@style/rounded_white_v2_black_none_gray">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            style="@style/layers_icon"
+                            android:layout_marginStart="10dp"/>
+
+                        <TextView
+                            style="@style/TextColor_v1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/all_orders"
+                            android:textSize="18sp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/font_v3"
+                            tools:ignore="RelativeOverlap" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <ImageView
+                            style="@style/arrow_right_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="10dp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        style="@style/line"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnAllUsers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        style="@style/rounded_white_v2_black_none_gray">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            style="@style/user_icon"
+                            android:layout_marginStart="10dp"/>
+
+                        <TextView
+                            style="@style/TextColor_v1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/all_users"
+                            android:textSize="18sp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/font_v3"
+                            tools:ignore="RelativeOverlap" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <ImageView
+                            style="@style/arrow_right_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="10dp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/for_vendors"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:orientation="vertical">
 
-                <LinearLayout
-
-                    android:id="@+id/btnAddNewItem"
-                    android:layout_width="match_parent"
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        style="@style/folder_add_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp" />
-
-                    <TextView
-                        style="@style/TextColor_v1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="Add\nNew Item"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    android:fontFamily="@font/font_v3"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/for_vendors"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:ignore="RelativeOverlap" />
 
                 <LinearLayout
-                    android:id="@+id/btnMyItems"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:visibility="gone">
+                    android:layout_marginTop="10dp"
+                    style="@style/rounded_white_v2_black_none_gray">
 
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        style="@style/layers_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp" />
-
-                    <TextView
-                        style="@style/TextColor_v1"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/btnAddNewItem"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="My\nItems"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        style="@style/rounded_white_v2_black_none_gray">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            style="@style/folder_add_icon"
+                            android:layout_marginStart="10dp"/>
+
+                        <TextView
+                            style="@style/TextColor_v1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_new_item"
+                            android:textSize="18sp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/font_v3"
+                            tools:ignore="RelativeOverlap" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <ImageView
+                            style="@style/arrow_right_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="10dp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        style="@style/line"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnMyItems"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        style="@style/rounded_white_v2_black_none_gray">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            style="@style/layers_icon"
+                            android:layout_marginStart="10dp"/>
+
+                        <TextView
+                            style="@style/TextColor_v1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/my_items"
+                            android:textSize="18sp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/font_v3"
+                            tools:ignore="RelativeOverlap" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <ImageView
+                            style="@style/arrow_right_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="10dp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/font_v3"
+                android:layout_marginTop="30dp"
+                android:text="@string/notifications_activity"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp"
-                android:baselineAligned="false">
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/notification_icon"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notifications"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/sound_icon"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@string/sound" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sound"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/calendar_icon"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/events"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/font_v3"
+                android:layout_marginTop="30dp"
+                android:text="@string/accessibility_advanced"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <LinearLayout
+                    android:id="@+id/btnHelpFeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/happy_icon"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_feedback"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
+
+                <LinearLayout
+                    android:id="@+id/btnPermissions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/permission_icon"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@string/sound" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/permissions"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
+
+                <LinearLayout
+                    android:id="@+id/btnAbout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/about_icon"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@string/sound" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
 
                 <LinearLayout
                     android:id="@+id/btnSupport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp">
+                    style="@style/rounded_white_v2_black_none_gray">
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        style="@style/headphones_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp"
-                        android:background="@android:color/transparent"/>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/support_icon"
+                        android:layout_marginStart="10dp"/>
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="@string/help_amp__support"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold" />
+                        android:text="@string/support_us"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnLogout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="5dp"
-                    style="@style/rounded2_white_black_none_gray"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="20dp">
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
 
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        style="@style/signout_icon"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10dp"
-                        android:background="@android:color/transparent"/>
-
-                    <TextView
-                        style="@style/TextColor_v1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/font_v1"
-                        android:text="@string/sign_out"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:textStyle="bold"/>
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/font_v3"
+                android:layout_marginTop="30dp"
+                android:text="@string/account"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <LinearLayout
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/signout_icon"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/log_out"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    style="@style/line"/>
+
+                <LinearLayout
+                    android:id="@+id/btnDeleteAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    style="@style/rounded_white_v2_black_none_gray">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        style="@style/sad_icon"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@string/sound" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/delete_account"
+                        android:textSize="18sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

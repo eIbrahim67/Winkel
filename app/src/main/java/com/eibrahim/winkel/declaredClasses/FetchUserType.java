@@ -10,18 +10,12 @@ import java.util.Objects;
 
 public class FetchUserType {
 
-    public final LinearLayout btnMyOrders; // Public field declaration
-    public final LinearLayout btnOrders; // Public field declaration
-    public final LinearLayout btnAddNewItem; // Public field declaration
-    public final LinearLayout btnMyItems; // Public field declaration
-    public final LinearLayout btnAllUsers; // Public field declaration
+    public final LinearLayout for_admins; // Public field declaration
+    public final LinearLayout for_vendors; // Public field declaration
 
-    public FetchUserType(LinearLayout btnMyOrders, LinearLayout btnOrders, LinearLayout btnAddNewItem, LinearLayout btnMyItems, LinearLayout btnAllUsers) {
-        this.btnMyOrders = btnMyOrders;
-        this.btnOrders = btnOrders;
-        this.btnAddNewItem = btnAddNewItem;
-        this.btnMyItems = btnMyItems;
-        this.btnAllUsers = btnAllUsers;
+    public FetchUserType(LinearLayout for_admins, LinearLayout for_vendors) {
+        this.for_admins = for_admins;
+        this.for_vendors = for_vendors;
     }
 
     public void fetchIt() {
@@ -37,16 +31,11 @@ public class FetchUserType {
 
                     if (documentSnapshot.exists()){
 
-                        if (Objects.equals(type, "Customer")){
-                            btnMyOrders.setVisibility(View.VISIBLE);
-                        }
-                        else if (Objects.equals(type, "Admin")){
-                            btnOrders.setVisibility(View.VISIBLE);
-                            btnAllUsers.setVisibility(View.VISIBLE);
+                        if (Objects.equals(type, "Admin")){
+                            for_admins.setVisibility(View.VISIBLE);
                         }
                         else if (Objects.equals(type, "Vendor")){
-                            btnAddNewItem.setVisibility(View.VISIBLE);
-                            btnMyItems.setVisibility(View.VISIBLE);
+                            for_vendors.setVisibility(View.VISIBLE);
                         }
                     }
 

@@ -368,9 +368,39 @@
 
     </style>
 
+    <style name="happy_icon">
+
+        <item name="android:src">@drawable/happy_icon_white</item>
+
+    </style>
+
+    <style name="permission_icon">
+
+        <item name="android:src">@drawable/permission_icon_white</item>
+
+    </style>
+
+    <style name="about_icon">
+
+        <item name="android:src">@drawable/about_icon_white</item>
+
+    </style>
+
+    <style name="support_icon">
+
+        <item name="android:src">@drawable/support_icon_white</item>
+
+    </style>
+
     <style name="sound_icon">
 
         <item name="android:src">@drawable/sound_icon_white</item>
+
+    </style>
+
+    <style name="sad_icon">
+
+        <item name="android:src">@drawable/sad_icon_white</item>
 
     </style>
 

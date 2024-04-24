@@ -37,11 +37,9 @@
     <string name="le">\u00A0LE</string>
     <string name="_0">0</string>
     <string name="profile">Profile</string>
-    <string name="personal__data">Personal\nData</string>
-    <string name="payment__methods">Payment\nMethods</string>
-    <string name="my__orders">My\nOrders</string>
-    <string name="app__settings">App\nSettings</string>
-    <string name="help_amp__support"><![CDATA[Help &\nSupport]]></string>
+    <string name="personal_data">Personal Data</string>
+    <string name="payment_methods">Payment Methods</string>
+    <string name="help_and_support"><![CDATA[Help & Support]]></string>
     <string name="sign_out">Sign Out</string>
     <string name="enter_your_current_pin">Enter your current PIN</string>
     <string name="shipping_address">Shipping address</string>
