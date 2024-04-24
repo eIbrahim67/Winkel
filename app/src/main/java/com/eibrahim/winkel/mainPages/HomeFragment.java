@@ -6,12 +6,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -41,15 +43,17 @@ import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
+
+
     private RecyclerView recyclerView_filter, recyclerView_items;
-    TextView top_sales, main_categories;
-    private RelativeLayout btnItemsOffers;
+    TextView main_categories, tops_titles;
+    private RelativeLayout btnItemsOffers, tops_view;
     private SwipeRefreshLayout fragment_home;
     private FetchDataFromFirebase fetchDataFromFirebase;
     private Boolean filtered = false;
     private String type, fPrice, tPrice;
     private LinearLayout search_page, btns_filters;
-
+    ImageView tops_btn;
     ImageView btnCloseSearch;
 
     @Override
@@ -60,6 +64,37 @@ public class HomeFragment extends Fragment {
         recyclerView_items = root.findViewById(R.id.recyclerview_items);
         RecyclerView recyclerview_search = root.findViewById(R.id.recyclerview_search);
 
+        ImageView tops_btn = root.findViewById(R.id.tops_btn);
+        PopupMenu popup = new PopupMenu(requireContext(), tops_btn);
+        popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+
+        tops_btn.setOnClickListener(v -> popup.show());
+
+        popup.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.new_releases) {
+                doFilter("NewReleases");
+                tops_titles.setText("New Releases");
+                return true;
+            } else if (id == R.id.recommended_item) {
+                doFilter("Recommended");
+                tops_titles.setText("Recommended");
+                return true;
+            } else if (id == R.id.trendy) {
+                doFilter("Trendy");
+                tops_titles.setText("Trendy");
+                return true;
+            } else if (id == R.id.top_sales_item) {
+                doFilter("TopSales");
+                tops_titles.setText("Top Sales");
+                return true;
+            } else if (id == R.id.top_rating_item) {
+                doFilter("TopRating");
+                tops_titles.setText("Top Rating");
+                return true;
+            }
+            return false;
+        });
 
         LinearLayout btnItemsMens = root.findViewById(R.id.btnItemsMens);
         LinearLayout btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
@@ -68,7 +103,10 @@ public class HomeFragment extends Fragment {
         btns_filters = root.findViewById(R.id.btns_filters);
         btnItemsOffers = root.findViewById(R.id.btnItemsOffers);
         main_categories = root.findViewById(R.id.main_categories);
-        top_sales = root.findViewById(R.id.top_sales);
+
+         tops_view = root.findViewById(R.id.tops_view);
+         tops_btn = root.findViewById(R.id.tops_btn);
+         tops_titles = root.findViewById(R.id.tops_titles);
 
         btnCloseSearch = root.findViewById(R.id.btnCloseSearch);
 
@@ -106,8 +144,6 @@ public class HomeFragment extends Fragment {
 
         btnItemsKids.setOnClickListener(v -> doFilter("Kids", "0", "1000"));
 
-
-        btnItemsOffers.setOnClickListener(v -> doFilter("Offers", "0", "1000"));
 
         search_text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -192,7 +228,7 @@ public class HomeFragment extends Fragment {
                 btnItemsOffers.setVisibility(View.GONE);
                 btns_filters.setVisibility(View.GONE);
                 main_categories.setVisibility(View.GONE);
-                top_sales.setVisibility(View.GONE);
+                tops_view.setVisibility(View.GONE);
                 recyclerView_filter.setVisibility(View.VISIBLE);
                 filtered = true;
                 break;
@@ -200,7 +236,7 @@ public class HomeFragment extends Fragment {
                 btnItemsOffers.setVisibility(View.VISIBLE);
                 btns_filters.setVisibility(View.VISIBLE);
                 main_categories.setVisibility(View.VISIBLE);
-                top_sales.setVisibility(View.VISIBLE);
+                tops_view.setVisibility(View.VISIBLE);
                 recyclerView_filter.setVisibility(View.GONE);
                 filtered = false;
                 break;

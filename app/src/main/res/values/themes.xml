@@ -428,4 +428,11 @@
 
     </style>
 
+    <style name="more_background_btn">
+        <item name="android:src">@drawable/more_grid_icon_black</item>
+
+        <item name="android:background">@drawable/rounded_white_v2_none_white_v1</item>
+
+    </style>
+
 </resources>

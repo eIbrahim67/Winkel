@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/new_releases"
+        android:title="@string/new_releases"
+        android:itemTextAppearance="@drawable/rounded_white_v2_none_white_v1"/>
+    <item
+        android:id="@+id/recommended_item"
+        android:title="@string/recommended"
+        android:itemTextAppearance="@drawable/rounded_white_v2_none_white_v1"/>
+    <item
+        android:id="@+id/trendy"
+        android:title="@string/trendy"
+        android:itemTextAppearance="@drawable/rounded_white_v2_none_white_v1"/>
+    <item
+        android:id="@+id/top_sales_item"
+        android:title="@string/top_sales"
+        android:itemTextAppearance="@drawable/rounded_white_v2_none_white_v1"/>
+    <item
+        android:id="@+id/top_rating_item"
+        android:title="@string/top_rating"
+        android:itemTextAppearance="@drawable/rounded_white_v2_none_white_v1"/>
+
+</menu>
+

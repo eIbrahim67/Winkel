@@ -20,4 +20,8 @@
     <string name="babies">Babies</string>
     <string name="girls">Girls</string>
     <string name="home">Home</string>
+    <string name="new_releases">New Releases</string>
+    <string name="top_rating">Top Rating</string>
+    <string name="trendy">Trendy</string>
+    <string name="recommended">Recommended</string>
 </resources>
