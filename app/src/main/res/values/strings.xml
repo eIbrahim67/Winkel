@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
     <string name="account">Account</string>
     <string name="for_admins">For Admins</string>
     <string name="all_users">All Users</string>
@@ -95,4 +93,5 @@
     <string name="contact_us">Contact Us:</string>
     <string name="customers_enjoy_a_seamless_shopping_experience_beginning_with_the_ability_to_explore_a_diverse_range_of_products_showcased_on_the_home_page">◑ Customers enjoy a seamless shopping experience, beginning with the ability to explore a diverse range of products showcased on the home page.</string>
     <string name="security_policies_for_our_e_shopping_app">Security Policies for our e-shopping App</string>
+    <string name="about_our_e_shopping_app">About our e-shopping app</string>
 </resources>
