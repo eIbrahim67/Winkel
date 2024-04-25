@@ -16,7 +16,7 @@
     <style name="TextColor_v1">
 
         <item name="android:textColor">@color/black_v1</item>
-        <item name="android:textColorHint">@color/black_v1</item>
+        <item name="android:textColorHint">@color/gray_v3</item>
 
     </style>
 

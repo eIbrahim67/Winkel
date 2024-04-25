@@ -1,9 +1,534 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".secondPages.HelpFeedbackActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/btnBackFeedback"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/back_arrow_background_btn"
+                android:padding="9dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Back"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                style="@style/TextColor_v1"
+                android:text="@string/help_feedback"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            style="@style/TextColor_v1"
+            android:text="@string/share_your_feedback"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            style="@style/rounded_white_v2_black_none_gray"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your opinion counts! Share your feedback and help us to serve you better"
+                style="@style/TextColor_v1"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="17sp"
+                android:fontFamily="@font/font_v5"/>
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                android:src="@drawable/feedback_v1"
+                android:layout_alignParentEnd="true"
+                android:clickable="true" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Share with us your thoughts:"
+            android:textSize="22sp"
+            android:fontFamily="@font/font_v3"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            style="@style/rounded_white_v2_black_none_gray">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="My shopping experience on our app was satisfactory"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="The quality of the products met my expectations"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="I was satisfied with the speed and reliability of our delivery service"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="My inquiries or concerns were addressed satisfactorily by the customer service team"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="It was easy to navigate through our app and find what I was looking for"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="I encountered difficulties during the checkout process"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text=" I am likely to recommend our app to friends or family"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="I have suggestions for improvements to enhance my shopping experience with us"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="I found a satisfactory range of products on our app"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="I anticipate using our app for future clothing purchases"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical"
+            style="@style/rounded_white_v2_black_none_gray"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your feedback matters!\nReport any significant issues or suggestions for improvement, and you could win an exciting prize as a token of our appreciation for helping us enhance your shopping experience"
+                    style="@style/TextColor_v2"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font_v5"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_white_v2_black_v1_white_v1"
+            android:layout_marginBottom="30dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:textSize="20sp"
+                style="@style/TextColor_v1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/font_v1"
+                android:paddingTop="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="20dp"
+                android:textStyle="bold"
+                android:gravity="top"
+                android:hint="Descripe your experience here"
+                tools:ignore="RelativeOverlap" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            style="@style/checkout_background_btn"
+            android:text="Send"
+            android:textSize="20sp"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp" />
+
+    </LinearLayout>
+
+</ScrollView>
