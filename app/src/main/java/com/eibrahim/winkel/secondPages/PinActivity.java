@@ -134,7 +134,7 @@ public class PinActivity extends AppCompatActivity {
                                     if (Goto == 0){
                                         try{
 
-                                            Intent intent = new Intent(PinActivity.this, personalDataActivity.class);
+                                            Intent intent = new Intent(PinActivity.this, PersonalDataActivity.class);
                                             startActivity(intent);
                                             finish();
 
@@ -144,7 +144,7 @@ public class PinActivity extends AppCompatActivity {
                                         }
                                     }
                                     else if (Goto ==  1){
-                                        Intent intent = new Intent(this, myPaymentMethodsActivity.class);
+                                        Intent intent = new Intent(this, MyPaymentMethodsActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }

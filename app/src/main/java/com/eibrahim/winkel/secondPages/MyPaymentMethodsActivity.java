@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class myPaymentMethodsActivity extends AppCompatActivity {
+public class MyPaymentMethodsActivity extends AppCompatActivity {
 
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 

@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
 
             startActivity(new Intent(MainActivity.this, SigninActivity.class));

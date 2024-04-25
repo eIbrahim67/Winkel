@@ -19,6 +19,39 @@
         android:theme="@style/Theme.Winkel"
         tools:targetApi="31">
         <activity
+            android:name=".secondPages.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.SupportUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.PermissionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.HelpFeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.EventsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.SoundActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.SecurityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.LanguagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.ThemeActivity"
+            android:exported="false" />
+        <activity
             android:name=".secondPages.AllUsersActivity"
             android:exported="false" />
         <activity
@@ -37,10 +70,10 @@
             android:name=".secondPages.MyOrdersActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.myPaymentMethodsActivity"
+            android:name=".secondPages.MyPaymentMethodsActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.personalDataActivity"
+            android:name=".secondPages.PersonalDataActivity"
             android:exported="false" />
         <activity
             android:name=".secondPages.PinActivity"
@@ -54,16 +87,15 @@
         <activity
             android:name=".sign.SigninActivity"
             android:exported="false" />
-
         <activity
             android:name=".mainPages.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".sign.SignupActivity"
             android:exported="false" />

@@ -136,7 +136,7 @@
     <string name="personalization">Personalization</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="security">Security</string>
-    <string name="language">Language</string>
+    <string name="languages">Languages</string>
     <string name="notifications_activity"><![CDATA[Notifications & Activity]]></string>
     <string name="notifications">Notifications</string>
     <string name="sound">Sound</string>
