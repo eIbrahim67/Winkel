@@ -347,7 +347,7 @@
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/security"
+                        android:text="@string/security_policies"
                         android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"

@@ -1,9 +1,474 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".secondPages.SecurityActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/btnBackAbout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/back_arrow_background_btn"
+                android:padding="9dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Back"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                style="@style/TextColor_v1"
+                android:text="@string/security_policies"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            style="@style/TextColor_v1"
+            android:text="@string/security_policies"
+            android:fontFamily="@font/font_v2"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            style="@style/TextColor_v1"
+            android:text="@string/for_our_e_shopping_app"
+            android:fontFamily="@font/font_v2"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            style="@style/TextColor_v1"
+            android:text="@string/data_protection_and_privacy"
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/font_v3"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/at_winkel_we_take_the_security_and_privacy_of_your_data_seriously_here_s_how_we_protect_your_information"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/encryption"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/we_use_industry_standard_encryption_protocols_to_safeguard_your_personal_and_financial_information_during_transmission_and_storage"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/data_access_control"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/access_to_your_data_is_restricted_to_authorized_personnel_only_and_strict_access_controls_are_in_place_to_prevent_unauthorized_access"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/data_minimization"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/we_collect_and_store_only_the_information_necessary_to_provide_our_services_minimizing_the_amount_of_personal_data_we_retain"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/privacy_policy"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/our_privacy_policy_outlines_how_we_collect_use_and_protect_your_personal_information_we_encourage_you_to_review_it_for_more_details_on_our_data_handling_practices"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            style="@style/TextColor_v1"
+            android:text="@string/secure_transactions"
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/font_v3"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/when_you_shop_on_winkel_you_can_trust_that_your_transactions_are_secure"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/secure_payment_gateways"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/we_partner_with_trusted_payment_service_providers_that_adhere_to_stringent_security_standards_to_process_your_payments_securely"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/fraud_prevention"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/we_employ_advanced_fraud_detection_algorithms_to_monitor_transactions_and_detect_any_suspicious_activity"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/transaction_security"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/your_payment_information_is_encrypted_and_securely_transmitted_to_prevent_interception_by_unauthorized_parties"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/payment_confirmation"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/you_ll_receive_confirmation_emails_for_your_transactions_providing_transparency_and_peace_of_mind"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            style="@style/TextColor_v1"
+            android:text="@string/account_security"
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/font_v3"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/protecting_your_winkel_account_is_a_top_priority"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/strong_authentication"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/we_offer_multi_factor_authentication_options_to_add_an_extra_layer_of_security_to_your_account"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/password_security"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/we_encourage_you_to_use_strong_unique_passwords_for_your_winkel_account_and_regularly_update_them_to_prevent_unauthorized_access"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/account_recovery"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/in_case_you_lose_access_to_your_account_we_provide_secure_methods_for_account_recovery_to_ensure_that_only_you_can_regain_access"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            style="@style/TextColor_v1"
+            android:text="@string/reporting_security_concerns"
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/font_v3"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/if_you_encounter_any_security_issues_or_have_concerns_about_the_security_of_your_winkel_account_please_contact_our_dedicated_support_team_immediately_we_take_all_reports_seriously_and_work_swiftly_to_address_any_potential_vulnerabilities"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            style="@style/TextColor_v1"
+            android:text="@string/continuous_improvement"
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/font_v3"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/we_are_committed_to_continuously_improving_our_security_measures_to_stay_ahead_of_evolving_threats_and_protect_your_data_effectively_your_trust_is_paramount_to_us_and_we_strive_to_uphold_the_highest_standards_of_security_and_privacy_in_everything_we_do"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v2"
+
+            android:text="@string/thank_you_for_choosing_winkel_nyour_security_and_peace_of_mind_are_our_utmost_priority"
+            android:fontFamily="@font/font_v1"
+            android:gravity="center_horizontal"
+            android:layout_margin="20dp"
+            tools:ignore="RelativeOverlap" />
+
+    </LinearLayout>
+
+</ScrollView>

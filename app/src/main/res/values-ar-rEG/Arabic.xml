@@ -136,7 +136,7 @@
     <string name="settings">الإعدادات</string>
     <string name="personalization">التخصيص الشخصي</string>
     <string name="dark_mode">الوضع الداكن</string>
-    <string name="security">الأمان</string>
+    <string name="security_policies">الأمان</string>
     <string name="languages">اللغات</string>
     <string name="notifications_activity"><![CDATA[الإشعارات والنشاط]]></string>
     <string name="notifications">الإشعارات</string>
