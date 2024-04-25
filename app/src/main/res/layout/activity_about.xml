@@ -1,9 +1,358 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".secondPages.AboutActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/btnBackAbout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/back_arrow_background_btn"
+                android:padding="9dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Back"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                style="@style/TextColor_v1"
+                android:text="@string/about"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            style="@style/TextColor_v1"
+            android:text="@string/about"
+            android:fontFamily="@font/font_v2"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            style="@style/TextColor_v1"
+            android:text="@string/our_e_shopping_app"
+            android:fontFamily="@font/font_v2"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            style="@style/TextColor_v1"
+            android:text="@string/about_winkel"
+            android:fontFamily="@font/font_v3"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/welcome_to_winkel_your_ultimate_destination_for_convenient_and_secure_online_shopping_at_winkel_we_re_dedicated_to_providing_you_with_a_seamless_shopping_experience_offering_a_wide_range_of_products_from_trusted_vendors_here_s_what_you_need_to_know_about_us"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp">
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"/>
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                style="@style/TextColor_v1"
+                android:text="@string/our_mission"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/font_v3"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/winkel_is_on_a_mission_to_revolutionize_the_way_you_shop_online_we_aim_to_create_a_platform_that_connects_customers_with_high_quality_products_and_reliable_vendors_ensuring_satisfaction_with_every_purchase"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp">
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"/>
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                style="@style/TextColor_v1"
+                android:text="@string/our_vision"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/font_v3"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/we_envision_a_future_where_shopping_is_not_just_a_transaction_but_an_experience_through_innovative_technology_and_customer_centric_features_winkel_strives_to_become_your_go_to_destination_for_all_your_shopping_needs"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp">
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"/>
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                style="@style/TextColor_v1"
+                android:text="@string/our_commitment"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/font_v3"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/at_winkel_we_prioritize_transparency_security_and_customer_satisfaction_we_work_tirelessly_to_ensure_that_every_interaction_with_our_platform_is_safe_convenient_and_enjoyable_your_trust_is_our_top_priority_and_we_re_committed_to_earning_it_every_step_of_the_way"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp">
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="3dp"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"/>
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                style="@style/TextColor_v1"
+                android:text="@string/get_in_touch"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/font_v3"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black_v1"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:text="@string/have_questions_suggestions_or_feedback_we_d_love_to_hear_from_you_feel_free_to_reach_out_to_our_customer_support_team_available_24_7_to_assist_you_with_any_inquiries_you_may_have"
+            android:fontFamily="@font/font_v5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            style="@style/TextColor_v2"
+            android:text="@string/thank_you_for_choosing_winkel_nhappy_shopping"
+            android:fontFamily="@font/font_v1"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            tools:ignore="RelativeOverlap" />
+
+    </LinearLayout>
+
+</ScrollView>
