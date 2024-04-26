@@ -58,9 +58,9 @@
             android:paddingEnd="20dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="We're really sorry to see you go. Are you sure you want to delete your account? Once you confirm, your data will gone."
+                android:text="@string/we_re_really_sorry_to_see_you_go_are_you_sure_you_want_to_delete_your_account_once_you_confirm_your_data_will_gone"
                 style="@style/TextColor_v1"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
@@ -85,7 +85,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Confirm your password"
+            android:text="@string/confirm_your_password"
             android:textSize="22sp"
             android:fontFamily="@font/font_v3"
             android:textStyle="bold"
@@ -113,8 +113,10 @@
                 android:paddingBottom="10dp"
                 android:textStyle="bold"
                 android:gravity="top"
-                android:hint="Password"
-                tools:ignore="RelativeOverlap" />
+                android:hint="@string/password"
+                tools:ignore="RelativeOverlap"
+                android:inputType="textPassword"
+                android:importantForAutofill="no" />
 
         </RelativeLayout>
 
@@ -125,7 +127,7 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             style="@style/checkout_background_btn"
-            android:text="Confirm Deletion"
+            android:text="@string/confirm_deletion"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:layout_marginStart="20dp"
