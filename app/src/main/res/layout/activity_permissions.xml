@@ -27,8 +27,7 @@
             android:padding="9dp"
             android:clickable="true"
             android:focusable="true"
-            android:contentDescription="Back"
-            tools:ignore="HardcodedText" />
+            android:contentDescription="@string/back"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,7 +56,7 @@
             android:paddingEnd="20dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/permissions_our_users_have"
                 style="@style/TextColor_v1"
@@ -72,8 +71,9 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center_vertical"
                 app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                android:src="@drawable/permisions_v1"
-                android:clickable="true" />
+                android:src="@drawable/permissions_v1"
+                android:clickable="true"
+                android:contentDescription="@string/permissions"/>
 
         </LinearLayout>
 

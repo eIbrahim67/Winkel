@@ -30,5 +30,14 @@
     <string name="send">Send</string>
     <string name="your_feedback_matters__report_any_significant_issues_or_suggestions_for_improvement_and_you_could_win_an_exciting_prize_as_a_token_of_our_appreciation_for_helping_us_enhance_your_shopping_experience">Your feedback matters!\nReport any significant issues or suggestions for improvement, and you could win an exciting prize as a token of our appreciation for helping us enhance your shopping experience</string>
     <string name="describe_your_experience_here">Describe your experience here</string>
+    <string name="choose_your_prefer_language_to_show_our_content_with_it">Choose your prefer language to show our content with it</string>
+    <string name="arabic_ar">العربية</string>
+    <string name="english">English</string>
+    <string name="dutch">Dutch</string>
+    <string name="italiano">Italiano</string>
+    <string name="t_rk_e">Türkçe</string>
+    <string name="indonesia">Indonesia</string>
+    <string name="espa_ol">Español</string>
+    <string name="back">Back</string>
 
 </resources>
