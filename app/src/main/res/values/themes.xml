@@ -149,6 +149,14 @@
 
     </style>
 
+    <style name="circleImageViewPost" parent="">
+
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/white_v1</item>
+
+    </style>
+
     <style name="delete_background_src">
 
         <item name="android:src">@drawable/delete_icon_white</item>

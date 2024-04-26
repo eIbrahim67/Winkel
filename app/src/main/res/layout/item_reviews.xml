@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:shapeAppearanceOverlay="@style/circleImageViewPost"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center_vertical"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    style="@style/TextColor_v1"
+                    android:textStyle="bold"
+                    android:text="@string/winkel"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    style="@style/TextColor_v2"
+                    android:textStyle="bold"
+                    android:text="\@Winkel" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btn_love"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/unlove_icon_black"
+            android:padding="5dp"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"/>
+
+
+</LinearLayout>
