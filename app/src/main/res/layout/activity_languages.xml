@@ -222,6 +222,142 @@
                     android:layout_marginEnd="20dp"/>
 
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Italiano"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Türkçe"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Indonesia"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                style="@style/rounded_white_v2_black_none_gray">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Español"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    tools:ignore="RelativeOverlap" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/radio_button_background"
+                    android:layout_marginEnd="20dp"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

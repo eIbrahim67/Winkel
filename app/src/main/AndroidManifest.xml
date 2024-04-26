@@ -37,9 +37,6 @@
             android:name=".secondPages.HelpFeedbackActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.EventsActivity"
-            android:exported="false" />
-        <activity
             android:name=".secondPages.SoundActivity"
             android:exported="false" />
         <activity
@@ -62,12 +59,6 @@
             android:exported="false" />
         <activity
             android:name=".secondPages.MyItemsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".secondPages.SupportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".secondPages.SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".secondPages.MyOrdersActivity"

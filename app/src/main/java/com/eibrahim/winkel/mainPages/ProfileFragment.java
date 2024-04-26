@@ -17,7 +17,6 @@ import com.eibrahim.winkel.declaredClasses.FetchUserType;
 import com.eibrahim.winkel.secondPages.AboutActivity;
 import com.eibrahim.winkel.secondPages.AllUsersActivity;
 import com.eibrahim.winkel.secondPages.DeleteAccountActivity;
-import com.eibrahim.winkel.secondPages.EventsActivity;
 import com.eibrahim.winkel.secondPages.HelpFeedbackActivity;
 import com.eibrahim.winkel.secondPages.LanguagesActivity;
 import com.eibrahim.winkel.secondPages.MyItemsActivity;
@@ -41,7 +40,7 @@ public class ProfileFragment extends Fragment {
             btnAddNewItem, btnMyItems, btnMyOrders, btnSupport,
             btnAllUsers, for_admin, for_vendors,
             btnDarkMode, btnLanguages, btnSecurity,
-            btnNotifications, btnSound, btnEvents,
+            btnNotifications, btnSound,
             btnHelpFeedback, btnPermissions, btnAbout, btnDeleteAccount;
 
     @Override
@@ -64,7 +63,6 @@ public class ProfileFragment extends Fragment {
         btnAbout = rootView.findViewById(R.id.btnAbout);
         btnLogout = rootView.findViewById(R.id.btnLogout);
         btnDeleteAccount = rootView.findViewById(R.id.btnDeleteAccount);
-        btnEvents = rootView.findViewById(R.id.btnEvents);
         btnSound = rootView.findViewById(R.id.btnSound);
         btnNotifications = rootView.findViewById(R.id.btnNotifications);
         btnSecurity = rootView.findViewById(R.id.btnSecurity);
@@ -148,10 +146,6 @@ public class ProfileFragment extends Fragment {
         });
         btnDarkMode.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ThemeActivity.class);
-            startActivity(intent);
-        });
-        btnEvents.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), EventsActivity.class);
             startActivity(intent);
         });
         btnSound.setOnClickListener(v -> {
