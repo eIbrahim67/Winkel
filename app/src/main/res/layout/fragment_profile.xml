@@ -22,15 +22,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
                 style="@style/circle_white_v2_black_none_gray"
                 android:paddingTop="7dp"
                 android:paddingBottom="7dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
                 android:clickable="true"
-                android:layout_marginStart="20dp">
+                android:id="@+id/search_btn"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -61,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/account_data"
                 android:textSize="24sp"
                 android:fontFamily="@font/font_v3"

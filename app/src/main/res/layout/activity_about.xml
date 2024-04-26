@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".secondPages.AboutActivity">
 
     <LinearLayout
@@ -43,18 +43,39 @@
 
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            style="@style/TextColor_v2"
-            android:text="@string/about_our_e_shopping_app"
-            android:fontFamily="@font/font_v3"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_vertical"
             android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            style="@style/rounded_white_v2_black_none_gray"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_our_e_shopping_app"
+                style="@style/TextColor_v1"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="17sp"
+                android:fontFamily="@font/font_v5"/>
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                android:src="@drawable/about_us_v1"
+                android:clickable="true" />
+
+        </LinearLayout>
 
 
         <LinearLayout
@@ -62,7 +83,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp">
 
             <View
