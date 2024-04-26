@@ -2,42 +2,5 @@
 <resources>
 
     <string name="details_ensuring_accuracy_and_satisfaction">◑ Before finalizing their purchases, customers have the opportunity to review order details, ensuring accuracy and satisfaction.</string>
-    <string name="we_re_really_sorry_to_see_you_go_are_you_sure_you_want_to_delete_your_account_once_you_confirm_your_data_will_gone">We\'re really sorry to see you go. Are you sure you want to delete your account? Once you confirm, your data will gone.</string>
-    <string name="confirm_your_password">Confirm your password</string>
-    <string name="confirm_deletion">Confirm Deletion</string>
-    <string name="share_with_us_your_reasons">Share with us your reasons:</string>
-    <string name="i_am_no_longer_using_my_account">i am no longer using my account</string>
-    <string name="this_service_is_too_expensive">this service is too expensive</string>
-    <string name="i_want_to_change_my_email">I want to change my email</string>
-    <string name="i_want_to_change_my_phone_number">I want to change my phone number</string>
-    <string name="your_service_not_avilible_in_my_zone">your service not avilible in my zone</string>
-    <string name="other">other</string>
-    <string name="please_share_any_additional_comments_or_suggestions_you_have_regarding_our_service_or_the_account_deletion_process">Please share any additional comments or suggestions you have regarding our service or the account deletion process:</string>
-    <string name="describe_your_reasons_here">Describe your reasons here</string>
-    <string name="_continue">Continue</string>
-    <string name="your_opinion_counts_share_your_feedback_and_help_us_to_serve_you_better">Your opinion counts! Share your feedback and help us to serve you better</string>
-    <string name="share_with_us_your_thoughts">Share with us your thoughts:</string>
-    <string name="my_shopping_experience_on_our_app_was_satisfactory">My shopping experience on our app was satisfactory</string>
-    <string name="the_quality_of_the_products_met_my_expectations">The quality of the products met my expectations</string>
-    <string name="my_inquiries_or_concerns_were_addressed_satisfactorily_by_the_customer_service_team">My inquiries or concerns were addressed satisfactorily by the customer service team</string>
-    <string name="i_was_satisfied_with_the_speed_and_reliability_of_our_delivery_service">I was satisfied with the speed and reliability of our delivery service</string>
-    <string name="it_was_easy_to_navigate_through_our_app_and_find_what_i_was_looking_for">It was easy to navigate through our app and find what I was looking for</string>
-    <string name="i_encountered_difficulties_during_the_checkout_process">I encountered difficulties during the checkout process</string>
-    <string name="i_am_likely_to_recommend_our_app_to_friends_or_family">I am likely to recommend our app to friends or family</string>
-    <string name="i_have_suggestions_for_improvements_to_enhance_my_shopping_experience_with_us">I have suggestions for improvements to enhance my shopping experience with us</string>
-    <string name="i_found_a_satisfactory_range_of_products_on_our_app">I found a satisfactory range of products on our app</string>
-    <string name="i_anticipate_using_our_app_for_future_clothing_purchases">I anticipate using our app for future clothing purchases</string>
-    <string name="send">Send</string>
-    <string name="your_feedback_matters__report_any_significant_issues_or_suggestions_for_improvement_and_you_could_win_an_exciting_prize_as_a_token_of_our_appreciation_for_helping_us_enhance_your_shopping_experience">Your feedback matters!\nReport any significant issues or suggestions for improvement, and you could win an exciting prize as a token of our appreciation for helping us enhance your shopping experience</string>
-    <string name="describe_your_experience_here">Describe your experience here</string>
-    <string name="choose_your_prefer_language_to_show_our_content_with_it">Choose your prefer language to show our content with it</string>
-    <string name="arabic_ar">العربية</string>
-    <string name="english">English</string>
-    <string name="dutch">Dutch</string>
-    <string name="italiano">Italiano</string>
-    <string name="t_rk_e">Türkçe</string>
-    <string name="indonesia">Indonesia</string>
-    <string name="espa_ol">Español</string>
-    <string name="back">Back</string>
 
 </resources>

@@ -251,6 +251,36 @@
     <string name="security_policies_for_our_e_shopping_app">سياسات الأمان لتطبيق التسوق الإلكتروني الخاص بنا</string>
     <string name="about_our_e_shopping_app">حول تطبيق التسوق الإلكتروني الخاص بنا</string>
     <string name="share_your_feedback">شارك رأيك</string>
+    <string name="we_re_really_sorry_to_see_you_go_are_you_sure_you_want_to_delete_your_account_once_you_confirm_your_data_will_gone">نحن نأسف حقًا لرؤيتك تغادر. هل أنت متأكد أنك تريد حذف حسابك؟ بمجرد تأكيدك، ستختفي بياناتك.</string>
+    <string name="confirm_your_password">قم بتأكيد كلمة المرور الخاصة بك</string>
+    <string name="confirm_deletion">تأكيد الحذف</string>
+    <string name="share_with_us_your_reasons">شارك معنا أسبابك:</string>
+    <string name="i_am_no_longer_using_my_account">لم أعد أستخدم حسابي</string>
+    <string name="this_service_is_too_expensive">هذه الخدمة مكلفة جدًا</string>
+    <string name="i_want_to_change_my_email">أريد تغيير بريدي الإلكتروني</string>
+    <string name="i_want_to_change_my_phone_number">أريد تغيير رقم هاتفي</string>
+    <string name="your_service_not_avilible_in_my_zone">خدمتك غير متوفرة في منطقتي</string>
+    <string name="other">أخرى</string>
+    <string name="please_share_any_additional_comments_or_suggestions_you_have_regarding_our_service_or_the_account_deletion_process">يرجى مشاركة أي تعليقات أو اقتراحات إضافية لديك بخصوص خدمتنا أو عملية حذف الحساب:</string>
+    <string name="describe_your_reasons_here">صف أسبابك هنا</string>
+    <string name="_continue">متابعة</string>
+    <string name="your_opinion_counts_share_your_feedback_and_help_us_to_serve_you_better">رأيك مهم! شاركنا تعليقاتك وساعدنا في خدمتك بشكل أفضل</string>
+    <string name="share_with_us_your_thoughts">شاركنا أفكارك:</string>
+    <string name="my_shopping_experience_on_our_app_was_satisfactory">كانت تجربتي التسوق على تطبيقنا مرضية</string>
+    <string name="the_quality_of_the_products_met_my_expectations">جودة المنتجات توافق توقعاتي</string>
+    <string name="my_inquiries_or_concerns_were_addressed_satisfactorily_by_the_customer_service_team">تم التعامل بشكل مرضي مع استفساراتي أو مخاوفي من قبل فريق خدمة العملاء</string>
+    <string name="i_was_satisfied_with_the_speed_and_reliability_of_our_delivery_service">كنت راضيًا عن سرعة وموثوقية خدمة التوصيل لدينا</string>
+    <string name="it_was_easy_to_navigate_through_our_app_and_find_what_i_was_looking_for">كان من السهل التنقل في تطبيقنا والعثور على ما كنت أبحث عنه</string>
+    <string name="i_encountered_difficulties_during_the_checkout_process">واجهت صعوبات أثناء عملية الدفع</string>
+    <string name="i_am_likely_to_recommend_our_app_to_friends_or_family">من المحتمل أن أوصي بتطبيقنا للأصدقاء أو العائلة</string>
+    <string name="i_have_suggestions_for_improvements_to_enhance_my_shopping_experience_with_us">لدي اقتراحات لتحسين تجربة التسوق معنا</string>
+    <string name="i_found_a_satisfactory_range_of_products_on_our_app">وجدت مجموعة مرضية من المنتجات في تطبيقنا</string>
+    <string name="i_anticipate_using_our_app_for_future_clothing_purchases">أتوقع استخدام تطبيقنا لشراء الملابس في المستقبل</string>
+    <string name="send">إرسال</string>
+    <string name="your_feedback_matters__report_any_significant_issues_or_suggestions_for_improvement_and_you_could_win_an_exciting_prize_as_a_token_of_our_appreciation_for_helping_us_enhance_your_shopping_experience">رأيك مهم!\nقم بالإبلاغ عن أي مشاكل كبيرة أو اقتراحات للتحسين، وقد تكون الفائز بجائزة مثيرة كتعبير عن شكرنا لمساعدتنا في تعزيز تجربتك في التسوق</string>
+    <string name="describe_your_experience_here">وصف تجربتك هنا</string>
+    <string name="choose_your_prefer_language_to_show_our_content_with_it">اختر اللغة المفضلة لك لعرض محتوانا بها</string>
+    <string name="back">العودة</string>
 
 
 </resources>
