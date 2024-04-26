@@ -72,7 +72,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center_vertical"
                 app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                android:src="@drawable/about_us_v1"
+                android:src="@drawable/permisions_v1"
                 android:clickable="true" />
 
         </LinearLayout>

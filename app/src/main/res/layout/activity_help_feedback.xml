@@ -44,22 +44,10 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            style="@style/TextColor_v1"
-            android:text="@string/share_your_feedback"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:orientation="horizontal"
@@ -86,7 +74,6 @@
                 android:layout_gravity="center_vertical"
                 app:shapeAppearanceOverlay="@style/roundedImageViewPost"
                 android:src="@drawable/feedback_v1"
-                android:layout_alignParentEnd="true"
                 android:clickable="true" />
 
         </LinearLayout>
