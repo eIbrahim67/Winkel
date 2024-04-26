@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".secondPages.ConfirmDeletionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/btnBackFeedback"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/back_arrow_background_btn"
+                android:padding="9dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Back"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                style="@style/TextColor_v1"
+                android:text="@string/delete_account"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            style="@style/rounded_white_v2_black_none_gray"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We're really sorry to see you go. Are you sure you want to delete your account? Once you confirm, your data will gone."
+                style="@style/TextColor_v1"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="17sp"
+                android:fontFamily="@font/font_v5"/>
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                android:src="@drawable/forgot_password_v1"
+                android:clickable="true" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextColor_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Confirm your password"
+            android:textSize="22sp"
+            android:fontFamily="@font/font_v3"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_white_v2_black_v1_white_v1"
+            android:layout_marginBottom="20dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                style="@style/TextColor_v1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/font_v1"
+                android:paddingTop="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:textStyle="bold"
+                android:gravity="top"
+                android:hint="Password"
+                tools:ignore="RelativeOverlap" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            style="@style/checkout_background_btn"
+            android:text="Confirm Deletion"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -83,7 +83,7 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
                 app:shapeAppearanceOverlay="@style/roundedImageViewPost"
                 android:src="@drawable/feedback_v1"
                 android:layout_alignParentEnd="true"
