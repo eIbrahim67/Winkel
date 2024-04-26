@@ -21,7 +21,6 @@
             android:layout_marginEnd="20dp">
 
             <ImageView
-                android:id="@+id/btnBackSettings"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
@@ -75,7 +74,6 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/name_edit"
                     style="@style/TextColor_v4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -129,7 +127,6 @@
 
 
                 <TextView
-                    android:id="@+id/gender_no_edit"
                     style="@style/TextColor_v4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -169,7 +166,6 @@
             android:autofillHints="name">
 
             <TextView
-                android:id="@+id/email_no_edit"
                 style="@style/TextColor_v4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -213,7 +209,6 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/phone_no_edit"
                     style="@style/TextColor_v4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -269,7 +264,6 @@
             android:autofillHints="name">
 
             <TextView
-                android:id="@+id/type_no_edit"
                 style="@style/TextColor_v4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -284,7 +278,6 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/admin_edit_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -322,7 +315,6 @@
                     tools:ignore="UseCompoundDrawables">
 
                     <TextView
-                        android:id="@+id/admin_edit"
                         style="@style/TextColor_v4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -352,7 +344,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/vendor_edit_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -390,7 +381,6 @@
                     tools:ignore="UseCompoundDrawables">
 
                     <TextView
-                        android:id="@+id/vendor_no_edit"
                         style="@style/TextColor_v4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

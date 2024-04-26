@@ -59,18 +59,6 @@
 
     </style>
 
-    <style name="rounded_gray_v12_black_none_gray">
-
-        <item name="android:background">@drawable/rounded_black_v1_none_gray_v4</item>
-
-    </style>
-
-    <style name="rounded2_white_black_none_gray">
-
-        <item name="android:background">@drawable/rounded2_black_v1_none_gray_v4</item>
-
-    </style>
-
     <style name="search_icon">
 
         <item name="android:src">@drawable/search_icon_white</item>
@@ -142,11 +130,6 @@
     <style name="iconColor">
 
         <item name="cnb_iconColor">@color/white_v1</item>
-    </style>
-
-    <style name="ripple_rectangle">
-
-        <item name="android:background">@drawable/sharp_black_v1_none_gray_v4</item>
     </style>
 
     <style name="roundedImageViewPost" parent="">
@@ -287,12 +270,6 @@
 
     </style>
 
-    <style name="settings_icon">
-
-        <item name="android:src">@drawable/setting_icon_white</item>
-
-    </style>
-
     <style name="signout_icon">
 
         <item name="android:src">@drawable/signout_icon_white</item>
@@ -311,36 +288,9 @@
 
     </style>
 
-    <style name="headphones_icon">
-
-        <item name="android:src">@drawable/headphones_icon_white</item>
-
-    </style>
-
     <style name="layers_icon">
 
         <item name="android:src">@drawable/layers_icon_white</item>
-
-    </style>
-
-    <style name="security_background_btn">
-
-        <item name="android:src">@drawable/security_icon_black</item>
-        <item name="android:background">@drawable/rounded_gray_v12_none_gray_v4</item>
-
-    </style>
-
-    <style name="moon_background_btn">
-
-        <item name="android:src">@drawable/moon_icon_black</item>
-        <item name="android:background">@drawable/rounded_gray_v12_none_gray_v4</item>
-
-    </style>
-
-    <style name="language_background_btn">
-
-        <item name="android:src">@drawable/language_icon_black</item>
-        <item name="android:background">@drawable/rounded_gray_v12_none_gray_v4</item>
 
     </style>
 
@@ -401,33 +351,6 @@
     <style name="sad_icon">
 
         <item name="android:src">@drawable/sad_icon_white</item>
-
-    </style>
-
-    <style name="calendar_icon">
-
-        <item name="android:src">@drawable/calendar_icon_white</item>
-
-    </style>
-
-    <style name="men_background_btn">
-        <item name="android:src">@drawable/man_icon_black</item>
-
-        <item name="android:background">@drawable/circle_gray_v8_none_gray_v4</item>
-
-    </style>
-
-    <style name="women_background_btn">
-        <item name="android:src">@drawable/women_icon_black</item>
-
-        <item name="android:background">@drawable/circle_gray_v8_none_gray_v4</item>
-
-    </style>
-
-    <style name="kids_background_btn">
-        <item name="android:src">@drawable/kid_icon_black</item>
-
-        <item name="android:background">@drawable/circle_gray_v8_none_gray_v4</item>
 
     </style>
 

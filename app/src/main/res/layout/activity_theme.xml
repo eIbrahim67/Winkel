@@ -64,7 +64,7 @@
                 android:paddingEnd="20dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Light Mode"
                     style="@style/TextColor_v1"
@@ -99,7 +99,7 @@
                 android:paddingEnd="20dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Dark Mode"
                     style="@style/TextColor_v1"
@@ -134,7 +134,7 @@
                 android:paddingEnd="20dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="System Settings"
                     style="@style/TextColor_v1"
@@ -199,7 +199,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="20dp">
+                android:layout_margin="20dp"
+                android:baselineAligned="false">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -257,7 +258,7 @@
                 android:paddingEnd="20dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="System Settings"
                     style="@style/TextColor_v1"
@@ -332,7 +333,7 @@
                 android:paddingEnd="20dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Light Mode"
                     style="@style/TextColor_v1"
@@ -367,7 +368,7 @@
                 android:paddingEnd="20dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Dark Mode"
                     style="@style/TextColor_v1"
@@ -402,7 +403,7 @@
                 android:paddingEnd="20dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="System Settings"
                     style="@style/TextColor_v1"

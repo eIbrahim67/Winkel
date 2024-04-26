@@ -21,7 +21,6 @@
             android:layout_marginEnd="20dp">
 
             <ImageView
-                android:id="@+id/btnBackFeedback"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
@@ -251,7 +250,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="@string/your_service_not_avilible_in_my_zone"
+                    android:text="@string/your_service_not_available_in_my_zone"
                     android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"

@@ -25,7 +25,6 @@
     <string name="men">Men</string>
     <string name="women">Women</string>
     <string name="kids">Kids</string>
-    <string name="offers">Offers</string>
     <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">If you haven\'t found your latest updates\nplease refresh the page</string>
     <string name="your_wishlist_is_empty">Your WishList is empty!</string>
     <string name="oops">Oops!</string>
@@ -36,11 +35,8 @@
     <string name="total">Total:\u00A0</string>
     <string name="le">\u00A0LE</string>
     <string name="_0">0</string>
-    <string name="profile">Profile</string>
     <string name="personal_data">Personal Data</string>
     <string name="payment_methods">Payment Methods</string>
-    <string name="help_and_support"><![CDATA[Help & Support]]></string>
-    <string name="sign_out">Sign Out</string>
     <string name="enter_your_current_pin">Enter your current PIN</string>
     <string name="shipping_address">Shipping address</string>
     <string name="payment_method">Payment method</string>
@@ -100,7 +96,6 @@
     <string name="view_products">View Products</string>
     <string name="reset">Reset</string>
     <string name="category">Category</string>
-    <string name="all">All</string>
     <string name="price">Price</string>
     <string name="from">From</string>
     <string name="to">to</string>
@@ -128,21 +123,16 @@
     <string name="edit_personal_data">Edit Personal Data</string>
     <string name="account_type">Account type</string>
     <string name="gender">Gender</string>
-    <string name="male">Male</string>
     <string name="your_admin_code">Your admin code</string>
     <string name="your_vendor_code">Your vendor code</string>
     <string name="copy">Copy</string>
-    <string name="settings">Settings</string>
     <string name="personalization">Personalization</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="security_policies">Security Policies</string>
     <string name="languages">Languages</string>
-    <string name="notifications_activity"><![CDATA[Notifications & Activity]]></string>
     <string name="notifications">Notifications</string>
     <string name="sound">Sound</string>
-    <string name="events">Events</string>
     <string name="accessibility_advanced"><![CDATA[Accessibility & Advanced]]></string>
-    <string name="see_all">See all</string>
     <string name="slogan_v1">Discover Deals\nDelight Daily</string>
     <string name="_50">-50%</string>
     <string name="top_sales">Top Sales</string>
@@ -167,8 +157,7 @@
     <string name="permissions">Permissions</string>
     <string name="about">About</string>
     <string name="support_us">Support Us</string>
-    <string name="thank_you_for_choosing_winkel_nhappy_shopping">Thank you for choosing Winkel.\nHappy shopping!</string>
-    <string name="our_e_shopping_app">Our e-shopping App</string>
+    <string name="thank_you_for_choosing_winkel__happy_shopping">Thank you for choosing Winkel.\nHappy shopping!</string>
     <string name="about_winkel">About Winkel</string>
     <string name="welcome_to_winkel_your_ultimate_destination_for_convenient_and_secure_online_shopping_at_winkel_we_re_dedicated_to_providing_you_with_a_seamless_shopping_experience_offering_a_wide_range_of_products_from_trusted_vendors_here_s_what_you_need_to_know_about_us">Welcome to Winkel, your ultimate destination for convenient and secure online shopping. At Winkel, we\'re dedicated to providing you with a seamless shopping experience, offering a wide range of products from trusted vendors. Here\'s what you need to know about us:</string>
     <string name="our_mission">Our Mission</string>
@@ -179,7 +168,6 @@
     <string name="at_winkel_we_prioritize_transparency_security_and_customer_satisfaction_we_work_tirelessly_to_ensure_that_every_interaction_with_our_platform_is_safe_convenient_and_enjoyable_your_trust_is_our_top_priority_and_we_re_committed_to_earning_it_every_step_of_the_way">At Winkel, we prioritize transparency, security, and customer satisfaction. We work tirelessly to ensure that every interaction with our platform is safe, convenient, and enjoyable. Your trust is our top priority, and we\'re committed to earning it every step of the way.</string>
     <string name="get_in_touch">Get in Touch</string>
     <string name="have_questions_suggestions_or_feedback_we_d_love_to_hear_from_you_feel_free_to_reach_out_to_our_customer_support_team_available_24_7_to_assist_you_with_any_inquiries_you_may_have">Have questions, suggestions, or feedback? We\'d love to hear from you! Feel free to reach out to our customer support team, available 24/7 to assist you with any inquiries you may have.</string>
-    <string name="for_our_e_shopping_app">For our e-shopping App</string>
     <string name="data_protection_and_privacy">Data Protection and Privacy</string>
     <string name="at_winkel_we_take_the_security_and_privacy_of_your_data_seriously_here_s_how_we_protect_your_information">At Winkel, we take the security and privacy of your data seriously. Here\'s how we protect your information:</string>
     <string name="encryption">● Encryption:</string>
@@ -210,7 +198,7 @@
     <string name="in_case_you_lose_access_to_your_account_we_provide_secure_methods_for_account_recovery_to_ensure_that_only_you_can_regain_access">In case you lose access to your account, we provide secure methods for account recovery to ensure that only you can regain access.</string>
     <string name="we_are_committed_to_continuously_improving_our_security_measures_to_stay_ahead_of_evolving_threats_and_protect_your_data_effectively_your_trust_is_paramount_to_us_and_we_strive_to_uphold_the_highest_standards_of_security_and_privacy_in_everything_we_do">We are committed to continuously improving our security measures to stay ahead of evolving threats and protect your data effectively. Your trust is paramount to us, and we strive to uphold the highest standards of security and privacy in everything we do.</string>
     <string name="secure_payment_gateways">● Secure Payment Gateways:</string>
-    <string name="thank_you_for_choosing_winkel_nyour_security_and_peace_of_mind_are_our_utmost_priority">Thank you for choosing Winkel.\nYour security and peace of mind are our utmost priority.</string>
+    <string name="thank_you_for_choosing_winkel__your_security_and_peace_of_mind_are_our_utmost_priority">Thank you for choosing Winkel.\nYour security and peace of mind are our utmost priority.</string>
     <string name="fraud_prevention">● Fraud Prevention:</string>
     <string name="our_privacy_policy_outlines_how_we_collect_use_and_protect_your_personal_information_we_encourage_you_to_review_it_for_more_details_on_our_data_handling_practices">Our Privacy Policy outlines how we collect, use, and protect your personal information. We encourage you to review it for more details on our data handling practices.</string>
     <string name="customers">Customers:</string>
@@ -249,7 +237,6 @@
     <string name="customers_enjoy_a_seamless_shopping_experience_beginning_with_the_ability_to_explore_a_diverse_range_of_products_showcased_on_the_home_page">◑ Customers enjoy a seamless shopping experience, beginning with the ability to explore a diverse range of products showcased on the home page.</string>
     <string name="security_policies_for_our_e_shopping_app">Security Policies for our e-shopping App</string>
     <string name="about_our_e_shopping_app">About our e-shopping app</string>
-    <string name="share_your_feedback">Share your FeedBack</string>
     <string name="we_re_really_sorry_to_see_you_go_are_you_sure_you_want_to_delete_your_account_once_you_confirm_your_data_will_gone">We\'re really sorry to see you go. Are you sure you want to delete your account? Once you confirm, your data will gone.</string>
     <string name="confirm_your_password">Confirm your password</string>
     <string name="confirm_deletion">Confirm Deletion</string>
@@ -258,7 +245,7 @@
     <string name="this_service_is_too_expensive">this service is too expensive</string>
     <string name="i_want_to_change_my_email">I want to change my email</string>
     <string name="i_want_to_change_my_phone_number">I want to change my phone number</string>
-    <string name="your_service_not_avilible_in_my_zone">your service not avilible in my zone</string>
+    <string name="your_service_not_available_in_my_zone">your service not avilible in my zone</string>
     <string name="other">other</string>
     <string name="please_share_any_additional_comments_or_suggestions_you_have_regarding_our_service_or_the_account_deletion_process">Please share any additional comments or suggestions you have regarding our service or the account deletion process:</string>
     <string name="describe_your_reasons_here">Describe your reasons here</string>
@@ -279,12 +266,5 @@
     <string name="your_feedback_matters__report_any_significant_issues_or_suggestions_for_improvement_and_you_could_win_an_exciting_prize_as_a_token_of_our_appreciation_for_helping_us_enhance_your_shopping_experience">Your feedback matters!\nReport any significant issues or suggestions for improvement, and you could win an exciting prize as a token of our appreciation for helping us enhance your shopping experience</string>
     <string name="describe_your_experience_here">Describe your experience here</string>
     <string name="choose_your_prefer_language_to_show_our_content_with_it">Choose your prefer language to show our content with it</string>
-    <string name="arabic_ar" translatable="false">العربية</string>
-    <string name="english" translatable="false">English</string>
-    <string name="dutch" translatable="false">Dutch</string>
-    <string name="italiano" translatable="false">Italiano</string>
-    <string name="turkce" translatable="false">Türkçe</string>
-    <string name="indonesia" translatable="false">Indonesia</string>
-    <string name="espanol" translatable="false">Español</string>
     <string name="back">Back</string>
 </resources>

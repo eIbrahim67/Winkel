@@ -22,7 +22,6 @@ public class WishlistFragment extends Fragment {
 
     private final List<String> wishlistIds = new ArrayList<>();
     private final String userId = FirebaseAuth.getInstance().getUid();
-    private LinearLayout msgEmptyWishlist;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +32,7 @@ public class WishlistFragment extends Fragment {
 
         SwipeRefreshLayout wishlist_fragment = rootView.findViewById(R.id.wishlist_fragment);
 
-        msgEmptyWishlist = rootView.findViewById(R.id.msgEmptyWishlist);
+        LinearLayout msgEmptyWishlist = rootView.findViewById(R.id.msgEmptyWishlist);
 
         FetchDataFromFirebase fetchData = new FetchDataFromFirebase(recyclerview_wishlist, requireContext());
 

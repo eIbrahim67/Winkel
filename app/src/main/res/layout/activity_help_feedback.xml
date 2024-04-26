@@ -21,7 +21,6 @@
             android:layout_marginEnd="20dp">
 
             <ImageView
-                android:id="@+id/btnBackFeedback"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
