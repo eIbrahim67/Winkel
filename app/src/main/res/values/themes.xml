@@ -164,14 +164,21 @@
 
     </style>
 
-    <style name="pro_filter_selected_background_btn">
+    <style name="circle_black_v1_white_v1">
 
         <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
         <item name="android:textColor">@color/white_v1</item>
 
     </style>
 
-    <style name="pro_filter_background_btn">
+    <style name="rounded_5_black_v1_white_v1">
+
+        <item name="android:background">@drawable/rounded_5_black_v1_none_gray_v4</item>
+        <item name="android:textColor">@color/white_v1</item>
+
+    </style>
+
+    <style name="circle_line_gray_v2">
 
         <item name="android:background">@drawable/circle_none_gray_v2_gray_v4</item>
         <item name="android:textColor">@color/black_v1</item>

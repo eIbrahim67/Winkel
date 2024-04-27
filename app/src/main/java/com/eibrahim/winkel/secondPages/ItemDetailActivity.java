@@ -90,7 +90,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         btnWishlist.setOnClickListener(v -> {
 
             if (currentItem.getItemLoved()) {
-                btnWishlist.setImageResource(R.drawable.unlove_icon_white);
+                btnWishlist.setImageResource(R.drawable.unlove_icon_black);
                 currentItem.setItemLoved(false);
                 wishlistRef
                         .update("Wishlist", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))

@@ -29,7 +29,7 @@
                     android:id="@+id/btn_back_home"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/circle_white_v1_none_gray_v4"
+                    android:background="@drawable/circle_white_v2_none_gray_v4"
                     android:src="@drawable/back_arrows_icon_black"
                     android:padding="15dp"
                     android:clickable="true"
@@ -50,7 +50,7 @@
                     android:id="@+id/btn_ItemDetailsMore"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/circle_white_v1_none_gray_v4"
+                    android:background="@drawable/circle_white_v2_none_gray_v4"
                     android:src="@drawable/more_vertical_icon_black"
                     android:padding="15dp"
                     android:clickable="true"
@@ -165,45 +165,37 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/size"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="10dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"
-                    style="@style/TextColor_v1"
-                    tools:ignore="InefficientWeight"/>
-
-                <com.tans.horizontalnestedscrollview.HorizontalNestedScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
 
-                    <RelativeLayout
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/size"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/font_v3"
+                        style="@style/TextColor_v1"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_sizes"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"/>
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:layout_marginTop="5dp"
-                            android:id="@+id/recyclerview_sizes"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-                    </RelativeLayout>
-
-                </com.tans.horizontalnestedscrollview.HorizontalNestedScrollView>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     style="@style/background"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:paddingBottom="100dp">
 
                     <com.ismaeldivita.chipnavigation.ChipNavigationBar
@@ -217,11 +209,10 @@
                         app:cnb_addRightInset="false"
                         app:cnb_addTopInset="false"
                         app:cnb_unselectedColor="@color/gray_v3"
-                        app:cnb_radius="8dp"
+                        app:cnb_radius="5dp"
                         app:cnb_iconSize="25dp"
-                        app:cnb_animationDuration="175"
                         android:layout_marginBottom="5dp"
-                        android:layout_marginTop="5dp"/>
+                        app:cnb_animationDuration="175"/>
 
                     <FrameLayout
                         android:id="@+id/item_detail_layout"
@@ -240,9 +231,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:layout_alignParentBottom="true">
 
         <LinearLayout
@@ -250,8 +242,6 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:paddingTop="7dp"
-            android:paddingBottom="7dp"
             android:layout_marginEnd="5dp"
             android:clickable="true"
             style="@style/basket_background_btn">
@@ -261,6 +251,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/add_to_basket"
+                android:background="@drawable/rounded_5_black_v1_none_gray_v4"
                 android:textSize="15sp"
                 style="@style/TextColor_v3"
                 android:textStyle="bold"
@@ -273,7 +264,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             style="@style/basket_background_btn"
-            android:padding="10dp"
+            android:background="@drawable/rounded_5_black_v1_none_gray_v4"
+            android:padding="12dp"
             android:clickable="true"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"/>

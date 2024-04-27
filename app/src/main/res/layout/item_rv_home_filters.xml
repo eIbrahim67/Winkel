@@ -21,7 +21,7 @@
         android:paddingEnd="10dp"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
-        style="@style/pro_filter_background_btn"/>
+        style="@style/circle_line_gray_v2"/>
 
     <TextView
         android:id="@+id/itemCategoryTypeSelected"
@@ -37,7 +37,7 @@
         android:textStyle="bold"
         android:clickable="true"
         android:focusable="true"
-        style="@style/pro_filter_selected_background_btn"
+        style="@style/rounded_5_black_v1_white_v1"
         android:visibility="gone"/>
 
 </RelativeLayout>
