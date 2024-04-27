@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:layout_marginBottom="10dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        style="@style/line_v2"
+        android:layout_marginBottom="5dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,6 +22,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/review_logo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:shapeAppearanceOverlay="@style/circleImageViewPost"
@@ -29,42 +36,62 @@
                 android:layout_marginStart="10dp">
 
                 <TextView
+                    android:id="@+id/review_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     style="@style/TextColor_v1"
-                    android:textStyle="bold"
-                    android:text="@string/winkel"/>
+                    android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/review_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
                     style="@style/TextColor_v2"
-                    android:textStyle="bold"
-                    android:text="\@Winkel" />
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/btn_love"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/unlove_icon_black"
-            android:padding="5dp"
-            android:clickable="true"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/star_icon_gold"
+                android:layout_gravity="center_vertical"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/review_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                style="@style/TextColor_v2"
+                android:fontFamily="@font/font_v1"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/review_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"/>
+        android:textSize="15sp"
+        style="@style/TextColor_v2"
+        android:fontFamily="@font/font_v1"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"/>
+
 
 
 </LinearLayout>

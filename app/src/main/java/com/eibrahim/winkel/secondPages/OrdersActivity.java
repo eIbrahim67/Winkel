@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewOrders;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrder;
+import com.eibrahim.winkel.dataClasses.DataOrderItem;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrderItemData;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -36,7 +36,7 @@ public class OrdersActivity extends AppCompatActivity {
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        List<DataRecyclerviewItemOrder> dataOfRvItems = new ArrayList<>();
+        List<DataOrderItem> dataOfRvItems = new ArrayList<>();
         List<DataRecyclerviewItemOrderItemData> dataOfRvItemData = new ArrayList<>();
 
         CollectionReference ordersRef = firestore.collection("Orders");
@@ -82,7 +82,7 @@ public class OrdersActivity extends AppCompatActivity {
                                 }
                             }
 
-                            DataRecyclerviewItemOrder order = new DataRecyclerviewItemOrder(
+                            DataOrderItem order = new DataOrderItem(
 
                                     data.getId(),
                                     dataOfRvItemData,

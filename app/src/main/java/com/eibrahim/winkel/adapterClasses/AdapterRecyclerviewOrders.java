@@ -11,18 +11,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrder;
+import com.eibrahim.winkel.dataClasses.DataOrderItem;
 
 import java.util.List;
 
 public class AdapterRecyclerviewOrders extends RecyclerView.Adapter<AdapterRecyclerviewOrders.ViewHolder> {
 
     private final Context context;
-    private final List<DataRecyclerviewItemOrder> itemList;
+    private final List<DataOrderItem> itemList;
 
     private int counter = 1;
 
-    public AdapterRecyclerviewOrders(Context context, List<DataRecyclerviewItemOrder> itemList) {
+    public AdapterRecyclerviewOrders(Context context, List<DataOrderItem> itemList) {
         this.context = context;
         this.itemList = itemList;
     }
@@ -52,7 +52,7 @@ public class AdapterRecyclerviewOrders extends RecyclerView.Adapter<AdapterRecyc
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DataRecyclerviewItemOrder currentItem = itemList.get(position);
+        DataOrderItem currentItem = itemList.get(position);
 
         holder.orderCustId.setText(currentItem.getCustId());
         holder.orderTotalPrice.setText(currentItem.getTotalPrice());

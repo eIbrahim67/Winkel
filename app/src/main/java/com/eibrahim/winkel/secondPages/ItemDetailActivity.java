@@ -1,10 +1,6 @@
 package com.eibrahim.winkel.secondPages;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,12 +14,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewReviews;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewSizes;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.mainPages.CheckoutFragment;
-import com.eibrahim.winkel.mainPages.HomeFragment;
-import com.eibrahim.winkel.mainPages.ProfileFragment;
-import com.eibrahim.winkel.mainPages.WishlistFragment;
+import com.eibrahim.winkel.dataClasses.DataReviewItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -42,9 +36,6 @@ public class ItemDetailActivity extends AppCompatActivity {
     final FirebaseAuth auth = FirebaseAuth.getInstance();
     final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-    private ReviewsFragment reviewsFragment;
-    private DescriptionFragment descriptionFragment;
-
     private int LFrag = 0;
 
     @Override
@@ -62,7 +53,10 @@ public class ItemDetailActivity extends AppCompatActivity {
         LinearLayout addToBasket = findViewById(R.id.addToBasket);
         ImageView btnWishlist = findViewById(R.id.btn_love);
         recyclerview_sizes = findViewById(R.id.recyclerview_sizes);
-        //TextView reviews_num = findViewById(R.id.reviews_num);
+        RecyclerView recyclerview_reviews = findViewById(R.id.recyclerview_reviews);
+        TextView item_description = findViewById(R.id.item_description);
+        ChipNavigationBar chipNavigationBar = findViewById(R.id.item_detail_menu);
+        chipNavigationBar.setItemSelected(R.id.description_btn, true);
 
         DocumentReference wishlistRef = firestore.collection("UsersData")
                 .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
@@ -153,66 +147,40 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         declareSizes();
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction[] fragmentTransaction = {fragmentManager.beginTransaction()};
-        ChipNavigationBar chipNavigationBar = findViewById(R.id.item_detail_menu);
-        descriptionFragment = new DescriptionFragment();
-        reviewsFragment = new ReviewsFragment();
+        List<DataReviewItem> itemList = new ArrayList<>();
+        String logoUrl = "https://firebasestorage.googleapis.com/v0/b/winkel-eibrahim.appspot.com/o/images%20of%20vendors%2FRa'd.png?alt=media&token=e820f867-1378-4c19-9f13-ee472150ca8d";
+        String name = "Winkel";
+        String username = "@winkel";
 
-        fragmentTransaction[0] = fragmentManager.beginTransaction();
-        fragmentTransaction[0].add(R.id.item_detail_layout, reviewsFragment);
-        fragmentTransaction[0].commit();
+        itemList.add(new DataReviewItem(logoUrl, name, username, "Great product!", "5"));
+        itemList.add(new DataReviewItem(logoUrl, name, username, "Excellent service!", "4"));
+        itemList.add(new DataReviewItem(logoUrl, name, username, "Fast delivery!", "4.5"));
+        itemList.add(new DataReviewItem(logoUrl, name, username, "Amazing quality!", "4.8"));
+        itemList.add(new DataReviewItem(logoUrl, name, username, "Responsive customer support!", "4.7"));
+        itemList.add(new DataReviewItem(logoUrl, name, username, "Impressive packaging!", "4.6"));
+        itemList.add(new DataReviewItem(logoUrl, name, username, "Bad work and bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.", "1.0"));
 
-        fragmentTransaction[0] = fragmentManager.beginTransaction();
-        fragmentTransaction[0].hide(reviewsFragment);
-        fragmentTransaction[0].commit();
-
-        fragmentTransaction[0] = fragmentManager.beginTransaction();
-        fragmentTransaction[0].add(R.id.item_detail_layout, descriptionFragment);
-        fragmentTransaction[0].commit();
-
-        chipNavigationBar.setItemSelected(R.id.description_btn, true);
+        AdapterRecyclerviewReviews adapter = new AdapterRecyclerviewReviews(this, itemList);
+        recyclerview_reviews.setLayoutManager(new LinearLayoutManager(this));
+        recyclerview_reviews.setAdapter(adapter);
 
         chipNavigationBar.setOnItemSelectedListener(i -> {
             if (i == R.id.description_btn) {
 
-                fragmentTransaction[0] = fragmentManager.beginTransaction();
-                fragmentTransaction[0].show(descriptionFragment);
-                fragmentTransaction[0].commit();
-
-                fragmentTransaction[0] = fragmentManager.beginTransaction();
-                fragmentTransaction[0].hide(getLFrag(LFrag));
-                fragmentTransaction[0].commit();
-
-                LFrag = 0;
-
+                item_description.setVisibility(View.VISIBLE);
+                recyclerview_reviews.setVisibility(View.GONE);
 
             }
             else if (i == R.id.reviews_btn) {
 
-                fragmentTransaction[0] = fragmentManager.beginTransaction();
-                fragmentTransaction[0].show(reviewsFragment);
-                fragmentTransaction[0].commit();
-
-                fragmentTransaction[0] = fragmentManager.beginTransaction();
-                fragmentTransaction[0].hide(getLFrag(LFrag));
-                fragmentTransaction[0].commit();
-
-                LFrag = 1;
+                item_description.setVisibility(View.GONE);
+                recyclerview_reviews.setVisibility(View.VISIBLE);
 
             }
             else
                 throw new IllegalStateException("Unexpected value: " + i);
 
         });
-
-    }
-
-    private Fragment getLFrag(int i){
-        if (i == 0)
-            return descriptionFragment;
-        else
-            return reviewsFragment;
 
     }
 

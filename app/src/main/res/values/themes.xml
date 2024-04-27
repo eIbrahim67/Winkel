@@ -335,6 +335,12 @@
 
     </style>
 
+    <style name="line_v2">
+
+        <item name="android:background">@color/white_v2</item>
+
+    </style>
+
     <style name="security_icon">
 
         <item name="android:src">@drawable/security_icon_black</item>

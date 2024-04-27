@@ -6,7 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.dataClasses.DataProductItem;
 import com.eibrahim.winkel.secondPages.AddItemActivity;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -21,7 +21,7 @@ public class AddToShop {
 
      ProgressDialog progressDialog;
      AddItemActivity addItemActivity;
-    public void addItemToShop(DataRecyclerviewItem Item, String TypeFor, Uri uri, AddItemActivity addItemActivity){
+    public void addItemToShop(DataProductItem Item, String TypeFor, Uri uri, AddItemActivity addItemActivity){
 
         this.addItemActivity = addItemActivity;
 

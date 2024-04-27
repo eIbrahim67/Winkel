@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
+import com.eibrahim.winkel.dataClasses.DataPaymentMethodItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -116,7 +116,7 @@ public class addPaymentMethodActivity extends AppCompatActivity {
 
         addMethod.setOnClickListener(v -> {
 
-            dataRecyclerviewPaymentMethods itemOfMethod = new dataRecyclerviewPaymentMethods(
+            DataPaymentMethodItem itemOfMethod = new DataPaymentMethodItem(
 
                     holder_name.getText().toString(),
                     type,

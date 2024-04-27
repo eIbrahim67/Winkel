@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewItem;
+import com.eibrahim.winkel.dataClasses.DataProductItem;
 import com.eibrahim.winkel.declaredClasses.AddToShop;
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -73,7 +73,7 @@ public class AddItemActivity extends AppCompatActivity {
             else
                 TypeFor = "Womens";
 
-            DataRecyclerviewItem data = new DataRecyclerviewItem(
+            DataProductItem data = new DataProductItem(
 
                     category,
                     null,

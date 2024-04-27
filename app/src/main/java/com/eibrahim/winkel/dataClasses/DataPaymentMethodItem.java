@@ -1,6 +1,8 @@
 package com.eibrahim.winkel.dataClasses;
 
-public class dataRecyclerviewPaymentMethods {
+import java.io.Serializable;
+
+public class DataPaymentMethodItem implements Serializable {
 
     private final String type;
     private final String number;
@@ -9,7 +11,7 @@ public class dataRecyclerviewPaymentMethods {
 
 
 
-    public dataRecyclerviewPaymentMethods(String holder_name, String type, String number, String cvv) {
+    public DataPaymentMethodItem(String holder_name, String type, String number, String cvv) {
         this.type = type;
         this.number = number;
         this.cvv = cvv;

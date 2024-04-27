@@ -45,14 +45,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp">
 
-                <TextView
-                    android:id="@+id/itemNameCheck"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/font_v1"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    style="@style/TextColor_v1"/>
+
+
                 <TextView
                     android:id="@+id/itemMuchCheck"
                     android:layout_width="wrap_content"

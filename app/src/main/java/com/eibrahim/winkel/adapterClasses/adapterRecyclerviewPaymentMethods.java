@@ -11,15 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
+import com.eibrahim.winkel.dataClasses.DataPaymentMethodItem;
 
 import java.util.List;
 
 public class adapterRecyclerviewPaymentMethods extends RecyclerView.Adapter<adapterRecyclerviewPaymentMethods.ViewHolder> {
 
     private final Context context;
-    private final List<dataRecyclerviewPaymentMethods> itemList;
-    public adapterRecyclerviewPaymentMethods(Context context, List<dataRecyclerviewPaymentMethods> itemList) {
+    private final List<DataPaymentMethodItem> itemList;
+    public adapterRecyclerviewPaymentMethods(Context context, List<DataPaymentMethodItem> itemList) {
         this.context = context;
         this.itemList = itemList;
     }
@@ -54,7 +54,7 @@ public class adapterRecyclerviewPaymentMethods extends RecyclerView.Adapter<adap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        dataRecyclerviewPaymentMethods currentItem = itemList.get(position);
+        DataPaymentMethodItem currentItem = itemList.get(position);
 
         switch (currentItem.getType()){
 

@@ -9,7 +9,7 @@
     android:orientation="vertical"
     style="@style/background">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -101,6 +101,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginStart="10dp">
 
                             <TextView
@@ -191,11 +192,11 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     style="@style/background"
-                    android:layout_marginTop="10dp"
                     android:paddingBottom="100dp">
 
                     <com.ismaeldivita.chipnavigation.ChipNavigationBar
@@ -204,20 +205,41 @@
                         android:layout_height="wrap_content"
                         app:cnb_menuResource="@menu/menu_item_detail"
                         app:cnb_orientationMode="horizontal"
-                        app:cnb_addBottomInset="false"
-                        app:cnb_addLeftInset="false"
-                        app:cnb_addRightInset="false"
-                        app:cnb_addTopInset="false"
                         app:cnb_unselectedColor="@color/gray_v3"
                         app:cnb_radius="5dp"
                         app:cnb_iconSize="25dp"
-                        android:layout_marginBottom="5dp"
-                        app:cnb_animationDuration="175"/>
+                        app:cnb_animationDuration="175"
+                        android:layout_marginBottom="5dp"/>
 
-                    <FrameLayout
-                        android:id="@+id/item_detail_layout"
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerview_reviews"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/item_reviews"
+                            android:visibility="gone"/>
+
+                        <TextView
+                            android:id="@+id/item_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_v1"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            style="@style/TextColor_v2"
+                            android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"/>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        style="@style/line_v2"
+                        android:layout_marginTop="5dp"/>
 
                 </LinearLayout>
 
@@ -225,7 +247,7 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -233,7 +255,7 @@
         android:orientation="horizontal"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:paddingBottom="10dp"
+        android:paddingBottom="20dp"
         android:paddingTop="10dp"
         android:layout_alignParentBottom="true">
 

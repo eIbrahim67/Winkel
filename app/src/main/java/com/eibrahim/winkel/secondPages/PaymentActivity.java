@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewPaymentMethods;
-import com.eibrahim.winkel.dataClasses.dataRecyclerviewPaymentMethods;
+import com.eibrahim.winkel.dataClasses.DataPaymentMethodItem;
 import com.eibrahim.winkel.mainPages.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -91,12 +91,12 @@ public class PaymentActivity extends AppCompatActivity {
 
         });
     }
-    dataRecyclerviewPaymentMethods dataObject;
+    DataPaymentMethodItem dataObject;
     private void fetchPaymentMethodsData(RecyclerView recyclerView, Context context) {
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        List<dataRecyclerviewPaymentMethods> dataOfRvItems = new ArrayList<>();
+        List<DataPaymentMethodItem> dataOfRvItems = new ArrayList<>();
 
         CollectionReference collectionRef = firestore.collection("UsersData")
                 .document(userId).collection("PaymentMethodsCollection");
@@ -106,7 +106,7 @@ public class PaymentActivity extends AppCompatActivity {
                         // Get the document data
                         Map<String, Object> data = document.getData();
 
-                        dataObject = new dataRecyclerviewPaymentMethods(
+                        dataObject = new DataPaymentMethodItem(
                                 (String) Objects.requireNonNull(data).get("holder_name"),
                                 (String) data.get("type"),
                                 (String) data.get("number"),
