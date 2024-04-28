@@ -235,12 +235,6 @@
 
                     </RelativeLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        style="@style/line_v2"
-                        android:layout_marginTop="5dp"/>
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -252,45 +246,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
+        android:orientation="vertical"
         android:paddingBottom="20dp"
-        android:paddingTop="10dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@color/white_v1">
 
         <LinearLayout
-            android:id="@+id/addToBasket"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="5dp"
-            android:clickable="true"
-            style="@style/basket_background_btn">
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            style="@style/line_v2"/>
 
-            <TextView
-                android:id="@+id/addToBasketText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/add_to_basket"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <LinearLayout
+                android:id="@+id/addToBasket"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:clickable="true"
+                style="@style/basket_background_btn">
+
+                <TextView
+                    android:id="@+id/addToBasketText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/add_to_basket"
+                    android:background="@drawable/rounded_5_black_v1_none_gray_v4"
+                    android:textSize="15sp"
+                    style="@style/TextColor_v3"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btn_basketD"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                style="@style/basket_background_btn"
                 android:background="@drawable/rounded_5_black_v1_none_gray_v4"
-                android:textSize="15sp"
-                style="@style/TextColor_v3"
-                android:textStyle="bold"
-                android:gravity="center"/>
+                android:padding="12dp"
+                android:clickable="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"/>
 
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/btn_basketD"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            style="@style/basket_background_btn"
-            android:background="@drawable/rounded_5_black_v1_none_gray_v4"
-            android:padding="12dp"
-            android:clickable="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="5dp"/>
 
     </LinearLayout>
 

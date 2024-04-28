@@ -105,7 +105,7 @@ public class CheckoutFragment extends Fragment {
                 List<String> wishlist = (List<String>) documentSnapshot.get("BasketCollection");
                 if (wishlist != null) {
 
-                    if (wishlist.size() == 0)
+                    if (wishlist.isEmpty())
                         msgEmptyBasket.setVisibility(View.VISIBLE);
 
                     for (String itemIdType : wishlist) {
