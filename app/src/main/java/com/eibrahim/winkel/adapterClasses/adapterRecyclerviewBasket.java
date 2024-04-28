@@ -36,20 +36,19 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView itemImage;
-        final ImageView itemDeleteCheck;
-
-        final TextView itemNameCheck;
-        final TextView itemPriceCheck;
-        final TextView itemMuchCheck;
+        final ImageView itemImage, itemDeleteCheck, btn_sub, btn_plus;
+          final TextView itemCateCheck, itemNameCheck, itemPriceCheck, itemMuchCounter;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemImage = itemView.findViewById(R.id.itemImgCheck);
             itemNameCheck = itemView.findViewById(R.id.itemNameCheck);
             itemPriceCheck = itemView.findViewById(R.id.itemPriceCheck);
-            itemMuchCheck = itemView.findViewById(R.id.itemMuchCheck);
             itemDeleteCheck = itemView.findViewById(R.id.itemDeleteCheck);
+            itemCateCheck = itemView.findViewById(R.id.itemCateCheck);
+            btn_sub = itemView.findViewById(R.id.btn_sub);
+            btn_plus = itemView.findViewById(R.id.btn_plus);
+            itemMuchCounter = itemView.findViewById(R.id.itemMuchCounter);
         }
     }
 
@@ -68,28 +67,88 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
                 .load(currentItem.getImageId())
                 .into(holder.itemImage);
 
-
         holder.itemNameCheck.setText(currentItem.getName());
         String temp = currentItem.getPrice() + context.getString(R.string.le) ;
         holder.itemPriceCheck.setText(temp);
-        temp = "x" + currentItem.getMuch();
-        holder.itemMuchCheck.setText(temp);
+        holder.itemCateCheck.setText(currentItem.getCategory());
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        DocumentReference basketRef = firestore.collection("UsersData")
+                .document(userId)
+                .collection("BasketCollection")
+                .document("BasketDocument");
+
+
+        holder.btn_sub.setOnClickListener(v -> {
+
+            if (!currentItem.getMuch().equals("1")){
+
+                basketRef
+                        .update("BasketCollection", FieldValue.arrayRemove(
+                                        currentItem.getItemId() + "," +
+                                                currentItem.getItemType() + "," +
+                                                currentItem.getMuch() + "," +
+                                                currentItem.getItemSize()
+                                )
+                        )
+                        .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred, please refresh the page", Toast.LENGTH_SHORT).show());
+
+
+                currentItem.setMuch(String.valueOf(Integer.parseInt(currentItem.getMuch()) - 1));
+                holder.itemMuchCounter.setText(currentItem.getMuch());
+
+                basketRef
+                        .update("BasketCollection", FieldValue.arrayUnion(
+                                        currentItem.getItemId() + "," +
+                                                currentItem.getItemType() + "," +
+                                                currentItem.getMuch() + "," +
+                                                currentItem.getItemSize()
+                                )
+                        )
+                        .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred, please refresh the page", Toast.LENGTH_SHORT).show());
+
+
+            }
+
+        });
+
+        holder.btn_plus.setOnClickListener(v -> {
+
+            basketRef
+                    .update("BasketCollection", FieldValue.arrayRemove(
+                                    currentItem.getItemId() + "," +
+                                            currentItem.getItemType() + "," +
+                                            currentItem.getMuch() + "," +
+                                            currentItem.getItemSize()
+                            )
+                    )
+                    .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred, please refresh the page", Toast.LENGTH_SHORT).show());
+
+
+            currentItem.setMuch(String.valueOf(Integer.parseInt(currentItem.getMuch()) + 1));
+            holder.itemMuchCounter.setText(currentItem.getMuch());
+
+            basketRef
+                    .update("BasketCollection", FieldValue.arrayUnion(
+                                    currentItem.getItemId() + "," +
+                                            currentItem.getItemType() + "," +
+                                            currentItem.getMuch() + "," +
+                                            currentItem.getItemSize()
+                            )
+                    )
+                    .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred, please refresh the page", Toast.LENGTH_SHORT).show());
+
+
+        });
 
         holder.itemDeleteCheck.setOnClickListener(v -> {
-            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
             Toast.makeText(context, "Item deleted from your basket", Toast.LENGTH_SHORT).show();
             if (checkoutFragment != null) {
                 checkoutFragment.re(Double.valueOf(currentItem.getTotalPriceItem()));
             }
-
-            DocumentReference basketRef = firestore.collection("UsersData")
-                    .document(userId)
-                    .collection("BasketCollection")
-                    .document("BasketDocument");
 
             basketRef
                     .update("BasketCollection", FieldValue.arrayRemove(
@@ -99,10 +158,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
                                     currentItem.getItemSize()
                             )
                     )
-                    // Success message
                     .addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your basket.", Toast.LENGTH_SHORT).show())
-
-// Failure message
                     .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
 
             int adapterPosition = holder.getAdapterPosition();
@@ -113,6 +169,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
