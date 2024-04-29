@@ -21,8 +21,6 @@
             android:textSize="50sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true"
             android:layout_marginTop="40dp"
             style="@style/TextColor_v1"/>
 
@@ -33,9 +31,7 @@
             android:textSize="18sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginStart="20dp"
-            android:focusable="true"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
             style="@style/TextColor_v2"/>
@@ -44,6 +40,7 @@
             android:id="@+id/name_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="50dp"
             android:textSize="18sp"
             android:inputType="textPersonName"
             android:fontFamily="@font/font_v1"
@@ -53,6 +50,7 @@
             android:layout_marginEnd="20dp"
             android:focusable="true"
             style="@style/TextColor_v1"
+            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:autofillHints="name" />
 
         <TextView
@@ -62,9 +60,7 @@
             android:textSize="18sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginStart="20dp"
-            android:focusable="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             style="@style/TextColor_v2"
@@ -83,7 +79,8 @@
             android:layout_marginEnd="20dp"
             android:focusable="true"
             style="@style/TextColor_v1"
-            android:autofillHints="" />
+            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+            android:minHeight="50dp"/>
 
 
         <TextView
@@ -93,9 +90,7 @@
             android:textSize="18sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginStart="20dp"
-            android:focusable="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             style="@style/TextColor_v2"/>
@@ -113,7 +108,9 @@
             android:layout_marginEnd="20dp"
             android:focusable="true"
             style="@style/TextColor_v1"
-            android:autofillHints="phone" />
+            android:autofillHints="phone"
+            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+            android:minHeight="50dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -122,10 +119,8 @@
             android:textSize="18sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"/>
 
@@ -139,8 +134,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <RadioButton
                     android:id="@+id/radio_cust"
@@ -206,9 +200,7 @@
         android:textSize="18sp"
         android:fontFamily="@font/font_v1"
         android:textStyle="bold"
-        android:clickable="true"
         android:layout_marginStart="20dp"
-        android:focusable="true"
         android:layout_marginTop="20dp"
         style="@style/TextColor_v2"/>
 
@@ -243,9 +235,7 @@
                 android:textSize="18sp"
                 android:fontFamily="@font/font_v1"
                 android:textStyle="bold"
-                android:clickable="true"
                 android:layout_marginStart="20dp"
-                android:focusable="true"
                 android:layout_marginTop="20dp"
                 style="@style/TextColor_v2"
                  />
@@ -264,9 +254,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_gray_v5_black_v1_none"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:layout_marginEnd="10dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -352,10 +340,8 @@
             android:textSize="18sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"/>
 
@@ -382,9 +368,13 @@
                     android:inputType="numberPassword"
                     android:fontFamily="@font/font_v1"
                     android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_marginEnd="10dp"
                     style="@style/TextColor_v1"
-                    android:autofillHints="password" />
+                    android:autofillHints="password"
+                    android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+                    android:minHeight="50dp"/>
 
                 <EditText
                     android:id="@+id/re_pin_signup"
@@ -395,9 +385,13 @@
                     android:inputType="numberPassword"
                     android:fontFamily="@font/font_v1"
                     android:textStyle="bold"
+                    android:focusable="true"
+                    android:clickable="true"
                     android:layout_marginStart="10dp"
                     style="@style/TextColor_v1"
-                    android:autofillHints="password"  />
+                    android:autofillHints="password"
+                    android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+                    android:minHeight="50dp"/>
 
             </LinearLayout>
 
@@ -410,10 +404,8 @@
             android:textSize="18sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"
              />
@@ -431,7 +423,9 @@
             android:layout_marginEnd="20dp"
             android:focusable="true"
             style="@style/TextColor_v1"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+            android:minHeight="50dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -440,10 +434,8 @@
             android:textSize="18sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:focusable="true"
             android:layout_marginTop="20dp"
             style="@style/TextColor_v2"
              />
@@ -461,7 +453,9 @@
             android:layout_marginEnd="20dp"
             android:focusable="true"
             style="@style/TextColor_v1"
-            android:autofillHints="" />
+            android:autofillHints="password"
+            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+            android:minHeight="50dp" />
 
         <CheckBox
             android:id="@+id/check_signup"
@@ -502,9 +496,7 @@
                 android:textSize="18sp"
                 android:fontFamily="@font/font_v1"
                 android:textStyle="bold"
-                android:clickable="true"
                 android:layout_marginStart="20dp"
-                android:focusable="true"
                 style="@style/TextColor_v2"
                  />
 
