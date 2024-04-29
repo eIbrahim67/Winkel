@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.secondPages.ItemDetailActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.mainPages.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -57,7 +56,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_rv_home_items, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_products, parent, false);
         return new ViewHolder(view);
     }
 

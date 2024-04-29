@@ -15,8 +15,6 @@
         android:textSize="50sp"
         android:fontFamily="@font/font_v1"
         android:textStyle="bold"
-        android:clickable="true"
-        android:focusable="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         style="@style/TextColor_v1"/>
@@ -28,9 +26,7 @@
         android:textSize="18sp"
         android:fontFamily="@font/font_v1"
         android:textStyle="bold"
-        android:clickable="true"
         android:layout_marginStart="20dp"
-        android:focusable="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         style="@style/TextColor_v2"/>
@@ -48,7 +44,9 @@
         android:layout_marginEnd="20dp"
         android:focusable="true"
         style="@style/TextColor_v1"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+        android:minHeight="50dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -57,9 +55,7 @@
         android:textSize="18sp"
         android:fontFamily="@font/font_v1"
         android:textStyle="bold"
-        android:clickable="true"
         android:layout_marginStart="20dp"
-        android:focusable="true"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         style="@style/TextColor_v2"
@@ -78,7 +74,9 @@
         android:layout_marginEnd="20dp"
         android:focusable="true"
         style="@style/TextColor_v1"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+        android:minHeight="50dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -119,9 +117,7 @@
             android:textSize="18sp"
             android:fontFamily="@font/font_v1"
             android:textStyle="bold"
-            android:clickable="true"
             android:layout_marginStart="20dp"
-            android:focusable="true"
             style="@style/TextColor_v2"
             android:layout_marginEnd="5dp"/>
 

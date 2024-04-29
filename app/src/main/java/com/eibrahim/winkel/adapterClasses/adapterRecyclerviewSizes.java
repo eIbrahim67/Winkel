@@ -25,7 +25,7 @@ public class adapterRecyclerviewSizes extends RecyclerView.Adapter<adapterRecycl
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_home_filters, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_filters, parent, false);
         return new ViewHolder(view);
     }
 

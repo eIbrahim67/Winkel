@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/rounded_gray_v10_none_gray_v4"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -111,7 +113,9 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/rounded_blue_v1_none_gray_v4"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
 
         <TextView
             android:layout_width="wrap_content"

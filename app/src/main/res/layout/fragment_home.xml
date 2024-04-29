@@ -37,6 +37,7 @@
                         android:paddingBottom="7dp"
                         android:layout_marginEnd="5dp"
                         android:clickable="true"
+                        android:focusable="true"
                         android:id="@+id/search_btn">
 
                         <ImageView
@@ -69,6 +70,7 @@
                         style="@style/options_background_btn"
                         android:padding="10dp"
                         android:clickable="true"
+                        android:focusable="true"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="5dp"/>
 
@@ -90,7 +92,9 @@
                         android:paddingBottom="20dp"
                         android:paddingTop="20dp"
                         android:paddingStart="20dp"
-                        android:paddingEnd="20dp">
+                        android:paddingEnd="20dp"
+                        android:clickable="true"
+                        android:focusable="true">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -116,8 +120,7 @@
                             android:layout_gravity="center_horizontal"
                             app:shapeAppearanceOverlay="@style/roundedImageViewPost"
                             android:src="@drawable/discount_v2"
-                            android:layout_alignParentEnd="true"
-                            android:clickable="true" />
+                            android:layout_alignParentEnd="true"/>
 
                     </RelativeLayout>
 
@@ -149,7 +152,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_marginEnd="15dp">
+                                android:layout_marginEnd="15dp"
+                                android:clickable="true"
+                                android:focusable="true">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
@@ -174,7 +179,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_marginEnd="15dp">
+                                android:layout_marginEnd="15dp"
+                                android:clickable="true"
+                                android:focusable="true">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
@@ -199,7 +206,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_marginEnd="15dp">
+                                android:layout_marginEnd="15dp"
+                                android:clickable="true"
+                                android:focusable="true">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
@@ -224,7 +233,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_marginEnd="15dp">
+                                android:layout_marginEnd="15dp"
+                                android:clickable="true"
+                                android:focusable="true">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
@@ -249,7 +260,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_marginEnd="15dp">
+                                android:layout_marginEnd="15dp"
+                                android:clickable="true"
+                                android:focusable="true">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
@@ -315,7 +328,9 @@
                             android:layout_marginEnd="20dp"
                             android:padding="2dp"
                             android:layout_centerVertical="true"
-                            style="@style/more_background_btn"/>
+                            style="@style/more_background_btn"
+                            android:clickable="true"
+                            android:focusable="true"/>
 
                         <TextView
                             android:id="@+id/tops_titles"

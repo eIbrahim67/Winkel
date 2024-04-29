@@ -50,8 +50,9 @@
             android:gravity="center"
             android:text="@string/view_basket"
             android:textSize="18sp"
-            android:textStyle="bold"
             android:clickable="true"
+            android:focusable="true"
+            android:textStyle="bold"
             android:background="@drawable/sharp_white_v1_none_gray_v4"/>
 
         <View
@@ -69,6 +70,7 @@
             android:textStyle="bold"
             android:gravity="center"
             android:clickable="true"
+            android:focusable="true"
             android:background="@drawable/sharp_white_v1_none_gray_v4"/>
 
     </LinearLayout>

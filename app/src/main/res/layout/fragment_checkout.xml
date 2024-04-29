@@ -152,6 +152,8 @@
                     style="@style/checkout_background_btn"
                     android:text="@string/checkout"
                     android:textSize="20sp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"/>
 
