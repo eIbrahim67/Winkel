@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        
         android:layout_marginTop="10dp">
 
         <TextView
@@ -24,6 +24,8 @@
             android:text="@string/reset"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
             tools:ignore="InefficientWeight" />
 
         <ImageView
@@ -32,9 +34,11 @@
             android:layout_height="30dp"
             style="@style/back_arrow_background_btn"
             android:padding="5dp"
+
             android:clickable="true"
-            android:layout_centerVertical="true"
             android:focusable="true"
+            android:layout_centerVertical="true"
+            
             android:layout_marginStart="20dp" />
 
         <TextView
@@ -79,8 +83,10 @@
         android:paddingBottom="5dp"
         android:layout_marginTop="5dp"
         style="@style/sharp_gray_v4"
+
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        >
 
         <ImageView
             android:layout_width="20dp"
@@ -127,15 +133,17 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         style="@style/sharp_gray_v4"
+
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        >
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             style="@style/men_icon"
             android:layout_gravity="center_vertical"
-            android:focusable="true"
+            
             android:layout_marginStart="40dp" />
 
         <TextView
@@ -175,8 +183,10 @@
         android:paddingBottom="5dp"
         style="@style/sharp_gray_v4"
         android:orientation="horizontal"
+
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        >
 
         <ImageView
             android:layout_width="20dp"
@@ -311,6 +321,8 @@
             android:inputType="numberDecimal"
             android:text="@string/_0"
             android:textSize="20sp"
+            android:clickable="true"
+            android:focusable="true"
             style="@style/rounded_outline_solid_white_black"
             tools:ignore="RtlCompat"
             android:textAlignment="center"
@@ -339,6 +351,8 @@
             style="@style/rounded_outline_solid_white_black"
             android:inputType="number"
             android:textSize="20sp"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_weight="1"
             tools:ignore="RtlCompat"
             android:textAlignment="center"
@@ -356,6 +370,8 @@
         android:text="@string/filter"
         android:textSize="20sp"
         android:textAllCaps="false"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"

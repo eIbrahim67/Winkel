@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        
         android:layout_marginTop="10dp">
 
         <ImageView
@@ -21,9 +21,11 @@
             android:layout_height="30dp"
             style="@style/back_arrow_background_btn"
             android:padding="5dp"
+
             android:clickable="true"
-            android:layout_centerVertical="true"
             android:focusable="true"
+            android:layout_centerVertical="true"
+            
             android:layout_marginStart="20dp" />
 
         <TextView
@@ -54,8 +56,10 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         style="@style/sharp_gray_v4"
+
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        >
 
         <ImageView
             android:layout_width="20dp"
@@ -100,15 +104,17 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         style="@style/sharp_gray_v4"
+
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        >
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             style="@style/sort_ascending_icon"
             android:layout_gravity="center_vertical"
-            android:focusable="true"
+            
             android:layout_marginStart="20dp" />
 
         <TextView
@@ -146,8 +152,10 @@
         android:paddingBottom="5dp"
         style="@style/sharp_gray_v4"
         android:orientation="horizontal"
+
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        >
 
         <ImageView
             android:layout_width="20dp"
@@ -282,6 +290,8 @@
         style="@style/checkout_background_btn"
         android:text="@string/done"
         android:textSize="20sp"
+        android:clickable="true"
+        android:focusable="true"
         android:textAllCaps="false"
         android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"

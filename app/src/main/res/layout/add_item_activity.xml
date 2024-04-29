@@ -17,8 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:clickable="true"
-            android:focusable="true"
+            
+            
             android:fontFamily="@font/font_v1"
             android:text="@string/title"
             android:textSize="18sp"
@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:clickable="true"
             android:focusable="true"
             android:minHeight="48dp"
@@ -48,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:clickable="true"
-            android:focusable="true"
+            
+            
             android:fontFamily="@font/font_v1"
             android:text="@string/category"
             android:textSize="18sp"
@@ -63,8 +64,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+
+            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:clickable="true"
             android:focusable="true"
+            
             android:minHeight="48dp"
             android:fontFamily="@font/font_v1"
             android:textSize="18sp"
@@ -78,8 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:clickable="true"
-            android:focusable="true"
+            
+            
             android:fontFamily="@font/font_v1"
             android:text="@string/_for"
             android:textSize="18sp"
@@ -104,6 +108,8 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:checked="true"
+                android:clickable="true"
+                android:focusable="true"
                 style="@style/TextColor_v1"/>
 
             <RadioButton
@@ -114,6 +120,8 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
                 style="@style/TextColor_v1"/>
 
             <RadioButton
@@ -124,6 +132,8 @@
                 android:fontFamily="@font/font_v1"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_weight="1"
                 style="@style/TextColor_v1"/>
 
@@ -135,8 +145,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:clickable="true"
-            android:focusable="true"
+            
+            
             android:fontFamily="@font/font_v1"
             android:text="@string/price"
             android:textSize="18sp"
@@ -156,6 +166,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:layout_marginStart="20dp"
+                android:background="@drawable/rounded_5_white_v2_none_gray_v4"
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="@font/font_v1"
@@ -171,8 +182,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="bottom"
-                android:clickable="true"
-                android:focusable="true"
+                
+                
                 android:fontFamily="@font/font_v1"
                 android:text="@string/le"
                 android:textSize="22sp"
@@ -244,8 +255,10 @@
                 android:layout_weight="1"
                 android:background="@drawable/rounded_gray_v5_black_v1_none"
                 android:layout_marginEnd="10dp"
+
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                >
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -267,8 +280,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:clickable="true"
-                        android:focusable="true"
+                        
+                        
                         android:fontFamily="@font/font_v1"
                         android:text="@string/upload_a_photo"
                         android:textColor="@color/gray_v7"
@@ -286,7 +299,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_gray_v5_black_v1_none"
-                android:layout_marginStart="10dp">
+                android:layout_marginStart="10dp"
+                android:clickable="true"
+                android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -308,8 +323,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:clickable="true"
-                        android:focusable="true"
+                        
+                        
                         android:fontFamily="@font/font_v1"
                         android:text="@string/take_a_photo"
                         android:textColor="@color/gray_v7"
@@ -335,11 +350,11 @@
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-            android:clickable="true"
+            
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            android:focusable="true" />
+             />
 
         <TextView
             android:id="@+id/upload_btn"
