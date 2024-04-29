@@ -34,8 +34,6 @@
         android:layout_height="100dp"
         android:src="@drawable/fingerprint_icon_white"
         android:padding="17dp"
-        android:clickable="true"
-        android:focusable="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_blue_v2_none_gray_v4"
         android:layout_gravity="center_horizontal"/>
@@ -118,6 +116,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -135,6 +135,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -152,6 +154,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -178,6 +182,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
@@ -196,6 +202,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -213,6 +221,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -240,6 +250,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -257,6 +269,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -274,6 +288,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -301,6 +317,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingBottom="20dp"
                     style="@style/rounded_outline_solid_white_black"/>
 
@@ -319,6 +337,8 @@
                     android:layout_marginTop="10dp"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     style="@style/rounded_outline_solid_white_black"/>
 
                 <RelativeLayout
@@ -334,7 +354,9 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     style="@style/rounded_outline_solid_white_black"
-                    android:elevation="3dp">
+                    android:elevation="3dp"
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -351,6 +373,8 @@
                 android:layout_height="wrap_content"
                 android:text="Forget your PIN?"
                 android:textSize="15sp"
+                android:clickable="true"
+                android:focusable="true"
                 style="@style/TextColor_v2"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"

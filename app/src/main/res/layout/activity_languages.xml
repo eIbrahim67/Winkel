@@ -25,10 +25,9 @@
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
                 android:padding="9dp"
-                android:clickable="true"
                 android:focusable="true"
-                android:contentDescription="Back"
-                tools:ignore="HardcodedText" />
+                android:clickable="true"
+                android:contentDescription="@string/back" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -50,7 +49,7 @@
             style="@style/circle_white_v2_black_none_gray"
             android:paddingTop="7dp"
             android:paddingBottom="7dp"
-            android:clickable="true"
+            
             android:id="@+id/search_btn"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -73,6 +72,8 @@
                 android:gravity="center_vertical"
                 android:textColor="@color/blue_v3"
                 android:textSize="16sp"
+                android:focusable="true"
+                android:clickable="true"
                 android:paddingEnd="10dp"
                 android:paddingStart="0dp"
                 android:background="@android:color/transparent"
@@ -111,7 +112,7 @@
                 android:layout_gravity="center_vertical"
                 app:shapeAppearanceOverlay="@style/roundedImageViewPost"
                 android:src="@drawable/languages_v1"
-                android:clickable="true" />
+                 />
 
         </LinearLayout>
 
@@ -130,8 +131,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
+
                 android:focusable="true"
+                android:clickable="true"
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -164,8 +167,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -198,8 +203,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
+
                 android:focusable="true"
+                android:clickable="true"
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -232,8 +239,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
+
                 android:focusable="true"
+                android:clickable="true"
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -266,8 +275,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -300,8 +311,9 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -334,8 +346,8 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
                 android:focusable="true"
+                android:clickable="true"
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView

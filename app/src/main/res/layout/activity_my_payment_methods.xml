@@ -47,6 +47,8 @@
                 android:text="Add"
                 android:textSize="20sp"
                 android:textAllCaps="false"
+                android:focusable="true"
+                android:clickable="true"
                 android:layout_marginTop="30dp"
                 tools:ignore="HardcodedText"
                 android:layout_marginStart="20dp"

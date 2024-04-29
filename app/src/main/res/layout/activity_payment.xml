@@ -21,8 +21,9 @@
             android:layout_height="40dp"
             style="@style/back_arrow_background_btn"
             android:padding="10dp"
-            android:clickable="true"
+
             android:focusable="true"
+            android:clickable="true"
             android:contentDescription="Back"
             tools:ignore="HardcodedText" />
 
@@ -82,8 +83,8 @@
             android:layout_marginStart="40dp"
             style="@style/edit_background_btn"
             android:padding="7dp"
-            android:clickable="true"
-            android:focusable="true"
+            
+            
             tools:ignore="ContentDescription" />
 
     </LinearLayout>
@@ -112,8 +113,8 @@
             android:layout_height="40dp"
             style="@style/much_items_background_plus"
             android:padding="7dp"
-            android:clickable="true"
-            android:focusable="true"
+            
+            
             tools:ignore="ContentDescription" />
 
     </LinearLayout>
@@ -239,6 +240,8 @@
             android:text="@string/payment"
             android:textSize="20sp"
             android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:clickable="true"
             android:layout_marginBottom="20dp" />
 
     </LinearLayout>

@@ -25,8 +25,8 @@
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
                 android:padding="9dp"
-                android:clickable="true"
                 android:focusable="true"
+                android:clickable="true"
                 android:contentDescription="Back"
                 tools:ignore="HardcodedText" />
 
@@ -57,7 +57,8 @@
             android:layout_marginStart="20dp"
             tools:ignore="InefficientWeight" />
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -68,37 +69,31 @@
             android:inputType="textPersonName"
             android:autofillHints="name">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <EditText
+                style="@style/TextColor_v4"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:minHeight="60dp"
+                android:fontFamily="@font/font_v1"
+                android:autofillHints="name"
+                android:background=""
+                android:inputType="textPersonName"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
 
-                <EditText
-                    style="@style/TextColor_v4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="20dp"
-                    android:paddingTop="15dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="15dp"
-                    android:fontFamily="@font/font_v1"
-                    android:autofillHints="name"
-                    android:background="@android:color/transparent"
-                    android:inputType="textPersonName"
-                    android:textSize="18sp"
-                    android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                style="@style/edit_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"/>
 
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    style="@style/edit_icon"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="10dp"/>
-
-            </LinearLayout>
-
-        </RelativeLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -131,9 +126,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="20dp"
-                    android:paddingTop="15dp"
+                    android:minHeight="60dp"
+                    android:focusable="true"
+                    android:clickable="true"
                     android:paddingEnd="10dp"
-                    android:paddingBottom="15dp"
                     android:fontFamily="@font/font_v1"
                     android:background="@android:color/transparent"
                     android:textSize="18sp"/>
@@ -154,7 +150,9 @@
             android:layout_marginStart="20dp"
             tools:ignore="InefficientWeight" />
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -167,16 +165,29 @@
 
             <TextView
                 style="@style/TextColor_v4"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingTop="15dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="15dp"
+                android:layout_marginStart="20dp"
+                android:minHeight="60dp"
+                android:layout_marginEnd="10dp"
                 android:fontFamily="@font/font_v1"
+                android:autofillHints="name"
                 android:background="@android:color/transparent"
-                android:textSize="18sp" />
-        </RelativeLayout>
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                style="@style/copy_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:contentDescription="@string/copy" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -192,7 +203,8 @@
             android:layout_marginStart="20dp"
             tools:ignore="InefficientWeight" />
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -203,41 +215,35 @@
             android:inputType="textPersonName"
             android:autofillHints="name">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <EditText
+                style="@style/TextColor_v4"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:paddingStart="20dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:paddingEnd="10dp"
+                android:minHeight="60dp"
+                android:fontFamily="@font/font_v1"
+                android:autofillHints="name"
+                android:background="@android:color/transparent"
+                android:inputType="phone"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                tools:ignore="LabelFor" />
 
-                <EditText
-                    style="@style/TextColor_v4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="20dp"
-                    android:paddingTop="15dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="15dp"
-                    android:fontFamily="@font/font_v1"
-                    android:autofillHints="name"
-                    android:background="@android:color/transparent"
-                    android:inputType="phone"
-                    android:textSize="18sp"
-                    android:layout_weight="1"
-                    tools:ignore="LabelFor" />
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                style="@style/edit_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/copy" />
 
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    style="@style/edit_icon"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:contentDescription="@string/copy" />
-
-            </LinearLayout>
-
-
-        </RelativeLayout>
-
+        </LinearLayout>
+        
         <TextView
             android:layout_width="match_parent"
             android:layout_marginEnd="20dp"
@@ -259,6 +265,8 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
             android:textSize="20sp"
+            
+            
             style="@style/rounded_outline_solid_white_black"
             android:inputType="textPersonName"
             android:autofillHints="name">
@@ -268,9 +276,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="20dp"
-                android:paddingTop="15dp"
                 android:paddingEnd="10dp"
-                android:paddingBottom="15dp"
+                android:minHeight="60dp"
+                android:focusable="true"
+                android:clickable="true"
                 android:fontFamily="@font/font_v1"
                 android:autofillHints="name"
                 android:background="@android:color/transparent"
@@ -297,7 +306,8 @@
                 android:layout_marginStart="20dp"
                 tools:ignore="InefficientWeight" />
 
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -305,41 +315,33 @@
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 style="@style/rounded_outline_solid_white_black"
-                android:inputType="textPersonName"
-                android:autofillHints="name">
+                android:inputType="textPersonName">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    style="@style/TextColor_v4"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    tools:ignore="UseCompoundDrawables">
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:minHeight="60dp"
+                    android:fontFamily="@font/font_v1"
+                    android:autofillHints="name"
+                    android:background="@android:color/transparent"
+                    android:layout_weight="1"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        style="@style/TextColor_v4"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/font_v1"
-                        android:autofillHints="name"
-                        android:background="@android:color/transparent"
-                        android:layout_weight="1"
-                        android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    style="@style/copy_icon"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/copy" />
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        style="@style/copy_icon"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="10dp"
-                        android:contentDescription="@string/copy" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -363,7 +365,9 @@
                 android:layout_marginStart="20dp"
                 tools:ignore="InefficientWeight" />
 
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -374,38 +378,31 @@
                 android:inputType="textPersonName"
                 android:autofillHints="name">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    style="@style/TextColor_v4"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    tools:ignore="UseCompoundDrawables">
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:minHeight="60dp"
+                    android:fontFamily="@font/font_v1"
+                    android:autofillHints="name"
+                    android:background="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
 
-                    <TextView
-                        style="@style/TextColor_v4"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/font_v1"
-                        android:autofillHints="name"
-                        android:background="@android:color/transparent"
-                        android:textSize="18sp"
-                        android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    style="@style/copy_icon"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/copy" />
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        style="@style/copy_icon"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="10dp"
-                        android:contentDescription="@string/copy" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -418,6 +415,8 @@
             style="@style/checkout_background_btn"
             android:text="@string/done"
             android:textSize="20sp"
+            android:focusable="true"
+            android:clickable="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="30dp"
