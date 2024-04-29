@@ -23,6 +23,7 @@ import com.eibrahim.winkel.bottomSheets.functionsBottomSheet;
 import com.eibrahim.winkel.declaredClasses.DoFilter;
 import com.eibrahim.winkel.declaredClasses.RecyclerviewVisibility;
 import com.eibrahim.winkel.declaredClasses.Search;
+import com.eibrahim.winkel.dialogs.AddedToBasketDialog;
 
 public class HomeFragment extends Fragment {
 

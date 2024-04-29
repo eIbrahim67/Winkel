@@ -43,8 +43,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/font_v3"
                     android:layout_centerInParent="true"
-                    android:text="@string/item_detail"
-                    tools:ignore="InefficientWeight" />
+                    android:text="@string/item_detail"/>
 
                 <ImageView
                     android:id="@+id/btn_ItemDetailsMore"
@@ -110,8 +109,7 @@
                                 android:textSize="20sp"
                                 style="@style/TextColor_v1"
                                 android:textStyle="bold"
-                                android:text="@string/winkel"
-                                tools:ignore="InefficientWeight" />
+                                android:text="@string/winkel" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -133,7 +131,8 @@
                         android:padding="5dp"
                         android:clickable="true"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentEnd="true" />
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="@string/love_button"/>
 
                 </RelativeLayout>
 
@@ -145,15 +144,14 @@
 
                     <TextView
                         android:id="@+id/itemNameDetail"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textSize="25sp"
                         style="@style/TextColor_v1"
                         android:textStyle="bold"
                         android:fontFamily="@font/font_v3"
                         android:layout_weight="1"
-                        android:layout_marginEnd="40dp"
-                        tools:ignore="InefficientWeight" />
+                        android:layout_marginEnd="40dp" />
 
                     <TextView
                         android:id="@+id/itemPriceDetail"
@@ -251,7 +249,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/white_v1">
 
-        <LinearLayout
+        <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             style="@style/line_v2"/>
@@ -278,7 +276,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/add_to_basket"
-                    android:background="@drawable/rounded_5_black_v1_none_gray_v4"
                     android:textSize="15sp"
                     style="@style/TextColor_v3"
                     android:textStyle="bold"
@@ -291,7 +288,6 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 style="@style/basket_background_btn"
-                android:background="@drawable/rounded_5_black_v1_none_gray_v4"
                 android:padding="12dp"
                 android:clickable="true"
                 android:layout_gravity="center_vertical"

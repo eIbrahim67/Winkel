@@ -58,7 +58,8 @@
 
             <TextView
                 style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
@@ -215,7 +216,8 @@
 
             <TextView
                 style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
@@ -612,7 +614,8 @@
 
             <TextView
                 style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
@@ -724,7 +727,8 @@
 
             <TextView
                 style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
@@ -929,10 +933,11 @@
 
             <TextView
                 style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:fontFamily="@font/font_v3"
                 android:layout_marginTop="30dp"
                 android:text="@string/account"

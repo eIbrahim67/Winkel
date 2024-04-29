@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".dialogs.AddedToBasketDialog"
+    style="@style/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/item_added_to_basket_successfully"
+        android:fontFamily="@font/font_v1"
+        android:textStyle="bold"
+        style="@style/TextColor_v2"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/online_shopping_v1"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/item_added_success"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/line_v2"/>
+
+        <TextView
+            android:id="@+id/view_basket_dialog_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            style="@style/TextColor_v2"
+            android:gravity="center"
+            android:text="@string/view_basket"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:background="@drawable/sharp_white_v1_none_gray_v4"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/line_v2"/>
+
+        <TextView
+            android:id="@+id/done_dialog_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/done"
+            android:textSize="18sp"
+            style="@style/TextColor_v1"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:clickable="true"
+            android:background="@drawable/sharp_white_v1_none_gray_v4"/>
+
+    </LinearLayout>
+
+</LinearLayout>

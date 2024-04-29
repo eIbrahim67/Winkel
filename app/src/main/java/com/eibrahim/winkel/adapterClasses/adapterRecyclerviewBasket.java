@@ -71,6 +71,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
         String temp = currentItem.getPrice() + context.getString(R.string.le) ;
         holder.itemPriceCheck.setText(temp);
         holder.itemCateCheck.setText(currentItem.getCategory());
+        holder.itemMuchCounter.setText(currentItem.getMuch());
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();

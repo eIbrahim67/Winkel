@@ -76,7 +76,7 @@
 
     <style name="basket_background_btn">
 
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_5_black_v1_none_gray_v4</item>
         <item name="android:src">@drawable/basket_icon_white</item>
 
     </style>

@@ -18,6 +18,7 @@ import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewReviews;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewSizes;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.dataClasses.DataReviewItem;
+import com.eibrahim.winkel.dialogs.AddedToBasketDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -36,15 +37,12 @@ public class ItemDetailActivity extends AppCompatActivity {
     final FirebaseAuth auth = FirebaseAuth.getInstance();
     final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-    private int LFrag = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_detail);
 
         ImageView itemImgDetail = findViewById(R.id.itemImgDetail);
-        //TextView itemCategoryDetail = findViewById(R.id.itemCategoryDetail);
         TextView itemPriceDetail = findViewById(R.id.itemPriceDetail);
         ImageView btnBackHome = findViewById(R.id.btn_back_home);
         TextView itemNameDetail = findViewById(R.id.itemNameDetail);
@@ -57,6 +55,8 @@ public class ItemDetailActivity extends AppCompatActivity {
         TextView item_description = findViewById(R.id.item_description);
         ChipNavigationBar chipNavigationBar = findViewById(R.id.item_detail_menu);
         chipNavigationBar.setItemSelected(R.id.description_btn, true);
+
+        AddedToBasketDialog addedToBasketDialog = new AddedToBasketDialog();
 
         DocumentReference wishlistRef = firestore.collection("UsersData")
                 .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
@@ -71,10 +71,10 @@ public class ItemDetailActivity extends AppCompatActivity {
                     .load(currentItem.getImageId())
                     .into(itemImgDetail);
 
-            //itemCategoryDetail.setText(currentItem.getCategory());
-            itemPriceDetail.setText(currentItem.getPrice() + getString(R.string.le));
+            String temp = currentItem.getPrice() + getString(R.string.le);
+
+            itemPriceDetail.setText(temp);
             itemNameDetail.setText(currentItem.getName());
-            //reviews_num.setText("244" + getString(R.string.review));
         }
 
         btnBackHome.setOnClickListener(v -> finish());
@@ -124,7 +124,6 @@ public class ItemDetailActivity extends AppCompatActivity {
                 }
                 else {
                     currentItem.setMuch("1");
-                    addToBasketText.setVisibility(View.GONE);
 
                     basketRef
                             .update("BasketCollection", FieldValue.arrayUnion(
@@ -135,7 +134,11 @@ public class ItemDetailActivity extends AppCompatActivity {
 
                                     )
                             )
-                            .addOnSuccessListener(unused -> Toast.makeText(ItemDetailActivity.this, getString(R.string.item_added_success), Toast.LENGTH_SHORT).show())
+                            .addOnSuccessListener( a -> {
+
+                                addedToBasketDialog.show(getSupportFragmentManager(), "");
+
+                            })
                             .addOnFailureListener(e -> Toast.makeText(ItemDetailActivity.this, getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show());
 
                 }
