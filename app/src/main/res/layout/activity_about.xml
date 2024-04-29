@@ -24,8 +24,9 @@
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
                 android:padding="9dp"
-                android:clickable="true"
+                android:minHeight="60dp"
                 android:focusable="true"
+                android:clickable="true"
                 android:contentDescription="Back"
                 tools:ignore="HardcodedText" />
 
@@ -72,7 +73,7 @@
                 android:layout_gravity="center_vertical"
                 app:shapeAppearanceOverlay="@style/roundedImageViewPost"
                 android:src="@drawable/about_us_v1"
-                android:clickable="true" />
+                 />
 
         </LinearLayout>
 

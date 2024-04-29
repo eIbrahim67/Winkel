@@ -25,8 +25,8 @@
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
                 android:padding="9dp"
-                android:clickable="true"
                 android:focusable="true"
+                android:clickable="true"
                 android:contentDescription="Back"
                 tools:ignore="HardcodedText" />
 
@@ -73,7 +73,7 @@
                 android:layout_gravity="center_vertical"
                 app:shapeAppearanceOverlay="@style/roundedImageViewPost"
                 android:src="@drawable/delete_account_v1"
-                android:clickable="true" />
+                 />
 
         </LinearLayout>
 
@@ -105,8 +105,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -139,8 +141,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -173,8 +177,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -207,8 +213,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -241,8 +249,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -275,8 +285,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-                android:clickable="true"
+
                 android:focusable="true"
+                android:clickable="true"
+                
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -360,6 +372,8 @@
                 android:paddingBottom="20dp"
                 android:textStyle="bold"
                 android:gravity="top"
+                android:focusable="true"
+                android:clickable="true"
                 android:hint="@string/describe_your_reasons_here"
                 tools:ignore="RelativeOverlap"
                 android:importantForAutofill="no"
@@ -376,6 +390,8 @@
             style="@style/checkout_background_btn"
             android:text="@string/_continue"
             android:textSize="20sp"
+            android:focusable="true"
+            android:clickable="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp" />

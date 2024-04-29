@@ -260,8 +260,9 @@
             android:inputType="textPersonName"
             android:hint="@string/card_holder_name"
             android:textSize="18sp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
+            android:minHeight="60dp"
+            android:focusable="true"
+            android:clickable="true"
             android:layout_marginStart="20dp"
             android:background="@android:color/transparent"
             tools:ignore="RtlCompat" />
@@ -283,8 +284,9 @@
             android:hint="@string/card_number"
             android:inputType="numberDecimal"
             android:textSize="18sp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
+            android:minHeight="60dp"
+            android:focusable="true"
+            android:clickable="true"
             android:layout_marginStart="20dp"
             android:background="@android:color/transparent"
             tools:ignore="RtlCompat" />
@@ -313,8 +315,9 @@
                 android:hint="@string/expiry_date"
                 android:inputType="date"
                 android:textSize="18sp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
+                android:minHeight="60dp"
+                android:focusable="true"
+                android:clickable="true"
                 android:layout_marginStart="20dp"
                 android:background="@android:color/transparent"
                 tools:ignore="RtlCompat"/>
@@ -336,10 +339,11 @@
                 android:hint="@string/cvv"
                 android:inputType="numberPassword"
                 android:textSize="18sp"
-                android:paddingTop="15dp"
                 android:layout_marginStart="20dp"
                 android:background="@android:color/transparent"
-                android:paddingBottom="15dp"
+                android:minHeight="60dp"
+                android:focusable="true"
+                android:clickable="true"
                 tools:ignore="RtlCompat" />
 
         </RelativeLayout>
@@ -357,6 +361,9 @@
         android:textSize="20sp"
         android:textAllCaps="false"
         android:layout_marginTop="40dp"
+        android:minHeight="60dp"
+        android:focusable="true"
+        android:clickable="true"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"/>
