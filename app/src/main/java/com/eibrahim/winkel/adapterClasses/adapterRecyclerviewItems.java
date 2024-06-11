@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.eibrahim.winkel.secondPages.ItemDetailActivity;
+import com.eibrahim.winkel.secondPages.item.ItemDetailActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.google.firebase.auth.FirebaseAuth;

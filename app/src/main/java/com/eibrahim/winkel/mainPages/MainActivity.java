@@ -12,7 +12,7 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.declaredClasses.CreateBasketRef;
 import com.eibrahim.winkel.declaredClasses.CreateOrderRef;
 import com.eibrahim.winkel.declaredClasses.CreateWishlistRef;
-import com.eibrahim.winkel.sign.SigninActivity;
+import com.eibrahim.winkel.secondPages.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 

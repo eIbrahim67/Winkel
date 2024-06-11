@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondPages;
+package com.eibrahim.winkel.secondPages.profilePagePages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.eibrahim.winkel.R;
 
-public class ConfirmDeletionActivity extends AppCompatActivity {
+public class LanguagesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confirm_deletion);
+        setContentView(R.layout.activity_languages);
     }
 }

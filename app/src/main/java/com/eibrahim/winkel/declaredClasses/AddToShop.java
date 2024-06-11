@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataProductItem;
-import com.eibrahim.winkel.secondPages.AddItemActivity;
+import com.eibrahim.winkel.secondPages.vendorPages.AddItemActivity;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".secondPages.addPaymentMethodActivity"
+    tools:context=".secondPages.paymentPages.addPaymentMethodActivity"
     style="@style/background">
 
     <TextView

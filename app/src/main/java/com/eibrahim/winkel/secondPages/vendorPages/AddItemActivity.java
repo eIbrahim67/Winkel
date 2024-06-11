@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondPages;
+package com.eibrahim.winkel.secondPages.vendorPages;
 
 
 import android.app.Activity;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondPages.PersonalDataActivity"
+    tools:context=".secondPages.profilePagePages.PersonalDataActivity"
     style="@style/background">
 
     <LinearLayout
@@ -80,8 +80,8 @@
                 android:minHeight="60dp"
                 android:fontFamily="@font/font_v1"
                 android:autofillHints="name"
-                android:background=""
                 android:inputType="textPersonName"
+                android:background="@android:color/transparent"
                 android:textSize="18sp"
                 android:layout_weight="1"/>
 

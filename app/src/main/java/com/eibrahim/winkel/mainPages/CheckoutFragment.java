@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.secondPages.PaymentActivity;
+import com.eibrahim.winkel.secondPages.paymentPages.PaymentActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewBasket;
 import com.google.firebase.auth.FirebaseAuth;

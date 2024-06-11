@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondPages;
+package com.eibrahim.winkel.secondPages.profilePagePages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.secondPages.paymentPages.MyPaymentMethodsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;

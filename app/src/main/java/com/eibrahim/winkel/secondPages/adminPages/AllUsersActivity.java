@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondPages;
+package com.eibrahim.winkel.secondPages.adminPages;
 
 import androidx.appcompat.app.AppCompatActivity;
 

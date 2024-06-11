@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.sign;
+package com.eibrahim.winkel.secondPages.sign;
 
 import androidx.appcompat.app.AppCompatActivity;
 
