@@ -28,7 +28,6 @@ import java.util.Objects;
 
 public class CheckoutFragment extends Fragment {
 
-    public CheckoutFragment() {}
     String temp;
     String dataOfOrder = "";
     private LinearLayout msgEmptyBasket;
@@ -205,4 +204,6 @@ public class CheckoutFragment extends Fragment {
                 msgEmptyBasket.setVisibility(View.VISIBLE);
         });
     }
+
+
 }
