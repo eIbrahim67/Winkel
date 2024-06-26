@@ -86,6 +86,9 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
 
             if (!currentItem.getMuch().equals("1")){
 
+                if (checkoutFragment != null)
+                    checkoutFragment.re(Double.valueOf(currentItem.getPrice()), '_');
+
                 basketRef
                         .update("BasketCollection", FieldValue.arrayRemove(
                                         currentItem.getItemId() + "," +
@@ -116,6 +119,9 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
         });
 
         holder.btn_plus.setOnClickListener(v -> {
+
+            if (checkoutFragment != null)
+                checkoutFragment.re(Double.valueOf(currentItem.getPrice()), '+');
 
             basketRef
                     .update("BasketCollection", FieldValue.arrayRemove(

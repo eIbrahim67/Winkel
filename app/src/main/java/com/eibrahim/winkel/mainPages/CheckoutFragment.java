@@ -200,8 +200,28 @@ public class CheckoutFragment extends Fragment {
 
             noOfItems.setText(temp);
 
-            if (items == 0)
+            if (items == 0) {
+
                 msgEmptyBasket.setVisibility(View.VISIBLE);
+                TotalPriceOfItems.setText("0");
+
+            }
+        });
+    }
+
+    public void re(Double mount, Character type) {
+        requireActivity().runOnUiThread(() -> {
+
+            if (type.equals('+'))
+                much += mount;
+            else
+                much -= mount;
+
+            temp = String.format("%.2f", much);
+            TotalPriceOfItems.setText(temp);
+
+            noOfItems.setText(temp);
+
         });
     }
 
