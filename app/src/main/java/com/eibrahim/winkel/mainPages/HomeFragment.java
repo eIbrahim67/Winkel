@@ -32,8 +32,8 @@ public class HomeFragment extends Fragment {
     private TextView tops_titles;
     private SwipeRefreshLayout fragment_home;
     private LinearLayout search_page;
-    protected String type, tPrice, fPrice;
     private DoFilter doFilter;
+    private LinearLayout skeleton_layout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class HomeFragment extends Fragment {
         fragment_home = root.findViewById(R.id.fragment_home);
         search_page = root.findViewById(R.id.search_page);
         ImageView btnCloseSearch = root.findViewById(R.id.btnCloseSearch);
+        skeleton_layout = root.findViewById(R.id.skeleton_layout);
 
         RecyclerView recyclerview_search = root.findViewById(R.id.recyclerview_search);
         ImageView tops_btn = root.findViewById(R.id.tops_btn);
@@ -73,23 +74,23 @@ public class HomeFragment extends Fragment {
         popup.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
             if (id == R.id.new_releases) {
-                doFilter.doFilter("NewReleases");
+                doFilter.doFilter("NewReleases", skeleton_layout);
                 tops_titles.setText(getString(R.string.new_releases));
                 return true;
             } else if (id == R.id.recommended_item) {
-                doFilter.doFilter("Recommended");
+                doFilter.doFilter("Recommended", skeleton_layout);
                 tops_titles.setText(getString(R.string.recommended));
                 return true;
             } else if (id == R.id.trendy) {
-                doFilter.doFilter("Trendy");
+                doFilter.doFilter("Trendy", skeleton_layout);
                 tops_titles.setText(getString(R.string.trendy));
                 return true;
             } else if (id == R.id.top_sales_item) {
-                doFilter.doFilter("TopSales");
+                doFilter.doFilter("TopSales", skeleton_layout);
                 tops_titles.setText(getString(R.string.top_sales));
                 return true;
             } else if (id == R.id.top_rating_item) {
-                doFilter.doFilter("TopRating");
+                doFilter.doFilter("TopRating", skeleton_layout);
                 tops_titles.setText(getString(R.string.top_rating));
                 return true;
             }
@@ -103,19 +104,19 @@ public class HomeFragment extends Fragment {
             imm.showSoftInput(search_text, InputMethodManager.SHOW_IMPLICIT);
         });
         btnItemsMens.setOnClickListener(v -> {
-            doFilter.doFilter("Mens", recyclerView_filter);
+            doFilter.doFilter("Mens", recyclerView_filter, skeleton_layout);
         });
         btnItemsWomen.setOnClickListener(v -> {
-            doFilter.doFilter("Womens", recyclerView_filter);
+            doFilter.doFilter("Womens", recyclerView_filter, skeleton_layout);
         });
         btnItemsBoys.setOnClickListener(v -> {
-            doFilter.doFilter("Kids", recyclerView_filter);
+            doFilter.doFilter("Kids", recyclerView_filter, skeleton_layout);
         });
         btnItemsGirls.setOnClickListener(v -> {
-            doFilter.doFilter("Kids", recyclerView_filter);
+            doFilter.doFilter("Kids", recyclerView_filter, skeleton_layout);
         });
         btnItemsBabies.setOnClickListener(v -> {
-            doFilter.doFilter("Kids", recyclerView_filter);
+            doFilter.doFilter("Kids", recyclerView_filter, skeleton_layout);
         });
         search_text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -179,7 +180,11 @@ public class HomeFragment extends Fragment {
     }
 
     private void fetchData(){
-        doFilter.doFilter("NewReleases");
+
+        if(skeleton_layout != null)
+            doFilter.doFilter("NewReleases", skeleton_layout);
+        else
+            doFilter.doFilter("NewReleases");
     }
 
 

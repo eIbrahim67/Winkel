@@ -1,6 +1,7 @@
 package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -30,9 +31,23 @@ public class FetchDataFromFirebase {
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
     private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
+    private LinearLayout layout = null;
+
     public FetchDataFromFirebase(RecyclerView recyclerView, Context context){
         this.context = context;
         this.recyclerView = recyclerView;
+
+        recyclerView.setAdapter(null);
+
+    }
+
+    public FetchDataFromFirebase(RecyclerView recyclerView, Context context, LinearLayout layout){
+        this.context = context;
+        this.recyclerView = recyclerView;
+        this.layout = layout;
+
+        layout.setVisibility(View.VISIBLE);
+        recyclerView.setAdapter(null);
 
     }
 
@@ -85,6 +100,9 @@ public class FetchDataFromFirebase {
                     adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems);
                     recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                     recyclerView.setAdapter(adapterRvItems);
+
+                    if(layout != null)
+                        layout.setVisibility(View.GONE);
                 })
                 .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
     }
@@ -142,6 +160,9 @@ public class FetchDataFromFirebase {
                     adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems);
                     recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                     recyclerView.setAdapter(adapterRvItems);
+
+                    if(layout != null)
+                        layout.setVisibility(View.GONE);
                 })
                 .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
 
@@ -199,6 +220,9 @@ public class FetchDataFromFirebase {
                     adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems);
                     recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                     recyclerView.setAdapter(adapterRvItems);
+
+                    if(layout != null)
+                        layout.setVisibility(View.GONE);
                 })
                 .addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
 
@@ -305,6 +329,9 @@ public class FetchDataFromFirebase {
                                         adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
                                         recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                                         recyclerView.setAdapter(adapterRvItems);
+
+                                        if(layout != null)
+                                            layout.setVisibility(View.GONE);
                                     }
                                 }
                             });
@@ -315,6 +342,9 @@ public class FetchDataFromFirebase {
                         dataOfRvItems.clear();
                         adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
                         recyclerView.setAdapter(adapterRvItems);
+
+                        if(layout != null)
+                            layout.setVisibility(View.GONE);
                     }
                 }
             }

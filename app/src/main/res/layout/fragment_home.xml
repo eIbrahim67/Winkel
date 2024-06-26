@@ -346,13 +346,44 @@
 
                     </RelativeLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerview_items"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_height="wrap_content">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerview_items"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginEnd="10dp"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/skeleton_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                layout="@layout/item_products_skeleton"/>
+
+                            <include
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                layout="@layout/item_products_skeleton"/>
+
+                            <include
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                layout="@layout/item_products_skeleton"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 

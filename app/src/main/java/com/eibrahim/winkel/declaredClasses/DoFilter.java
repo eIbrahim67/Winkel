@@ -1,6 +1,7 @@
 package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,8 @@ public class DoFilter {
     private int action = 0;
     String type,  fPrice, tPrice;
     RecyclerView recyclerView_filter;
+    private LinearLayout skeleton_layout;
+
     public DoFilter(RecyclerView recyclerView, RecyclerviewVisibility recyclerviewVisibility, Context context) {
         this.recyclerView = recyclerView;
         this.recyclerviewVisibility = recyclerviewVisibility;
@@ -60,6 +63,24 @@ public class DoFilter {
 
     }
 
+    public void doFilter(String type, RecyclerView recyclerView_filter, LinearLayout layout){
+        action = 2;
+        this.type = type;
+        this.recyclerView_filter = recyclerView_filter;
+        this.skeleton_layout = layout;
+        recyclerviewVisibility.recyclerviewVisibility(type);
+        fetchDataFromFirebase = new FetchDataFromFirebase(
+                recyclerView,
+                context,
+                layout
+        );
+
+        fetchDataFromFirebase.fetchData(type);
+
+        FetchCategory.fetchCategory(type, "0", "1000", recyclerView_filter, recyclerView, context);
+
+    }
+
     public void doFilter(String type){
 
         action = 0;
@@ -69,11 +90,26 @@ public class DoFilter {
         fetchData.fetchSpecific("Products", type, type);
 
     }
+
+    public void doFilter(String type, LinearLayout layout){
+
+        action = 0;
+        this.type = type;
+        this.skeleton_layout = layout;
+        recyclerviewVisibility.recyclerviewVisibility(type);
+        FetchDataFromFirebase fetchData = new FetchDataFromFirebase(recyclerView, context, layout);
+        fetchData.fetchSpecific("Products", type, type);
+
+    }
+
     public void lastAction(){
 
         switch (action){
             case 0:{
-                doFilter(type);
+                if (skeleton_layout != null)
+                    doFilter(type, skeleton_layout);
+                else
+                    doFilter(type);
                 break;
             }
             case 1:{
@@ -81,11 +117,12 @@ public class DoFilter {
                 break;
             }
             case 2:{
-                doFilter(type, recyclerView_filter);
+                if (skeleton_layout != null)
+                    doFilter(type, recyclerView_filter, skeleton_layout);
+                else
+                    doFilter(type, recyclerView_filter);
                 break;
             }
-
         }
     }
-
 }
