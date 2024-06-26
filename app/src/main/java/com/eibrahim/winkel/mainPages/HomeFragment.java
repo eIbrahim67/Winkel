@@ -139,7 +139,7 @@ public class HomeFragment extends Fragment {
         btnCloseSearch.setOnClickListener(v -> {
 
             search_page.setVisibility(View.GONE);
-            //Todo: hide keyboard
+            imm.hideSoftInputFromWindow(search_text.getWindowToken(), 0);
         });
         btnFilterH.setOnClickListener(v -> {
 

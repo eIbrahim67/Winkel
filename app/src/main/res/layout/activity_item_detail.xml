@@ -201,41 +201,39 @@
                     style="@style/background"
                     android:paddingBottom="100dp">
 
-                    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-                        android:id="@+id/item_detail_menu"
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:cnb_menuResource="@menu/menu_item_detail"
-                        app:cnb_orientationMode="horizontal"
-                        app:cnb_unselectedColor="@color/gray_v3"
-                        app:cnb_radius="5dp"
-                        app:cnb_iconSize="25dp"
-                        app:cnb_animationDuration="175"
-                        android:layout_marginBottom="5dp"/>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerview_reviews"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:listitem="@layout/item_reviews"
-                            android:visibility="gone"/>
+                        android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/item_description"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/font_v1"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/size"
+                            android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textSize="18sp"
-                            style="@style/TextColor_v2"
-                            android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"/>
+                            android:fontFamily="@font/font_v3"
+                            style="@style/TextColor_v1"/>
 
-                    </RelativeLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/item_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_v1"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        style="@style/TextColor_v2"
+                        android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_reviews"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/item_reviews"/>
 
                 </LinearLayout>
 

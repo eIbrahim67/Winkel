@@ -2,6 +2,8 @@ package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -220,6 +222,34 @@ public class FetchDataFromFirebase {
                 });
 
     }
+
+    public void fetchSpecific(String coll, String doc, String type, LinearLayout layout) {
+
+        firestore
+                .collection("UsersData").document(userId)
+                .collection("Wishlist").document("Wishlist")
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+
+                    if (documentSnapshot.exists()){
+
+                        List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
+                        fetchSpecific(coll, doc, type, wishlistIds);
+
+                        assert wishlistIds != null;
+                        if (wishlistIds.isEmpty())
+                            layout.setVisibility(View.VISIBLE);
+                        else
+                            layout.setVisibility(View.INVISIBLE);
+
+                    }
+                    else
+                        layout.setVisibility(View.VISIBLE);
+
+                });
+
+    }
+
     private void fetchSpecific(String coll, String doc, String type, List<String> wishlistIds) {
 
         List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();

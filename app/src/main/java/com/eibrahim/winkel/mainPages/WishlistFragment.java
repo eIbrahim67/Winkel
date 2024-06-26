@@ -20,7 +20,6 @@ import java.util.List;
 
 public class WishlistFragment extends Fragment {
 
-    private final List<String> wishlistIds = new ArrayList<>();
     private final String userId = FirebaseAuth.getInstance().getUid();
 
     @Override
@@ -36,12 +35,14 @@ public class WishlistFragment extends Fragment {
 
         FetchDataFromFirebase fetchData = new FetchDataFromFirebase(recyclerview_wishlist, requireContext());
 
-        fetchData.fetchSpecific("UsersData", userId, "Wishlist");
+        fetchData.fetchSpecific("UsersData", userId, "Wishlist", msgEmptyWishlist);
 
 
         wishlist_fragment.setOnRefreshListener(() -> {
 
-            fetchData.fetchSpecific("UsersData", userId, "Wishlist");
+            msgEmptyWishlist.setVisibility(View.INVISIBLE);
+
+            fetchData.fetchSpecific("UsersData", userId, "Wishlist", msgEmptyWishlist);
 
             wishlist_fragment.setRefreshing(false);
 

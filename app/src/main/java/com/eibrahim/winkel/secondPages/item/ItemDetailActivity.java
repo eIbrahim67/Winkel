@@ -53,8 +53,6 @@ public class ItemDetailActivity extends AppCompatActivity {
         recyclerview_sizes = findViewById(R.id.recyclerview_sizes);
         RecyclerView recyclerview_reviews = findViewById(R.id.recyclerview_reviews);
         TextView item_description = findViewById(R.id.item_description);
-        ChipNavigationBar chipNavigationBar = findViewById(R.id.item_detail_menu);
-        chipNavigationBar.setItemSelected(R.id.description_btn, true);
 
         AddedToBasketDialog addedToBasketDialog = new AddedToBasketDialog();
 
@@ -161,29 +159,11 @@ public class ItemDetailActivity extends AppCompatActivity {
         itemList.add(new DataReviewItem(logoUrl, name, username, "Amazing quality!", "4.8"));
         itemList.add(new DataReviewItem(logoUrl, name, username, "Responsive customer support!", "4.7"));
         itemList.add(new DataReviewItem(logoUrl, name, username, "Impressive packaging!", "4.6"));
-        itemList.add(new DataReviewItem(logoUrl, name, username, "Bad work and bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.", "1.0"));
+        itemList.add(new DataReviewItem(logoUrl, name, username, "Bad product", "1.0"));
 
         AdapterRecyclerviewReviews adapter = new AdapterRecyclerviewReviews(this, itemList);
         recyclerview_reviews.setLayoutManager(new LinearLayoutManager(this));
         recyclerview_reviews.setAdapter(adapter);
-
-        chipNavigationBar.setOnItemSelectedListener(i -> {
-            if (i == R.id.description_btn) {
-
-                item_description.setVisibility(View.VISIBLE);
-                recyclerview_reviews.setVisibility(View.GONE);
-
-            }
-            else if (i == R.id.reviews_btn) {
-
-                item_description.setVisibility(View.GONE);
-                recyclerview_reviews.setVisibility(View.VISIBLE);
-
-            }
-            else
-                throw new IllegalStateException("Unexpected value: " + i);
-
-        });
 
     }
 
