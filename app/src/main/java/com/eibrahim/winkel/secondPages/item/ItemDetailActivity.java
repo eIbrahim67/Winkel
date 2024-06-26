@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +54,45 @@ public class ItemDetailActivity extends AppCompatActivity {
         recyclerview_sizes = findViewById(R.id.recyclerview_sizes);
         RecyclerView recyclerview_reviews = findViewById(R.id.recyclerview_reviews);
         TextView item_description = findViewById(R.id.item_description);
+        LinearLayout description_btn = findViewById(R.id.description_btn);
+        LinearLayout review_btn = findViewById(R.id.review_btn);
+        ImageView down_arrow_description = findViewById(R.id.down_arrow_description);
+        ImageView down_arrow_reviews = findViewById(R.id.down_arrow_reviews);
+        ImageView up_arrow_description = findViewById(R.id.up_arrow_description);
+        ImageView up_arrow_reviews = findViewById(R.id.up_arrow_reviews);
+
+        description_btn.setOnClickListener(v -> {
+            v = item_description;
+            if (v.getVisibility() == View.GONE) {
+                v.setVisibility(View.VISIBLE);
+                down_arrow_description.setVisibility(View.INVISIBLE);
+                up_arrow_description.setVisibility(View.VISIBLE);
+            }
+            else {
+                v.setVisibility(View.GONE);
+                down_arrow_description.setVisibility(View.VISIBLE);
+                up_arrow_description.setVisibility(View.INVISIBLE);
+
+            }
+
+        });
+
+        review_btn.setOnClickListener(v -> {
+            v = recyclerview_reviews;
+            if (v.getVisibility() == View.GONE) {
+                v.setVisibility(View.VISIBLE);
+                down_arrow_reviews.setVisibility(View.INVISIBLE);
+                up_arrow_reviews.setVisibility(View.VISIBLE);
+            }
+            else {
+                v.setVisibility(View.GONE);
+                down_arrow_reviews.setVisibility(View.VISIBLE);
+                up_arrow_reviews.setVisibility(View.INVISIBLE);
+
+            }
+
+        });
+
 
         AddedToBasketDialog addedToBasketDialog = new AddedToBasketDialog();
 

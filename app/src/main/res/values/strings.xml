@@ -286,4 +286,6 @@
     <string name="item_added_to_basket_successfully">Item Added to basket successfully</string>
     <string name="view_basket">View Basket</string>
     <string name="wishlist">WishList</string>
+    <string name="description">Description</string>
+    <string name="reviews">Reviews</string>
 </resources>

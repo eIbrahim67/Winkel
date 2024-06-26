@@ -189,12 +189,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="40dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -203,37 +203,133 @@
 
 
                     <LinearLayout
+                        android:id="@+id/description_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        style="@style/rounded_white_v2_black_none_gray">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/description"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/font_v3"
+                                style="@style/TextColor_v1"/>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:id="@+id/up_arrow_description"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    style="@style/up_arrow_icon"
+                                    android:padding="10dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:visibility="invisible"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/down_arrow_description"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    style="@style/down_arrow_icon"
+                                    android:padding="10dp"
+                                    android:layout_alignParentEnd="true"
+                                    />
+
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/item_description"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="@string/size"
-                            android:textSize="20sp"
+                            android:fontFamily="@font/font_v1"
+                            android:layout_marginTop="20dp"
                             android:textStyle="bold"
-                            android:fontFamily="@font/font_v3"
-                            style="@style/TextColor_v1"/>
+                            android:textSize="18sp"
+                            android:visibility="gone"
+                            style="@style/TextColor_v2"
+                            android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"/>
+
 
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/item_description"
+                    <LinearLayout
+                        android:id="@+id/review_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/font_v1"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        style="@style/TextColor_v2"
-                        android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"/>
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        style="@style/rounded_white_v2_black_none_gray"
+                        android:layout_marginTop="10dp">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerview_reviews"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:listitem="@layout/item_reviews"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/reviews"
+                                android:textSize="24sp"
+                                android:layout_centerVertical="true"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/font_v3"
+                                style="@style/TextColor_v1"/>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:id="@+id/up_arrow_reviews"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    style="@style/up_arrow_icon"
+                                    android:padding="10dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:visibility="invisible"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/down_arrow_reviews"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    style="@style/down_arrow_icon"
+                                    android:padding="10dp"
+                                    android:layout_alignParentEnd="true"
+                                    />
+
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerview_reviews"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/item_reviews"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
 
