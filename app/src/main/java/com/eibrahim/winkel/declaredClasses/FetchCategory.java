@@ -22,6 +22,8 @@ public class FetchCategory {
 
         DocumentReference docReference = firestore.collection("Data").document("Categories" + type);
 
+        recyclerView_filter.setAdapter(null);
+
         docReference.get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()) {
                 List<Object> data = (List<Object>) documentSnapshot.get("Categories");
