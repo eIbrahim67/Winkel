@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.declaredClasses.CreateBasketRef;
@@ -18,13 +19,14 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
     public static ChipNavigationBar chipNavigationBar;
-
     private HomeFragment homeFragment;
     private WishlistFragment wishlistFragment;
     private CheckoutFragment checkoutFragment;
     private ProfileFragment profileFragment;
-
+    private final FragmentManager fragmentManager = getSupportFragmentManager();
+    private final FragmentTransaction[] fragmentTransaction = {fragmentManager.beginTransaction()};
     private int LFrag = 0;
+    public static Boolean basketClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             chipNavigationBar = findViewById(R.id.main_menu);
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            final FragmentTransaction[] fragmentTransaction = {fragmentManager.beginTransaction()};
 
             CreateOrderRef createOrderRef = new CreateOrderRef();
             CreateBasketRef createBasketRef = new CreateBasketRef();
@@ -87,57 +87,22 @@ public class MainActivity extends AppCompatActivity {
             chipNavigationBar.setOnItemSelectedListener(i -> {
                 if (i == R.id.home_btn) {
 
-                    fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].show(homeFragment);
-                    fragmentTransaction[0].commit();
-
-                    fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].hide(getLFrag(LFrag));
-                    fragmentTransaction[0].commit();
-
-                    LFrag = 0;
-
+                    chipNavigationBarZero();
 
                 }
                 else if (i == R.id.wishlist_btn) {
 
-                    fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].show(wishlistFragment);
-                    fragmentTransaction[0].commit();
-
-                    fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].hide(getLFrag(LFrag));
-                    fragmentTransaction[0].commit();
-
-                    LFrag = 1;
+                    chipNavigationBarOne();
 
                 }
                 else if(i == R.id.checkout_btn) {
 
-                    fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].show(checkoutFragment);
-                    fragmentTransaction[0].commit();
-
-                    fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].hide(getLFrag(LFrag));
-                    fragmentTransaction[0].commit();
-
-                    LFrag = 2;
-
+                    chipNavigationBarTwo();
 
                 }
                 else if (i == R.id.profile_btn) {
 
-                    fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].show(profileFragment);
-                    fragmentTransaction[0].commit();
-
-                    fragmentTransaction[0] = fragmentManager.beginTransaction();
-                    fragmentTransaction[0].hide(getLFrag(LFrag));
-                    fragmentTransaction[0].commit();
-
-                    LFrag = 3;
-
+                    chipNavigationBarThree();
 
                 }
                 else
@@ -148,6 +113,65 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    private void chipNavigationBarZero(){
+
+        fragmentTransaction[0] = fragmentManager.beginTransaction();
+        fragmentTransaction[0].show(homeFragment);
+        fragmentTransaction[0].commit();
+
+        fragmentTransaction[0] = fragmentManager.beginTransaction();
+        fragmentTransaction[0].hide(getLFrag(LFrag));
+        fragmentTransaction[0].commit();
+
+        LFrag = 0;
+
+    }
+
+    private void chipNavigationBarOne(){
+
+        fragmentTransaction[0] = fragmentManager.beginTransaction();
+        fragmentTransaction[0].show(wishlistFragment);
+        fragmentTransaction[0].commit();
+
+        fragmentTransaction[0] = fragmentManager.beginTransaction();
+        fragmentTransaction[0].hide(getLFrag(LFrag));
+        fragmentTransaction[0].commit();
+
+        LFrag = 1;
+
+    }
+
+    private void chipNavigationBarTwo(){
+
+        fragmentTransaction[0] = fragmentManager.beginTransaction();
+        fragmentTransaction[0].show(checkoutFragment);
+        fragmentTransaction[0].commit();
+
+        fragmentTransaction[0] = fragmentManager.beginTransaction();
+        fragmentTransaction[0].hide(getLFrag(LFrag));
+        fragmentTransaction[0].commit();
+
+        LFrag = 2;
+
+    }
+
+    private void chipNavigationBarThree(){
+
+        fragmentTransaction[0] = fragmentManager.beginTransaction();
+        fragmentTransaction[0].show(profileFragment);
+        fragmentTransaction[0].commit();
+
+        fragmentTransaction[0] = fragmentManager.beginTransaction();
+        fragmentTransaction[0].hide(getLFrag(LFrag));
+        fragmentTransaction[0].commit();
+
+        LFrag = 3;
+
+
+    }
+
+
     private Fragment getLFrag(int i){
         if (i == 0)
             return homeFragment;
@@ -160,6 +184,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-
+        if (basketClicked != null)
+            if (basketClicked)
+                chipNavigationBar.setItemSelected(R.id.checkout_btn, true);
+    }
 }

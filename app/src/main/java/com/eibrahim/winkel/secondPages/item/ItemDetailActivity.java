@@ -20,6 +20,7 @@ import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewSizes;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.dataClasses.DataReviewItem;
 import com.eibrahim.winkel.dialogs.AddedToBasketDialog;
+import com.eibrahim.winkel.mainPages.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -37,6 +38,7 @@ public class ItemDetailActivity extends AppCompatActivity {
     private RecyclerView recyclerview_sizes;
     final FirebaseAuth auth = FirebaseAuth.getInstance();
     final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,7 +186,10 @@ public class ItemDetailActivity extends AppCompatActivity {
             }
         });
 
-        btnBasketD.setOnClickListener(v -> finish());
+        btnBasketD.setOnClickListener(v -> {
+            MainActivity.basketClicked = true;
+            finish();
+        });
 
         declareSizes();
 
