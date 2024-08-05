@@ -36,7 +36,6 @@ public class FetchDataFromFirebase {
     public FetchDataFromFirebase(RecyclerView recyclerView, Context context){
         this.context = context;
         this.recyclerView = recyclerView;
-
         recyclerView.setAdapter(null);
 
     }
@@ -274,7 +273,7 @@ public class FetchDataFromFirebase {
 
     }
 
-    private void fetchSpecific(String coll, String doc, String type, List<String> wishlistIds) {
+    private void fetchSpecific(String coll, String doc, String type, List<String> dataListIds) {
 
         List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
 
@@ -290,51 +289,60 @@ public class FetchDataFromFirebase {
                 List<String> dataList = (List<String>) documentSnapshot.get(type);
                 if (dataList != null) {
 
-                    if (dataList.size() > 0){
+                    if (!dataList.isEmpty()){
 
                         for (String itemIdType : dataList) {
 
-                            String[] parts = itemIdType.split(",");
-                            String itemId = parts[0].trim();
-                            String itemType = parts[1].trim();
+                            try {
+                                String[] parts = itemIdType.split(",");
+                                String itemId = parts[0].trim();
+                                String itemType = parts[1].trim();
 
-                            DocumentReference documentRef = firestore.collection("Products")
-                                    .document(itemType)
-                                    .collection(itemType)
-                                    .document(itemId);
+                                DocumentReference documentRef = firestore.collection("Products")
+                                        .document(itemType)
+                                        .collection(itemType)
+                                        .document(itemId);
 
-                            documentRef.get().addOnSuccessListener(querySnapshot  -> {
-                                if (querySnapshot .exists()) {
-                                    Map<String, Object> data = querySnapshot .getData();
-                                    if (data != null) {
-                                        String category = (String) data.get("category");
-                                        String imageId = (String) data.get("imageId");
-                                        String name = (String) data.get("name");
-                                        String price = (String) data.get("price");
-                                        DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
-                                                category,
-                                                imageId,
-                                                name,
-                                                price,
-                                                itemType,
-                                                ""
-                                        );
+                                documentRef.get().addOnSuccessListener(querySnapshot  -> {
+                                    if (querySnapshot .exists()) {
+                                        Map<String, Object> data = querySnapshot .getData();
+                                        if (data != null) {
+                                            String category = (String) data.get("category");
+                                            String imageId = (String) data.get("imageId");
+                                            String name = (String) data.get("name");
+                                            String price = (String) data.get("price");
+                                            DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(
+                                                    category,
+                                                    imageId,
+                                                    name,
+                                                    price,
+                                                    itemType,
+                                                    ""
+                                            );
 
-                                        dataObject.setItemId(itemId);
+                                            dataObject.setItemId(itemId);
 
-                                        if (wishlistIds != null)
-                                            dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
+                                            if (dataListIds != null)
+                                                dataObject.setItemLoved(dataListIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
 
-                                        dataOfRvItems.add(dataObject);
-                                        adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
-                                        recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-                                        recyclerView.setAdapter(adapterRvItems);
+                                            dataOfRvItems.add(dataObject);
+                                            adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
+                                            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+                                            recyclerView.setAdapter(adapterRvItems);
 
-                                        if(layout != null)
-                                            layout.setVisibility(View.GONE);
+                                            if(layout != null)
+                                                layout.setVisibility(View.GONE);
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            }
+                            catch (Exception e){
+
+                                Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+
+                            }
+
+
                         }
 
                     }
