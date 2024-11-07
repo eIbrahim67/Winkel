@@ -4,15 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
-
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.declaredClasses.CreateBasketRef;
 import com.eibrahim.winkel.declaredClasses.CreateOrderRef;
 import com.eibrahim.winkel.declaredClasses.CreateWishlistRef;
+import com.eibrahim.winkel.publicDataSender.publicData;
 import com.eibrahim.winkel.secondPages.sign.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
@@ -26,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private final FragmentManager fragmentManager = getSupportFragmentManager();
     private final FragmentTransaction[] fragmentTransaction = {fragmentManager.beginTransaction()};
     private int LFrag = 0;
-    public static Boolean basketClicked;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -188,8 +186,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (basketClicked != null)
-            if (basketClicked)
+        if (publicData.basketClicked != null)
+            if (publicData.basketClicked)
                 chipNavigationBar.setItemSelected(R.id.checkout_btn, true);
     }
 }

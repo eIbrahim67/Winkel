@@ -259,8 +259,7 @@ public class FetchDataFromFirebase {
                         List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
                         fetchSpecific(coll, doc, type, wishlistIds);
 
-                        assert wishlistIds != null;
-                        if (wishlistIds.isEmpty())
+                        if (wishlistIds != null && wishlistIds.isEmpty())
                             layout.setVisibility(View.VISIBLE);
                         else
                             layout.setVisibility(View.INVISIBLE);

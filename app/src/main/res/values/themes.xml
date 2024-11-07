@@ -192,7 +192,6 @@
     </style>
 
 
-
     <style name="rounded_outline_solid_white_black">
 
         <item name="android:background">@drawable/rounded_gray_v1_gray_v12_none</item>

@@ -27,7 +27,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
 
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
-    private final CheckoutFragment checkoutFragment;
+private final CheckoutFragment checkoutFragment;
 
     public adapterRecyclerviewBasket(Context context, List<DataRecyclerviewMyItem> itemList, CheckoutFragment checkoutActivity) {
         this.context = context;

@@ -21,6 +21,7 @@ import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.dataClasses.DataReviewItem;
 import com.eibrahim.winkel.dialogs.AddedToBasketDialog;
 import com.eibrahim.winkel.mainPages.MainActivity;
+import com.eibrahim.winkel.publicDataSender.publicData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -187,7 +188,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         });
 
         btnBasketD.setOnClickListener(v -> {
-            MainActivity.basketClicked = true;
+            publicData.basketClicked = true;
             finish();
         });
 
