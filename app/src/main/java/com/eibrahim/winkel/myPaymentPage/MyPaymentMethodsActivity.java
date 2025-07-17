@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondPages.paymentPages;
+package com.eibrahim.winkel.myPaymentPage;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;

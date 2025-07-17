@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.secondPages.paymentPages;
+package com.eibrahim.winkel.addPaymentPage;
 
 import androidx.appcompat.app.AppCompatActivity;
 

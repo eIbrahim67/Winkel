@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.declaredClasses.DoFilter;
 import com.eibrahim.winkel.declaredClasses.RecyclerviewVisibility;
-import com.eibrahim.winkel.mainPages.HomeFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
 public class sortBottomSheet extends BottomSheetDialogFragment {
 
     private final RecyclerView recyclerView_filter;
@@ -22,6 +22,7 @@ public class sortBottomSheet extends BottomSheetDialogFragment {
     private final RecyclerView recyclerView_items;
     private final RecyclerviewVisibility recyclerviewVisibility;
     private final DoFilter doFilter;
+
     public sortBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility, DoFilter doFilter) {
 
         this.recyclerView_filter = recyclerView_filter;
@@ -32,7 +33,7 @@ public class sortBottomSheet extends BottomSheetDialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.bottom_sheet_sort, container, false);
 

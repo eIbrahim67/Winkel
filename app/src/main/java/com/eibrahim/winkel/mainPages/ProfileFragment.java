@@ -30,8 +30,8 @@ import com.eibrahim.winkel.secondPages.profilePagePages.SecurityActivity;
 import com.eibrahim.winkel.secondPages.profilePagePages.SoundActivity;
 import com.eibrahim.winkel.secondPages.profilePagePages.SupportUsActivity;
 import com.eibrahim.winkel.secondPages.profilePagePages.ThemeActivity;
-import com.eibrahim.winkel.secondPages.paymentPages.addPaymentMethodActivity;
-import com.eibrahim.winkel.secondPages.sign.SigninActivity;
+import com.eibrahim.winkel.addPaymentPage.addPaymentMethodActivity;
+import com.eibrahim.winkel.auth.signin.SigninActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {

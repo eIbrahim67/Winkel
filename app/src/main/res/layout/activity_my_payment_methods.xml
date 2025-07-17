@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".secondPages.paymentPages.MyPaymentMethodsActivity"
+    tools:context=".myPaymentPage.MyPaymentMethodsActivity"
     style="@style/background"
     android:id="@+id/myPaymentMethodsFragment_layout">
 

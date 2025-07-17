@@ -47,6 +47,7 @@
         android:background="@color/gray_v1"/>
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/sort_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,6 +86,44 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/main_home_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/rounded_outline_solid_white_black"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+
+        android:clickable="true"
+        android:focusable="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/home"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_v1"
+            style="@style/TextColor_v1"
+            tools:ignore="InefficientWeight" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            style="@style/filter_none_icon"
+            android:padding="5dp"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/filter_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,6 +131,7 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:paddingTop="10dp"
+        android:layout_marginBottom="40dp"
         android:paddingBottom="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -124,6 +164,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/view_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

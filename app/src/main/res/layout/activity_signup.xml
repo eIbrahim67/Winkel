@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".secondPages.sign.SignupActivity"
+    tools:context=".auth.signup.SignupActivity"
     style="@style/background">
 
     <LinearLayout

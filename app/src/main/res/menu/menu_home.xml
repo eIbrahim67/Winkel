@@ -3,27 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <item android:id="@+id/home_btn"
+    <item android:id="@+id/homeFragment"
         android:title="Home"
         android:icon="@drawable/home"
-        tools:ignore="HardcodedText"
-        style="@style/iconColor" />
+        tools:ignore="HardcodedText" />
 
-    <item android:id="@+id/wishlist_btn"
+    <item android:id="@+id/wishlistFragment"
         android:title="WishList"
         android:icon="@drawable/unlove_icon_white"
-        tools:ignore="HardcodedText"
-        style="@style/iconColor"/>
+        tools:ignore="HardcodedText"/>
 
-    <item android:id="@+id/checkout_btn"
+    <item android:id="@+id/checkoutFragment"
         android:title="Checkout"
         android:icon="@drawable/basket_icon_white"
-        tools:ignore="HardcodedText"
-        style="@style/iconColor"/>
+        tools:ignore="HardcodedText"/>
 
-    <item android:id="@+id/profile_btn"
+    <item android:id="@+id/profileFragment"
         android:title="Profile"
         android:icon="@drawable/user_icon_white"
-        tools:ignore="HardcodedText"
-        style="@style/iconColor"/>
+        tools:ignore="HardcodedText"/>
 </menu>

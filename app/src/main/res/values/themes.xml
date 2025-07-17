@@ -136,11 +136,6 @@
 
     </style>
 
-    <style name="iconColor">
-
-        <item name="cnb_iconColor">@color/gray_v4</item>
-    </style>
-
     <style name="roundedImageViewPost" parent="">
 
         <item name="cornerFamily">rounded</item>

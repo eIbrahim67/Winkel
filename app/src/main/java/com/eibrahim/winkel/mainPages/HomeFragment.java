@@ -8,184 +8,185 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupMenu;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.bottomSheets.functionsBottomSheet;
+import com.eibrahim.winkel.databinding.FragmentHomeBinding;
 import com.eibrahim.winkel.declaredClasses.DoFilter;
 import com.eibrahim.winkel.declaredClasses.RecyclerviewVisibility;
 import com.eibrahim.winkel.declaredClasses.Search;
-import com.eibrahim.winkel.dialogs.AddedToBasketDialog;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
 
-
-    private RecyclerView recyclerView_filter;
-    private TextView tops_titles;
-    private SwipeRefreshLayout fragment_home;
-    private LinearLayout search_page;
+    private FragmentHomeBinding binding;
     private DoFilter doFilter;
-    private LinearLayout skeleton_layout;
+    private functionsBottomSheet functionsBottomSheet;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
 
-        recyclerView_filter = root.findViewById(R.id.recyclerview_filter);
-        RecyclerView recyclerView_items = root.findViewById(R.id.recyclerview_items);
-        RelativeLayout tops_view = root.findViewById(R.id.tops_view);
-        tops_titles = root.findViewById(R.id.tops_titles);
-        LinearLayout main_home_design = root.findViewById(R.id.main_home_design);
-        fragment_home = root.findViewById(R.id.fragment_home);
-        search_page = root.findViewById(R.id.search_page);
-        ImageView btnCloseSearch = root.findViewById(R.id.btnCloseSearch);
-        skeleton_layout = root.findViewById(R.id.skeleton_layout);
+        try {
+            BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
 
-        RecyclerView recyclerview_search = root.findViewById(R.id.recyclerview_search);
-        ImageView tops_btn = root.findViewById(R.id.tops_btn);
-        LinearLayout search_btn = root.findViewById(R.id.search_btn);
-        LinearLayout btnItemsMens = root.findViewById(R.id.btnItemsMens);
-        LinearLayout btnItemsWomen = root.findViewById(R.id.btnItemsWomen);
-        LinearLayout btnItemsBoys = root.findViewById(R.id.btnItemsBoys);
-        LinearLayout btnItemsGirls = root.findViewById(R.id.btnItemsGirls);
-        LinearLayout btnItemsBabies = root.findViewById(R.id.btnItemsBabies);
-        ImageView btnFilterH = root.findViewById(R.id.btnFunctions);
-        EditText search_text = root.findViewById(R.id.search_text);
+            InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        PopupMenu popup = new PopupMenu(requireContext(), tops_btn);
-        popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+            PopupMenu popup = new PopupMenu(requireContext(), binding.topsBtn);
+            popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 
-        RecyclerviewVisibility recyclerviewVisibility = new RecyclerviewVisibility(main_home_design, tops_view, recyclerView_filter);
+            RecyclerviewVisibility recyclerviewVisibility = new RecyclerviewVisibility(
+                    binding.mainHomeDesign,
+                    binding.topsView,
+                    binding.recyclerviewFilter
+            );
 
-        doFilter = new DoFilter(recyclerView_items, recyclerviewVisibility, requireContext());
+            doFilter = new DoFilter(binding.recyclerviewItems, recyclerviewVisibility, requireContext());
 
-        fetchData();
-        functionsBottomSheet functionsBottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter);
-        tops_btn.setOnClickListener(v -> popup.show());
-        popup.setOnMenuItemClickListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.new_releases) {
-                doFilter.doFilter("NewReleases", skeleton_layout);
-                tops_titles.setText(getString(R.string.new_releases));
+            fetchData();
+
+            functionsBottomSheet = new functionsBottomSheet(
+                    binding.recyclerviewFilter,
+                    binding.recyclerviewItems,
+                    recyclerviewVisibility,
+                    doFilter
+            );
+
+            // Top Menu Popup Click
+            binding.topsBtn.setOnClickListener(v -> popup.show());
+
+            popup.setOnMenuItemClickListener(item -> {
+                try {
+                    int id = item.getItemId();
+                    if (id == R.id.new_releases) {
+                        doFilter.doFilter("NewReleases", binding.skeletonLayout);
+                        binding.topsTitles.setText(getString(R.string.new_releases));
+                    } else if (id == R.id.recommended_item) {
+                        doFilter.doFilter("Recommended", binding.skeletonLayout);
+                        binding.topsTitles.setText(getString(R.string.recommended));
+                    } else if (id == R.id.trendy) {
+                        doFilter.doFilter("Trendy", binding.skeletonLayout);
+                        binding.topsTitles.setText(getString(R.string.trendy));
+                    } else if (id == R.id.top_sales_item) {
+                        doFilter.doFilter("TopSales", binding.skeletonLayout);
+                        binding.topsTitles.setText(getString(R.string.top_sales));
+                    } else if (id == R.id.top_rating_item) {
+                        doFilter.doFilter("TopRating", binding.skeletonLayout);
+                        binding.topsTitles.setText(getString(R.string.top_rating));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 return true;
-            } else if (id == R.id.recommended_item) {
-                doFilter.doFilter("Recommended", skeleton_layout);
-                tops_titles.setText(getString(R.string.recommended));
-                return true;
-            } else if (id == R.id.trendy) {
-                doFilter.doFilter("Trendy", skeleton_layout);
-                tops_titles.setText(getString(R.string.trendy));
-                return true;
-            } else if (id == R.id.top_sales_item) {
-                doFilter.doFilter("TopSales", skeleton_layout);
-                tops_titles.setText(getString(R.string.top_sales));
-                return true;
-            } else if (id == R.id.top_rating_item) {
-                doFilter.doFilter("TopRating", skeleton_layout);
-                tops_titles.setText(getString(R.string.top_rating));
-                return true;
-            }
-            return false;
-        });
-        search_btn.setOnClickListener(v -> {
+            });
 
-            search_page.setVisibility(View.VISIBLE);
-            MainActivity.chipNavigationBar.setVisibility(View.GONE);
-            search_text.requestFocus();
-            imm.showSoftInput(search_text, InputMethodManager.SHOW_IMPLICIT);
-        });
-        btnItemsMens.setOnClickListener(v -> {
-            doFilter.doFilter("Mens", recyclerView_filter, skeleton_layout);
-        });
-        btnItemsWomen.setOnClickListener(v -> {
-            doFilter.doFilter("Womens", recyclerView_filter, skeleton_layout);
-        });
-        btnItemsBoys.setOnClickListener(v -> {
-            doFilter.doFilter("Kids", recyclerView_filter, skeleton_layout);
-        });
-        btnItemsGirls.setOnClickListener(v -> {
-            doFilter.doFilter("Kids", recyclerView_filter, skeleton_layout);
-        });
-        btnItemsBabies.setOnClickListener(v -> {
-            doFilter.doFilter("Kids", recyclerView_filter, skeleton_layout);
-        });
-        search_text.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            binding.searchBtn.setOnClickListener(v -> {
+                binding.searchPage.setVisibility(View.VISIBLE);
+                bottomNavigationView.setVisibility(View.GONE);
+                binding.searchText.requestFocus();
+                imm.showSoftInput(binding.searchText, InputMethodManager.SHOW_IMPLICIT);
+            });
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String searchText = s.toString().trim();
-                if (!searchText.isEmpty()) {
+            setupCategoryButtons();
 
-                    Search.search(requireContext(), searchText, recyclerview_search);
+            binding.searchText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    try {
+                        String searchText = s.toString().trim();
+                        if (!searchText.isEmpty()) {
+                            Search.search(requireContext(), searchText, binding.recyclerviewSearch);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
 
+                @Override
+                public void afterTextChanged(Editable s) {}
+            });
+
+            binding.btnCloseSearch.setOnClickListener(v -> {
+                binding.searchPage.setVisibility(View.GONE);
+                imm.hideSoftInputFromWindow(binding.searchText.getWindowToken(), 0);
+            });
+
+            binding.btnFunctions.setOnClickListener(v -> {
+                if (functionsBottomSheet.isVisible()) {
+                    functionsBottomSheet.dismiss();
+                } else {
+                    functionsBottomSheet.show(requireActivity().getSupportFragmentManager(), "");
+                }
+            });
+
+            binding.fragmentHome.setOnRefreshListener(() -> {
+                try {
+                    doFilter.lastAction();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    binding.fragmentHome.setRefreshing(false);
+                }
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return binding.getRoot();
+    }
+
+    private void setupCategoryButtons() {
+        binding.btnItemsMens.setOnClickListener(v -> doFilter.doFilter("Mens", binding.recyclerviewFilter, binding.skeletonLayout));
+        binding.btnItemsWomen.setOnClickListener(v -> doFilter.doFilter("Womens", binding.recyclerviewFilter, binding.skeletonLayout));
+        binding.btnItemsBoys.setOnClickListener(v -> doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
+        binding.btnItemsGirls.setOnClickListener(v -> doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
+        binding.btnItemsBabies.setOnClickListener(v -> doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
+    }
+
+    private void fetchData() {
+        try {
+            if (binding.skeletonLayout != null) {
+                doFilter.doFilter("NewReleases", binding.skeletonLayout);
+            } else {
+                doFilter.doFilter("NewReleases");
             }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-        btnCloseSearch.setOnClickListener(v -> {
-
-            search_page.setVisibility(View.GONE);
-            imm.hideSoftInputFromWindow(search_text.getWindowToken(), 0);
-        });
-        btnFilterH.setOnClickListener(v -> {
-
-            if (functionsBottomSheet.isVisible())
-                functionsBottomSheet.dismiss();
-            else
-                functionsBottomSheet.show(requireActivity().getSupportFragmentManager(), "");
-
-        });
-        fragment_home.setOnRefreshListener(() -> {
-
-            doFilter.lastAction();
-
-            fragment_home.setRefreshing(false);
-
-        });
-
-        return root;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                if (search_page.getVisibility() == View.VISIBLE) {
-
-                    search_page.setVisibility(View.GONE);
-                    MainActivity.chipNavigationBar.setVisibility(View.VISIBLE);
-
-                } else {
-                    requireActivity().moveTaskToBack(true);
+        try {
+            requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+                @Override
+                public void handleOnBackPressed() {
+                    BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+                    if (binding.searchPage.getVisibility() == View.VISIBLE) {
+                        binding.searchPage.setVisibility(View.GONE);
+                        bottomNavigationView.setVisibility(View.VISIBLE);
+                    } else if (binding.mainHomeDesign.getVisibility() == View.GONE) {
+                        doFilter.doFilter("NewReleases");
+                    } else {
+                        requireActivity().moveTaskToBack(true);
+                    }
                 }
-            }
-        });
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    private void fetchData(){
-
-        if(skeleton_layout != null)
-            doFilter.doFilter("NewReleases", skeleton_layout);
-        else
-            doFilter.doFilter("NewReleases");
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null; // prevent memory leaks
     }
-
-
 }

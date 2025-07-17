@@ -64,7 +64,7 @@
             android:name=".secondPages.profilePagePages.MyOrdersActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.paymentPages.MyPaymentMethodsActivity"
+            android:name=".myPaymentPage.MyPaymentMethodsActivity"
             android:exported="false" />
         <activity
             android:name=".secondPages.profilePagePages.PersonalDataActivity"
@@ -73,13 +73,22 @@
             android:name=".secondPages.profilePagePages.PinActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.paymentPages.addPaymentMethodActivity"
+            android:name=".addPaymentPage.addPaymentMethodActivity"
             android:exported="false" />
         <activity
             android:name=".secondPages.vendorPages.AddItemActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.sign.SigninActivity"
+            android:name=".auth.signin.SigninActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.signup.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".paymentPage.view.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".secondPages.item.ItemDetailActivity"
             android:exported="false" />
         <activity
             android:name=".mainPages.MainActivity"
@@ -90,15 +99,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".secondPages.sign.SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".secondPages.paymentPages.PaymentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".secondPages.item.ItemDetailActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

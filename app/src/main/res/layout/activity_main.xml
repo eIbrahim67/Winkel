@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    style="@style/background">
+    android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/MainActivity_layout"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main_nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/main_nav" />
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/main_menu"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cnb_menuResource="@menu/menu_home"
-        app:cnb_orientationMode="horizontal"
-        app:cnb_addBottomInset="false"
-        app:cnb_addLeftInset="false"
-        app:cnb_addRightInset="false"
-        app:cnb_addTopInset="false"
-        app:cnb_unselectedColor="@color/gray_v3"
-        app:cnb_radius="8dp"
-        app:cnb_iconSize="25dp"
-        app:cnb_animationDuration="175"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:pointerIcon="handwriting"
+        app:backgroundTint="@color/white_v3"
+        app:itemIconTint="@color/gray_v3"
+        app:itemTextColor="@color/gray_v3"
+        app:layout_insetEdge="bottom"
+        app:menu="@menu/menu_home" />
+
+    <!--            app:labelVisibilityMode="labeled"-->
+    <!--        app:itemRippleColor="@color/blue_v3"-->
 
 
 </LinearLayout>
