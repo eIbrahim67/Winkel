@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".secondPages.profilePagePages.PermissionsActivity">
+    tools:context=".PermissionsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
         android:layout_marginEnd="20dp">
 
         <ImageView
+            android:id="@+id/btnBack"
             android:layout_width="40dp"
             android:layout_height="40dp"
             style="@style/back_arrow_background_btn"
@@ -29,7 +30,7 @@
             android:contentDescription="@string/back"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="26sp"
             style="@style/TextColor_v1"
@@ -78,7 +79,8 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             style="@style/TextColor_v1"
@@ -93,7 +95,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -107,7 +109,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -120,7 +122,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -133,7 +135,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -147,7 +149,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -160,7 +162,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -173,7 +175,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -186,7 +188,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -199,7 +201,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -212,7 +214,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -225,7 +227,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -238,7 +240,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -252,7 +254,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -265,7 +267,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             style="@style/TextColor_v1"
@@ -280,7 +282,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -294,7 +296,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -307,7 +309,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -320,7 +322,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -334,7 +336,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -347,7 +349,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -360,7 +362,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -373,7 +375,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             style="@style/TextColor_v1"
@@ -388,7 +390,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -402,7 +404,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -415,7 +417,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -428,7 +430,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -442,7 +444,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -455,7 +457,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -468,7 +470,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -481,7 +483,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             style="@style/TextColor_v1"
@@ -496,7 +498,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"
@@ -509,7 +511,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             style="@style/TextColor_v1"
@@ -524,7 +526,7 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             style="@style/TextColor_v1"

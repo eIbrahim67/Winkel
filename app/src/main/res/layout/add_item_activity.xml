@@ -11,12 +11,44 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/back_arrow_background_btn"
+                android:padding="9dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Back"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                style="@style/TextColor_v1"
+                android:text="@string/add_new_item"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
+
         <TextView
             style="@style/TextColor_v2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             
             
             android:fontFamily="@font/font_v1"
@@ -30,6 +62,8 @@
             style="@style/TextColor_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_5_white_v2_none_gray_v4"
@@ -62,6 +96,8 @@
             style="@style/TextColor_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
 
@@ -163,6 +199,8 @@
                 style="@style/TextColor_v1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:layout_marginStart="20dp"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondPages.deletePages.ConfirmDeletionActivity">
+    tools:context=".deletePages.ConfirmDeletionFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,6 +21,7 @@
             android:layout_marginEnd="20dp">
 
             <ImageView
+                android:id="@+id/btnBack"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
@@ -81,7 +82,8 @@
 
         <TextView
             style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
@@ -109,14 +111,14 @@
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/font_v1"
                 android:paddingTop="10dp"
-                android:paddingStart="20dp"
+                android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
                 android:textStyle="bold"
                 android:focusable="true"
                 android:clickable="true"
                 android:gravity="top"
-                android:hint="@string/password"
+                android:hint="@string/pin"
                 tools:ignore="RelativeOverlap"
                 android:inputType="textPassword"
                 android:importantForAutofill="no" />
@@ -124,7 +126,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/btnPayment"
+            android:id="@+id/btnDeleteAccountFinal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"

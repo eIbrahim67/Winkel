@@ -151,9 +151,20 @@ public class FetchDataFromFirebase {
                             dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
 
 
-                        if(Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
-                            dataOfRvItems.add(dataObject);
+                        try {
+                            String priceStr = dataObject.getPrice();
+                            if (priceStr != null && !priceStr.trim().isEmpty()) {
+                                double price = Double.parseDouble(priceStr.trim());
+                                double from = Double.parseDouble(fPrice.trim());
+                                double to = Double.parseDouble(tPrice.trim());
 
+                                if (price >= from && price <= to) {
+                                    dataOfRvItems.add(dataObject);
+                                }
+                            }
+                        } catch (NumberFormatException e) {
+                            Log.w("PriceParseError", "Invalid price in document: " + dataObject.getPrice(), e);
+                        }
 
                     }
                     adapterRecyclerviewItems adapterRvItems = new  adapterRecyclerviewItems(context, dataOfRvItems);

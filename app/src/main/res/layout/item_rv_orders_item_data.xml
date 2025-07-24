@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Item ID:"
+            android:text="@string/item_id"
             android:textSize="18sp"
             style="@style/TextColor_v1"
             android:textStyle="bold"
@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Category of item:"
+            android:text="@string/category_of_item"
             android:textSize="18sp"
             style="@style/TextColor_v1"
             android:textStyle="bold"
@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Size of item:"
+            android:text="@string/size_of_item"
             android:textSize="18sp"
             style="@style/TextColor_v1"
             android:textStyle="bold"
@@ -94,7 +94,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price of item:"
+            android:text="@string/price_of_item"
             android:textSize="18sp"
             style="@style/TextColor_v1"
             android:textStyle="bold"
@@ -120,7 +120,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Much of item:"
+            android:text="@string/much_of_item"
             android:textSize="18sp"
             style="@style/TextColor_v1"
             android:textStyle="bold"
@@ -146,7 +146,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total price of this item:"
+            android:text="@string/total_price_of_this_item"
             android:textSize="18sp"
             style="@style/TextColor_v1"
             android:textStyle="bold"

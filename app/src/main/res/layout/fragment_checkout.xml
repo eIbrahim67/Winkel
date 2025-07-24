@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainPages.CheckoutFragment"
+    tools:context=".checkout.CheckoutFragment"
     android:id="@+id/checkout_fragment"
     style="@style/background">
 
@@ -117,14 +117,14 @@
                         android:layout_alignParentEnd="true">
 
                         <TextView
-                            android:id="@+id/TotalPriceOfItemsCheckout"
+                            android:id="@+id/totalPriceOfItemsCheckout"
+                            style="@style/TextColor_v1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="22sp"
-                            style="@style/TextColor_v1"
-                            android:textStyle="bold"
-                            android:text="@string/_0"
                             android:gravity="center"
+                            android:text="@string/_0"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
                             tools:ignore="RelativeOverlap" />
 
                         <TextView

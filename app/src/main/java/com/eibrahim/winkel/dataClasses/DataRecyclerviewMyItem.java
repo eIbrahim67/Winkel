@@ -6,7 +6,7 @@ public class DataRecyclerviewMyItem implements Serializable {
     private final String imageId;
     private String much;
     private String itemId;
-    private String totalPriceItem;
+    private double totalPriceItem;
     private final String type;
     private final String name;
     private final String category;
@@ -48,11 +48,11 @@ public class DataRecyclerviewMyItem implements Serializable {
         this.much = much;
     }
 
-    public void setTotalPriceItem(String totalPriceItem) {
+    public void setTotalPriceItem(double totalPriceItem) {
         this.totalPriceItem = totalPriceItem;
     }
 
-    public String getTotalPriceItem() {
+    public double getTotalPriceItem() {
         return totalPriceItem;
     }
 

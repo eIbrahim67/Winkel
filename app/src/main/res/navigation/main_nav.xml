@@ -4,23 +4,157 @@
     android:id="@+id/main_nav"
     app:startDestination="@id/homeFragment">
 
+    <!-- Main Pages -->
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.eibrahim.winkel.mainPages.HomeFragment"
-        android:label="Home"/>
+        android:name="com.eibrahim.winkel.home.HomeFragment"
+        android:label="Home" />
 
     <fragment
         android:id="@+id/wishlistFragment"
-        android:name="com.eibrahim.winkel.mainPages.WishlistFragment"
-        android:label="Wishlist"/>
+        android:name="com.eibrahim.winkel.wishlist.WishlistFragment"
+        android:label="Wishlist" />
 
     <fragment
         android:id="@+id/checkoutFragment"
-        android:name="com.eibrahim.winkel.mainPages.CheckoutFragment"
-        android:label="Checkout"/>
+        android:name="com.eibrahim.winkel.checkout.CheckoutFragment"
+        android:label="Checkout" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.eibrahim.winkel.mainPages.ProfileFragment"
-        android:label="Profile"/>
+        android:name="com.eibrahim.winkel.profile.ProfileFragment"
+        android:label="Profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_languagesFragment"
+            app:destination="@id/languagesFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_securityFragment"
+            app:destination="@id/securityFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_themeFragment"
+            app:destination="@id/themeFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_helpFeedbackFragment"
+            app:destination="@id/helpFeedbackFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_myOrdersFragment"
+            app:destination="@id/myOrdersFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_permissionsFragment"
+            app:destination="@id/permissionsFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+
+
+        <action
+            android:id="@+id/action_profileFragment_to_myItemsFragment"
+            app:destination="@id/myItemsFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_deleteAccountFragment"
+            app:destination="@id/deleteAccountFragment" />
+
+
+    </fragment>
+
+    <!-- Profile Sub Pages -->
+    <fragment
+        android:id="@+id/languagesFragment"
+        android:name="com.eibrahim.winkel.LanguagesFragment"
+        android:label="Languages" />
+
+    <fragment
+        android:id="@+id/pinFragment"
+        android:name="com.eibrahim.winkel.PinFragment"
+        android:label="PIN" >
+
+        <action
+            android:id="@+id/action_pinFragment_to_personalDataFragment"
+            app:destination="@id/personalDataFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/securityFragment"
+        android:name="com.eibrahim.winkel.SecurityFragment"
+        android:label="Security" />
+
+    <fragment
+        android:id="@+id/themeFragment"
+        android:name="com.eibrahim.winkel.ThemeFragment"
+        android:label="Theme" />
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.eibrahim.winkel.AboutFragment"
+        android:label="About" />
+
+    <fragment
+        android:id="@+id/helpFeedbackFragment"
+        android:name="com.eibrahim.winkel.HelpFeedbackFragment"
+        android:label="HelpFeedback" />
+
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="com.eibrahim.winkel.MyOrdersFragment"
+        android:label="MyOrders" />
+
+    <fragment
+        android:id="@+id/permissionsFragment"
+        android:name="com.eibrahim.winkel.PermissionsFragment"
+        android:label="Permissions" />
+
+    <fragment
+        android:id="@+id/personalDataFragment"
+        android:name="com.eibrahim.winkel.PersonalDataFragment"
+        android:label="PersonalData" />
+
+
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="com.eibrahim.winkel.vendorPages.AddItemFragment"
+        android:label="AddItem" />
+
+
+
+    <fragment
+        android:id="@+id/myItemsFragment"
+        android:name="com.eibrahim.winkel.vendorPages.MyItemsFragment"
+        android:label="MyItems" />
+
+
+    <fragment
+        android:id="@+id/deleteAccountFragment"
+        android:name="com.eibrahim.winkel.deletePages.DeleteAccountFragment"
+        android:label="DeleteAccount">
+
+        <action
+            android:id="@+id/action_deleteAccountFragment_to_ConfirmDeletion"
+            app:destination="@id/confirmDeletionFragment" />
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/confirmDeletionFragment"
+        android:name="com.eibrahim.winkel.deletePages.ConfirmDeletionFragment"
+        android:label="ConfirmDeletion" />
+
 </navigation>

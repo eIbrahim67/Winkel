@@ -20,6 +20,7 @@ public class FetchUserType {
 
     public void fetchIt() {
 
+                            for_vendors.setVisibility(View.VISIBLE);
         FirebaseFirestore.getInstance().collection("UsersData")
                 .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
                 .collection("UserPersonalData")
@@ -35,7 +36,6 @@ public class FetchUserType {
                             for_admins.setVisibility(View.VISIBLE);
                         }
                         else if (Objects.equals(type, "Vendor")){
-                            for_vendors.setVisibility(View.VISIBLE);
                         }
                     }
 

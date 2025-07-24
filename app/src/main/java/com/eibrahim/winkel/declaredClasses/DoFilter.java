@@ -2,13 +2,8 @@ package com.eibrahim.winkel.declaredClasses;
 
 import android.content.Context;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.eibrahim.winkel.mainPages.HomeFragment;
-
-import java.util.Objects;
 
 public class DoFilter {
 
@@ -92,7 +87,6 @@ public class DoFilter {
     }
 
     public void doFilter(String type, LinearLayout layout){
-
         action = 0;
         this.type = type;
         this.skeleton_layout = layout;

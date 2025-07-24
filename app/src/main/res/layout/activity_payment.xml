@@ -1,249 +1,344 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".paymentPage.view.PaymentActivity"
     android:orientation="vertical"
-    style="@style/background">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-        <ImageView
-            android:id="@+id/btnBackCheckout"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            style="@style/back_arrow_background_btn"
-            android:padding="10dp"
-
-            android:focusable="true"
-            android:clickable="true"
-            android:contentDescription="Back"
-            tools:ignore="HardcodedText" />
-
-        <TextView
-            android:id="@+id/noOfItems"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"
-            android:layout_alignParentEnd="true"
-            tools:ignore="RelativeOverlap" />
-
-    </RelativeLayout>
+    tools:context="._old._payment.view.PaymentActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_marginEnd="40dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/shipping_address"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:fontFamily="@font/font_v1"
-                android:textStyle="bold"
-                style="@style/TextColor_v1"
-                tools:ignore="InefficientWeight" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textSize="15sp"
-                android:layout_marginTop="10dp"
-                style="@style/TextColor_v2"
-                tools:ignore="InefficientWeight" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="40dp"
-            style="@style/edit_background_btn"
-            android:padding="7dp"
-            
-            
-            tools:ignore="ContentDescription" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="@string/payment_method"
-            android:textSize="20sp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            style="@style/TextColor_v1"
-            tools:ignore="InefficientWeight" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            style="@style/much_items_background_plus"
-            android:padding="7dp"
-            
-            
-            tools:ignore="ContentDescription" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
-
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray_v1"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/subtotal"
-                android:textSize="18sp"
-                style="@style/TextColor_v2"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical" />
-
-            <TextView
-                android:id="@+id/subTotalPriceOfItemsPayment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="22sp"
-                style="@style/TextColor_v1"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_alignParentEnd="true"/>
-
-        </RelativeLayout>
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/standard_delivery"
-                android:textSize="18sp"
-                style="@style/TextColor_v2"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
+            <ImageView
+                android:id="@+id/btnBackCheckout"
+                style="@style/back_arrow_background_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+
+                android:contentDescription="Back"
+                android:focusable="true"
+                android:padding="10dp"
                 tools:ignore="HardcodedText" />
 
             <TextView
-                android:id="@+id/DeliveryCostPayment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:id="@+id/noOfItems"
                 style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:gravity="center"
-                android:layout_alignParentEnd="true"/>
+                tools:ignore="RelativeOverlap" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray_v1"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
 
-        <RelativeLayout
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_v1"
+                    android:gravity="center_vertical"
+                    android:text="@string/shipping_address"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="InefficientWeight" />
+
+
+                <TextView
+                    style="@style/TextColor_v2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:textSize="15sp"
+                    tools:ignore="InefficientWeight" />
+
+            </LinearLayout>
+
+            <ImageView
+                style="@style/edit_background_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="40dp"
+                android:padding="7dp"
+
+
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/total"
-                android:textSize="22sp"
                 style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/payment_method"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_gravity="center_vertical" />
+                tools:ignore="InefficientWeight" />
 
-            <TextView
-                android:id="@+id/TotalPriceOfItemsPayment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="22sp"
-                style="@style/TextColor_v1"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_alignParentEnd="true"/>
+            <ImageView
+                style="@style/much_items_background_plus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="7dp"
 
-        </RelativeLayout>
 
-        <Button
-            android:id="@+id/btnPayment"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            style="@style/checkout_background_btn"
-            android:text="@string/payment"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp"
-            android:focusable="true"
-            android:clickable="true"
-            android:layout_marginBottom="20dp" />
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/addressCountry"
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v1"
+                android:hint="Country"
+                android:minHeight="50dp"
+                android:paddingStart="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/addressState"
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v1"
+                android:hint="State"
+                android:minHeight="50dp"
+                android:paddingStart="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/addressCountry" />
+
+
+            <EditText
+                android:id="@+id/addressCity"
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v1"
+                android:hint="City"
+                android:minHeight="50dp"
+                android:paddingStart="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/addressState" />
+
+            <EditText
+                android:id="@+id/addressArea"
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v1"
+                android:hint="Area"
+                android:minHeight="50dp"
+                android:paddingStart="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/addressCity" />
+
+            <EditText
+                android:id="@+id/addressStreet"
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v1"
+                android:hint="Rest of address in detail (e.g. street)"
+                android:minHeight="50dp"
+                android:paddingStart="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/addressArea" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_v1" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/TextColor_v2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/subtotal"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/subTotalPriceOfItemsPayment"
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextColor_v2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/standard_delivery"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/deliveryCostPayment"
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_v1" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/total"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/totalPriceOfItemsPayment"
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnPayment"
+                style="@style/checkout_background_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/payment"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

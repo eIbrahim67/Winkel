@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/profileFragment_layout"
-    tools:context=".mainPages.ProfileFragment"
+    tools:context=".profile.ProfileFragment"
     style="@style/background">
 
     <ScrollView
@@ -33,26 +33,18 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp">
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    style="@style/search_icon"
-                    android:layout_gravity="center_vertical"
-                    android:background="@android:color/transparent"
-                    android:padding="8dp"
-                    android:layout_marginStart="10dp"/>
 
                 <TextView
+                    style="@style/TextColor_v1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/search"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/blue_v3"
-                    android:textSize="16sp"
-                    android:paddingEnd="10dp"
-                    android:paddingStart="0dp"
-                    android:background="@android:color/transparent"
-                    android:autofillHints="" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/font_v3"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    tools:ignore="RelativeOverlap" />
 
             </LinearLayout>
 
@@ -126,6 +118,7 @@
                     style="@style/line"/>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/btnPaymentMethods"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -380,15 +373,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginEnd="20dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:text="@string/for_admins"
                     android:textSize="24sp"
+                    android:fontFamily="@font/font_v3"
                     android:textStyle="bold"
                     tools:ignore="RelativeOverlap" />
 
@@ -500,17 +493,18 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginEnd="20dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:text="@string/for_vendors"
                     android:textSize="24sp"
+                    android:fontFamily="@font/font_v3"
                     android:textStyle="bold"
                     tools:ignore="RelativeOverlap" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -613,6 +607,7 @@
             </LinearLayout>
 
             <TextView
+                android:visibility="gone"
                 style="@style/TextColor_v1"
                 android:layout_width="match_parent"
                 android:layout_marginEnd="20dp"
@@ -627,6 +622,7 @@
                 tools:ignore="RelativeOverlap" />
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -889,6 +885,7 @@
                     style="@style/line"/>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/btnSupport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

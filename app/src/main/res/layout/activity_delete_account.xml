@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondPages.deletePages.DeleteAccountActivity">
+    tools:context=".deletePages.DeleteAccountFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,6 +21,7 @@
             android:layout_marginEnd="20dp">
 
             <ImageView
+                android:id="@+id/btnBack"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
@@ -79,7 +80,8 @@
 
         <TextView
             style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
@@ -382,7 +384,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/btnPayment"
+            android:id="@+id/btnDeleteAccountConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"

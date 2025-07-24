@@ -1,38 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".secondPages.profilePagePages.MyOrdersActivity"
-    style="@style/background">
+    android:orientation="vertical"
+    tools:context=".MyOrdersFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/my_orders"
-            android:textSize="40sp"
-            android:fontFamily="@font/font_v1"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            style="@style/TextColor_v1"
-            android:background="@android:color/transparent"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/back_arrow_background_btn"
+                android:padding="9dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:contentDescription="@string/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                style="@style/TextColor_v1"
+                android:text="@string/my_orders"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/re_my_orders"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
 

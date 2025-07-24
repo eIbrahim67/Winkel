@@ -138,7 +138,7 @@
     <string name="_50">-50%</string>
     <string name="top_sales">أفضل المبيعات</string>
     <string name="main_categories">الفئات الرئيسية</string>
-    <string name="babies">الأطفال الرضع</string>
+    <string name="babies">الأطفال</string>
     <string name="girls">الفتيات</string>
     <string name="home">المنزل</string>
     <string name="new_releases">الإصدارات الجديدة</string>
@@ -268,5 +268,26 @@
     <string name="describe_your_experience_here">وصف تجربتك هنا</string>
     <string name="choose_your_prefer_language_to_show_our_content_with_it">اختر اللغة المفضلة لك لعرض محتوانا بها</string>
     <string name="back">العودة</string>
+    <string name="system_settings">إعدادات الجهاز</string>
+    <string name="wishlist">قائمة الرغبات</string>
+    <string name="winkel">وينكل</string>
+    <string name="item_detail">تفاصيل المنتج</string>
+    <string name="hello_blank_fragment">مرحبًا بالمقطع الفارغ</string>
+    <string name="remove">إزالة</string>
+    <string name="decrement">نقص</string>
+    <string name="increment">زيادة</string>
+    <string name="_1">١</string>
+    <string name="love_button">زر الإعجاب</string>
+    <string name="item_added_to_basket_successfully">تمت إضافة المنتج إلى السلة بنجاح</string>
+    <string name="view_basket">عرض السلة</string>
+    <string name="description">الوصف</string>
+    <string name="reviews">المراجعات</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="item_id">معرّف المنتج:</string>
+    <string name="category_of_item">فئة المنتج:</string>
+    <string name="size_of_item">حجم المنتج:</string>
+    <string name="price_of_item">سعر المنتج:</string>
+    <string name="much_of_item">كمية المنتج:</string>
+    <string name="total_price_of_this_item">السعر الإجمالي لهذا المنتج:</string>
 
 </resources>

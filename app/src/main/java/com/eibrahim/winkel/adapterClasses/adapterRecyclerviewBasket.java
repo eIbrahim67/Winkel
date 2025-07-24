@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.mainPages.CheckoutFragment;
+import com.eibrahim.winkel.checkout.CheckoutFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -154,7 +154,7 @@ private final CheckoutFragment checkoutFragment;
 
             Toast.makeText(context, "Item deleted from your basket", Toast.LENGTH_SHORT).show();
             if (checkoutFragment != null) {
-                checkoutFragment.re(Double.valueOf(currentItem.getTotalPriceItem()));
+                checkoutFragment.re(currentItem.getTotalPriceItem());
             }
 
             basketRef

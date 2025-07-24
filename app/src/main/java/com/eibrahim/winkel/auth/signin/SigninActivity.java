@@ -6,10 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.eibrahim.winkel.auth.signin.SigninViewModel;
 import com.eibrahim.winkel.auth.signup.SignupActivity;
 import com.eibrahim.winkel.databinding.ActivitySigninBinding;
-import com.eibrahim.winkel.mainPages.MainActivity;
+import com.eibrahim.winkel.main.MainActivity;
 
 public class SigninActivity extends AppCompatActivity {
 

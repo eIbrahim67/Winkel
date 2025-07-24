@@ -19,64 +19,64 @@
         android:theme="@style/Theme.Winkel"
         tools:targetApi="31">
         <activity
-            android:name=".secondPages.deletePages.ConfirmDeletionActivity"
+            android:name=".deletePages.ConfirmDeletionFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.deletePages.DeleteAccountActivity"
+            android:name=".deletePages.DeleteAccountFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.SupportUsActivity"
+            android:name="._old.SupportUsActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.AboutActivity"
+            android:name=".AboutFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.PermissionsActivity"
+            android:name=".PermissionsFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.HelpFeedbackActivity"
+            android:name=".HelpFeedbackFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.SoundActivity"
+            android:name="._old.SoundActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.NotificationsActivity"
+            android:name="._old.NotificationsActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.SecurityActivity"
+            android:name=".SecurityFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.LanguagesActivity"
+            android:name=".LanguagesFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.ThemeActivity"
+            android:name=".ThemeFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.adminPages.AllUsersActivity"
+            android:name=".adminPages.AllUsersActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.adminPages.OrdersActivity"
+            android:name=".adminPages.OrdersFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.vendorPages.MyItemsActivity"
+            android:name=".vendorPages.MyItemsFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.MyOrdersActivity"
+            android:name=".MyOrdersFragment"
             android:exported="false" />
         <activity
-            android:name=".myPaymentPage.MyPaymentMethodsActivity"
+            android:name="._old._payment.MyPaymentMethodsActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.PersonalDataActivity"
+            android:name=".PersonalDataFragment"
             android:exported="false" />
         <activity
-            android:name=".secondPages.profilePagePages.PinActivity"
+            android:name=".PinFragment"
             android:exported="false" />
         <activity
-            android:name=".addPaymentPage.addPaymentMethodActivity"
+            android:name="._old.addPaymentPage.addPaymentMethodActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.vendorPages.AddItemActivity"
+            android:name=".vendorPages.AddItemFragment"
             android:exported="false" />
         <activity
             android:name=".auth.signin.SigninActivity"
@@ -85,13 +85,13 @@
             android:name=".auth.signup.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".paymentPage.view.PaymentActivity"
+            android:name="._old._payment.view.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".secondPages.item.ItemDetailActivity"
+            android:name=".item.ItemDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".mainPages.MainActivity"
+            android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

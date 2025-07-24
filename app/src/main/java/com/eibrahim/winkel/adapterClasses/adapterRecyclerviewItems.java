@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.eibrahim.winkel.secondPages.item.ItemDetailActivity;
+import com.eibrahim.winkel.item.ItemDetailActivity;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,7 +63,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DataRecyclerviewMyItem currentItem = itemList.get(position);
-        
+
         FirebaseAuth auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
@@ -111,8 +111,8 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
                 currentItem.setItemLoved(true);
                 wishlistRef
                         .update("Wishlist", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
-                                .addOnSuccessListener(unused ->
-                                    Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show())
+                        .addOnSuccessListener(unused ->
+                                Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show())
                         .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
             }
 

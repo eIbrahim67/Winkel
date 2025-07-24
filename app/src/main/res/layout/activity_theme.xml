@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondPages.profilePagePages.ThemeActivity">
+    tools:context=".ThemeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_marginEnd="20dp">
 
                 <ImageView
-                    
+                    android:id="@+id/btnBack"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     style="@style/back_arrow_background_btn"
@@ -51,6 +51,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -64,9 +65,9 @@
                 android:paddingEnd="20dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Light Mode"
+                    android:text="@string/light_mode"
                     style="@style/TextColor_v1"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
@@ -86,6 +87,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -101,7 +103,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Dark Mode"
+                    android:text="@string/dark_mode"
                     style="@style/TextColor_v1"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
@@ -121,6 +123,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnSystem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -136,7 +139,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="System Settings"
+                    android:text="@string/system_settings"
                     style="@style/TextColor_v1"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondPages.profilePagePages.HelpFeedbackActivity">
+    tools:context=".HelpFeedbackFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,480 +14,499 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/btnBack"
+                style="@style/back_arrow_background_btn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                style="@style/back_arrow_background_btn"
-                android:padding="9dp"
-
-                android:focusable="true"
                 android:clickable="true"
+
                 android:contentDescription="Back"
+                android:focusable="true"
+                android:padding="9dp"
                 tools:ignore="HardcodedText" />
 
             <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="26sp"
-                style="@style/TextColor_v1"
-                android:text="@string/help_feedback"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
+                android:text="@string/help_feedback"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
 
         </LinearLayout>
 
         <LinearLayout
+            style="@style/rounded_white_v2_black_none_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:orientation="horizontal"
-            style="@style/rounded_white_v2_black_none_gray"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
             android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp">
 
             <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/your_opinion_counts_share_your_feedback_and_help_us_to_serve_you_better"
-                style="@style/TextColor_v1"
-                android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:textSize="17sp"
-                android:fontFamily="@font/font_v5"/>
+                android:layout_weight="1"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/your_opinion_counts_share_your_feedback_and_help_us_to_serve_you_better"
+                android:textSize="17sp" />
 
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_vertical"
-                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
                 android:src="@drawable/feedback_v1"
-                 />
+                app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
         </LinearLayout>
 
         <TextView
             style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/font_v3"
             android:text="@string/share_with_us_your_thoughts"
             android:textSize="22sp"
-            android:fontFamily="@font/font_v3"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
         <LinearLayout
+            style="@style/rounded_white_v2_black_none_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            style="@style/rounded_white_v2_black_none_gray">
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical">
 
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/my_shopping_experience_on_our_app_was_satisfactory"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/the_quality_of_the_products_met_my_expectations"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/i_was_satisfied_with_the_speed_and_reliability_of_our_delivery_service"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/my_inquiries_or_concerns_were_addressed_satisfactorily_by_the_customer_service_team"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/it_was_easy_to_navigate_through_our_app_and_find_what_i_was_looking_for"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/i_encountered_difficulties_during_the_checkout_process"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/i_am_likely_to_recommend_our_app_to_friends_or_family"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/i_have_suggestions_for_improvements_to_enhance_my_shopping_experience_with_us"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/i_found_a_satisfactory_range_of_products_on_our_app"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
+
             <View
+                style="@style/line"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
+                android:layout_height="1dp" />
+
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-
-                android:focusable="true"
                 android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+                android:focusable="true"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+
+                android:paddingBottom="10dp">
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="@string/i_anticipate_using_our_app_for_future_clothing_purchases"
-                    android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
+                    android:text="@string/i_anticipate_using_our_app_for_future_clothing_purchases"
+                    android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
                 <CheckBox
+                    style="@style/radio_button_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
+            style="@style/rounded_white_v2_black_none_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:orientation="vertical"
-            style="@style/rounded_white_v2_black_none_gray"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
             android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp">
 
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                style="@style/rounded_white_v2_black_none_gray">
+                android:orientation="horizontal">
 
                 <TextView
+                    style="@style/TextColor_v2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/your_feedback_matters__report_any_significant_issues_or_suggestions_for_improvement_and_you_could_win_an_exciting_prize_as_a_token_of_our_appreciation_for_helping_us_enhance_your_shopping_experience"
-                    style="@style/TextColor_v2"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v5"/>
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/font_v5"
+                    android:gravity="center"
+                    android:text="@string/your_feedback_matters__report_any_significant_issues_or_suggestions_for_improvement_and_you_could_win_an_exciting_prize_as_a_token_of_our_appreciation_for_helping_us_enhance_your_shopping_experience"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -497,49 +515,49 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_white_v2_black_v1_white_v1"
-            android:layout_marginBottom="30dp">
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rounded_white_v2_black_v1_white_v1">
 
             <EditText
+                style="@style/TextColor_v1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="100dp"
-                android:textSize="20sp"
-                style="@style/TextColor_v1"
                 android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
                 android:fontFamily="@font/font_v1"
-                android:paddingTop="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="20dp"
-                android:textStyle="bold"
                 android:gravity="top"
                 android:hint="@string/describe_your_experience_here"
-                tools:ignore="RelativeOverlap"
+                android:importantForAutofill="no"
                 android:inputType="text"
-                android:focusable="true"
-                android:clickable="true"
-                android:importantForAutofill="no" />
+                android:minHeight="100dp"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="20dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
 
         </RelativeLayout>
 
         <Button
             android:id="@+id/btnPayment"
+            style="@style/checkout_background_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            style="@style/checkout_background_btn"
             android:text="@string/send"
-            android:textSize="20sp"
-            android:layout_marginStart="20dp"
-            android:focusable="true"
-            android:clickable="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 

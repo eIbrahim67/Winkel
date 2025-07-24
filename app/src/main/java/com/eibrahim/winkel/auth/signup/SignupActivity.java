@@ -48,6 +48,7 @@ public class SignupActivity extends AppCompatActivity {
         userType = type;
         binding.licenseAdd.setVisibility(View.VISIBLE);
         binding.codeLayout.setVisibility("Admin".equals(type) ? View.VISIBLE : View.GONE);
+        binding.codeLayout.setVisibility("Vendor".equals(type) ? View.VISIBLE : View.GONE);
         if ("Customer".equals(type)) binding.licenseAdd.setVisibility(View.GONE);
     }
 

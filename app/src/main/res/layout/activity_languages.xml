@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondPages.deletePages.DeleteAccountActivity">
+    tools:context=".deletePages.DeleteAccountFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,6 +21,7 @@
             android:layout_marginEnd="20dp">
 
             <ImageView
+                android:id="@+id/btnBack"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 style="@style/back_arrow_background_btn"
@@ -126,13 +127,10 @@
             style="@style/rounded_white_v2_black_none_gray">
 
             <LinearLayout
+                android:id="@+id/btnArabic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:orientation="horizontal"
-
-
                 android:focusable="true"
                 android:clickable="true"
                 style="@style/rounded_white_v2_black_none_gray">
@@ -145,16 +143,10 @@
                     android:text="@string/arabic_ar"
                     android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_margin="20dp"
                     android:layout_weight="1"
                     tools:ignore="RelativeOverlap" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"/>
 
             </LinearLayout>
             <View
@@ -162,10 +154,9 @@
                 android:layout_height="1dp"
                 style="@style/line"/>
             <LinearLayout
+                android:id="@+id/btnEnglish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:orientation="horizontal"
 
                 android:focusable="true"
@@ -178,19 +169,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
+                    android:layout_margin="20dp"
                     android:text="@string/english"
                     android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_weight="1"
                     tools:ignore="RelativeOverlap" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"/>
+
 
             </LinearLayout>
             <View
@@ -198,10 +184,9 @@
                 android:layout_height="1dp"
                 style="@style/line"/>
             <LinearLayout
+                android:id="@+id/btnSystem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:orientation="horizontal"
 
 
@@ -214,162 +199,156 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="@string/dutch"
+                    android:text="@string/system_settings"
                     android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_margin="20dp"
                     android:layout_weight="1"
                     tools:ignore="RelativeOverlap" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"/>
 
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                style="@style/line"/>-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:orientation="horizontal"-->
 
 
-                android:focusable="true"
-                android:clickable="true"
-                style="@style/rounded_white_v2_black_none_gray">
+<!--                android:focusable="true"-->
+<!--                android:clickable="true"-->
+<!--                style="@style/rounded_white_v2_black_none_gray">-->
 
-                <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="@string/italiano"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    tools:ignore="RelativeOverlap" />
+<!--                <TextView-->
+<!--                    style="@style/TextColor_v1"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:text="@string/italiano"-->
+<!--                    android:fontFamily="@font/font_v3"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    tools:ignore="RelativeOverlap" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"/>
+<!--                <CheckBox-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/radio_button_background"-->
+<!--                    android:layout_marginEnd="20dp"/>-->
 
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
+<!--            </LinearLayout>-->
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                style="@style/line"/>-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:orientation="horizontal"-->
 
-                android:focusable="true"
-                android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+<!--                android:focusable="true"-->
+<!--                android:clickable="true"-->
+<!--                -->
+<!--                style="@style/rounded_white_v2_black_none_gray">-->
 
-                <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="@string/turkce"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    tools:ignore="RelativeOverlap" />
+<!--                <TextView-->
+<!--                    style="@style/TextColor_v1"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:text="@string/turkce"-->
+<!--                    android:fontFamily="@font/font_v3"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    tools:ignore="RelativeOverlap" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"/>
+<!--                <CheckBox-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/radio_button_background"-->
+<!--                    android:layout_marginEnd="20dp"/>-->
 
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-                android:focusable="true"
-                android:clickable="true"
-                
-                style="@style/rounded_white_v2_black_none_gray">
+<!--            </LinearLayout>-->
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                style="@style/line"/>-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:focusable="true"-->
+<!--                android:clickable="true"-->
+<!--                -->
+<!--                style="@style/rounded_white_v2_black_none_gray">-->
 
-                <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="@string/indonesia"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    tools:ignore="RelativeOverlap" />
+<!--                <TextView-->
+<!--                    style="@style/TextColor_v1"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:text="@string/indonesia"-->
+<!--                    android:fontFamily="@font/font_v3"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    tools:ignore="RelativeOverlap" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"/>
+<!--                <CheckBox-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/radio_button_background"-->
+<!--                    android:layout_marginEnd="20dp"/>-->
 
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                style="@style/line"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal"
-                android:focusable="true"
-                android:clickable="true"
-                style="@style/rounded_white_v2_black_none_gray">
+<!--            </LinearLayout>-->
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                style="@style/line"/>-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:focusable="true"-->
+<!--                android:clickable="true"-->
+<!--                style="@style/rounded_white_v2_black_none_gray">-->
 
-                <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="@string/espanol"
-                    android:fontFamily="@font/font_v3"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    tools:ignore="RelativeOverlap" />
+<!--                <TextView-->
+<!--                    style="@style/TextColor_v1"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:text="@string/espanol"-->
+<!--                    android:fontFamily="@font/font_v3"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    tools:ignore="RelativeOverlap" />-->
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/radio_button_background"
-                    android:layout_marginEnd="20dp"/>
+<!--                <CheckBox-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/radio_button_background"-->
+<!--                    android:layout_marginEnd="20dp"/>-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
         </LinearLayout>
 

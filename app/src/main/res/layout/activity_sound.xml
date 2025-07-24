@@ -3,6 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondPages.profilePagePages.SoundActivity">
+    tools:context="._old.SoundActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
