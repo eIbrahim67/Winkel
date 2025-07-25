@@ -11,35 +11,26 @@ import java.util.Objects;
 public class FetchUserType {
 
     public final LinearLayout for_admins; // Public field declaration
-    public final LinearLayout for_vendors; // Public field declaration
 
-    public FetchUserType(LinearLayout for_admins, LinearLayout for_vendors) {
+    public FetchUserType(LinearLayout for_admins) {
         this.for_admins = for_admins;
-        this.for_vendors = for_vendors;
     }
 
     public void fetchIt() {
 
-                            for_vendors.setVisibility(View.VISIBLE);
-        FirebaseFirestore.getInstance().collection("UsersData")
-                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
-                .collection("UserPersonalData")
-                .document("UserPersonalData")
-                .get()
-                .addOnSuccessListener(documentSnapshot -> {
+        FirebaseFirestore.getInstance().collection("UsersData").document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).collection("UserPersonalData").document("UserPersonalData").get().addOnSuccessListener(documentSnapshot -> {
 
-                    String type = (String) documentSnapshot.get("userType");
+            String type = (String) documentSnapshot.get("userType");
 
-                    if (documentSnapshot.exists()){
+            if (documentSnapshot.exists()) {
 
-                        if (Objects.equals(type, "Admin")){
-                            for_admins.setVisibility(View.VISIBLE);
-                        }
-                        else if (Objects.equals(type, "Vendor")){
-                        }
-                    }
+                if (Objects.equals(type, "Admin")) {
+                    for_admins.setVisibility(View.VISIBLE);
+                } else if (Objects.equals(type, "Vendor")) {
+                }
+            }
 
-                });
+        });
 
     }
 }

@@ -23,9 +23,9 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:pointerIcon="handwriting"
-        app:backgroundTint="@color/white_v3"
-        app:itemIconTint="@color/gray_v3"
-        app:itemTextColor="@color/gray_v3"
+        app:backgroundTint="@color/primary_white"
+        app:itemIconTint="@color/primary_gray"
+        app:itemTextColor="@color/primary_gray"
         app:layout_insetEdge="bottom"
         app:menu="@menu/menu_home" />
 

@@ -13,23 +13,26 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.adminPages.OrdersFragment;
-import com.eibrahim.winkel.auth.signin.SigninActivity;
+import com.eibrahim.winkel.auth.AuthActivity;
+import com.eibrahim.winkel.auth.signIn.SignInFragment;
 import com.eibrahim.winkel.databinding.FragmentProfileBinding;
 import com.eibrahim.winkel.declaredClasses.FetchUserType;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     private FetchUserType fetchUserType;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
-
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.VISIBLE);
         try {
-            fetchUserType = new FetchUserType(binding.forAdmin, binding.forVendors);
+            fetchUserType = new FetchUserType(binding.forAdmin);
             fetchUserType.fetchIt();
 
             binding.profileFragmentLayout.setOnRefreshListener(() -> {
@@ -112,22 +115,8 @@ public class ProfileFragment extends Fragment {
         });
 
 
-        binding.btnOrders.setOnClickListener(v -> navigateTo(OrdersFragment.class));
+//        binding.btnOrders.setOnClickListener(v -> navigateTo(OrdersFragment.class));
 
-    }
-
-    private void navigateTo(Class<?> destination) {
-        if (getActivity() != null) {
-            startActivity(new Intent(getActivity(), destination));
-        }
-    }
-
-    private void navigateTo(Class<?> destination, String key, int value) {
-        if (getActivity() != null) {
-            Intent intent = new Intent(getActivity(), destination);
-            intent.putExtra(key, value);
-            startActivity(intent);
-        }
     }
 
     private void showLogoutDialog() {
@@ -136,11 +125,11 @@ public class ProfileFragment extends Fragment {
         new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.log_out)
                 .setMessage(R.string.are_you_sure)
-                .setPositiveButton(getText(R.string.delete), (dialog, which) -> {
+                .setPositiveButton(getText(R.string.yes), (dialog, which) -> {
                     dialog.dismiss();
                     logout();
                 })
-                .setNegativeButton(getText(R.string.cancel), (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(getText(R.string.no), (dialog, which) -> dialog.dismiss())
                 .show();
 
     }
@@ -149,7 +138,7 @@ public class ProfileFragment extends Fragment {
         try {
             FirebaseAuth.getInstance().signOut();
             Toast.makeText(requireContext(), getString(R.string.logged_out_successfully), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(requireContext(), SigninActivity.class);
+            Intent intent = new Intent(requireContext(), AuthActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             requireActivity().finish();
@@ -157,6 +146,12 @@ public class ProfileFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(requireContext(), getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        bottomNavigationView.setVisibility(View.VISIBLE);
     }
 
     @Override

@@ -19,6 +19,7 @@ import com.eibrahim.winkel.declaredClasses.Search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
+    private BottomNavigationView bottomNavigationView;
 
     private FragmentHomeBinding binding;
     private DoFilter doFilter;
@@ -27,10 +28,9 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
 
         try {
-            BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
-
             InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 
             PopupMenu popup = new PopupMenu(requireContext(), binding.topsBtn);
@@ -112,6 +112,7 @@ public class HomeFragment extends Fragment {
 
             binding.btnCloseSearch.setOnClickListener(v -> {
                 binding.searchPage.setVisibility(View.GONE);
+                bottomNavigationView.setVisibility(View.VISIBLE);
                 imm.hideSoftInputFromWindow(binding.searchText.getWindowToken(), 0);
             });
 
@@ -167,7 +168,6 @@ public class HomeFragment extends Fragment {
             requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
                 @Override
                 public void handleOnBackPressed() {
-                    BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
                     if (binding.searchPage.getVisibility() == View.VISIBLE) {
                         binding.searchPage.setVisibility(View.GONE);
                         bottomNavigationView.setVisibility(View.VISIBLE);

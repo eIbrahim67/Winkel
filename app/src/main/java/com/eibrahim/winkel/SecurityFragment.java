@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.eibrahim.winkel.databinding.ActivitySecurityBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SecurityFragment extends Fragment {
 
     private ActivitySecurityBinding binding;
+    private BottomNavigationView bottomNavigationView;
 
     public SecurityFragment() {
         // Required empty public constructor
@@ -30,7 +32,8 @@ public class SecurityFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
         // If you're using the Navigation Component, replace with:
         // NavHostFragment.findNavController(this).popBackStack();

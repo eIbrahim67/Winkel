@@ -35,12 +35,12 @@ public class SignupViewModel extends AndroidViewModel {
         return errorMessage;
     }
 
-    public void createAccount(String email, String password, String username, String phoneNo, String userType, String pinNum) {
+    public void createAccount(String email, String password, String username, String phoneNo, String pinNum) {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Log.d("SignupViewModel", "Account created");
-                        saveUserData(username, phoneNo, userType, pinNum);
+                        saveUserData(username, phoneNo, "User", pinNum);
                     } else {
                         errorMessage.setValue("Failed to create account: " + Objects.requireNonNull(task.getException()).getMessage());
                     }

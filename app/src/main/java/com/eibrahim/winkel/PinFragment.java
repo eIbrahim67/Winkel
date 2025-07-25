@@ -13,6 +13,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.eibrahim.winkel.databinding.ActivityPinBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Objects;
 
 public class PinFragment extends Fragment {
+    private BottomNavigationView bottomNavigationView;
+
 
     private ActivityPinBinding binding;
     private String pin = "";
@@ -40,14 +43,12 @@ public class PinFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
         try {
 
             String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getUid());
-            pinRef = FirebaseFirestore.getInstance()
-                    .collection("UsersData")
-                    .document(userId)
-                    .collection("UserPersonalData")
-                    .document("UserPersonalData");
+            pinRef = FirebaseFirestore.getInstance().collection("UsersData").document(userId).collection("UserPersonalData").document("UserPersonalData");
 
             setClickListeners();
 

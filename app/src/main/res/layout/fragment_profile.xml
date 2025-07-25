@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileFragment_layout"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/profileFragment_layout"
-    tools:context=".profile.ProfileFragment"
-    style="@style/background">
+    tools:context=".profile.ProfileFragment">
 
     <ScrollView
+        style="@style/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".secondPages.SettingsActivity"
-        style="@style/background">
+        tools:context=".secondPages.SettingsActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,29 +20,29 @@
             android:paddingBottom="40dp">
 
             <LinearLayout
+                android:id="@+id/search_btn"
+                style="@style/circle_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:orientation="horizontal"
-                style="@style/circle_white_v2_black_none_gray"
-                android:paddingTop="7dp"
-                android:paddingBottom="7dp"
-                android:clickable="true"
-                android:id="@+id/search_btn"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="20dp">
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp">
 
 
                 <TextView
                     style="@style/TextColor_v1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/profile"
-                    android:gravity="center"
-                    android:textSize="22sp"
-                    android:fontFamily="@font/font_v3"
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
+                    android:fontFamily="@font/font_v3"
+                    android:gravity="center"
+                    android:text="@string/profile"
+                    android:textSize="22sp"
                     tools:ignore="RelativeOverlap" />
 
             </LinearLayout>
@@ -51,157 +50,157 @@
             <TextView
                 style="@style/TextColor_v1"
                 android:layout_width="match_parent"
-                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v3"
                 android:text="@string/account_data"
                 android:textSize="24sp"
-                android:fontFamily="@font/font_v3"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
 
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
-                style="@style/rounded_white_v2_black_none_gray">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/btnProfile"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/user_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/user_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
                         android:text="@string/personal_data"
                         android:textSize="18sp"
-                        android:fontFamily="@font/font_v3"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
 
                 <LinearLayout
-                    android:visibility="gone"
                     android:id="@+id/btnPaymentMethods"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:orientation="horizontal"
                     android:paddingTop="15dp"
                     android:paddingBottom="15dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:visibility="gone">
 
                     <ImageView
+                        style="@style/card_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/card_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/payment_methods"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/payment_methods"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
 
                 <LinearLayout
                     android:id="@+id/btnMyOrders"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/layers_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/layers_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/my_orders"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/my_orders"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -210,395 +209,275 @@
             <TextView
                 style="@style/TextColor_v1"
                 android:layout_width="match_parent"
-                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v3"
                 android:text="@string/personalization"
                 android:textSize="24sp"
-                android:fontFamily="@font/font_v3"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
 
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
-                style="@style/rounded_white_v2_black_none_gray">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/btnDarkMode"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/moon_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/moon_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/dark_mode"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/font_v3"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        android:text="@string/dark_mode"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
 
                 <LinearLayout
                     android:id="@+id/btnLanguages"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/language_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/language_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/languages"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/languages"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
 
                 <LinearLayout
                     android:id="@+id/btnSecurity"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/security_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/security_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/security_policies"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/security_policies"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/for_admin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
+                    style="@style/TextColor_v1"
                     android:layout_width="match_parent"
-                    android:layout_marginEnd="20dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/font_v3"
                     android:text="@string/for_admins"
                     android:textSize="24sp"
-                    android:fontFamily="@font/font_v3"
                     android:textStyle="bold"
                     tools:ignore="RelativeOverlap" />
 
                 <LinearLayout
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginTop="10dp"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/btnOrders"
+                        style="@style/rounded_white_v2_black_none_gray"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
                         android:clickable="true"
                         android:focusable="true"
-                        style="@style/rounded_white_v2_black_none_gray">
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp">
 
                         <ImageView
+                            style="@style/layers_icon"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            style="@style/layers_icon"
-                            android:layout_marginStart="10dp"/>
+                            android:layout_marginStart="10dp" />
 
                         <TextView
                             style="@style/TextColor_v1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/all_orders"
-                            android:textSize="18sp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="10dp"
                             android:fontFamily="@font/font_v3"
+                            android:text="@string/all_orders"
+                            android:textSize="18sp"
                             tools:ignore="RelativeOverlap" />
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" />
 
                         <ImageView
                             style="@style/arrow_right_icon"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_marginEnd="10dp"/>
+                            android:layout_marginEnd="10dp" />
 
                     </LinearLayout>
 
                     <View
+                        style="@style/line"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        style="@style/line"/>
+                        android:layout_height="1dp" />
 
                     <LinearLayout
                         android:id="@+id/btnAllUsers"
+                        style="@style/rounded_white_v2_black_none_gray"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
                         android:clickable="true"
                         android:focusable="true"
-                        style="@style/rounded_white_v2_black_none_gray">
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp">
 
                         <ImageView
+                            style="@style/user_icon"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            style="@style/user_icon"
-                            android:layout_marginStart="10dp"/>
+                            android:layout_marginStart="10dp" />
 
                         <TextView
                             style="@style/TextColor_v1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/font_v3"
                             android:text="@string/all_users"
                             android:textSize="18sp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/font_v3"
                             tools:ignore="RelativeOverlap" />
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" />
 
                         <ImageView
                             style="@style/arrow_right_icon"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_marginEnd="10dp"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/for_vendors"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_marginEnd="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/for_vendors"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/font_v3"
-                    android:textStyle="bold"
-                    tools:ignore="RelativeOverlap" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="10dp"
-                    style="@style/rounded_white_v2_black_none_gray">
-
-                    <LinearLayout
-                        android:id="@+id/btnAddNewItem"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        style="@style/rounded_white_v2_black_none_gray">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/folder_add_icon"
-                            android:layout_marginStart="10dp"/>
-
-                        <TextView
-                            style="@style/TextColor_v1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/add_new_item"
-                            android:textSize="18sp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/font_v3"
-                            tools:ignore="RelativeOverlap" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"/>
-
-                        <ImageView
-                            style="@style/arrow_right_icon"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginEnd="10dp"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        style="@style/line"/>
-
-                    <LinearLayout
-                        android:id="@+id/btnMyItems"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        style="@style/rounded_white_v2_black_none_gray">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/layers_icon"
-                            android:layout_marginStart="10dp"/>
-
-                        <TextView
-                            style="@style/TextColor_v1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/my_items"
-                            android:textSize="18sp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/font_v3"
-                            tools:ignore="RelativeOverlap" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"/>
-
-                        <ImageView
-                            style="@style/arrow_right_icon"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginEnd="10dp"/>
+                            android:layout_marginEnd="10dp" />
 
                     </LinearLayout>
 
@@ -607,91 +486,203 @@
             </LinearLayout>
 
             <TextView
-                android:visibility="gone"
                 style="@style/TextColor_v1"
                 android:layout_width="match_parent"
-                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
-                android:fontFamily="@font/font_v3"
                 android:layout_marginTop="30dp"
-                android:text="@string/notifications"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v3"
+                android:text="@string/for_vendors"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
 
             <LinearLayout
-                android:visibility="gone"
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
-                style="@style/rounded_white_v2_black_none_gray">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/btnNotifications"
+                    android:id="@+id/btnAddNewItem"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/folder_add_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/notification_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/notifications"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/add_new_item"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:id="@+id/btnMyItems"
+                    style="@style/rounded_white_v2_black_none_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
+
+                    <ImageView
+                        style="@style/layers_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        android:text="@string/my_items"
+                        android:textSize="18sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v3"
+                android:text="@string/notifications"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:ignore="RelativeOverlap" />
+
+            <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/btnNotifications"
+                    style="@style/rounded_white_v2_black_none_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
+
+                    <ImageView
+                        style="@style/notification_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        android:text="@string/notifications"
+                        android:textSize="18sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp" />
 
                 <LinearLayout
                     android:id="@+id/btnSound"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/sound_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/sound_icon"
                         android:layout_marginStart="10dp"
                         android:contentDescription="@string/sound" />
 
@@ -699,23 +690,23 @@
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/sound"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/sound"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -724,87 +715,87 @@
             <TextView
                 style="@style/TextColor_v1"
                 android:layout_width="match_parent"
-                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
-                android:fontFamily="@font/font_v3"
                 android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v3"
                 android:text="@string/accessibility_advanced"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
 
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
-                style="@style/rounded_white_v2_black_none_gray">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/btnHelpFeedback"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/happy_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/happy_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/help_feedback"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/help_feedback"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
 
                 <LinearLayout
                     android:id="@+id/btnPermissions"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/permission_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/permission_icon"
                         android:layout_marginStart="10dp"
                         android:contentDescription="@string/sound" />
 
@@ -812,46 +803,46 @@
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/permissions"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/permissions"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
 
                 <LinearLayout
                     android:id="@+id/btnAbout"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/about_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/about_icon"
                         android:layout_marginStart="10dp"
                         android:contentDescription="@string/sound" />
 
@@ -859,70 +850,70 @@
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/about"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/about"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
 
                 <LinearLayout
-                    android:visibility="gone"
                     android:id="@+id/btnSupport"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:orientation="horizontal"
                     android:paddingTop="15dp"
                     android:paddingBottom="15dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:visibility="gone">
 
                     <ImageView
+                        style="@style/support_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/support_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/support_us"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/support_us"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -934,84 +925,84 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/font_v3"
-                android:layout_marginTop="30dp"
                 android:text="@string/account"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
 
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
-                style="@style/rounded_white_v2_black_none_gray">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/btnLogout"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/signout_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/signout_icon"
-                        android:layout_marginStart="10dp"/>
+                        android:layout_marginStart="10dp" />
 
                     <TextView
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/log_out"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/log_out"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
                 <View
+                    style="@style/line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    style="@style/line"/>
+                    android:layout_height="1dp" />
 
                 <LinearLayout
                     android:id="@+id/btnDeleteAccount"
+                    style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:clickable="true"
                     android:focusable="true"
-                    style="@style/rounded_white_v2_black_none_gray">
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/sad_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        style="@style/sad_icon"
                         android:layout_marginStart="10dp"
                         android:contentDescription="@string/sound" />
 
@@ -1019,23 +1010,23 @@
                         style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/delete_account"
-                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
+                        android:text="@string/delete_account"
+                        android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <ImageView
                         style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 

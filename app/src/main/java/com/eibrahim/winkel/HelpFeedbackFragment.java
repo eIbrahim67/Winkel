@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.eibrahim.winkel.databinding.ActivityHelpFeedbackBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HelpFeedbackFragment extends Fragment {
 
     private ActivityHelpFeedbackBinding binding;
+    private BottomNavigationView bottomNavigationView;
 
     public HelpFeedbackFragment() {
         // Required empty public constructor
@@ -31,6 +33,8 @@ public class HelpFeedbackFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
         // If using Navigation component:
         // NavHostFragment.findNavController(this).popBackStack();

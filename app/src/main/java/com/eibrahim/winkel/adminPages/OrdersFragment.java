@@ -16,6 +16,7 @@ import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewOrders;
 import com.eibrahim.winkel.dataClasses.DataOrderItem;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrderItemData;
 import com.eibrahim.winkel.databinding.ActivityOrdersBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -24,14 +25,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrdersFragment extends Fragment {
+    private BottomNavigationView bottomNavigationView;
 
     private ActivityOrdersBinding binding;
     private FirebaseFirestore firestore;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ActivityOrdersBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -40,6 +41,8 @@ public class OrdersFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
         binding.reOrders.setLayoutManager(new GridLayoutManager(requireContext(), 1));
         firestore = FirebaseFirestore.getInstance();
 
@@ -72,9 +75,7 @@ public class OrdersFragment extends Fragment {
 
             AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(requireContext(), allOrders);
             binding.reOrders.setAdapter(adapter);
-        }).addOnFailureListener(e ->
-                Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show()
-        );
+        }).addOnFailureListener(e -> Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
     }
 
     private DataOrderItem parseOrder(String userId, String orderString) {
@@ -102,10 +103,7 @@ public class OrdersFragment extends Fragment {
                 double itemTotal = quantity * price;
                 totalOrderPrice += itemTotal;
 
-                items.add(new DataRecyclerviewItemOrderItemData(
-                        itemId, String.valueOf(price), String.valueOf(quantity),
-                        String.valueOf(itemTotal), size, itemType
-                ));
+                items.add(new DataRecyclerviewItemOrderItemData(itemId, String.valueOf(price), String.valueOf(quantity), String.valueOf(itemTotal), size, itemType));
             }
 
             return new DataOrderItem(userId, items, String.format("%.2f", totalOrderPrice));
@@ -115,4 +113,11 @@ public class OrdersFragment extends Fragment {
             return null;
         }
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
 }

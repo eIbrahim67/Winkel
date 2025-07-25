@@ -71,6 +71,7 @@
             android:autofillHints="name">
 
             <EditText
+                android:id="@+id/update_name"
                 style="@style/TextColor_v4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -87,6 +88,7 @@
                 android:layout_weight="1"/>
 
             <ImageView
+                android:id="@+id/saveMyNewName"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 style="@style/edit_icon"
@@ -95,47 +97,6 @@
                 android:layout_marginEnd="10dp"/>
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/gender"
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:fontFamily="@font/font_v1"
-            style="@style/TextColor_v1"
-            android:layout_marginStart="20dp"
-            tools:ignore="InefficientWeight" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            style="@style/rounded_outline_solid_white_black"
-            android:inputType="textPersonName"
-            android:autofillHints="name">
-
-
-                <TextView
-                    style="@style/TextColor_v4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="20dp"
-                    android:minHeight="60dp"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:paddingEnd="10dp"
-                    android:fontFamily="@font/font_v1"
-                    android:background="@android:color/transparent"
-                    android:textSize="18sp"/>
-
-        </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -165,11 +126,14 @@
             android:autofillHints="name">
 
             <TextView
+                android:id="@+id/emailText"
                 style="@style/TextColor_v4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:minHeight="60dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:fontFamily="@font/font_v1"
                 android:autofillHints="name"
@@ -178,6 +142,7 @@
                 android:layout_weight="1"/>
 
             <ImageView
+                android:id="@+id/copyMyEmail"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 style="@style/copy_icon"
@@ -217,6 +182,7 @@
             android:autofillHints="name">
 
             <EditText
+                android:id="@+id/newPhone"
                 style="@style/TextColor_v4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -234,6 +200,7 @@
                 tools:ignore="LabelFor" />
 
             <ImageView
+                android:id="@+id/saveMyNewPhone"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 style="@style/edit_icon"
@@ -250,7 +217,7 @@
             android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/account_type"
+            android:text="@string/become_an_admin"
             android:gravity="center_vertical"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
@@ -266,25 +233,28 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
             android:textSize="20sp"
-            
-            
             style="@style/rounded_outline_solid_white_black"
             android:inputType="textPersonName"
             android:autofillHints="name">
 
-            <TextView
+            <EditText
+                android:id="@+id/codeToBeAdmin"
                 style="@style/TextColor_v4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="20dp"
-                android:paddingEnd="10dp"
-                android:minHeight="60dp"
                 android:focusable="true"
                 android:clickable="true"
+                android:hint="@string/enter_your_admin_code"
+                android:paddingEnd="10dp"
+                android:minHeight="60dp"
                 android:fontFamily="@font/font_v1"
                 android:autofillHints="name"
                 android:background="@android:color/transparent"
-                android:textSize="18sp" />
+                android:inputType="phone"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                tools:ignore="LabelFor" />
         </RelativeLayout>
 
         <LinearLayout
@@ -408,13 +378,13 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_signup"
+            android:id="@+id/sendToBeAnAdmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             style="@style/checkout_background_btn"
-            android:text="@string/done"
+            android:text="@string/request_to_become_an_admin"
             android:textSize="20sp"
             android:focusable="true"
             android:clickable="true"

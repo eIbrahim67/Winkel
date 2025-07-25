@@ -1,7 +1,7 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Winkel" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/white_v3</item>
+        <item name="android:statusBarColor">@color/primary_white</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
@@ -9,22 +9,22 @@
 
     <style name="background">
 
-        <item name="android:background">@color/white_v3</item>
+        <item name="android:background">@color/primary_white</item>
 
     </style>
 
     <style name="TextColor_v1">
 
-        <item name="android:textColor">@color/black_v1</item>
-        <item name="android:textColorHint">@color/gray_v3</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
 
     </style>
 
 
     <style name="TextColor_v2">
 
-        <item name="android:textColor">@color/gray_v3</item>
-        <item name="android:textColorHint">@color/gray_v3</item>
+        <item name="android:textColor">@color/primary_gray</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
 
     </style>
 
@@ -37,8 +37,8 @@
 
     <style name="TextColor_v4">
 
-        <item name="android:textColor">@color/black_v1</item>
-        <item name="android:textColorHint">@color/gray_v3</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
 
     </style>
 
@@ -176,7 +176,7 @@
     <style name="circle_line_gray_v2">
 
         <item name="android:background">@drawable/circle_none_gray_v2_gray_v4</item>
-        <item name="android:textColor">@color/black_v1</item>
+        <item name="android:textColor">@color/primary_black</item>
 
     </style>
 
@@ -190,7 +190,7 @@
     <style name="rounded_outline_solid_white_black">
 
         <item name="android:background">@drawable/rounded_gray_v1_gray_v12_none</item>
-        <item name="android:textColor">@color/black_v1</item>
+        <item name="android:textColor">@color/primary_black</item>
         <item name="android:textColorHint">@color/black_v2</item>
 
     </style>
@@ -239,7 +239,7 @@
 
     <style name="radio_button_background">
 
-        <item name="android:buttonTint">@color/black_v1</item>
+        <item name="android:buttonTint">@color/primary_black</item>
 
     </style>
 

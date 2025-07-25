@@ -263,7 +263,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="System Settings"
+                    android:text="@string/system_settings"
                     style="@style/TextColor_v1"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"

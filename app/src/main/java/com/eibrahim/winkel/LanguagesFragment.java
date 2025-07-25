@@ -16,12 +16,14 @@ import android.view.ViewGroup;
 
 import com.eibrahim.winkel.databinding.ActivityLanguagesBinding;
 import com.eibrahim.winkel.main.MainActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
 
 public class LanguagesFragment extends Fragment {
 
     private ActivityLanguagesBinding binding;
+    private BottomNavigationView bottomNavigationView;
 
     public LanguagesFragment() {
         // Required empty public constructor
@@ -38,6 +40,8 @@ public class LanguagesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
 
         binding.btnSystem.setOnClickListener(v -> {

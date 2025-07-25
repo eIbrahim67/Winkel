@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.auth.signin;
+package com.eibrahim.winkel.auth.signIn;
 
 import android.app.Application;
 

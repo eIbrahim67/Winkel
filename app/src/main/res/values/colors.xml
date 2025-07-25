@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="black_v1">#000000</color>
+    <color name="primary_black">#000000</color>
     <color name="black_v2">#292D32</color>
     <color name="black_v3">#080808</color>
     <color name="black_v4">#0F1419</color>
 
     <color name="white_v1">#FFFFFF</color>
     <color name="white_v2">#efefef</color>
-    <color name="white_v3">#FDFDFD</color>
+    <color name="primary_white">#FDFDFD</color>
 
 
     <color name="pink_v1">#FFC8C9</color>
@@ -21,7 +21,7 @@
 
     <color name="gray_v1">#3c4455</color>
     <color name="gray_v2">#3c4455</color>
-    <color name="gray_v3">#9E9CA3</color>
+    <color name="primary_gray">#9E9CA3</color>
     <color name="gray_v4">#898989</color>
     <color name="gray_v5">#DCDCDC</color>
     <color name="gray_v7">#607D8B</color>

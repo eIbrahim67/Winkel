@@ -268,11 +268,6 @@
     <string name="choose_your_prefer_language_to_show_our_content_with_it">Choose your prefer language to show our content with it</string>
     <string name="arabic_ar" translatable="false">العربية</string>
     <string name="english" translatable="false">English</string>
-    <string name="dutch" translatable="false">Dutch</string>
-    <string name="italiano" translatable="false">Italiano</string>
-    <string name="turkce" translatable="false">Türkçe</string>
-    <string name="indonesia" translatable="false">Indonesia</string>
-    <string name="espanol" translatable="false">Español</string>
     <string name="back">Back</string>
     <string name="winkel">Winkel</string>
     <string name="item_detail">Item Detail</string>
@@ -301,4 +296,25 @@
     <string name="delete">Delete</string>
     <string name="item_successfully_deleted">Item successfully deleted.</string>
     <string name="cancel">Cancel</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="signup_successful">Signup Successful</string>
+    <string name="please_fill_valid_details">Please fill valid details.</string>
+    <string name="update">Update</string>
+    <string name="your_request_has_been_submitted_successfully">Your request has been submitted successfully.</string>
+    <string name="please_enter_your_admin_code">Please enter your admin code.</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="user_name">User Name</string>
+    <string name="updated">" updated"</string>
+    <string name="there_are_currently_no_orders_to_display">There are currently no orders to display.</string>
+    <string name="an_error_occurred_while_loading_your_uploads">An error occurred while loading your uploads.</string>
+    <string name="incorrect_pin_please_try_again">Incorrect PIN. Please try again.</string>
+    <string name="pin_not_found_please_contact_support">PIN not found. Please contact support.</string>
+    <string name="failed_to_verify_pin_please_check_your_connection">Failed to verify PIN. Please check your connection.</string>
+    <string name="become_an_admin">Become an Admin</string>
+    <string name="enter_your_admin_code">Enter Your Admin Code</string>
+    <string name="request_to_become_an_admin">Request to Become an Admin</string>
+    <string name="forget_your_pin">Forget your PIN?</string>
+    <string name="please_enter_your_email_address">Please enter your email address.</string>
+    <string name="password_reset_email_sent_please_check_your_inbox_and_spam_folder">Password reset email sent! Please check your inbox and spam folder.</string>
 </resources>

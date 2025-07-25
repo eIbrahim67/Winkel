@@ -289,5 +289,33 @@
     <string name="price_of_item">سعر المنتج:</string>
     <string name="much_of_item">كمية المنتج:</string>
     <string name="total_price_of_this_item">السعر الإجمالي لهذا المنتج:</string>
+    <string name="light_mode">الوضع الفاتح</string>
+    <string name="please_fill_all_fields">يرجى ملء جميع الحقول</string>
+    <string name="are_you_sure_you_want_to_permanently_remove_this_item_from_your_shop">هل أنت متأكد أنك تريد إزالة هذا المنتج نهائيًا من متجرك؟</string>
+    <string name="delete">حذف</string>
+    <string name="item_successfully_deleted">تم حذف المنتج بنجاح.</string>
+    <string name="cancel">إلغاء</string>
+    <string name="signup_successful">تم التسجيل بنجاح</string>
+    <string name="please_fill_valid_details">يرجى إدخال بيانات صحيحة</string>
+    <string name="update">تحديث</string>
+    <string name="your_request_has_been_submitted_successfully">تم إرسال طلبك بنجاح</string>
+    <string name="please_enter_your_admin_code">يرجى إدخال رمز المسؤول</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="updated">تم التحديث</string>
+    <string name="there_are_currently_no_orders_to_display">لا توجد طلبات للعرض حاليًا</string>
+    <string name="an_error_occurred_while_loading_your_uploads">حدث خطأ أثناء تحميل العناصر الخاصة بك</string>
+    <string name="incorrect_pin_please_try_again">رمز التحقق غير صحيح. حاول مرة أخرى</string>
+    <string name="pin_not_found_please_contact_support">لم يتم العثور على رمز التحقق. يرجى التواصل مع الدعم</string>
+    <string name="failed_to_verify_pin_please_check_your_connection">فشل في التحقق من رمز التحقق. يرجى التحقق من الاتصال بالإنترنت</string>
+    <string name="become_an_admin">أصبح مسؤولًا</string>
+    <string name="enter_your_admin_code">أدخل رمز المسؤول الخاص بك</string>
+    <string name="request_to_become_an_admin">طلب أن تصبح مسؤولًا</string>
+    <string name="forget_your_pin">هل نسيت رمز PIN الخاص بك؟</string>
+    <string name="please_enter_your_email_address">يرجى إدخال عنوان بريدك الإلكتروني.</string>
+    <string name="password_reset_email_sent_please_check_your_inbox_and_spam_folder">
+تم إرسال بريد إعادة تعيين كلمة المرور! يرجى التحقق من صندوق الوارد والمجلد العشوائي.
+</string>
+
 
 </resources>

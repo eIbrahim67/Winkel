@@ -15,6 +15,7 @@ import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewOrders;
 import com.eibrahim.winkel.dataClasses.DataOrderItem;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewItemOrderItemData;
 import com.eibrahim.winkel.databinding.ActivityMyOrdersBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,6 +27,7 @@ import java.util.Objects;
 public class MyOrdersFragment extends Fragment {
 
     private ActivityMyOrdersBinding binding;
+    private BottomNavigationView bottomNavigationView;
 
     private FirebaseFirestore firestore;
     private String userId;
@@ -45,6 +47,8 @@ public class MyOrdersFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
         binding.reMyOrders.setLayoutManager(new GridLayoutManager(requireContext(), 1));
 
@@ -62,7 +66,7 @@ public class MyOrdersFragment extends Fragment {
                 List<String> ordersList = (List<String>) documentSnapshot.get("OrderCollection");
 
                 if (ordersList == null || ordersList.isEmpty()) {
-                    Toast.makeText(requireContext(), "No Orders Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), getText(R.string.there_are_currently_no_orders_to_display), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -75,7 +79,7 @@ public class MyOrdersFragment extends Fragment {
                 AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(requireContext(), orderItems);
                 binding.reMyOrders.setAdapter(adapter);
             } else {
-                Toast.makeText(requireContext(), "No Orders Found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), getText(R.string.there_are_currently_no_orders_to_display), Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(e ->
                 Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show()

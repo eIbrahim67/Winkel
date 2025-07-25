@@ -19,74 +19,9 @@
         android:theme="@style/Theme.Winkel"
         tools:targetApi="31">
         <activity
-            android:name=".deletePages.ConfirmDeletionFragment"
-            android:exported="false" />
-        <activity
-            android:name=".deletePages.DeleteAccountFragment"
-            android:exported="false" />
-        <activity
-            android:name="._old.SupportUsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AboutFragment"
-            android:exported="false" />
-        <activity
-            android:name=".PermissionsFragment"
-            android:exported="false" />
-        <activity
-            android:name=".HelpFeedbackFragment"
-            android:exported="false" />
-        <activity
-            android:name="._old.SoundActivity"
-            android:exported="false" />
-        <activity
-            android:name="._old.NotificationsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SecurityFragment"
-            android:exported="false" />
-        <activity
-            android:name=".LanguagesFragment"
-            android:exported="false" />
-        <activity
-            android:name=".ThemeFragment"
-            android:exported="false" />
-        <activity
-            android:name=".adminPages.AllUsersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".adminPages.OrdersFragment"
-            android:exported="false" />
-        <activity
-            android:name=".vendorPages.MyItemsFragment"
-            android:exported="false" />
-        <activity
-            android:name=".MyOrdersFragment"
-            android:exported="false" />
-        <activity
-            android:name="._old._payment.MyPaymentMethodsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PersonalDataFragment"
-            android:exported="false" />
-        <activity
-            android:name=".PinFragment"
-            android:exported="false" />
-        <activity
-            android:name="._old.addPaymentPage.addPaymentMethodActivity"
-            android:exported="false" />
-        <activity
-            android:name=".vendorPages.AddItemFragment"
-            android:exported="false" />
-        <activity
-            android:name=".auth.signin.SigninActivity"
-            android:exported="false" />
-        <activity
-            android:name=".auth.signup.SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name="._old._payment.view.PaymentActivity"
-            android:exported="false" />
+            android:name=".auth.AuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Winkel" />
         <activity
             android:name=".item.ItemDetailActivity"
             android:exported="false" />

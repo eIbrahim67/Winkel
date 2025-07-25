@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.dataClasses.DataProductItem;
 import com.eibrahim.winkel.databinding.AddItemActivityBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.*;
 import com.google.firebase.storage.*;
@@ -29,6 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddItemFragment extends Fragment {
+    private BottomNavigationView bottomNavigationView;
 
     private AddItemActivityBinding binding;
     private Uri selectedImage;
@@ -61,6 +63,10 @@ public class AddItemFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+            bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+            bottomNavigationView.setVisibility(View.GONE);
+
         binding.takePhoto.setOnClickListener(v -> dispatchTakePictureIntent());
         binding.uploadPhoto.setOnClickListener(v -> openGallery());
 

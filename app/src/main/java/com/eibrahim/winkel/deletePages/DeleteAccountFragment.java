@@ -13,10 +13,12 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.ActivityDeleteAccountBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DeleteAccountFragment extends Fragment {
 
     private ActivityDeleteAccountBinding binding;
+    private BottomNavigationView bottomNavigationView;
 
     public DeleteAccountFragment() {
         // Required empty public constructor
@@ -25,6 +27,7 @@ public class DeleteAccountFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         binding = ActivityDeleteAccountBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -32,6 +35,8 @@ public class DeleteAccountFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
 
         NavController navController = NavHostFragment.findNavController(DeleteAccountFragment.this);
         binding.btnDeleteAccountConfirm.setOnClickListener(v -> {

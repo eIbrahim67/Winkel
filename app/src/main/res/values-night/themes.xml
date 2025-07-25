@@ -20,22 +20,22 @@
 
     <style name="TextColor_v2">
 
-        <item name="android:textColor">@color/gray_v3</item>
-        <item name="android:textColorHint">@color/gray_v3</item>
+        <item name="android:textColor">@color/primary_gray</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
 
     </style>
 
     <style name="TextColor_v3">
 
-        <item name="android:textColor">@color/black_v1</item>
-        <item name="android:textColorHint">@color/black_v1</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:textColorHint">@color/primary_black</item>
 
     </style>
 
     <style name="TextColor_v4">
 
         <item name="android:textColor">@color/white_v1</item>
-        <item name="android:textColorHint">@color/gray_v3</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
 
     </style>
 
@@ -93,7 +93,7 @@
 
     <style name="checkout_background_btn">
         <item name="android:background">@drawable/rounded_gray_v12_none_gray_v4</item>
-        <item name="android:textColor">@color/black_v1</item>
+        <item name="android:textColor">@color/primary_black</item>
 
     </style>
 
@@ -131,9 +131,10 @@
 
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
-        <item name="color">@color/black_v1</item>
+        <item name="color">@color/primary_black</item>
 
     </style>
+
     <style name="delete_background_src">
 
         <item name="android:src">@drawable/delete_icon_black</item>
@@ -144,7 +145,7 @@
     <style name="circle_black_v1_white_v1">
 
         <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
-        <item name="android:textColor">@color/black_v1</item>
+        <item name="android:textColor">@color/primary_black</item>
 
     </style>
 

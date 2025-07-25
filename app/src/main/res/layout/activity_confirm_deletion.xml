@@ -94,36 +94,52 @@
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pass_signin_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="26dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_white_v2_black_v1_white_v1"
-            android:layout_marginBottom="20dp">
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="50dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeWidth="1dp"
+            app:errorEnabled="true"
+            android:fontFamily="@font/font_v1"
+            android:textColorHint="@color/primary_black"
+            app:boxBackgroundColor="@color/primary_gray"
+            app:boxStrokeColor="@color/primary_black"
+            app:passwordToggleTint="@color/primary_black"
+            app:hintTextColor="@color/primary_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_password_label"
+            app:passwordToggleEnabled="true"
+            >
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/deleteAccountPin"
                 style="@style/TextColor_v1"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/font_v1"
-                android:paddingTop="10dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp"
-                android:textStyle="bold"
-                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_v2"
                 android:clickable="true"
-                android:gravity="top"
+                android:focusable="true"
                 android:hint="@string/pin"
-                tools:ignore="RelativeOverlap"
+                android:textColorHint="@color/primary_gray"
+                android:fontFamily="@font/font_v1"
                 android:inputType="textPassword"
-                android:importantForAutofill="no" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </RelativeLayout>
 
         <Button
             android:id="@+id/btnDeleteAccountFinal"

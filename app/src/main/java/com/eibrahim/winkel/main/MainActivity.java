@@ -8,13 +8,13 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.auth.signin.SigninActivity;
+import com.eibrahim.winkel.auth.AuthActivity;
+import com.eibrahim.winkel.auth.signIn.SignInFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
 
-            startActivity(new Intent(MainActivity.this, SigninActivity.class));
+            startActivity(new Intent(MainActivity.this, AuthActivity.class));
             finish();
         } else setupNavigation();
     }

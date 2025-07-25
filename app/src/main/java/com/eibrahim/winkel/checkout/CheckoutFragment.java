@@ -7,19 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel._old._payment.view.PaymentActivity;
 import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewBasket;
 import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.databinding.FragmentCheckoutBinding;
-import com.eibrahim.winkel._old._payment.view.PaymentActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -38,6 +41,7 @@ public class CheckoutFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         binding = FragmentCheckoutBinding.inflate(inflater, container, false);
 
         try {
@@ -81,10 +85,7 @@ public class CheckoutFragment extends Fragment {
             binding.msgEmptyBasket.setVisibility(View.GONE);
 
             List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
-            DocumentReference basketRef = firestore.collection("UsersData")
-                    .document(userId)
-                    .collection("BasketCollection")
-                    .document("BasketDocument");
+            DocumentReference basketRef = firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument");
 
             basketRef.get().addOnSuccessListener(documentSnapshot -> {
                 try {
@@ -104,10 +105,7 @@ public class CheckoutFragment extends Fragment {
                                 String itemMuch = parts[2].trim();
                                 String itemSize = parts[3].trim();
 
-                                DocumentReference productRef = firestore.collection("Products")
-                                        .document(itemType)
-                                        .collection(itemType)
-                                        .document(itemId);
+                                DocumentReference productRef = firestore.collection("Products").document(itemType).collection(itemType).document(itemId);
 
                                 productRef.get().addOnSuccessListener(productSnap -> {
                                     try {
@@ -119,9 +117,7 @@ public class CheckoutFragment extends Fragment {
                                             String price = (String) data.get("price");
                                             String itemPrice = price == null ? "0" : price;
 
-                                            DataRecyclerviewMyItem dataItem = new DataRecyclerviewMyItem(
-                                                    category, imageId, name, itemPrice, itemType, itemSize
-                                            );
+                                            DataRecyclerviewMyItem dataItem = new DataRecyclerviewMyItem(category, imageId, name, itemPrice, itemType, itemSize);
                                             dataItem.setItemId((String) data.get("itemId"));
                                             dataItem.setMuch(itemMuch);
 
