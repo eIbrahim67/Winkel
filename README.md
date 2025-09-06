@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="#">
-    <img src="https://github.com/eIbrahim67/Winkel/blob/master/part1.jpg" alt="eibrahim67" />
+    <img src="https://github.com/eIbrahim67/Winkel/raw/master/images/part1.jpg" alt="eibrahim67" />
   </a>
 </p>
 

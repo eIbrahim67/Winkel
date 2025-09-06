@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -40,22 +41,36 @@ public class SignupViewModel extends AndroidViewModel {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Log.d("SignupViewModel", "Account created");
-                        saveUserData(username, phoneNo, "User", pinNum);
+                        saveUserData(username, phoneNo, pinNum);
                     } else {
                         errorMessage.setValue("Failed to create account: " + Objects.requireNonNull(task.getException()).getMessage());
                     }
                 });
     }
 
-    private void saveUserData(String username, String phoneNo, String userType, String pinNum) {
+    private void saveUserData(String username, String phoneNo, String pinNum) {
         String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
         DocumentReference documentRef = firestore.collection("UsersData")
                 .document(userId).collection("UserPersonalData").document("UserPersonalData");
 
+        DocumentReference wishlistRef = firestore.collection("UsersData")
+                .document(userId).collection("Wishlist").document("Wishlist");
+        Map<String, Object> initWishlist = new HashMap<>();
+        initWishlist.put("Wishlist", new ArrayList<>()); // or any other default value
+
+        wishlistRef.set(initWishlist).addOnSuccessListener(aVoid -> {});
+
+        DocumentReference basketRef = firestore.collection("UsersData")
+                .document(userId).collection("BasketCollection").document("BasketDocument");
+        Map<String, Object> initBasket = new HashMap<>();
+        initBasket.put("BasketCollection", new ArrayList<>()); // or any other default value
+
+        basketRef.set(initBasket).addOnSuccessListener(aVoid -> {});
+
         Map<String, String> data = new HashMap<>();
         data.put("userName", username);
         data.put("phoneNo", phoneNo);
-        data.put("userType", userType);
+        data.put("userType", "User");
         data.put("pin", pinNum);
 
         documentRef.set(data)

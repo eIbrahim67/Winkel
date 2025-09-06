@@ -8,9 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerviewVisibility {
-    LinearLayout main_home_design;
-    RelativeLayout tops_view;
-    RecyclerView recyclerView_filter;
+    final LinearLayout main_home_design;
+    final RelativeLayout tops_view;
+    final RecyclerView recyclerView_filter;
     public RecyclerviewVisibility(LinearLayout main_home_design, RelativeLayout tops_view, RecyclerView recyclerView_filter){
         this.main_home_design = main_home_design;
         this.tops_view = tops_view;
