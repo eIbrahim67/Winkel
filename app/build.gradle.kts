@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.eibrahim.winkel"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.eibrahim.winkel"
@@ -61,7 +61,8 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.github.Tans5:horizontalnestedscrollview:0.1.0")
     implementation ("com.airbnb.android:lottie:4.2.0")
-
     implementation ("androidx.hilt:hilt-navigation-fragment:1.2.0")
 
+    implementation ("com.stripe:stripe-android:21.16.0")
+    implementation ("com.google.firebase:firebase-functions:20.4.0")
 }

@@ -317,4 +317,7 @@
     <string name="forget_your_pin">Forget your PIN?</string>
     <string name="please_enter_your_email_address">Please enter your email address.</string>
     <string name="password_reset_email_sent_please_check_your_inbox_and_spam_folder">Password reset email sent! Please check your inbox and spam folder.</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="rest_of_address_in_detail_e_g_street">Rest of address in detail (e.g. street)</string>
 </resources>

@@ -316,6 +316,8 @@
     <string name="password_reset_email_sent_please_check_your_inbox_and_spam_folder">
 تم إرسال بريد إعادة تعيين كلمة المرور! يرجى التحقق من صندوق الوارد والمجلد العشوائي.
 </string>
-
+    <string name="state">المحافظة</string>
+    <string name="city">المدينة</string>
+    <string name="rest_of_address_in_detail_e_g_street">بقية العنوان بالتفصيل (على سبيل المثال الشارع)</string>
 
 </resources>
