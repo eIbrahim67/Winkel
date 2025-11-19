@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.home;
+package com.eibrahim.winkel.home.bottomSheet;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,8 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.declaredClasses.DoFilter;
-import com.eibrahim.winkel.declaredClasses.RecyclerviewVisibility;
+import com.eibrahim.winkel.core.DoFilter;
+import com.eibrahim.winkel.core.RecyclerviewVisibility;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.Objects;

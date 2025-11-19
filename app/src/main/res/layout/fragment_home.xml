@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_home"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_home"
-    style="@style/background">
+    android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,57 +23,57 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginTop="20dp">
+                    android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/search_btn"
+                        style="@style/circle_white_v2_black_none_gray"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        style="@style/circle_white_v2_black_none_gray"
-                        android:layout_weight="1"
-                        android:paddingTop="7dp"
-                        android:paddingBottom="7dp"
                         android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
                         android:clickable="true"
                         android:focusable="true"
-                        android:id="@+id/search_btn">
+                        android:orientation="horizontal"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp">
 
                         <ImageView
+                            style="@style/search_icon"
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            style="@style/search_icon"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
                             android:background="@android:color/transparent"
-                            android:padding="8dp"
-                            android:layout_marginStart="10dp"/>
+                            android:padding="8dp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="@string/search"
-                            android:gravity="center_vertical"
-                            android:textColor="@color/blue_v3"
-                            android:textSize="16sp"
-                            android:paddingEnd="10dp"
-                            android:paddingStart="0dp"
+                            android:autofillHints=""
                             android:background="@android:color/transparent"
-                            android:autofillHints="" />
+                            android:gravity="center_vertical"
+                            android:hint="@string/search"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/blue_v3"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
                     <ImageView
                         android:id="@+id/btnFunctions"
+                        style="@style/options_background_btn"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        style="@style/options_background_btn"
-                        android:padding="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
                         android:clickable="true"
                         android:focusable="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"/>
+                        android:padding="10dp" />
 
                 </LinearLayout>
 
@@ -83,57 +84,57 @@
                     android:orientation="vertical">
 
                     <RelativeLayout
+                        style="@style/rounded_white_v2_black_none_gray"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginEnd="20dp"
-                        style="@style/rounded_white_v2_black_none_gray"
-                        android:paddingBottom="20dp"
-                        android:paddingTop="20dp"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="20dp"
                         android:clickable="true"
-                        android:focusable="true">
+                        android:focusable="true"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp">
 
                         <TextView
+                            style="@style/TextColor_v1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_v3"
                             android:text="@string/slogan_v1"
-                            style="@style/TextColor_v1"
-                            android:textSize="26sp"
-                            android:fontFamily="@font/font_v3"/>
+                            android:textSize="26sp" />
 
                         <TextView
+                            style="@style/TextColor_v1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/_50"
-                            style="@style/TextColor_v1"
                             android:layout_alignParentBottom="true"
-                            android:textSize="38sp"
                             android:layout_marginStart="20dp"
-                            android:fontFamily="@font/font_v3"/>
+                            android:fontFamily="@font/font_v3"
+                            android:text="@string/_50"
+                            android:textSize="38sp" />
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="120dp"
                             android:layout_height="120dp"
+                            android:layout_alignParentEnd="true"
                             android:layout_gravity="center_horizontal"
-                            app:shapeAppearanceOverlay="@style/roundedImageViewPost"
                             android:src="@drawable/discount_v2"
-                            android:layout_alignParentEnd="true"/>
+                            app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
                     </RelativeLayout>
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/main_categories"
-                        style="@style/TextColor_v1"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:textSize="22sp"
-                        android:fontFamily="@font/font_v3"/>
+                        android:fontFamily="@font/font_v3"
+                        android:text="@string/main_categories"
+                        android:textSize="22sp" />
 
                     <HorizontalScrollView
                         android:layout_width="wrap_content"
@@ -151,26 +152,26 @@
                                 android:id="@+id/btnItemsMens"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginEnd="15dp"
                                 android:clickable="true"
-                                android:focusable="true">
+                                android:focusable="true"
+                                android:orientation="vertical">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
                                     android:layout_height="60dp"
                                     android:layout_gravity="center_horizontal"
-                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                    android:src="@drawable/man_v1"/>
+                                    android:src="@drawable/man_v1"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
                                 <TextView
+                                    style="@style/TextColor_v1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/men"
-                                    style="@style/TextColor_v1"
-                                    android:textSize="18sp"
                                     android:layout_gravity="center_horizontal"
-                                    android:fontFamily="@font/font_v3"/>
+                                    android:fontFamily="@font/font_v3"
+                                    android:text="@string/men"
+                                    android:textSize="18sp" />
 
                             </LinearLayout>
 
@@ -178,26 +179,26 @@
                                 android:id="@+id/btnItemsWomen"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginEnd="15dp"
                                 android:clickable="true"
-                                android:focusable="true">
+                                android:focusable="true"
+                                android:orientation="vertical">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
                                     android:layout_height="60dp"
                                     android:layout_gravity="center_horizontal"
-                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                    android:src="@drawable/woman_v1" />
+                                    android:src="@drawable/woman_v1"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
                                 <TextView
+                                    style="@style/TextColor_v1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/women"
-                                    style="@style/TextColor_v1"
-                                    android:textSize="18sp"
                                     android:layout_gravity="center_horizontal"
-                                    android:fontFamily="@font/font_v3"/>
+                                    android:fontFamily="@font/font_v3"
+                                    android:text="@string/women"
+                                    android:textSize="18sp" />
 
                             </LinearLayout>
 
@@ -205,26 +206,26 @@
                                 android:id="@+id/btnItemsBoys"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginEnd="15dp"
                                 android:clickable="true"
-                                android:focusable="true">
+                                android:focusable="true"
+                                android:orientation="vertical">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
                                     android:layout_height="60dp"
                                     android:layout_gravity="center_horizontal"
-                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                    android:src="@drawable/boy_v1" />
+                                    android:src="@drawable/boy_v1"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
                                 <TextView
+                                    style="@style/TextColor_v1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/boys"
-                                    style="@style/TextColor_v1"
-                                    android:textSize="18sp"
                                     android:layout_gravity="center_horizontal"
-                                    android:fontFamily="@font/font_v3"/>
+                                    android:fontFamily="@font/font_v3"
+                                    android:text="@string/boys"
+                                    android:textSize="18sp" />
 
                             </LinearLayout>
 
@@ -232,26 +233,26 @@
                                 android:id="@+id/btnItemsGirls"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginEnd="15dp"
                                 android:clickable="true"
-                                android:focusable="true">
+                                android:focusable="true"
+                                android:orientation="vertical">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
                                     android:layout_height="60dp"
                                     android:layout_gravity="center_horizontal"
-                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                    android:src="@drawable/girl_v1" />
+                                    android:src="@drawable/girl_v1"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
                                 <TextView
+                                    style="@style/TextColor_v1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/girls"
-                                    style="@style/TextColor_v1"
-                                    android:textSize="18sp"
                                     android:layout_gravity="center_horizontal"
-                                    android:fontFamily="@font/font_v3"/>
+                                    android:fontFamily="@font/font_v3"
+                                    android:text="@string/girls"
+                                    android:textSize="18sp" />
 
                             </LinearLayout>
 
@@ -259,26 +260,26 @@
                                 android:id="@+id/btnItemsBabies"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginEnd="15dp"
                                 android:clickable="true"
-                                android:focusable="true">
+                                android:focusable="true"
+                                android:orientation="vertical">
 
                                 <com.google.android.material.imageview.ShapeableImageView
                                     android:layout_width="60dp"
                                     android:layout_height="60dp"
                                     android:layout_gravity="center_horizontal"
-                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                                    android:src="@drawable/baby_v1" />
+                                    android:src="@drawable/baby_v1"
+                                    app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
                                 <TextView
+                                    style="@style/TextColor_v1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/babies"
-                                    style="@style/TextColor_v1"
-                                    android:textSize="18sp"
                                     android:layout_gravity="center_horizontal"
-                                    android:fontFamily="@font/font_v3"/>
+                                    android:fontFamily="@font/font_v3"
+                                    android:text="@string/babies"
+                                    android:textSize="18sp" />
 
                             </LinearLayout>
 
@@ -305,10 +306,10 @@
                                 android:id="@+id/recyclerview_filter"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="5dp"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginTop="20dp"
-                                android:layout_marginEnd="20dp"/>
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginBottom="5dp" />
 
                         </RelativeLayout>
 
@@ -323,26 +324,26 @@
 
                         <ImageView
                             android:id="@+id/tops_btn"
+                            style="@style/more_background_btn"
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="20dp"
-                            android:padding="2dp"
                             android:layout_centerVertical="true"
-                            style="@style/more_background_btn"
+                            android:layout_marginEnd="20dp"
                             android:clickable="true"
-                            android:focusable="true"/>
+                            android:focusable="true"
+                            android:padding="2dp" />
 
                         <TextView
                             android:id="@+id/tops_titles"
+                            style="@style/TextColor_v1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/new_releases"
-                            style="@style/TextColor_v1"
-                            android:layout_marginStart="20dp"
                             android:layout_centerVertical="true"
-                            android:textSize="22sp"
-                            android:fontFamily="@font/font_v3"/>
+                            android:layout_marginStart="20dp"
+                            android:fontFamily="@font/font_v3"
+                            android:text="@string/new_releases"
+                            android:textSize="22sp" />
 
                     </RelativeLayout>
 
@@ -355,33 +356,33 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginEnd="10dp"/>
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp" />
 
 
                         <LinearLayout
                             android:id="@+id/skeleton_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp">
+                            android:layout_marginEnd="10dp"
+                            android:orientation="vertical">
 
                             <include
+                                layout="@layout/item_products_skeleton"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                layout="@layout/item_products_skeleton"/>
+                                android:layout_height="wrap_content" />
 
                             <include
-                                android:layout_marginTop="10dp"
+                                layout="@layout/item_products_skeleton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                layout="@layout/item_products_skeleton"/>
+                                android:layout_marginTop="10dp" />
 
                             <include
+                                layout="@layout/item_products_skeleton"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                layout="@layout/item_products_skeleton"/>
+                                android:layout_height="wrap_content" />
 
                         </LinearLayout>
 
@@ -395,72 +396,72 @@
 
         <LinearLayout
             android:id="@+id/search_page"
+            style="@style/background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone"
-            style="@style/background">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
+                    style="@style/circle_white_v2_black_none_gray"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    style="@style/circle_white_v2_black_none_gray"
-                    android:layout_weight="1"
-                    android:paddingTop="7dp"
-                    android:paddingBottom="7dp"
                     android:layout_marginEnd="5dp"
-                    android:clickable="true">
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="7dp">
 
                     <ImageView
+                        style="@style/search_icon"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        style="@style/search_icon"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
                         android:background="@android:color/transparent"
-                        android:padding="8dp"
-                        android:layout_marginStart="10dp"/>
+                        android:padding="8dp" />
 
                     <EditText
                         android:id="@+id/search_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/search"
-                        android:gravity="center_vertical"
-                        android:inputType="text"
                         android:layout_marginEnd="10dp"
-                        android:textColor="@color/blue_v3"
-                        android:textSize="16sp"
+                        android:autofillHints=""
                         android:background="@android:color/transparent"
-                        android:autofillHints="" />
+                        android:gravity="center_vertical"
+                        android:hint="@string/search"
+                        android:inputType="text"
+                        android:textColor="@color/blue_v3"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/btnCloseSearch"
+                    style="@style/close_background_btn"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    style="@style/close_background_btn"
-                    android:padding="12dp"
-                    android:clickable="true"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5dp"/>
+                    android:layout_marginStart="5dp"
+                    android:clickable="true"
+                    android:padding="12dp" />
 
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_search"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 

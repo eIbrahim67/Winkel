@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.home;
+package com.eibrahim.winkel.home.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,14 +9,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupMenu;
+
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
+import com.eibrahim.winkel.core.DoFilter;
+import com.eibrahim.winkel.core.RecyclerviewVisibility;
+import com.eibrahim.winkel.core.adapterRecyclerviewItems;
 import com.eibrahim.winkel.databinding.FragmentHomeBinding;
-import com.eibrahim.winkel.declaredClasses.DoFilter;
-import com.eibrahim.winkel.declaredClasses.RecyclerviewVisibility;
-import com.eibrahim.winkel.declaredClasses.Search;
+import com.eibrahim.winkel.home.bottomSheet.functionsBottomSheet;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class HomeFragment extends Fragment {
     private BottomNavigationView bottomNavigationView;
@@ -36,22 +49,13 @@ public class HomeFragment extends Fragment {
             PopupMenu popup = new PopupMenu(requireContext(), binding.topsBtn);
             popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 
-            RecyclerviewVisibility recyclerviewVisibility = new RecyclerviewVisibility(
-                    binding.mainHomeDesign,
-                    binding.topsView,
-                    binding.recyclerviewFilter
-            );
+            RecyclerviewVisibility recyclerviewVisibility = new RecyclerviewVisibility(binding.mainHomeDesign, binding.topsView, binding.recyclerviewFilter);
 
             doFilter = new DoFilter(binding.recyclerviewItems, recyclerviewVisibility, requireContext());
 
             fetchData();
 
-            functionsBottomSheet = new functionsBottomSheet(
-                    binding.recyclerviewFilter,
-                    binding.recyclerviewItems,
-                    recyclerviewVisibility,
-                    doFilter
-            );
+            functionsBottomSheet = new functionsBottomSheet(binding.recyclerviewFilter, binding.recyclerviewItems, recyclerviewVisibility, doFilter);
 
             // Top Menu Popup Click
             binding.topsBtn.setOnClickListener(v -> popup.show());
@@ -76,7 +80,7 @@ public class HomeFragment extends Fragment {
                         binding.topsTitles.setText(getString(R.string.top_rating));
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+
                 }
                 return true;
             });
@@ -92,22 +96,24 @@ public class HomeFragment extends Fragment {
 
             binding.searchText.addTextChangedListener(new TextWatcher() {
                 @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     try {
                         String searchText = s.toString().trim();
                         if (!searchText.isEmpty()) {
-                            Search.search(requireContext(), searchText, binding.recyclerviewSearch);
+                            search(requireContext(), searchText, binding.recyclerviewSearch);
                         }
                     } catch (Exception e) {
-                        e.printStackTrace();
+
                     }
                 }
 
                 @Override
-                public void afterTextChanged(Editable s) {}
+                public void afterTextChanged(Editable s) {
+                }
             });
 
             binding.btnCloseSearch.setOnClickListener(v -> {
@@ -128,14 +134,14 @@ public class HomeFragment extends Fragment {
                 try {
                     doFilter.lastAction();
                 } catch (Exception e) {
-                    e.printStackTrace();
+
                 } finally {
                     binding.fragmentHome.setRefreshing(false);
                 }
             });
 
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
 
         return binding.getRoot();
@@ -157,7 +163,7 @@ public class HomeFragment extends Fragment {
                 doFilter.doFilter("NewReleases");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
     }
 
@@ -179,8 +185,38 @@ public class HomeFragment extends Fragment {
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
+    }
+
+    public static void search(Context context, String searchText, RecyclerView recyclerView) {
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        CollectionReference collectionRef = firestore.collection("Products").document("Mens").collection("Mens");
+        collectionRef.get().addOnSuccessListener(querySnapshot -> {
+            List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
+            for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                Map<String, Object> data = document.getData();
+                String itemName = (String) (data != null ? data.get("name") : null);
+
+                // Perform case-insensitive partial string match
+                if (itemName != null && itemName.toLowerCase().contains(searchText.toLowerCase())) {
+                    DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem((String) data.get("category"), (String) data.get("imageId"), itemName, (String) data.get("price"), "Mens", "");
+
+                    dataObject.setItemId((String) data.get("itemId"));
+                    dataObject.setItemLoved(false);
+
+                    dataOfRvItems.add(dataObject);
+                }
+            }
+
+            adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
+            recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+            recyclerView.setAdapter(adapterRvItems);
+
+        }).addOnFailureListener(e -> {
+        });
+
     }
 
     @Override
