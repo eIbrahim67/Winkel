@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.eibrahim.winkel.R;
@@ -32,6 +33,15 @@ public class ProfileFragment extends Fragment {
         return binding.getRoot();
     }
 
+    NavOptions navOptionsRight = new NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right)
+            .setLaunchSingleTop(true)
+            .setRestoreState(true)
+            .build();
+
     private void setUpNavigation() {
 //        binding.btnPaymentMethods.setOnClickListener(v -> navigateTo(PinFragment.class, "goto", 1));
 //        binding.btnSupport.setOnClickListener(v -> navigateTo(SupportUsActivity.class));
@@ -43,55 +53,54 @@ public class ProfileFragment extends Fragment {
         binding.btnLogout.setOnClickListener(v -> showLogoutDialog());
 
         binding.btnProfile.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_pinFragment);
+            navController.navigate(R.id.action_profileFragment_to_pinFragment, null, navOptionsRight);
         });
 
         binding.btnLanguages.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_languagesFragment);
+            navController.navigate(R.id.action_profileFragment_to_languagesFragment, null, navOptionsRight);
         });
 
 
         binding.btnMyOrders.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_myOrdersFragment);
+            navController.navigate(R.id.action_profileFragment_to_myOrdersFragment, null, navOptionsRight);
         });
 
         binding.btnHelpFeedback.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_helpFeedbackFragment);
+            navController.navigate(R.id.action_profileFragment_to_helpFeedbackFragment, null, navOptionsRight);
         });
 
         binding.btnPermissions.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_permissionsFragment);
+            navController.navigate(R.id.action_profileFragment_to_permissionsFragment, null, navOptionsRight);
         });
 
         binding.btnAbout.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_aboutFragment);
+            navController.navigate(R.id.action_profileFragment_to_aboutFragment, null, navOptionsRight);
         });
 
         binding.btnSecurity.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_securityFragment);
+            navController.navigate(R.id.action_profileFragment_to_securityFragment, null, navOptionsRight);
         });
 
         binding.btnDarkMode.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_themeFragment);
+            navController.navigate(R.id.action_profileFragment_to_themeFragment, null, navOptionsRight);
         });
 
 
         binding.btnAddNewItem.setOnClickListener(v -> {
 
-            navController.navigate(R.id.action_profileFragment_to_addItemFragment);
+            navController.navigate(R.id.action_profileFragment_to_addItemFragment, null, navOptionsRight);
 
         });
 
         binding.btnMyItems.setOnClickListener(v -> {
 
-            navController.navigate(R.id.action_profileFragment_to_myItemsFragment);
+            navController.navigate(R.id.action_profileFragment_to_myItemsFragment, null, navOptionsRight);
 
         });
 
         binding.btnDeleteAccount.setOnClickListener(v -> {
 
-            navController.navigate(R.id.action_profileFragment_to_deleteAccountFragment);
-
+            navController.navigate(R.id.action_profileFragment_to_deleteAccountFragment, null, navOptionsRight);
 
         });
 

@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.eibrahim.winkel.item.ItemDetailActivity;
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.item.ItemDetailActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -28,6 +28,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
     FirebaseFirestore firestore;
+
     public adapterRecyclerviewItems(Context context, List<DataRecyclerviewMyItem> itemList) {
         this.context = context;
         this.itemList = itemList;
@@ -72,11 +73,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         holder.itemCategory.setText(currentItem.getCategory());
         holder.itemName.setText(currentItem.getName());
 
-        Glide.with(context)
-                .load(currentItem.getImageId())
-                .into(holder.itemImage);
-
-
+        Glide.with(context).load(currentItem.getImageId()).into(holder.itemImage);
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
@@ -84,15 +81,10 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
             context.startActivity(intent);
         });
 
-        DocumentReference wishlistRef = firestore.collection("UsersData")
-                .document(Objects.requireNonNull(auth.getCurrentUser()).getUid())
-                .collection("Wishlist")
-                .document("Wishlist");
+        DocumentReference wishlistRef = firestore.collection("UsersData").document(Objects.requireNonNull(auth.getCurrentUser()).getUid()).collection("Wishlist").document("Wishlist");
 
-        if (currentItem.getItemLoved())
-            holder.btnLoveH.setImageResource(R.drawable.loved_icon);
-        else
-            holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
+        if (currentItem.getItemLoved()) holder.btnLoveH.setImageResource(R.drawable.loved_icon);
+        else holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
 
         holder.btnLoveH.setOnClickListener(v -> {
 
@@ -100,19 +92,12 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
             if (currentItem.getItemLoved()) {
                 holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
                 currentItem.setItemLoved(false);
-                wishlistRef
-                        .update("Wishlist", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType()))
-                        .addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your wishlist.", Toast.LENGTH_SHORT).show())
-                        .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
+                wishlistRef.update("Wishlist", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType())).addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your wishlist.", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
 
             } else {
                 holder.btnLoveH.setImageResource(R.drawable.loved_icon);
                 currentItem.setItemLoved(true);
-                wishlistRef
-                        .update("Wishlist", FieldValue.arrayUnion(currentItem.getItemId()  + "," + currentItem.getItemType()))
-                        .addOnSuccessListener(unused ->
-                                Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show())
-                        .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
+                wishlistRef.update("Wishlist", FieldValue.arrayUnion(currentItem.getItemId() + "," + currentItem.getItemType())).addOnSuccessListener(unused -> Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
             }
 
 

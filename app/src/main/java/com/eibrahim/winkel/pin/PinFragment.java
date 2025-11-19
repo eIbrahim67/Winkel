@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.eibrahim.winkel.R;
@@ -154,13 +155,14 @@ public class PinFragment extends Fragment {
         }).addOnFailureListener(e -> Toast.makeText(requireContext(), "Failed to fetch PIN", Toast.LENGTH_SHORT).show());
     }
 
+    NavOptions navOptionsRight = new NavOptions.Builder().setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right).setLaunchSingleTop(true).setRestoreState(true).build();
+
     private void onPinSuccess() {
         setAllIndicators(R.drawable.rounded_white_v1_green_v1_gray_v4, R.drawable.star_icon_green);
 
         NavController navController = NavHostFragment.findNavController(PinFragment.this);
 
-
-        navController.navigate(R.id.action_pinFragment_to_personalDataFragment);
+        navController.navigate(R.id.action_pinFragment_to_personalDataFragment, null, navOptionsRight);
 
     }
 
