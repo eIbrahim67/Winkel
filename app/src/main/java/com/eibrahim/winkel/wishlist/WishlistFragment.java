@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import com.eibrahim.winkel.databinding.FragmentWishlistBinding;
-import com.eibrahim.winkel.declaredClasses.FetchDataFromFirebase;
+import com.eibrahim.winkel.core.FetchDataFromFirebase;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class WishlistFragment extends Fragment {

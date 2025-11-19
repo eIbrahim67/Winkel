@@ -2,11 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Network & system permissions -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Camera & storage permissions (request at runtime) -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- For Android 13+ (Tiramisu) we should use READ_MEDIA_IMAGES -->
+    <!-- For older devices we keep READ_EXTERNAL_STORAGE (maxSdkVersion 32) -->
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +30,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Winkel"
         tools:targetApi="31">
+
+        <!-- Activities -->
         <activity
             android:name=".auth.AuthActivity"
             android:exported="false"
@@ -30,10 +44,21 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- FileProvider MUST be declared inside <application> (not inside an <activity>) -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>

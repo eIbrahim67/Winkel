@@ -7,7 +7,7 @@
     <!-- Main Pages -->
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.eibrahim.winkel.home.HomeFragment"
+        android:name="com.eibrahim.winkel.home.view.HomeFragment"
         android:label="Home" />
 
     <fragment
@@ -76,12 +76,12 @@
     <!-- Profile Sub Pages -->
     <fragment
         android:id="@+id/languagesFragment"
-        android:name="com.eibrahim.winkel.LanguagesFragment"
+        android:name="com.eibrahim.winkel.languages.LanguagesFragment"
         android:label="Languages" />
 
     <fragment
         android:id="@+id/pinFragment"
-        android:name="com.eibrahim.winkel.PinFragment"
+        android:name="com.eibrahim.winkel.pin.PinFragment"
         android:label="PIN" >
 
         <action
@@ -92,50 +92,50 @@
 
     <fragment
         android:id="@+id/securityFragment"
-        android:name="com.eibrahim.winkel.SecurityFragment"
+        android:name="com.eibrahim.winkel.security.SecurityFragment"
         android:label="Security" />
 
     <fragment
         android:id="@+id/themeFragment"
-        android:name="com.eibrahim.winkel.ThemeFragment"
+        android:name="com.eibrahim.winkel.theme.ThemeFragment"
         android:label="Theme" />
 
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.eibrahim.winkel.AboutFragment"
+        android:name="com.eibrahim.winkel.about.AboutFragment"
         android:label="About" />
 
     <fragment
         android:id="@+id/helpFeedbackFragment"
-        android:name="com.eibrahim.winkel.HelpFeedbackFragment"
+        android:name="com.eibrahim.winkel.helpAndFeedback.HelpFeedbackFragment"
         android:label="HelpFeedback" />
 
     <fragment
         android:id="@+id/myOrdersFragment"
-        android:name="com.eibrahim.winkel.MyOrdersFragment"
+        android:name="com.eibrahim.winkel.myOrders.MyOrdersFragment"
         android:label="MyOrders" />
 
     <fragment
         android:id="@+id/permissionsFragment"
-        android:name="com.eibrahim.winkel.PermissionsFragment"
+        android:name="com.eibrahim.winkel.permissions.PermissionsFragment"
         android:label="Permissions" />
 
     <fragment
         android:id="@+id/personalDataFragment"
-        android:name="com.eibrahim.winkel.PersonalDataFragment"
+        android:name="com.eibrahim.winkel.personalData.PersonalDataFragment"
         android:label="PersonalData" />
 
 
     <fragment
         android:id="@+id/addItemFragment"
-        android:name="com.eibrahim.winkel.vendorPages.AddItemFragment"
+        android:name="com.eibrahim.winkel.addItem.AddItemFragment"
         android:label="AddItem" />
 
 
 
     <fragment
         android:id="@+id/myItemsFragment"
-        android:name="com.eibrahim.winkel.vendorPages.MyItemsFragment"
+        android:name="com.eibrahim.winkel.addItem.MyItemsFragment"
         android:label="MyItems" />
 
 

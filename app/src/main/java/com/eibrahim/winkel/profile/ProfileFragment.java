@@ -14,16 +14,13 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.auth.AuthActivity;
-import com.eibrahim.winkel.auth.signIn.SignInFragment;
 import com.eibrahim.winkel.databinding.FragmentProfileBinding;
-import com.eibrahim.winkel.declaredClasses.FetchUserType;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
-    private FetchUserType fetchUserType;
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -31,24 +28,7 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.VISIBLE);
-        try {
-            fetchUserType = new FetchUserType(binding.forAdmin);
-            fetchUserType.fetchIt();
-
-            binding.profileFragmentLayout.setOnRefreshListener(() -> {
-                fetchUserType.fetchIt();
-                binding.profileFragmentLayout.setRefreshing(false);
-            });
-
-            setUpNavigation();
-
-            binding.btnLogout.setOnClickListener(v -> showLogoutDialog());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(requireContext(), getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
-        }
-
+        setUpNavigation();
         return binding.getRoot();
     }
 
@@ -60,6 +40,7 @@ public class ProfileFragment extends Fragment {
 //        binding.btnAllUsers.setOnClickListener(v -> navigateTo(AllUsersActivity.class));
 
         NavController navController = NavHostFragment.findNavController(ProfileFragment.this);
+        binding.btnLogout.setOnClickListener(v -> showLogoutDialog());
 
         binding.btnProfile.setOnClickListener(v -> {
             navController.navigate(R.id.action_profileFragment_to_pinFragment);

@@ -1,376 +1,382 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="40dp">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp">
-
-        <TextView
-            style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="@string/reset"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:ignore="InefficientWeight" />
-
-        <ImageView
-            android:id="@+id/back_filter_btn"
-            style="@style/back_arrow_background_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-
-            android:layout_marginStart="20dp"
-            android:clickable="true"
-            android:focusable="true"
-
-            android:padding="5dp" />
-
-        <TextView
-            style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/font_v2"
-            android:text="@string/filter"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            tools:ignore="InefficientWeight" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/gray_v1" />
-
-    <TextView
-        style="@style/TextColor_v1"
-        android:layout_width="match_parent"
-        android:layout_marginEnd="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/font_v1"
-        android:text="@string/category"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    android:fitsSystemWindows="true">
 
     <LinearLayout
-        android:id="@+id/btn_all"
-        style="@style/sharp_gray_v4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal"
-
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-
-        <ImageView
-            style="@style/filter_none_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="40dp" />
-
-        <TextView
-            style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/font_v1"
-            android:gravity="center_vertical"
-            android:text="@string/home"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="InefficientWeight" />
+        android:orientation="vertical"
+        android:paddingBottom="40dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
-            <RadioButton
-                android:id="@+id/RadBtnAll"
-                style="@style/radio_button_background"
+            <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
-                android:checked="true" />
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/reset"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="InefficientWeight" />
 
-        </RelativeLayout>
+            <ImageView
+                android:id="@+id/back_filter_btn"
+                style="@style/back_arrow_background_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
 
-    </LinearLayout>
+                android:layout_marginStart="20dp"
+                android:clickable="true"
+                android:focusable="true"
 
-    <LinearLayout
-        android:id="@+id/btn_men"
-        style="@style/sharp_gray_v4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal"
+                android:padding="5dp" />
 
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-
-        <ImageView
-            style="@style/men_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-
-            android:layout_marginStart="40dp" />
-
-        <TextView
-            style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/font_v1"
-            android:gravity="center_vertical"
-            android:text="@string/men"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="InefficientWeight" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/RadBtnMen"
-                style="@style/radio_button_background"
+            <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp" />
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/font_v2"
+                android:text="@string/filter"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                tools:ignore="InefficientWeight" />
 
         </RelativeLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/btn_women"
-        style="@style/sharp_gray_v4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal"
-
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-
-        <ImageView
-            style="@style/women_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="40dp" />
-
-        <TextView
-            style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/font_v1"
-            android:gravity="center_vertical"
-            android:text="@string/women"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="InefficientWeight" />
-
-        <RelativeLayout
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/RadBtnWomen"
-                style="@style/radio_button_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/btn_kids"
-        style="@style/sharp_gray_v4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-
-        <ImageView
-            style="@style/kids_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="40dp" />
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/gray_v1" />
 
         <TextView
             style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/font_v1"
-            android:gravity="center_vertical"
-            android:text="@string/kids"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="InefficientWeight" />
-
-        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/RadBtnKid"
-                style="@style/radio_button_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/gray_v1" />
-
-    <TextView
-        style="@style/TextColor_v1"
-        android:layout_width="match_parent"
-        android:layout_marginEnd="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/font_v1"
-        android:gravity="center_vertical"
-        android:text="@string/price"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:ignore="InefficientWeight" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/font_v1"
-            android:gravity="center_vertical"
-            android:text="@string/from"
-            android:textSize="18sp"
-            tools:ignore="InefficientWeight" />
+            android:text="@string/category"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/fPrice"
-            style="@style/rounded_outline_solid_white_black"
+        <LinearLayout
+            android:id="@+id/btn_all"
+            style="@style/sharp_gray_v4"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:autofillHints=""
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center_vertical"
-            android:inputType="numberDecimal"
-            android:text="@string/_0"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            tools:ignore="RtlCompat" />
+            android:orientation="horizontal"
+
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                style="@style/filter_none_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/font_v1"
+                android:gravity="center_vertical"
+                android:text="@string/home"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="InefficientWeight" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RadBtnAll"
+                    style="@style/radio_button_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:checked="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_men"
+            style="@style/sharp_gray_v4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                style="@style/men_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+
+                android:layout_marginStart="40dp" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/font_v1"
+                android:gravity="center_vertical"
+                android:text="@string/men"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="InefficientWeight" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RadBtnMen"
+                    style="@style/radio_button_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_women"
+            style="@style/sharp_gray_v4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                style="@style/women_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/font_v1"
+                android:gravity="center_vertical"
+                android:text="@string/women"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="InefficientWeight" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RadBtnWomen"
+                    style="@style/radio_button_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_kids"
+            style="@style/sharp_gray_v4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                style="@style/kids_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/font_v1"
+                android:gravity="center_vertical"
+                android:text="@string/kids"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="InefficientWeight" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RadBtnKid"
+                    style="@style/radio_button_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/gray_v1" />
 
         <TextView
             style="@style/TextColor_v1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/font_v1"
             android:gravity="center_vertical"
-            android:text="@string/to"
-            android:textSize="18sp"
+            android:text="@string/price"
+            android:textSize="20sp"
+            android:textStyle="bold"
             tools:ignore="InefficientWeight" />
 
-        <EditText
-            android:id="@+id/tPrice"
-            style="@style/rounded_outline_solid_white_black"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:autofillHints=""
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/font_v1"
+                android:gravity="center_vertical"
+                android:text="@string/from"
+                android:textSize="18sp"
+                tools:ignore="InefficientWeight" />
+
+            <EditText
+                android:id="@+id/fPrice"
+                style="@style/rounded_outline_solid_white_black"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:inputType="numberDecimal"
+                android:text="@string/_0"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/font_v1"
+                android:gravity="center_vertical"
+                android:text="@string/to"
+                android:textSize="18sp"
+                tools:ignore="InefficientWeight" />
+
+            <EditText
+                android:id="@+id/tPrice"
+                style="@style/rounded_outline_solid_white_black"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:text="@string/_1000"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:ignore="RtlCompat" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnFilter"
+            style="@style/checkout_background_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center_vertical"
-            android:inputType="number"
-            android:text="@string/_1000"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            tools:ignore="RtlCompat" />
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/filter"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnFilter"
-        style="@style/checkout_background_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:text="@string/filter"
-        android:textAllCaps="false"
-        android:textSize="20sp" />
-
-</LinearLayout>
+</ScrollView>

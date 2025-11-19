@@ -12,11 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel._old._payment.view.PaymentActivity;
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewBasket;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
+import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.databinding.FragmentCheckoutBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -61,10 +58,10 @@ public class CheckoutFragment extends Fragment {
 
             binding.btnCheckout.setOnClickListener(v -> {
                 if (items > 0) {
-                    Intent intent = new Intent(requireContext(), PaymentActivity.class);
-                    intent.putExtra("Total price", getFormattedTotalPrice());
-                    intent.putExtra("Data", dataOfOrder);
-                    startActivity(intent);
+//                    Intent intent = new Intent(requireContext(), PaymentActivity.class);
+//                    intent.putExtra("Total price", getFormattedTotalPrice());
+//                    intent.putExtra("Data", dataOfOrder);
+//                    startActivity(intent);
                 } else {
                     Toast.makeText(requireContext(), getText(R.string.basket_empty_message), Toast.LENGTH_SHORT).show();
                 }

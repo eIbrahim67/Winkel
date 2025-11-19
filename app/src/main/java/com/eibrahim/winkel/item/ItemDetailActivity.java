@@ -17,10 +17,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.adapterClasses.AdapterRecyclerviewReviews;
-import com.eibrahim.winkel.adapterClasses.adapterRecyclerviewSizes;
-import com.eibrahim.winkel.dataClasses.DataRecyclerviewMyItem;
-import com.eibrahim.winkel.dataClasses.DataReviewItem;
+import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
+import com.eibrahim.winkel.core.DataReviewItem;
 import com.eibrahim.winkel.item.dialogs.AddedToBasketDialog;
 import com.eibrahim.winkel.main.LocaleHelper;
 import com.eibrahim.winkel.publicDataSender.publicData;
