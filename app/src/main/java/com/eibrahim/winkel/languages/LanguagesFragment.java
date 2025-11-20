@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.ActivityLanguagesBinding;
@@ -24,15 +23,13 @@ import java.util.Locale;
 public class LanguagesFragment extends Fragment {
 
     private ActivityLanguagesBinding binding;
-    private BottomNavigationView bottomNavigationView;
 
     public LanguagesFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = ActivityLanguagesBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -41,17 +38,19 @@ public class LanguagesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
 
         binding.btnSystem.setOnClickListener(v -> {
-            SharedPreferences.Editor editor = requireActivity()
-                    .getSharedPreferences("Settings", getContext().MODE_PRIVATE)
-                    .edit();
-            editor.remove("My_Lang").apply();
 
-            showAlertDialog();
+            new AlertDialog.Builder(requireContext()).setTitle(R.string.restart_required).setMessage(R.string.the_application_needs_to_restart_to_apply_the_changes).setPositiveButton(R.string.restart, (dialog, which) -> {
+
+                SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", getContext().MODE_PRIVATE).edit();
+                editor.remove("My_Lang").apply();
+
+                restartApp();
+            }).setNegativeButton(R.string.cancel, null).show();
         });
 
         binding.btnEnglish.setOnClickListener(v -> setLocale("en"));
@@ -59,30 +58,21 @@ public class LanguagesFragment extends Fragment {
     }
 
     public void setLocale(String languageCode) {
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
+        new AlertDialog.Builder(requireContext()).setTitle(R.string.restart_required).setMessage(R.string.the_application_needs_to_restart_to_apply_the_changes).setPositiveButton(R.string.restart, (dialog, which) -> {
 
-        Configuration config = new Configuration();
-        config.setLocale(locale);
-        requireActivity().getResources().updateConfiguration(config,
-                requireActivity().getResources().getDisplayMetrics());
+            Locale locale = new Locale(languageCode);
+            Locale.setDefault(locale);
 
-        SharedPreferences.Editor editor = requireActivity()
-                .getSharedPreferences("Settings", getContext().MODE_PRIVATE)
-                .edit();
-        editor.putString("My_Lang", languageCode);
-        editor.apply();
+            Configuration config = new Configuration();
+            config.setLocale(locale);
+            requireActivity().getResources().updateConfiguration(config, requireActivity().getResources().getDisplayMetrics());
 
-        showAlertDialog();
-    }
+            SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", getContext().MODE_PRIVATE).edit();
+            editor.putString("My_Lang", languageCode);
+            editor.apply();
 
-    private void showAlertDialog() {
-        new AlertDialog.Builder(requireContext())
-                .setTitle("Restart Required")
-                .setMessage("The application needs to restart to apply the changes.")
-                .setPositiveButton("Restart", (dialog, which) -> restartApp())
-                .setNegativeButton("Cancel", null)
-                .show();
+            restartApp();
+        }).setNegativeButton(R.string.cancel, null).show();
     }
 
     private void restartApp() {
