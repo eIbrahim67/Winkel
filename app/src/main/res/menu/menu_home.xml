@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/homeFragment"
-        android:title="Home"
+    <item
+        android:id="@+id/homeFragment"
         android:icon="@drawable/home"
-        tools:ignore="HardcodedText" />
+        android:title="@string/home" />
 
-    <item android:id="@+id/wishlistFragment"
-        android:title="WishList"
+    <item
+        android:id="@+id/wishlistFragment"
         android:icon="@drawable/unlove_icon_white"
-        tools:ignore="HardcodedText"/>
+        android:title="@string/wishlist" />
 
-    <item android:id="@+id/checkoutFragment"
-        android:title="Checkout"
+    <item
+        android:id="@+id/checkoutFragment"
         android:icon="@drawable/basket_icon_white"
-        tools:ignore="HardcodedText"/>
+        android:title="@string/checkout" />
 
-    <item android:id="@+id/profileFragment"
-        android:title="Profile"
+    <item
+        android:id="@+id/profileFragment"
         android:icon="@drawable/user_icon_white"
-        tools:ignore="HardcodedText"/>
+        android:title="@string/profile" />
 </menu>

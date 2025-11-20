@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/checkout_fragment"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".checkout.CheckoutFragment"
-    android:id="@+id/checkout_fragment"
-    style="@style/background">
+    tools:context=".checkout.CheckoutFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,36 +16,36 @@
             android:id="@+id/msgEmptyBasket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerInParent="true">
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
             <ImageView
+                style="@style/basket_src"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                style="@style/basket_src"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal" />
 
 
             <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:text="@string/oops"
                 android:textSize="15sp"
-                style="@style/TextColor_v1"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical" />
+                android:textStyle="bold" />
 
             <TextView
+                style="@style/TextColor_v2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
                 android:text="@string/it_looks_like_your_basket_is_empty__start_adding_items_to_your_basket_now"
                 android:textSize="15sp"
-                style="@style/TextColor_v2"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical" />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -57,17 +58,17 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="end"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="20dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/noOfItems"
+                    style="@style/TextColor_v1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    style="@style/TextColor_v1"
                     android:textStyle="bold"
                     tools:ignore="InefficientWeight" />
 
@@ -77,44 +78,44 @@
                 android:id="@+id/rv3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
                 android:layout_marginTop="10dp"
-                tools:listitem="@layout/item_rv_basket_items"/>
+                android:layout_weight="1"
+                tools:listitem="@layout/item_rv_basket_items" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/gray_v1"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray_v1" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:text="@string/total"
                         android:textSize="18sp"
-                        style="@style/TextColor_v1"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_vertical" />
+                        android:textStyle="bold" />
 
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_alignParentEnd="true"
                         android:layout_gravity="end"
-                        android:layout_alignParentEnd="true">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/totalPriceOfItemsCheckout"
@@ -128,13 +129,13 @@
                             tools:ignore="RelativeOverlap" />
 
                         <TextView
+                            style="@style/TextColor_v1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="22sp"
-                            style="@style/TextColor_v1"
-                            android:textStyle="bold"
-                            android:text="@string/le"
                             android:gravity="center"
+                            android:text="@string/le"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
                             tools:ignore="RelativeOverlap" />
 
                     </LinearLayout>
@@ -145,21 +146,32 @@
 
                 <Button
                     android:id="@+id/btn_checkout"
+                    style="@style/checkout_background_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    style="@style/checkout_background_btn"
-                    android:text="@string/checkout"
-                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"/>
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/checkout"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
         </LinearLayout>
+
+        <!-- Loading Indicator -->
+        <com.google.android.material.loadingindicator.LoadingIndicator
+            android:id="@+id/loadingIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/loading"
+            app:indicatorColor="@color/primary_black"
+            app:indicatorSize="100dp"
+            app:minHideDelay="300"
+            app:showDelay="200" />
 
     </RelativeLayout>
 

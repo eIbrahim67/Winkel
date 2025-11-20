@@ -19,21 +19,16 @@ import com.eibrahim.winkel.databinding.FragmentProfileBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
+    private NavController navController;
     private BottomNavigationView bottomNavigationView;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentProfileBinding.inflate(inflater, container, false);
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setVisibility(View.VISIBLE);
-        setUpNavigation();
-        return binding.getRoot();
-    }
-
-    NavOptions navOptionsRight = new NavOptions.Builder()
+    private final NavOptions navOptionsRight = new NavOptions.Builder()
             .setEnterAnim(R.anim.slide_in_right)
             .setExitAnim(R.anim.slide_out_left)
             .setPopEnterAnim(R.anim.slide_in_left)
@@ -42,106 +37,75 @@ public class ProfileFragment extends Fragment {
             .setRestoreState(true)
             .build();
 
-    private void setUpNavigation() {
-//        binding.btnPaymentMethods.setOnClickListener(v -> navigateTo(PinFragment.class, "goto", 1));
-//        binding.btnSupport.setOnClickListener(v -> navigateTo(SupportUsActivity.class));
-//        binding.btnSound.setOnClickListener(v -> navigateTo(SoundActivity.class));
-//        binding.btnNotifications.setOnClickListener(v -> navigateTo(NotificationsActivity.class));
-//        binding.btnAllUsers.setOnClickListener(v -> navigateTo(AllUsersActivity.class));
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
+        navController = NavHostFragment.findNavController(this);
 
-        NavController navController = NavHostFragment.findNavController(ProfileFragment.this);
-        binding.btnLogout.setOnClickListener(v -> showLogoutDialog());
+        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.VISIBLE);
 
-        binding.btnProfile.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_pinFragment, null, navOptionsRight);
-        });
+        setupNavigationMap();
+        setupLogout();
 
-        binding.btnLanguages.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_languagesFragment, null, navOptionsRight);
-        });
-
-
-        binding.btnMyOrders.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_myOrdersFragment, null, navOptionsRight);
-        });
-
-        binding.btnHelpFeedback.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_helpFeedbackFragment, null, navOptionsRight);
-        });
-
-        binding.btnPermissions.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_permissionsFragment, null, navOptionsRight);
-        });
-
-        binding.btnAbout.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_aboutFragment, null, navOptionsRight);
-        });
-
-        binding.btnSecurity.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_securityFragment, null, navOptionsRight);
-        });
-
-        binding.btnDarkMode.setOnClickListener(v -> {
-            navController.navigate(R.id.action_profileFragment_to_themeFragment, null, navOptionsRight);
-        });
-
-
-        binding.btnAddNewItem.setOnClickListener(v -> {
-
-            navController.navigate(R.id.action_profileFragment_to_addItemFragment, null, navOptionsRight);
-
-        });
-
-        binding.btnMyItems.setOnClickListener(v -> {
-
-            navController.navigate(R.id.action_profileFragment_to_myItemsFragment, null, navOptionsRight);
-
-        });
-
-        binding.btnDeleteAccount.setOnClickListener(v -> {
-
-            navController.navigate(R.id.action_profileFragment_to_deleteAccountFragment, null, navOptionsRight);
-
-        });
-
-
-//        binding.btnOrders.setOnClickListener(v -> navigateTo(OrdersFragment.class));
-
+        return binding.getRoot();
     }
 
-    private void showLogoutDialog() {
-        if (getActivity() == null) return;
+    /**
+     * Central navigation mapping — improves performance + readability.
+     */
+    private void setupNavigationMap() {
+        Map<View, Integer> navMap = new HashMap<>();
 
-        new AlertDialog.Builder(requireContext())
-                .setTitle(R.string.log_out)
-                .setMessage(R.string.are_you_sure)
-                .setPositiveButton(getText(R.string.yes), (dialog, which) -> {
-                    dialog.dismiss();
-                    logout();
-                })
-                .setNegativeButton(getText(R.string.no), (dialog, which) -> dialog.dismiss())
-                .show();
+        navMap.put(binding.btnProfile, R.id.action_profileFragment_to_pinFragment);
+        navMap.put(binding.btnLanguages, R.id.action_profileFragment_to_languagesFragment);
+        navMap.put(binding.btnMyOrders, R.id.action_profileFragment_to_myOrdersFragment);
+        navMap.put(binding.btnHelpFeedback, R.id.action_profileFragment_to_helpFeedbackFragment);
+        navMap.put(binding.btnPermissions, R.id.action_profileFragment_to_permissionsFragment);
+        navMap.put(binding.btnAbout, R.id.action_profileFragment_to_aboutFragment);
+        navMap.put(binding.btnSecurity, R.id.action_profileFragment_to_securityFragment);
+        navMap.put(binding.btnDarkMode, R.id.action_profileFragment_to_themeFragment);
+        navMap.put(binding.btnAddNewItem, R.id.action_profileFragment_to_addItemFragment);
+        navMap.put(binding.btnMyItems, R.id.action_profileFragment_to_myItemsFragment);
+        navMap.put(binding.btnDeleteAccount, R.id.action_profileFragment_to_deleteAccountFragment);
 
+        for (Map.Entry<View, Integer> entry : navMap.entrySet()) {
+            entry.getKey().setOnClickListener(v ->
+                    navController.navigate(entry.getValue(), null, navOptionsRight)
+            );
+        }
+    }
+
+    private void setupLogout() {
+        binding.btnLogout.setOnClickListener(v -> {
+            new AlertDialog.Builder(requireContext())
+                    .setTitle(R.string.log_out)
+                    .setMessage(R.string.are_you_sure)
+                    .setPositiveButton(R.string.yes, (dialog, which) -> logout())
+                    .setNegativeButton(R.string.no, null)
+                    .show();
+        });
     }
 
     private void logout() {
         try {
             FirebaseAuth.getInstance().signOut();
-            Toast.makeText(requireContext(), getString(R.string.logged_out_successfully), Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), R.string.logged_out_successfully, Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(requireContext(), AuthActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+
             requireActivity().finish();
         } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(requireContext(), getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        bottomNavigationView.setVisibility(View.VISIBLE);
+        if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.VISIBLE);
     }
 
     @Override

@@ -21,26 +21,31 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
-import java.util.Objects;
 
 public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecyclerviewItems.ViewHolder> {
 
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
-    FirebaseFirestore firestore;
+
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private final String userId = FirebaseAuth.getInstance().getUid();
+    private DocumentReference wishlistRef;
 
     public adapterRecyclerviewItems(Context context, List<DataRecyclerviewMyItem> itemList) {
         this.context = context;
         this.itemList = itemList;
+
+        if (userId != null) {
+            wishlistRef = firestore.collection("UsersData")
+                    .document(userId)
+                    .collection("Wishlist")
+                    .document("Wishlist");
+        }
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView itemImage;
-        final ImageView btnLoveH;
-        final TextView itemName;
-        final TextView itemCategory;
-        final TextView itemPrice;
-
+        final ImageView itemImage, btnLoveH;
+        final TextView itemName, itemCategory, itemPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -49,61 +54,70 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
             itemCategory = itemView.findViewById(R.id.item_cate);
             itemPrice = itemView.findViewById(R.id.item_price);
             btnLoveH = itemView.findViewById(R.id.btn_loveH);
-
         }
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_products, parent, false);
+        View view = LayoutInflater.from(context)
+                .inflate(R.layout.item_products, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DataRecyclerviewMyItem currentItem = itemList.get(position);
+        DataRecyclerviewMyItem item = itemList.get(position);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        firestore = FirebaseFirestore.getInstance();
+        holder.itemName.setText(item.getName());
+        holder.itemCategory.setText(item.getCategory());
+        holder.itemPrice.setText(item.getPrice() + context.getString(R.string.le));
 
-        String temp = currentItem.getPrice() + context.getString(R.string.le);
-
-        holder.itemPrice.setText(temp);
-        holder.itemCategory.setText(currentItem.getCategory());
-        holder.itemName.setText(currentItem.getName());
-
-        Glide.with(context).load(currentItem.getImageId()).into(holder.itemImage);
+        Glide.with(context)
+                .load(item.getImageId())
+                .into(holder.itemImage);
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
-            intent.putExtra("item", currentItem);
+            intent.putExtra("item", item);
             context.startActivity(intent);
         });
 
-        DocumentReference wishlistRef = firestore.collection("UsersData").document(Objects.requireNonNull(auth.getCurrentUser()).getUid()).collection("Wishlist").document("Wishlist");
-
-        if (currentItem.getItemLoved()) holder.btnLoveH.setImageResource(R.drawable.loved_icon);
-        else holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
+        // Set icon based on the loved state
+        holder.btnLoveH.setImageResource(
+                item.getItemLoved() ? R.drawable.loved_icon : R.drawable.unlove_icon_white
+        );
 
         holder.btnLoveH.setOnClickListener(v -> {
 
-
-            if (currentItem.getItemLoved()) {
-                holder.btnLoveH.setImageResource(R.drawable.unlove_icon_white);
-                currentItem.setItemLoved(false);
-                wishlistRef.update("Wishlist", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType())).addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your wishlist.", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
-
-            } else {
-                holder.btnLoveH.setImageResource(R.drawable.loved_icon);
-                currentItem.setItemLoved(true);
-                wishlistRef.update("Wishlist", FieldValue.arrayUnion(currentItem.getItemId() + "," + currentItem.getItemType())).addOnSuccessListener(unused -> Toast.makeText(context, "Item added into your Wishlist", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
+            if (userId == null) {
+                Toast.makeText(context, R.string.you_must_login_first, Toast.LENGTH_SHORT).show();
+                return;
             }
 
+            String value = item.getItemId() + "," + item.getItemType();
 
+            boolean isLoved = item.getItemLoved();
+            item.setItemLoved(!isLoved);
+
+            // Update UI instantly
+            holder.btnLoveH.setImageResource(
+                    item.getItemLoved() ? R.drawable.loved_icon : R.drawable.unlove_icon_white
+            );
+
+            // Update Firestore
+            wishlistRef.update(
+                    "Wishlist",
+                    item.getItemLoved() ? FieldValue.arrayUnion(value) : FieldValue.arrayRemove(value)
+            ).addOnSuccessListener(unused -> {}).addOnFailureListener(e -> {
+                Toast.makeText(context, "Error occurred", Toast.LENGTH_SHORT).show();
+                // rollback UI on failure
+                item.setItemLoved(isLoved);
+                holder.btnLoveH.setImageResource(
+                        isLoved ? R.drawable.loved_icon : R.drawable.unlove_icon_white
+                );
+            });
         });
-
-
     }
 
     @Override

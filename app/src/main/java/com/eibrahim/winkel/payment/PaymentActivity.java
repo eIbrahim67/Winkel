@@ -148,6 +148,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         // Use emulator IP for localhost or your PC IP for device
         String url = "http://10.0.2.2:5000/create_payment_intent";
+        //String url = "http://192.168.1.100:5000/create_payment_intent"; // real device
 
         Request request = new Request.Builder()
                 .url(url)

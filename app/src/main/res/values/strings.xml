@@ -320,4 +320,12 @@
     <string name="state">State</string>
     <string name="city">City</string>
     <string name="rest_of_address_in_detail_e_g_street">Rest of address in detail (e.g. street)</string>
+    <string name="restart_required">Restart Required</string>
+    <string name="the_application_needs_to_restart_to_apply_the_changes">The application needs to restart to apply the changes.</string>
+    <string name="restart">Restart</string>
+    <string name="loading">loading</string>
+    <string name="error_loading">loading error</string>
+    <string name="error_updating_basket">Error updating basket.</string>
+    <string name="item_removed">Item removed.</string>
+    <string name="you_must_login_first">You must login first</string>
 </resources>

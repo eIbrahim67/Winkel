@@ -15,28 +15,29 @@ import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
-import java.util.Objects;
 
 public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyclerviewBasket.ViewHolder> {
 
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
-private final CheckoutFragment checkoutFragment;
+    private final CheckoutFragment checkoutFragment;
 
-    public adapterRecyclerviewBasket(Context context, List<DataRecyclerviewMyItem> itemList, CheckoutFragment checkoutActivity) {
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+    public adapterRecyclerviewBasket(Context context, List<DataRecyclerviewMyItem> itemList, CheckoutFragment fragment) {
         this.context = context;
         this.itemList = itemList;
-        this.checkoutFragment = checkoutActivity;
+        this.checkoutFragment = fragment;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final ImageView itemImage, itemDeleteCheck, btn_sub, btn_plus;
-          final TextView itemCateCheck, itemNameCheck, itemPriceCheck, itemMuchCounter;
+        final TextView itemCateCheck, itemNameCheck, itemPriceCheck, itemMuchCounter;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,127 +61,88 @@ private final CheckoutFragment checkoutFragment;
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DataRecyclerviewMyItem currentItem = itemList.get(position);
+        DataRecyclerviewMyItem item = itemList.get(position);
 
-        Glide.with(context)
-                .load(currentItem.getImageId())
-                .into(holder.itemImage);
+        Glide.with(context).load(item.getImageId()).into(holder.itemImage);
 
-        holder.itemNameCheck.setText(currentItem.getName());
-        String temp = currentItem.getPrice() + context.getString(R.string.le) ;
-        holder.itemPriceCheck.setText(temp);
-        holder.itemCateCheck.setText(currentItem.getCategory());
-        holder.itemMuchCounter.setText(currentItem.getMuch());
+        holder.itemNameCheck.setText(item.getName());
+        holder.itemPriceCheck.setText(item.getPrice() + context.getString(R.string.le));
+        holder.itemCateCheck.setText(item.getCategory());
+        holder.itemMuchCounter.setText(item.getMuch());
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        DocumentReference basketRef = firestore.collection("UsersData")
-                .document(userId)
-                .collection("BasketCollection")
-                .document("BasketDocument");
-
-
+        // --------------------------
+        // QUANTITY - (MINUS BUTTON)
+        // --------------------------
         holder.btn_sub.setOnClickListener(v -> {
+            int amount = Integer.parseInt(item.getMuch());
 
-            if (!currentItem.getMuch().equals("1")){
+            if (amount <= 1) return;
 
-                if (checkoutFragment != null)
-                    checkoutFragment.re(Double.valueOf(currentItem.getPrice()), '_');
-
-                basketRef
-                        .update("BasketCollection", FieldValue.arrayRemove(
-                                        currentItem.getItemId() + "," +
-                                                currentItem.getItemType() + "," +
-                                                currentItem.getMuch() + "," +
-                                                currentItem.getItemSize()
-                                )
-                        )
-                        .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred, please refresh the page", Toast.LENGTH_SHORT).show());
-
-
-                currentItem.setMuch(String.valueOf(Integer.parseInt(currentItem.getMuch()) - 1));
-                holder.itemMuchCounter.setText(currentItem.getMuch());
-
-                basketRef
-                        .update("BasketCollection", FieldValue.arrayUnion(
-                                        currentItem.getItemId() + "," +
-                                                currentItem.getItemType() + "," +
-                                                currentItem.getMuch() + "," +
-                                                currentItem.getItemSize()
-                                )
-                        )
-                        .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred, please refresh the page", Toast.LENGTH_SHORT).show());
-
-
-            }
-
+            updateQuantity(item, -1, holder);
         });
 
+        // --------------------------
+        // QUANTITY + (PLUS BUTTON)
+        // --------------------------
         holder.btn_plus.setOnClickListener(v -> {
-
-            if (checkoutFragment != null)
-                checkoutFragment.re(Double.valueOf(currentItem.getPrice()), '+');
-
-            basketRef
-                    .update("BasketCollection", FieldValue.arrayRemove(
-                                    currentItem.getItemId() + "," +
-                                            currentItem.getItemType() + "," +
-                                            currentItem.getMuch() + "," +
-                                            currentItem.getItemSize()
-                            )
-                    )
-                    .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred, please refresh the page", Toast.LENGTH_SHORT).show());
-
-
-            currentItem.setMuch(String.valueOf(Integer.parseInt(currentItem.getMuch()) + 1));
-            holder.itemMuchCounter.setText(currentItem.getMuch());
-
-            basketRef
-                    .update("BasketCollection", FieldValue.arrayUnion(
-                                    currentItem.getItemId() + "," +
-                                            currentItem.getItemType() + "," +
-                                            currentItem.getMuch() + "," +
-                                            currentItem.getItemSize()
-                            )
-                    )
-                    .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred, please refresh the page", Toast.LENGTH_SHORT).show());
-
-
+            updateQuantity(item, +1, holder);
         });
 
-        holder.itemDeleteCheck.setOnClickListener(v -> {
-
-            Toast.makeText(context, "Item deleted from your basket", Toast.LENGTH_SHORT).show();
-            if (checkoutFragment != null) {
-                checkoutFragment.re(currentItem.getTotalPriceItem());
-            }
-
-            basketRef
-                    .update("BasketCollection", FieldValue.arrayRemove(
-                            currentItem.getItemId() + "," +
-                                    currentItem.getItemType() + "," +
-                                    currentItem.getMuch() + "," +
-                                    currentItem.getItemSize()
-                            )
-                    )
-                    .addOnSuccessListener(unused -> Toast.makeText(context, "Item successfully removed from your basket.", Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(e -> Toast.makeText(context, "An unexpected error occurred.", Toast.LENGTH_SHORT).show());
-
-            int adapterPosition = holder.getAdapterPosition();
-
-            if (adapterPosition != RecyclerView.NO_POSITION) {
-                itemList.remove(adapterPosition);
-                notifyItemRemoved(adapterPosition);
-            }
-        });
+        // --------------------------
+        // DELETE ITEM
+        // --------------------------
+        holder.itemDeleteCheck.setOnClickListener(v -> deleteItem(holder.getAdapterPosition(), item));
     }
 
+    // --------------------------
+    // UPDATE QUANTITY
+    // --------------------------
+    private void updateQuantity(DataRecyclerviewMyItem item, int diff, ViewHolder holder) {
+
+        int newMuch = Integer.parseInt(item.getMuch()) + diff;
+        double price = Double.parseDouble(item.getPrice());
+
+        // update UI instantly
+        item.setMuch(String.valueOf(newMuch));
+        holder.itemMuchCounter.setText(item.getMuch());
+
+        // update totals in fragment
+        if (checkoutFragment != null)
+            checkoutFragment.updateAfterChange(price, diff > 0 ? '+' : '-');
+
+        // Firestore update
+        updateFirestore(item, diff);
+    }
+
+    // --------------------------
+    // UPDATE FIRESTORE QUANTITIES
+    // --------------------------
+    private void updateFirestore(DataRecyclerviewMyItem item, int diff) {
+
+        String base = item.getItemId() + "," + item.getItemType() + "," + item.getMuch() + "," + item.getItemSize();
+
+        String oldBase = item.getItemId() + "," + item.getItemType() + "," + (Integer.parseInt(item.getMuch()) - diff) + "," + item.getItemSize();
+
+        firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(oldBase)).addOnSuccessListener(unused -> firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayUnion(base))).addOnFailureListener(e -> Toast.makeText(context, R.string.error_updating_basket, Toast.LENGTH_SHORT).show());
+    }
+
+    // --------------------------
+    // DELETE ITEM
+    // --------------------------
+    private void deleteItem(int position, DataRecyclerviewMyItem item) {
+
+        firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(item.getItemId() + "," + item.getItemType() + "," + item.getMuch() + "," + item.getItemSize()));
+
+        if (checkoutFragment != null) checkoutFragment.removeItem(item.getTotalPriceItem());
+
+        itemList.remove(position);
+        notifyItemRemoved(position);
+
+        Toast.makeText(context, R.string.item_removed, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public int getItemCount() {
         return itemList.size();
     }
-
 }
-
