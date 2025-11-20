@@ -87,7 +87,7 @@ public class adapterRecyclerviewMyItems extends RecyclerView.Adapter<adapterRecy
             String itemType = currentItem.getItemType();
 
             new AlertDialog.Builder(context)
-                    .setTitle("Confirm Deletion")
+                    .setTitle(R.string.confirm_deletion)
                     .setMessage(context.getText(R.string.are_you_sure_you_want_to_permanently_remove_this_item_from_your_shop))
                     .setPositiveButton(context.getText(R.string.delete), (dialog, which) -> {
                         dialog.dismiss();
@@ -104,10 +104,10 @@ public class adapterRecyclerviewMyItems extends RecyclerView.Adapter<adapterRecy
                                     notifyItemRemoved(holder.getAdapterPosition());
                                 })
                                 .addOnFailureListener(e -> {
-                                    Toast.makeText(context, "Failed to delete the item. Please try again.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, R.string.failed_to_delete_the_item_please_try_again, Toast.LENGTH_SHORT).show();
                                 });
                     })
-                    .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
                     .show();
         });
 

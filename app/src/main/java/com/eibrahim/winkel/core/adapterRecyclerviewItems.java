@@ -36,10 +36,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         this.itemList = itemList;
 
         if (userId != null) {
-            wishlistRef = firestore.collection("UsersData")
-                    .document(userId)
-                    .collection("Wishlist")
-                    .document("Wishlist");
+            wishlistRef = firestore.collection("UsersData").document(userId).collection("Wishlist").document("Wishlist");
         }
     }
 
@@ -60,8 +57,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context)
-                .inflate(R.layout.item_products, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_products, parent, false);
         return new ViewHolder(view);
     }
 
@@ -71,11 +67,9 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
 
         holder.itemName.setText(item.getName());
         holder.itemCategory.setText(item.getCategory());
-        holder.itemPrice.setText(item.getPrice() + context.getString(R.string.le));
+        holder.itemPrice.setText(String.format("%s%s", item.getPrice(), context.getString(R.string.le)));
 
-        Glide.with(context)
-                .load(item.getImageId())
-                .into(holder.itemImage);
+        Glide.with(context).load(item.getImageId()).into(holder.itemImage);
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
@@ -84,9 +78,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         });
 
         // Set icon based on the loved state
-        holder.btnLoveH.setImageResource(
-                item.getItemLoved() ? R.drawable.loved_icon : R.drawable.unlove_icon_white
-        );
+        holder.btnLoveH.setImageResource(item.getItemLoved() ? R.drawable.loved_icon : R.drawable.unlove_icon_white);
 
         holder.btnLoveH.setOnClickListener(v -> {
 
@@ -101,21 +93,15 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
             item.setItemLoved(!isLoved);
 
             // Update UI instantly
-            holder.btnLoveH.setImageResource(
-                    item.getItemLoved() ? R.drawable.loved_icon : R.drawable.unlove_icon_white
-            );
+            holder.btnLoveH.setImageResource(item.getItemLoved() ? R.drawable.loved_icon : R.drawable.unlove_icon_white);
 
             // Update Firestore
-            wishlistRef.update(
-                    "Wishlist",
-                    item.getItemLoved() ? FieldValue.arrayUnion(value) : FieldValue.arrayRemove(value)
-            ).addOnSuccessListener(unused -> {}).addOnFailureListener(e -> {
+            wishlistRef.update("Wishlist", item.getItemLoved() ? FieldValue.arrayUnion(value) : FieldValue.arrayRemove(value)).addOnSuccessListener(unused -> {
+            }).addOnFailureListener(e -> {
                 Toast.makeText(context, "Error occurred", Toast.LENGTH_SHORT).show();
                 // rollback UI on failure
                 item.setItemLoved(isLoved);
-                holder.btnLoveH.setImageResource(
-                        isLoved ? R.drawable.loved_icon : R.drawable.unlove_icon_white
-                );
+                holder.btnLoveH.setImageResource(isLoved ? R.drawable.loved_icon : R.drawable.unlove_icon_white);
             });
         });
     }

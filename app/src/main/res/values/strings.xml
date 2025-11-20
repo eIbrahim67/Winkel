@@ -328,4 +328,20 @@
     <string name="error_updating_basket">Error updating basket.</string>
     <string name="item_removed">Item removed.</string>
     <string name="you_must_login_first">You must login first</string>
+    <string name="grant">Grant</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="failed_to_delete_the_item_please_try_again">Failed to delete the item. Please try again.</string>
+    <string name="are_you_sure_you_want_to_permanently_delete_your_account">Are you sure you want to permanently delete your account?</string>
+    <string name="account_deleted_successfully">Account deleted successfully</string>
+    <string name="please_re_login_before_deleting_your_account">Please re-login before deleting your account</string>
+    <string name="post_details">Item Details</string>
+    <string name="item_price">Item Price</string>
+    <string name="type">Type</string>
+    <string name="camera_permission_required">Camera Permission Required</string>
+    <string name="we_need_access_to_your_camera_so_you_can_take_a_photo_of_the_item">We need access to your camera so you can take a photo of the item.</string>
+    <string name="we_need_access_to_your_photos_so_you_can_upload_an_item_image">We need access to your photos so you can upload an item image.</string>
+    <string name="storage_permission_required">Storage Permission Required</string>
+    <string name="failed_to_upload_data">Failed to upload data</string>
+    <string name="you_have_permanently_denied_this_permission_to_enable_it_go_to_settings_app_permissions"><![CDATA[You have permanently denied this permission. To enable it, go to Settings > App permissions.]]></string>
+    <string name="open_settings">Open Settings</string>
 </resources>

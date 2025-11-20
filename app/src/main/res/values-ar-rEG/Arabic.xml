@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">"وينكل"</string>
     <string name="welcome__sign_up">مرحبًا\nسجّل الدخول!</string>
     <string name="full_name">الاسم الكامل</string>
@@ -319,5 +318,22 @@
     <string name="state">المحافظة</string>
     <string name="city">المدينة</string>
     <string name="rest_of_address_in_detail_e_g_street">بقية العنوان بالتفصيل (على سبيل المثال الشارع)</string>
+    <string name="restart_required">إعادة التشغيل مطلوبة</string>
+    <string name="the_application_needs_to_restart_to_apply_the_changes">يجب إعادة تشغيل التطبيق لتطبيق التغييرات.</string>
+    <string name="restart">إعادة تشغيل</string>
+    <string name="loading">جارٍ التحميل</string>
+    <string name="error_loading">خطأ في التحميل</string>
+    <string name="error_updating_basket">حدث خطأ أثناء تحديث السلة.</string>
+    <string name="item_removed">تمت إزالة العنصر.</string>
+    <string name="you_must_login_first">يجب تسجيل الدخول أولاً</string>
+    <string name="grant">منح</string>
+    <string name="permission_denied">تم رفض الإذن</string>
+    <string name="failed_to_delete_the_item_please_try_again">فشل حذف العنصر. يرجى المحاولة مرة أخرى.</string>
+    <string name="are_you_sure_you_want_to_permanently_delete_your_account">هل أنت متأكد أنك تريد حذف حسابك نهائيًا؟</string>
+    <string name="account_deleted_successfully">تم حذف الحساب بنجاح</string>
+    <string name="please_re_login_before_deleting_your_account">يرجى تسجيل الدخول مرة أخرى قبل حذف حسابك</string>
+    <string name="post_details">تفاصيل المنتج</string>
+    <string name="item_price">سعر المنتج</string>
+    <string name="type">النوع</string>
 
 </resources>

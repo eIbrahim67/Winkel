@@ -65,12 +65,7 @@ public class ConfirmDeletionFragment extends Fragment {
                         String correctPin = String.valueOf(snapshot.get("pin"));
                         if (code.equals(correctPin)) {
 
-                            new AlertDialog.Builder(requireContext())
-                                    .setTitle("Delete Account")
-                                    .setMessage("Are you sure you want to permanently delete your account?")
-                                    .setPositiveButton("Yes", (dialog, which) -> deleteMyAccount())
-                                    .setNegativeButton("Cancel", null)
-                                    .show();
+                            new AlertDialog.Builder(requireContext()).setTitle(R.string.delete_account).setMessage(R.string.are_you_sure_you_want_to_permanently_delete_your_account).setPositiveButton(R.string.yes, (dialog, which) -> deleteMyAccount()).setNegativeButton(R.string.cancel, null).show();
 
 
                         } else {
@@ -79,9 +74,7 @@ public class ConfirmDeletionFragment extends Fragment {
                     } else {
                         Toast.makeText(requireContext(), getText(R.string.pin_not_found_please_contact_support), Toast.LENGTH_SHORT).show();
                     }
-                }).addOnFailureListener(e ->
-                        Toast.makeText(requireContext(), getText(R.string.failed_to_verify_pin_please_check_your_connection), Toast.LENGTH_SHORT).show()
-                );
+                }).addOnFailureListener(e -> Toast.makeText(requireContext(), getText(R.string.failed_to_verify_pin_please_check_your_connection), Toast.LENGTH_SHORT).show());
 
             } else {
                 Toast.makeText(requireContext(), getString(R.string.please_enter_your_admin_code), Toast.LENGTH_SHORT).show();
@@ -112,31 +105,24 @@ public class ConfirmDeletionFragment extends Fragment {
         String uid = auth.getCurrentUser().getUid();
 
         // 1. Delete Firestore data
-        DocumentReference userDataRef = firestore.collection("UsersData")
-                .document(uid)
-                .collection("UserPersonalData")
-                .document("UserPersonalData");
+        DocumentReference userDataRef = firestore.collection("UsersData").document(uid).collection("UserPersonalData").document("UserPersonalData");
 
-        userDataRef.delete()
-                .addOnSuccessListener(aVoid -> {
-                    // 2. Try deleting Firebase Authentication account
-                    auth.getCurrentUser().delete()
-                            .addOnSuccessListener(aVoid1 -> {
-                                Toast.makeText(requireContext(), "Account deleted successfully", Toast.LENGTH_SHORT).show();
-                                logout(); // Redirect to AuthActivity
-                            })
-                            .addOnFailureListener(e -> {
-                                if (e.getMessage() != null && e.getMessage().contains("recent login")) {
-                                    Toast.makeText(requireContext(), "Please re-login before deleting your account", Toast.LENGTH_LONG).show();
-                                    logout(); // Optionally force logout so user logs in again
-                                } else {
-                                    Toast.makeText(requireContext(), "Auth deletion failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(requireContext(), "Failed to delete user data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+        userDataRef.delete().addOnSuccessListener(aVoid -> {
+            // 2. Try deleting Firebase Authentication account
+            auth.getCurrentUser().delete().addOnSuccessListener(aVoid1 -> {
+                Toast.makeText(requireContext(), R.string.account_deleted_successfully, Toast.LENGTH_SHORT).show();
+                logout(); // Redirect to AuthActivity
+            }).addOnFailureListener(e -> {
+                if (e.getMessage() != null && e.getMessage().contains("recent login")) {
+                    Toast.makeText(requireContext(), R.string.please_re_login_before_deleting_your_account, Toast.LENGTH_LONG).show();
+                    logout(); // Optionally force logout so user logs in again
+                } else {
+                    Toast.makeText(requireContext(), "Auth deletion failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }).addOnFailureListener(e -> {
+            Toast.makeText(requireContext(), "Failed to delete user data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
     }
 
 

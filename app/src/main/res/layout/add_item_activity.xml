@@ -2,9 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/background">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,30 +14,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/btnBack"
+                style="@style/back_arrow_background_btn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                style="@style/back_arrow_background_btn"
-                android:padding="9dp"
                 android:clickable="true"
-                android:focusable="true"
                 android:contentDescription="Back"
+                android:focusable="true"
+                android:padding="9dp"
                 tools:ignore="HardcodedText" />
 
             <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="26sp"
-                style="@style/TextColor_v1"
-                android:text="@string/add_new_item"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
+                android:text="@string/add_new_item"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
 
@@ -49,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            
-            
+
+
             android:fontFamily="@font/font_v1"
             android:text="@string/title"
             android:textSize="18sp"
@@ -62,17 +62,18 @@
             style="@style/TextColor_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:clickable="true"
             android:focusable="true"
-            android:minHeight="48dp"
             android:fontFamily="@font/font_v1"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:ignore="LabelFor,SpeakableTextPresentCheck" />
@@ -83,10 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            
-            
             android:fontFamily="@font/font_v1"
-            android:text="@string/category"
+            android:text="@string/post_details"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
@@ -96,21 +95,21 @@
             style="@style/TextColor_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-
             android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:clickable="true"
             android:focusable="true"
-            
-            android:minHeight="48dp"
             android:fontFamily="@font/font_v1"
+            android:importantForAutofill="no"
+            android:minHeight="48dp"
+            android:minLines="4"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck"
-            android:importantForAutofill="no" />
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
         <TextView
             style="@style/TextColor_v2"
@@ -118,8 +117,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            
-            
             android:fontFamily="@font/font_v1"
             android:text="@string/_for"
             android:textSize="18sp"
@@ -129,49 +126,50 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp">
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/for_men"
+                style="@style/TextColor_v1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/men"
-                android:fontFamily="@font/font_v1"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:layout_weight="1"
-                android:checked="true"
                 android:clickable="true"
+                android:checked="true"
                 android:focusable="true"
-                style="@style/TextColor_v1"/>
+                android:fontFamily="@font/font_v1"
+                android:text="@string/men"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioButton
+                android:id="@+id/for_women"
+                style="@style/TextColor_v1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/women"
-                android:fontFamily="@font/font_v1"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
-                style="@style/TextColor_v1"/>
+                android:fontFamily="@font/font_v1"
+                android:text="@string/women"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/for_kids"
+                style="@style/TextColor_v1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/kids"
-                android:fontFamily="@font/font_v1"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
-                android:layout_weight="1"
-                style="@style/TextColor_v1"/>
+                android:fontFamily="@font/font_v1"
+                android:text="@string/kids"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </RadioGroup>
 
@@ -181,10 +179,27 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            
-            
             android:fontFamily="@font/font_v1"
-            android:text="@string/price"
+            android:text="@string/type"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_type"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            style="@style/TextColor_v2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/font_v1"
+            android:text="@string/item_price"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
@@ -192,6 +207,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <EditText
@@ -199,11 +215,9 @@
                 style="@style/TextColor_v1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:layout_marginStart="20dp"
                 android:background="@drawable/rounded_5_white_v2_none_gray_v4"
                 android:clickable="true"
                 android:focusable="true"
@@ -211,6 +225,8 @@
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -219,10 +235,8 @@
                 style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="bottom"
-                
-                
                 android:fontFamily="@font/font_v1"
+                android:gravity="bottom"
                 android:text="@string/le"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -235,7 +249,6 @@
 
         </LinearLayout>
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -245,8 +258,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/stroke_8dp_black"
                 android:padding="4dp">
 
@@ -254,63 +267,61 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_gravity="center_vertical"
-                    android:contentDescription="profile"
-                    tools:ignore="HardcodedText"
-                    android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"/>
+                    android:contentDescription="profile"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+                    tools:ignore="HardcodedText" />
 
             </RelativeLayout>
 
             <ImageView
+                style="@style/delete_background_src"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:padding="5dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                style="@style/delete_background_src"
                 android:contentDescription="image"
+                android:padding="5dp"
                 tools:ignore="HardcodedText" />
 
         </RelativeLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <RelativeLayout
                 android:id="@+id/upload_photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_gray_v5_black_v1_none"
-                android:layout_marginEnd="10dp"
 
                 android:clickable="true"
-                android:focusable="true"
-                >
+                android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_centerInParent="true"
+                    android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables,UselessParent">
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/pictures_icon_gray"
                         android:layout_gravity="center"
                         android:contentDescription="upload"
+                        android:src="@drawable/pictures_icon_gray"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -318,8 +329,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        
-                        
+
+
                         android:fontFamily="@font/font_v1"
                         android:text="@string/upload_a_photo"
                         android:textColor="@color/gray_v7"
@@ -335,25 +346,25 @@
                 android:id="@+id/take_photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_gray_v5_black_v1_none"
-                android:layout_marginStart="10dp"
                 android:clickable="true"
                 android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_centerInParent="true"
+                    android:orientation="vertical"
                     tools:ignore="UseCompoundDrawables,UselessParent">
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/camera_icon_gray"
                         android:layout_gravity="center"
                         android:contentDescription="take a photo"
+                        android:src="@drawable/camera_icon_gray"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -361,8 +372,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        
-                        
+
+
                         android:fontFamily="@font/font_v1"
                         android:text="@string/take_a_photo"
                         android:textColor="@color/gray_v7"
@@ -376,43 +387,40 @@
 
         </LinearLayout>
 
-
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/loading_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:contentDescription="profile"
-            tools:ignore="HardcodedText"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-            
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-             />
+            android:layout_marginEnd="20dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="profile"
+
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/roundedImageViewPost"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/upload_btn"
+            style="@style/checkout_background_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/upload"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:gravity="center"
+            android:layout_marginBottom="20dp"
             android:clickable="true"
             android:focusable="true"
-            style="@style/checkout_background_btn"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"/>
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:text="@string/upload"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

@@ -42,12 +42,8 @@ public class MyItemsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
-
-
         List<String> types = Arrays.asList("Mens", "Womens", "Kids");
-
         fetchAllMyUploadedItems(types);
-
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
     }
 

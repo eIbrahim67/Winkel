@@ -8,10 +8,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +23,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.core.adapterRecyclerviewCategoriesForAddItem;
 import com.eibrahim.winkel.databinding.AddItemActivityBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -37,157 +36,129 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddItemFragment extends Fragment {
-    private BottomNavigationView bottomNavigationView;
+
     private AddItemActivityBinding binding;
     private Uri selectedImage;
-    private Uri photoUri; // for camera capture
+    private Uri photoUri;
     private String typeFor;
     private ProgressDialog progressDialog;
+    private adapterRecyclerviewCategoriesForAddItem adapter;
 
-    // ---------------- Activity Result Launchers ----------------
-    private final ActivityResultLauncher<Intent> imageGalleryLauncher =
-            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                    selectedImage = result.getData().getData();
-                    binding.loadingImage.setImageURI(selectedImage);
-                }
-            });
-
-    private final ActivityResultLauncher<Intent> takePhotoLauncher =
-            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-                if (result.getResultCode() == Activity.RESULT_OK) {
-                    selectedImage = photoUri;
-                    binding.loadingImage.setImageURI(selectedImage);
-                }
-            });
+    private final List<String> categoriesList = new ArrayList<>();
+    private final CollectionReference colReference = FirebaseFirestore.getInstance().collection("Data");
 
     private String currentPermission = null;
 
-    private final ActivityResultLauncher<String> permissionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
-                if (granted) {
-                    if (Manifest.permission.CAMERA.equals(currentPermission)) {
-                        dispatchTakePictureIntent();
-                    } else if (getGalleryPermission().equals(currentPermission)) {
-                        openGallery();
-                    }
-                } else if (!shouldShowRequestPermissionRationale(currentPermission)) {
-                    showPermissionDeniedDialog();
-                } else {
-                    Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show();
-                }
-            });
+    private final ActivityResultLauncher<Intent> imageGalleryLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+            selectedImage = result.getData().getData();
+            binding.loadingImage.setImageURI(selectedImage);
+        }
+    });
 
-    // ---------------- Lifecycle ----------------
+    private final ActivityResultLauncher<Intent> takePhotoLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result.getResultCode() == Activity.RESULT_OK) {
+            selectedImage = photoUri;
+            binding.loadingImage.setImageURI(selectedImage);
+        }
+    });
+
+    private final ActivityResultLauncher<String> permissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
+        if (granted) {
+            if (Manifest.permission.CAMERA.equals(currentPermission)) dispatchTakePictureIntent();
+            else if (getGalleryPermission().equals(currentPermission)) openGallery();
+        } else if (!shouldShowRequestPermissionRationale(currentPermission)) {
+            showPermissionDeniedDialog();
+        } else {
+            Toast.makeText(requireContext(), R.string.permission_denied, Toast.LENGTH_SHORT).show();
+        }
+    });
+
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = AddItemActivityBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setVisibility(View.GONE);
+        super.onViewCreated(view, savedInstanceState);
+        adapter = new adapterRecyclerviewCategoriesForAddItem(categoriesList);
+        requireActivity().findViewById(R.id.bottom_navigation).setVisibility(View.GONE);
 
+        binding.recyclerviewType.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.takePhoto.setOnClickListener(v -> checkCameraPermission());
         binding.uploadPhoto.setOnClickListener(v -> checkGalleryPermission());
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
 
-        binding.uploadBtn.setOnClickListener(v -> {
-            String price = binding.postPrice.getText().toString();
-            String category = binding.postDetails.getText().toString();
-            String title = binding.postTitle.getText().toString();
+        binding.uploadBtn.setOnClickListener(v -> uploadItem());
 
-            if (binding.forMen.isChecked()) {
-                typeFor = "Mens";
-            } else if (binding.forKids.isChecked()) {
-                typeFor = "Kids";
-            } else {
-                typeFor = "Womens";
-            }
+        loadCategories("Mens");
 
-            if (price.isEmpty() || category.isEmpty() || title.isEmpty() || selectedImage == null) {
-                Toast.makeText(requireContext(), getText(R.string.please_fill_all_fields), Toast.LENGTH_SHORT).show();
-                return;
-            }
+        binding.forMen.setOnClickListener(v -> {
+            loadCategories("Mens");
+        });
 
-            try {
-                DataProductItem data = new DataProductItem(category, null, title, price, typeFor);
-                addItemToShop(data, typeFor, selectedImage);
-            } catch (Exception e) {
-                Toast.makeText(requireContext(), getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
-                Log.e("UploadError", "Error preparing item", e);
+        binding.forWomen.setOnClickListener(v -> {
+            loadCategories("Womens");
+        });
+
+        binding.forKids.setOnClickListener(v -> {
+            loadCategories("Kids");
+        });
+
+    }
+
+    private void loadCategories(String gender) {
+        colReference.document("Categories" + gender).get().addOnSuccessListener(doc -> {
+            categoriesList.clear();
+            if (doc.exists() && doc.get("Categories") != null) {
+                List<?> data = (List<?>) doc.get("Categories");
+                for (Object item : data) categoriesList.add(item.toString());
             }
+            categoriesList.remove(0);
+            binding.recyclerviewType.setAdapter(adapter);
         });
     }
 
-    // ---------------- Permissions ----------------
     private void checkCameraPermission() {
         currentPermission = Manifest.permission.CAMERA;
-        if (ContextCompat.checkSelfPermission(requireContext(), currentPermission) == PackageManager.PERMISSION_GRANTED) {
-            dispatchTakePictureIntent();
-        } else if (shouldShowRequestPermissionRationale(currentPermission)) {
-            showPermissionRationaleDialog("Camera Permission Required",
-                    "We need access to your camera so you can take a photo of the item.");
-        } else {
-            permissionLauncher.launch(currentPermission);
-        }
+        handlePermission(currentPermission, getString(R.string.camera_permission_required), getString(R.string.we_need_access_to_your_camera_so_you_can_take_a_photo_of_the_item));
     }
 
     private void checkGalleryPermission() {
         currentPermission = getGalleryPermission();
-        if (ContextCompat.checkSelfPermission(requireContext(), currentPermission) == PackageManager.PERMISSION_GRANTED) {
-            openGallery();
-        } else if (shouldShowRequestPermissionRationale(currentPermission)) {
-            showPermissionRationaleDialog("Storage Permission Required",
-                    "We need access to your photos so you can upload an item image.");
+        handlePermission(currentPermission, getString(R.string.storage_permission_required), getString(R.string.we_need_access_to_your_photos_so_you_can_upload_an_item_image));
+    }
+
+    private void handlePermission(String permission, String title, String message) {
+        if (ContextCompat.checkSelfPermission(requireContext(), permission) == PackageManager.PERMISSION_GRANTED) {
+            if (Manifest.permission.CAMERA.equals(permission)) dispatchTakePictureIntent();
+            else openGallery();
+        } else if (shouldShowRequestPermissionRationale(permission)) {
+            new AlertDialog.Builder(requireContext()).setTitle(title).setMessage(message).setPositiveButton(R.string.grant, (d, w) -> permissionLauncher.launch(permission)).setNegativeButton(R.string.cancel, (d, w) -> Toast.makeText(requireContext(), R.string.permission_denied, Toast.LENGTH_SHORT).show()).setCancelable(false).show();
         } else {
-            permissionLauncher.launch(currentPermission);
+            permissionLauncher.launch(permission);
         }
     }
 
     private String getGalleryPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            return Manifest.permission.READ_MEDIA_IMAGES;
-        } else {
-            return Manifest.permission.READ_EXTERNAL_STORAGE;
-        }
-    }
-
-    private void showPermissionRationaleDialog(String title, String message) {
-        new AlertDialog.Builder(requireContext())
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton("Grant", (dialog, which) -> permissionLauncher.launch(currentPermission))
-                .setNegativeButton("Cancel", (dialog, which) ->
-                        Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
-                )
-                .setCancelable(false)
-                .show();
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ? Manifest.permission.READ_MEDIA_IMAGES : Manifest.permission.READ_EXTERNAL_STORAGE;
     }
 
     private void showPermissionDeniedDialog() {
-        new AlertDialog.Builder(requireContext())
-                .setTitle("Permission Denied")
-                .setMessage("You have permanently denied this permission. To enable it, go to Settings > App permissions.")
-                .setPositiveButton("Open Settings", (dialog, which) -> {
-                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    intent.setData(Uri.fromParts("package", requireContext().getPackageName(), null));
-                    startActivity(intent);
-                })
-                .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
-                .setCancelable(false)
-                .show();
+        new AlertDialog.Builder(requireContext()).setTitle(R.string.permission_denied).setMessage(R.string.you_have_permanently_denied_this_permission_to_enable_it_go_to_settings_app_permissions).setPositiveButton(R.string.open_settings, (d, w) -> {
+            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            intent.setData(Uri.fromParts("package", requireContext().getPackageName(), null));
+            startActivity(intent);
+        }).setNegativeButton(R.string.cancel, (d, w) -> d.dismiss()).setCancelable(false).show();
     }
 
-    // ---------------- Intents ----------------
     private void openGallery() {
         try {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -199,99 +170,72 @@ public class AddItemFragment extends Fragment {
 
     private void dispatchTakePictureIntent() {
         try {
-            File photoFile = File.createTempFile("IMG_", ".jpg",
-                    requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES));
-            photoUri = FileProvider.getUriForFile(requireContext(),
-                    requireContext().getPackageName() + ".provider", photoFile);
-
-            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-            takePhotoLauncher.launch(takePictureIntent);
+            File photoFile = File.createTempFile("IMG_", ".jpg", requireContext().getExternalFilesDir(null));
+            photoUri = FileProvider.getUriForFile(requireContext(), requireContext().getPackageName() + ".provider", photoFile);
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+            takePhotoLauncher.launch(intent);
         } catch (Exception e) {
             Toast.makeText(requireContext(), "Camera error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
-    // ---------------- Firebase ----------------
-    public void addItemToShop(DataProductItem item, String typeFor, Uri uri) {
+    private void uploadItem() {
+        String price = binding.postPrice.getText().toString().trim();
+        String title = binding.postTitle.getText().toString().trim();
+//        String details = binding.postDetails.getText().toString().trim();
+        String category = adapter.getSelected();
+
+        typeFor = binding.forMen.isChecked() ? "Mens" : binding.forKids.isChecked() ? "Kids" : binding.forWomen.isChecked() ? "Womens" : null;
+        if (price.isEmpty() || title.isEmpty() || category == null || selectedImage == null || typeFor == null) {
+            Toast.makeText(requireContext(), R.string.please_fill_all_fields, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        DataProductItem item = new DataProductItem(category, null, title, price, typeFor);
+        addItemToShop(item, selectedImage);
+    }
+
+    private void addItemToShop(DataProductItem item, Uri imageUri) {
         progressDialog = new ProgressDialog(requireContext());
         progressDialog.setMessage("Uploading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        try {
-            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-            CollectionReference collectionRef = firestore.collection("Products")
-                    .document(typeFor).collection(typeFor);
-            DocumentReference documentRef = collectionRef.document();
-            String documentId = documentRef.getId();
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        CollectionReference collection = firestore.collection("Products").document(typeFor).collection(typeFor);
+        DocumentReference docRef = collection.document();
+        String docId = docRef.getId();
 
-            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            item.setItemId(documentId);
-            item.setUserId(userId);
+        item.setItemId(docId);
+        item.setUserId(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-            collectionRef.document(documentId).set(item)
-                    .addOnSuccessListener(aVoid -> uploadImageToFirebase(uri, documentId, typeFor))
-                    .addOnFailureListener(e -> {
-                        progressDialog.dismiss();
-                        Toast.makeText(requireContext(), "Failed to upload data", Toast.LENGTH_SHORT).show();
-                        Log.e("Firestore", "Upload error", e);
-                    });
-
-        } catch (Exception e) {
+        collection.document(docId).set(item).addOnSuccessListener(aVoid -> uploadImageToFirebase(imageUri, docId)).addOnFailureListener(e -> {
             progressDialog.dismiss();
-            Toast.makeText(requireContext(), "Unexpected error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-            Log.e("Upload", "Error adding item", e);
-        }
+            Toast.makeText(requireContext(), R.string.failed_to_upload_data, Toast.LENGTH_SHORT).show();
+        });
     }
 
-    private void uploadImageToFirebase(Uri uri, String docId, String typeFor) {
-        try {
-            FirebaseStorage storage = FirebaseStorage.getInstance();
-            StorageReference storageRef = storage.getReference();
-            String imageName = System.currentTimeMillis() + ".png";
-            StorageReference imageRef = storageRef.child("images of products/" + imageName);
+    private void uploadImageToFirebase(Uri uri, String docId) {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference ref = storage.getReference().child("images of products/" + System.currentTimeMillis() + ".png");
 
-            imageRef.putFile(uri)
-                    .addOnSuccessListener(taskSnapshot -> imageRef.getDownloadUrl()
-                            .addOnSuccessListener(downloadUrl ->
-                                    updateImageUrlInFirestore(downloadUrl.toString(), docId, typeFor)))
-                    .addOnFailureListener(e -> {
-                        progressDialog.dismiss();
-                        Toast.makeText(requireContext(), "Image upload failed", Toast.LENGTH_SHORT).show();
-                        Log.e("FirebaseStorage", "Upload failed", e);
-                    });
-
-        } catch (Exception e) {
+        ref.putFile(uri).addOnSuccessListener(task -> ref.getDownloadUrl().addOnSuccessListener(url -> updateImageUrlInFirestore(url.toString(), docId))).addOnFailureListener(e -> {
             progressDialog.dismiss();
-            Toast.makeText(requireContext(), "Unexpected storage error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(requireContext(), "Image upload failed", Toast.LENGTH_SHORT).show();
+        });
     }
 
-    private void updateImageUrlInFirestore(String imageUrl, String docId, String typeFor) {
-        try {
-            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-            DocumentReference docRef = firestore.collection("Products")
-                    .document(typeFor).collection(typeFor).document(docId);
-
-            Map<String, Object> updates = new HashMap<>();
-            updates.put("imageId", imageUrl);
-
-            docRef.update(updates)
-                    .addOnSuccessListener(aVoid -> {
-                        progressDialog.dismiss();
-                        Toast.makeText(requireContext(), R.string.item_uploaded_success, Toast.LENGTH_SHORT).show();
-                        requireActivity().onBackPressed();
-                    })
-                    .addOnFailureListener(e -> {
-                        progressDialog.dismiss();
-                        Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show();
-                        Log.e("Firestore", "Image URL update failed", e);
-                    });
-        } catch (Exception e) {
+    private void updateImageUrlInFirestore(String url, String docId) {
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore.collection("Products").document(typeFor).collection(typeFor).document(docId).update("imageId", url).addOnSuccessListener(aVoid -> {
             progressDialog.dismiss();
-            Toast.makeText(requireContext(), "Unexpected Firestore error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(requireContext(), R.string.item_uploaded_success, Toast.LENGTH_SHORT).show();
+            requireActivity().onBackPressed();
+        }).addOnFailureListener(e -> {
+            progressDialog.dismiss();
+            Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override

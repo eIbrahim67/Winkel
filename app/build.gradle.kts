@@ -39,7 +39,6 @@ android {
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.1")
     implementation("com.google.firebase:firebase-firestore:24.11.1")
     implementation("com.google.firebase:firebase-storage:20.3.0")
@@ -63,7 +62,6 @@ dependencies {
     implementation ("com.github.Tans5:horizontalnestedscrollview:0.1.0")
     implementation ("com.airbnb.android:lottie:4.2.0")
     implementation ("androidx.hilt:hilt-navigation-fragment:1.2.0")
-
     implementation ("com.stripe:stripe-android:21.16.0")
     implementation ("com.google.firebase:firebase-functions:20.4.0")
 }
