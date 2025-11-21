@@ -130,11 +130,11 @@
 
     <TextView
         android:id="@+id/tv_forget_password"
-        style="@style/TextColor_v2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:clickable="true"
+        android:textColor="@drawable/text_selector_gray_blue"
         android:focusable="true"
         android:fontFamily="@font/font_v1"
         android:text="@string/forget_password"
@@ -192,7 +192,7 @@
             android:layout_marginStart="10dp"
             android:fontFamily="@font/font_v1"
             android:text="@string/sign_up"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@drawable/text_selector_red_blue"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_dont_have_account"

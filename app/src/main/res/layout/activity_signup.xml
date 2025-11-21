@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -43,8 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:autofillHints="name"
             android:background="@drawable/rounded_5_white_v2_none_gray_v4"
@@ -53,6 +52,8 @@
             android:fontFamily="@font/font_v1"
             android:inputType="textPersonName"
             android:minHeight="50dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -74,15 +75,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
             android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/font_v1"
             android:inputType="textEmailAddress"
             android:minHeight="50dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -105,9 +107,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
             android:autofillHints="phone"
             android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:clickable="true"
@@ -115,6 +116,8 @@
             android:fontFamily="@font/font_v1"
             android:inputType="phone"
             android:minHeight="50dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -156,10 +159,10 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:fontFamily="@font/font_v1"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
                     android:inputType="numberPassword"
                     android:minHeight="50dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -174,11 +177,11 @@
                     android:background="@drawable/rounded_5_white_v2_none_gray_v4"
                     android:clickable="true"
                     android:focusable="true"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
                     android:fontFamily="@font/font_v1"
                     android:inputType="numberPassword"
                     android:minHeight="50dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -202,27 +205,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="26dp"
             android:layout_marginEnd="20dp"
             android:clickable="true"
             android:focusable="true"
+            android:fontFamily="@font/font_v1"
             android:minHeight="50dp"
-            android:textStyle="bold"
+            android:textColorHint="@color/primary_black"
             android:textSize="18sp"
+            android:textStyle="bold"
+            app:boxBackgroundColor="@color/primary_gray"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/primary_black"
             app:boxStrokeWidth="1dp"
             app:errorEnabled="true"
-            android:fontFamily="@font/font_v1"
-            android:textColorHint="@color/primary_black"
-            app:boxBackgroundColor="@color/primary_gray"
-            app:boxStrokeColor="@color/primary_black"
-            app:passwordToggleTint="@color/primary_black"
             app:hintTextColor="@color/primary_black"
             app:passwordToggleEnabled="true"
-            >
+            app:passwordToggleTint="@color/primary_black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/pass_signup"
@@ -232,10 +233,10 @@
                 android:background="@color/white_v2"
                 android:clickable="true"
                 android:focusable="true"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
                 android:fontFamily="@font/font_v1"
                 android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -257,27 +258,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="26dp"
+
             android:layout_marginEnd="20dp"
             android:clickable="true"
             android:focusable="true"
+            android:fontFamily="@font/font_v1"
             android:minHeight="50dp"
-            android:textStyle="bold"
+            android:textColorHint="@color/primary_black"
             android:textSize="18sp"
+            android:textStyle="bold"
+            app:boxBackgroundColor="@color/primary_gray"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/primary_black"
             app:boxStrokeWidth="1dp"
             app:errorEnabled="true"
-            android:fontFamily="@font/font_v1"
-            android:textColorHint="@color/primary_black"
-            app:boxBackgroundColor="@color/primary_gray"
-            app:boxStrokeColor="@color/primary_black"
-            app:passwordToggleTint="@color/primary_black"
             app:hintTextColor="@color/primary_black"
             app:passwordToggleEnabled="true"
-            >
+            app:passwordToggleTint="@color/primary_black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/repass_signup"
@@ -286,11 +286,11 @@
                 android:layout_height="match_parent"
                 android:background="@color/white_v2"
                 android:clickable="true"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
                 android:focusable="true"
                 android:fontFamily="@font/font_v1"
                 android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -341,15 +341,16 @@
                 android:id="@+id/btn_signin2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:clickable="true"
-                android:focusable="true"
                 android:fontFamily="@font/font_v1"
                 android:text="@string/sign_in"
-                android:textColor="@android:color/holo_red_dark"
+                android:textColor="@drawable/text_selector_red_blue"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"/>
 
         </LinearLayout>
 

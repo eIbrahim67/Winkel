@@ -51,7 +51,6 @@ public class PinFragment extends Fragment {
 
             String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getUid());
             pinRef = FirebaseFirestore.getInstance().collection("UsersData").document(userId).collection("UserPersonalData").document("UserPersonalData");
-
             setClickListeners();
 
         } catch (Exception e) {
@@ -155,16 +154,21 @@ public class PinFragment extends Fragment {
         }).addOnFailureListener(e -> Toast.makeText(requireContext(), "Failed to fetch PIN", Toast.LENGTH_SHORT).show());
     }
 
-    NavOptions navOptionsRight = new NavOptions.Builder().setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right).setLaunchSingleTop(true).setRestoreState(true).build();
+    NavOptions navOptionsRight = new NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right)
+            .setPopUpTo(R.id.pinFragment, true)
+            .setLaunchSingleTop(true)
+            .setRestoreState(true)
+            .build();
 
     private void onPinSuccess() {
         setAllIndicators(R.drawable.rounded_white_v1_green_v1_gray_v4, R.drawable.star_icon_green);
+        NavController navController = NavHostFragment.findNavController(this);
 
-        NavController navController = NavHostFragment.findNavController(PinFragment.this);
-
+        // Navigate
         navController.navigate(R.id.action_pinFragment_to_personalDataFragment, null, navOptionsRight);
-
     }
+
 
     private void onPinFailure() {
         wrong = true;
