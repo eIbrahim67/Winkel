@@ -11,288 +11,247 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.loadingindicator.LoadingIndicator;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class FetchDataFromFirebase {
 
-    final RecyclerView recyclerView;
-    final Context context;
-    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    private final FirebaseAuth auth = FirebaseAuth.getInstance();
-    private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+    private final RecyclerView recyclerView;
+    private final Context context;
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final String userId;
 
-    private LinearLayout layout = null;
+    private LinearLayout emptyLayout = null;
+
+    private boolean useWishlistAdapter = false;
 
     public FetchDataFromFirebase(RecyclerView recyclerView, Context context) {
-        this.context = context;
         this.recyclerView = recyclerView;
-        recyclerView.setAdapter(null);
-
-    }
-
-    public FetchDataFromFirebase(RecyclerView recyclerView, Context context, LinearLayout layout) {
         this.context = context;
-        this.recyclerView = recyclerView;
-        this.layout = layout;
-
-        layout.setVisibility(View.VISIBLE);
-        recyclerView.setAdapter(null);
-
+        this.userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
     }
 
-    public void fetchData(String type, String category, String fPrice, String tPrice) {//
-
-        firestore.collection("UsersData").document(userId).collection("Wishlist").document("Wishlist").get().addOnSuccessListener(documentSnapshot -> {
-
-            if (documentSnapshot.exists()) {
-
-                List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
-                fetch(type, category, fPrice, tPrice, wishlistIds);
-            }
-
-        });
-
+    public FetchDataFromFirebase(RecyclerView recyclerView, Context context, LinearLayout emptyLayout) {
+        this(recyclerView, context);
+        this.emptyLayout = emptyLayout;
     }
 
-    private void fetch(String type, String category, String fPrice, String tPrice, List<String> wishlistIds) {
-        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
+    // ---------------------------------------------------------------------
+    // Public API
+    // ---------------------------------------------------------------------
 
-        CollectionReference collectionRef = firestore.collection("Products").document(type).collection(type);
-        collectionRef.get().addOnSuccessListener(querySnapshot -> {
-            for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-                // Get the document data
-                Map<String, Object> data = document.getData();
-
-                DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem((String) Objects.requireNonNull(data).get("category"), (String) data.get("imageId"), (String) data.get("name"), (String) data.get("price"), type, "");
-
-                if (wishlistIds != null)
-                    dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
-
-                if (Objects.equals(dataObject.getCategory(), category))
-                    if (Double.parseDouble(dataObject.getPrice()) >= Double.parseDouble(fPrice) && Double.parseDouble(dataObject.getPrice()) <= Double.parseDouble(tPrice))
-                        dataOfRvItems.add(dataObject);
-            }
-
-            adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
-            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-            recyclerView.setAdapter(adapterRvItems);
-
-            if (layout != null) layout.setVisibility(View.GONE);
-        }).addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
+    public void fetch(String type) {
+        loadWishlistIds(wishlist ->
+                loadProducts(type, null, null, null, wishlist)
+        );
     }
 
-    /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void fetchData(String type, String fPrice, String tPrice) {
-
-        firestore.collection("UsersData").document(userId).collection("Wishlist").document("Wishlist").get().addOnSuccessListener(documentSnapshot -> {
-
-            if (documentSnapshot.exists()) {
-
-                List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
-                fetch(type, fPrice, tPrice, wishlistIds);
-            }
-
-        });
-
+    public void fetch(String type, String fromPrice, String toPrice) {
+        loadWishlistIds(wishlist ->
+                loadProducts(type, null, fromPrice, toPrice, wishlist)
+        );
     }
 
-    private void fetch(String type, String fPrice, String tPrice, List<String> wishlistIds) {
-
-
-        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
-        CollectionReference collectionRef = firestore.collection("Products").document(type).collection(type);
-        collectionRef.get().addOnSuccessListener(querySnapshot -> {
-
-            for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-
-                Map<String, Object> data = document.getData();
-                DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem((String) Objects.requireNonNull(data).get("category"), (String) data.get("imageId"), (String) data.get("name"), (String) data.get("price"), type, "");
-
-                dataObject.setItemId((String) data.get("itemId"));
-
-                if (wishlistIds != null)
-                    dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
-
-
-                try {
-                    String priceStr = dataObject.getPrice();
-                    if (priceStr != null && !priceStr.trim().isEmpty()) {
-                        double price = Double.parseDouble(priceStr.trim());
-                        double from = Double.parseDouble(fPrice.trim());
-                        double to = Double.parseDouble(tPrice.trim());
-
-                        if (price >= from && price <= to) {
-                            dataOfRvItems.add(dataObject);
-                        }
-                    }
-                } catch (NumberFormatException e) {
-                    Log.w("PriceParseError", "Invalid price in document: " + dataObject.getPrice(), e);
-                }
-
-            }
-            adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
-            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-            recyclerView.setAdapter(adapterRvItems);
-
-            if (layout != null) layout.setVisibility(View.GONE);
-        }).addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
-
+    public void fetch(String type, String category, String fromPrice, String toPrice) {
+        loadWishlistIds(wishlist ->
+                loadProducts(type, category, fromPrice, toPrice, wishlist)
+        );
     }
 
-    /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void fetchData(String type) {
-
-        firestore.collection("UsersData").document(userId).collection("Wishlist").document("Wishlist").get().addOnSuccessListener(documentSnapshot -> {
-
-            if (documentSnapshot.exists()) {
-
-                List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
-                fetch(type, wishlistIds);
-            }
-
-        });
-
-    }
-
-    private void fetch(String type, List<String> wishlistIds) {
-
-
-        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
-        CollectionReference collectionRef = firestore.collection("Products").document(type).collection(type);
-        collectionRef.get().addOnSuccessListener(querySnapshot -> {
-
-            for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-
-                Map<String, Object> data = document.getData();
-                DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem((String) Objects.requireNonNull(data).get("category"), (String) data.get("imageId"), (String) data.get("name"), (String) data.get("price"), type, "");
-
-                dataObject.setItemId((String) data.get("itemId"));
-
-                if (wishlistIds != null)
-                    dataObject.setItemLoved(wishlistIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
-
-
-                dataOfRvItems.add(dataObject);
-
-
-            }
-            adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
-            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-            recyclerView.setAdapter(adapterRvItems);
-
-            if (layout != null) layout.setVisibility(View.GONE);
-        }).addOnFailureListener(e -> Log.d("Firestore", "Error getting documents", e));
-
-
-    }
-
-    /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void fetchSpecific(String coll, String doc, String type) {
+        loadWishlistIds(wishlist ->
+                loadSpecific(coll, doc, type, wishlist, null, null)
+        );
+    }
 
-        firestore.collection("UsersData").document(userId).collection("Wishlist").document("Wishlist").get().addOnSuccessListener(documentSnapshot -> {
+    public void fetchSpecific(String coll, String doc, String type,
+                              LinearLayout emptyLayout, LoadingIndicator loader) {
 
-            if (documentSnapshot.exists()) {
+        useWishlistAdapter = true;
+        this.emptyLayout = emptyLayout;
 
-                List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
-                fetchSpecific(coll, doc, type, wishlistIds);
+        loadWishlistIds(wishlist -> {
+            loadSpecific(coll, doc, type, wishlist, emptyLayout, loader);
+
+            if (wishlist == null || wishlist.isEmpty())
+                emptyLayout.setVisibility(View.VISIBLE);
+            else
+                emptyLayout.setVisibility(View.INVISIBLE);
+
+            loader.setVisibility(View.GONE);
+        });
+    }
+
+    // ---------------------------------------------------------------------
+    // Core Logic
+    // ---------------------------------------------------------------------
+
+    private void loadWishlistIds(FetchWishlistCallback callback) {
+        db.collection("UsersData")
+                .document(userId)
+                .collection("Wishlist")
+                .document("Wishlist")
+                .get()
+                .addOnSuccessListener(doc -> {
+                    List<String> ids = (List<String>) doc.get("Wishlist");
+                    callback.onFetched(ids != null ? ids : new ArrayList<>());
+                });
+    }
+
+    private void loadProducts(String type, String category, String fPrice, String tPrice,
+                              List<String> wishlistIds) {
+
+        db.collection("Products").document(type).collection(type).get()
+                .addOnSuccessListener(snapshot -> {
+
+                    List<DataRecyclerviewMyItem> items = snapshot.getDocuments()
+                            .stream()
+                            .map(doc -> mapToItem(doc, type, wishlistIds))
+                            .filter(Objects::nonNull)
+                            .filter(item -> filterCategory(item, category))
+                            .filter(item -> filterPrice(item, fPrice, tPrice))
+                            .collect(Collectors.toList());
+
+                    updateRecycler(items);
+                })
+                .addOnFailureListener(e -> Log.e("Firestore", "Error loading products", e));
+    }
+
+    private void loadSpecific(String coll, String doc, String type,
+                              List<String> wishlistIds,
+                              LinearLayout emptyLayout, LoadingIndicator loader) {
+
+        DocumentReference ref =
+                db.collection(coll).document(doc).collection(type).document(type);
+
+        ref.get().addOnSuccessListener(snapshot -> {
+
+            List<String> list = (List<String>) snapshot.get(type);
+            if (list == null || list.isEmpty()) {
+                updateRecycler(Collections.emptyList());
+                if (emptyLayout != null) emptyLayout.setVisibility(View.VISIBLE);
+                return;
             }
 
-        });
-
-    }
-
-    public void fetchSpecific(String coll, String doc, String type, LinearLayout layout, LoadingIndicator loadingIndicator) {
-
-        firestore.collection("UsersData").document(userId).collection("Wishlist").document("Wishlist").get().addOnSuccessListener(documentSnapshot -> {
-
-            if (documentSnapshot.exists()) {
-
-                List<String> wishlistIds = (List<String>) documentSnapshot.get("Wishlist");
-                fetchSpecific(coll, doc, type, wishlistIds);
-
-                if (wishlistIds != null && wishlistIds.isEmpty())
-                    layout.setVisibility(View.VISIBLE);
-                else layout.setVisibility(View.INVISIBLE);
-
-            } else layout.setVisibility(View.VISIBLE);
-
-            loadingIndicator.setVisibility(View.GONE);
-        });
-
-    }
-
-    private void fetchSpecific(String coll, String doc, String type, List<String> dataListIds) {
-
-        List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
-        DocumentReference wishlistRef = firestore.collection(coll).document(doc).collection(type).document(type);
-
-        wishlistRef.get().addOnSuccessListener(documentSnapshot -> {
-            if (documentSnapshot.exists()) {
-                List<String> dataList = (List<String>) documentSnapshot.get(type);
-                if (dataList != null) {
-
-                    if (!dataList.isEmpty()) {
-
-                        for (String itemIdType : dataList) {
-
-                            try {
-                                String[] parts = itemIdType.split(",");
-                                String itemId = parts[0].trim();
-                                String itemType = parts[1].trim();
-
-                                DocumentReference documentRef = firestore.collection("Products").document(itemType).collection(itemType).document(itemId);
-
-                                documentRef.get().addOnSuccessListener(querySnapshot -> {
-                                    if (querySnapshot.exists()) {
-                                        Map<String, Object> data = querySnapshot.getData();
-                                        if (data != null) {
-                                            String category = (String) data.get("category");
-                                            String imageId = (String) data.get("imageId");
-                                            String name = (String) data.get("name");
-                                            String price = (String) data.get("price");
-                                            DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem(category, imageId, name, price, itemType, "");
-
-                                            dataObject.setItemId(itemId);
-
-                                            if (dataListIds != null)
-                                                dataObject.setItemLoved(dataListIds.contains(dataObject.getItemId() + "," + dataObject.getItemType()));
-
-                                            dataOfRvItems.add(dataObject);
-                                            adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
-                                            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-                                            recyclerView.setAdapter(adapterRvItems);
-
-                                            if (layout != null) layout.setVisibility(View.GONE);
-                                        }
-                                    }
-                                });
-                            } catch (Exception e) {
-
-                                Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
-
-                            }
-
-
-                        }
-
-                    } else {
-                        dataOfRvItems.clear();
-                        adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
-                        recyclerView.setAdapter(adapterRvItems);
-
-                        if (layout != null) layout.setVisibility(View.GONE);
-                    }
+            // Parse itemId,itemType
+            List<DocumentReference> refs = new ArrayList<>();
+            for (String entry : list) {
+                try {
+                    String[] parts = entry.split(",");
+                    refs.add(db.collection("Products")
+                            .document(parts[1].trim())
+                            .collection(parts[1].trim())
+                            .document(parts[0].trim()));
+                } catch (Exception e) {
+                    Toast.makeText(context, "Invalid entry: " + entry, Toast.LENGTH_SHORT).show();
                 }
             }
-        });
 
+            // Fetch all product docs together
+            db.runBatch(batch -> {
+                    }) // dummy batch just to attach success listener
+                    .addOnSuccessListener(aVoid ->
+                            fetchDocuments(refs, wishlistIds, emptyLayout)
+                    );
+        });
+    }
+
+    private void fetchDocuments(List<DocumentReference> refs,
+                                List<String> wishlistIds,
+                                LinearLayout emptyLayout) {
+
+        List<DataRecyclerviewMyItem> items = new ArrayList<>();
+
+        for (DocumentReference ref : refs) {
+            ref.get().addOnSuccessListener(doc -> {
+                DataRecyclerviewMyItem item =
+                        mapToItem(doc,
+                                doc.getReference().getParent().getId(),
+                                wishlistIds);
+                if (item != null) items.add(item);
+
+                updateRecycler(items);
+
+                if (emptyLayout != null) emptyLayout.setVisibility(View.GONE);
+            });
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // Helpers
+    // ---------------------------------------------------------------------
+
+    private DataRecyclerviewMyItem mapToItem(DocumentSnapshot doc, String type,
+                                             List<String> wishlistIds) {
+        if (doc == null || !doc.exists()) return null;
+
+        Map<String, Object> map = doc.getData();
+        if (map == null) return null;
+
+        try {
+            String category = (String) map.get("category");
+            String imageId = (String) map.get("imageId");
+            String name = (String) map.get("name");
+            String price = (String) map.get("price");
+            String itemId = (String) map.get("itemId");
+
+            DataRecyclerviewMyItem item =
+                    new DataRecyclerviewMyItem(category, imageId, name, price, type, "");
+
+            item.setItemId(itemId);
+            item.setItemLoved(wishlistIds.contains(itemId + "," + type));
+
+            return item;
+        } catch (Exception e) {
+            Log.e("MapToItem", "Invalid product data", e);
+            return null;
+        }
+    }
+
+    private boolean filterCategory(DataRecyclerviewMyItem item, String category) {
+        return category == null || Objects.equals(item.getCategory(), category);
+    }
+
+    private boolean filterPrice(DataRecyclerviewMyItem item,
+                                String f, String t) {
+
+        if (f == null || t == null) return true;
+
+        try {
+            double price = Double.parseDouble(item.getPrice());
+            return price >= Double.parseDouble(f) && price <= Double.parseDouble(t);
+        } catch (Exception e) {
+            Log.w("PriceFilter", "Invalid price: " + item.getPrice());
+            return false;
+        }
+    }
+
+    private void updateRecycler(List<DataRecyclerviewMyItem> data) {
+        if (emptyLayout != null)
+            emptyLayout.setVisibility(data.isEmpty() ? View.VISIBLE : View.GONE);
+
+        RecyclerView.Adapter<?> adapter;
+
+        if (useWishlistAdapter) {
+            adapter = new adapterRecyclerviewWishlist(context, data);
+        } else {
+            adapter = new adapterRecyclerviewItems(context, data);
+        }
+
+        recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+        recyclerView.setAdapter(adapter);
+    }
+
+
+    interface FetchWishlistCallback {
+        void onFetched(List<String> wishlistIds);
     }
 }

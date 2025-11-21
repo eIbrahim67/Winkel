@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import com.eibrahim.winkel.R;
@@ -36,17 +37,26 @@ public class SignInFragment extends Fragment {
         return binding.getRoot();
     }
 
+    private final NavOptions navOptionsRight = new NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right)
+            .setLaunchSingleTop(true)
+            .setRestoreState(true)
+            .build();
+
     private void setupListeners() {
         binding.btnSignin.setOnClickListener(v -> validateAndLogin());
 
         binding.btnSignup2.setOnClickListener(v -> {
             // Replace this with Navigation component if you use it
-            Navigation.findNavController(v).navigate(R.id.action_signInFragment_to_signupFragment);
+            Navigation.findNavController(v).navigate(R.id.action_signInFragment_to_signupFragment, null, navOptionsRight);
         });
 
         binding.tvForgetPassword.setOnClickListener(v -> {
             // Replace this with Navigation component if you use it
-            Navigation.findNavController(v).navigate(R.id.action_signInFragment_to_forgetPasswordFragment);
+            Navigation.findNavController(v).navigate(R.id.action_signInFragment_to_forgetPasswordFragment, null, navOptionsRight);
         });
     }
 

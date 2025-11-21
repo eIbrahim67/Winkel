@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.addItem;
+package com.eibrahim.winkel.myItems;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -58,12 +58,17 @@ public class MyItemsFragment extends Fragment {
                         DataRecyclerviewMyItem item = new DataRecyclerviewMyItem((String) data.get("category"), (String) data.get("imageId"), (String) data.get("name"), (String) data.get("price"), type, "");
                         item.setItemId((String) data.get("itemId"));
                         userItems.add(item);
+                    } else {
+                        binding.msgEmptyWishlist.setVisibility(View.VISIBLE);
                     }
                 }
-
-                adapterRecyclerviewMyItems adapter = new adapterRecyclerviewMyItems(requireContext(), userItems);
-                binding.recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
-                binding.recyclerView.setAdapter(adapter);
+                if (userItems.isEmpty() || userItems == null) {
+                    binding.msgEmptyWishlist.setVisibility(View.VISIBLE);
+                } else {
+                    adapterRecyclerviewMyItems adapter = new adapterRecyclerviewMyItems(requireContext(), userItems);
+                    binding.recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+                    binding.recyclerView.setAdapter(adapter);
+                }
 
             }).addOnFailureListener(e -> {
                 Log.e("FetchMyUploads", "Failed to fetch from " + type, e);

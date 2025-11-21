@@ -335,5 +335,27 @@
     <string name="post_details">تفاصيل المنتج</string>
     <string name="item_price">سعر المنتج</string>
     <string name="type">النوع</string>
-
+    <string name="it_looks_like_your_wishlist_is_empty__start_adding_items_to_your_wishlist_now">
+    يبدو أن قائمة رغباتك فارغة\nابدأ بإضافة المنتجات إلى قائمة رغباتك الآن!
+</string>
+    <string name="it_looks_like_you_havent_added_any_items_yet__start_listing_your_products_now">
+    يبدو أنك لم تقم بإضافة أي منتجات بعد\nابدأ بعرض منتجاتك الآن!
+</string>
+    <string name="error_enter_price">يرجى إدخال السعر</string>
+    <string name="error_enter_title">يرجى إدخال العنوان</string>
+    <string name="error_enter_details">يرجى إدخال التفاصيل</string>
+    <string name="error_select_category">يرجى اختيار الفئة</string>
+    <string name="error_select_type_for">يرجى اختيار الفئة المستهدفة</string>
+    <string name="error_select_image">يرجى اختيار صورة</string>
+    <string name="no_comments_on_this_item_yet">
+    لا توجد مراجعات لهذا المنتج بعد
+</string>
+    <string name="special_size">مقاس خاص</string>
+    <string name="camera_permission_required">مطلوب إذن الكاميرا</string>
+    <string name="we_need_access_to_your_camera_so_you_can_take_a_photo_of_the_item">نحتاج الوصول إلى الكاميرا لتتمكن من تصوير المنتج.</string>
+    <string name="we_need_access_to_your_photos_so_you_can_upload_an_item_image">نحتاج الوصول إلى الصور لتتمكن من رفع صورة المنتج.</string>
+    <string name="storage_permission_required">مطلوب إذن التخزين</string>
+    <string name="failed_to_upload_data">فشل تحميل البيانات</string>
+    <string name="you_have_permanently_denied_this_permission_to_enable_it_go_to_settings_app_permissions"><![CDATA[لقد رفضت هذا الإذن بشكل دائم. لتمكينه، اذهب إلى الإعدادات > أذونات التطبيق.]]></string>
+    <string name="open_settings">افتح الإعدادات</string>
 </resources>

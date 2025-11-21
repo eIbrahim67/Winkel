@@ -43,7 +43,7 @@ public class DoFilter {
                 context
         );
 
-        fetchDataFromFirebase.fetchData(type, fPrice, tPrice);
+        fetchDataFromFirebase.fetch(type, fPrice, tPrice);
 
         fetchCategory(type, fPrice, tPrice, recyclerView_filter, recyclerView, context);
 
@@ -60,7 +60,7 @@ public class DoFilter {
                 context
         );
 
-        fetchDataFromFirebase.fetchData(type);
+        fetchDataFromFirebase.fetch(type);
 
         fetchCategory(type, "0", "1000", recyclerView_filter, recyclerView, context);
 
@@ -78,7 +78,7 @@ public class DoFilter {
                 layout
         );
 
-        fetchDataFromFirebase.fetchData(type);
+        fetchDataFromFirebase.fetch(type);
 
         fetchCategory(type, "0", "1000", recyclerView_filter, recyclerView, context);
 

@@ -66,9 +66,9 @@ public class adapterRecyclerviewCategories extends RecyclerView.Adapter<adapterR
                     context);
 
             if (Objects.equals(filter, "All")){
-                fetchDataFromFirebase.fetchData(type, fPrice, tPrice);
+                fetchDataFromFirebase.fetch(type, fPrice, tPrice);
             }else{
-                fetchDataFromFirebase.fetchData(type, filter, fPrice, tPrice);
+                fetchDataFromFirebase.fetch(type, filter, fPrice, tPrice);
             }
 
             if (lastHolder != null)

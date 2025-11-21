@@ -10,6 +10,7 @@ public class DataProductItem implements Serializable {
     private String price;
     private String type;
     private String itemId;
+    private String details;
     private String userId;  // 👈 Add this
 
     public String getUserId() {
@@ -36,6 +37,14 @@ public class DataProductItem implements Serializable {
     // Getters and setters
     public String getCategory() {
         return category;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getDetails() {
+        return details;
     }
 
     public void setCategory(String category) {

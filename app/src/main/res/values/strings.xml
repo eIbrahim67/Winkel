@@ -337,6 +337,22 @@
     <string name="post_details">Item Details</string>
     <string name="item_price">Item Price</string>
     <string name="type">Type</string>
+    <string name="it_looks_like_your_wishlist_is_empty__start_adding_items_to_your_wishlist_now">
+    It looks like your wishlist is empty\nStart adding items to your wishlist now!
+</string>
+    <string name="it_looks_like_you_havent_added_any_items_yet__start_listing_your_products_now">
+    It looks like you have not added any items yet\nStart listing your products now!
+</string>
+    <string name="error_enter_price">Please enter the price</string>
+    <string name="error_enter_title">Please enter the title</string>
+    <string name="error_enter_details">Please enter the details</string>
+    <string name="error_select_category">Please select a category</string>
+    <string name="error_select_type_for">Please select who the item is for</string>
+    <string name="error_select_image">Please select an image</string>
+    <string name="no_comments_on_this_item_yet">
+    There are no reviews for this item yet
+</string>
+    <string name="special_size">Special Size</string>
     <string name="camera_permission_required">Camera Permission Required</string>
     <string name="we_need_access_to_your_camera_so_you_can_take_a_photo_of_the_item">We need access to your camera so you can take a photo of the item.</string>
     <string name="we_need_access_to_your_photos_so_you_can_upload_an_item_image">We need access to your photos so you can upload an item image.</string>

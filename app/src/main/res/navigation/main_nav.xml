@@ -135,7 +135,7 @@
 
     <fragment
         android:id="@+id/myItemsFragment"
-        android:name="com.eibrahim.winkel.addItem.MyItemsFragment"
+        android:name="com.eibrahim.winkel.myItems.MyItemsFragment"
         android:label="MyItems" />
 
 

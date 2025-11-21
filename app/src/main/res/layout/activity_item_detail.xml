@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".item.ItemDetailActivity"
     android:orientation="vertical"
-    style="@style/background">
+    tools:context=".item.ItemDetailActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -30,47 +29,46 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/circle_white_v2_none_gray_v4"
-                    android:src="@drawable/back_arrows_icon_black"
-                    android:padding="15dp"
-                    android:focusable="true"
                     android:clickable="true"
-                    />
+                    android:focusable="true"
+                    android:padding="15dp"
+                    android:src="@drawable/back_arrows_icon_black" />
 
                 <TextView
+                    style="@style/TextColor_v1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    style="@style/TextColor_v1"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"
                     android:layout_centerInParent="true"
-                    android:text="@string/item_detail"/>
+                    android:fontFamily="@font/font_v3"
+                    android:text="@string/item_detail"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/btn_ItemDetailsMore"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
                     android:background="@drawable/circle_white_v2_none_gray_v4"
-                    android:src="@drawable/more_vertical_icon_black"
-                    android:padding="15dp"
-                    android:focusable="true"
                     android:clickable="true"
-                    android:layout_alignParentEnd="true"/>
+                    android:focusable="true"
+                    android:padding="15dp"
+                    android:src="@drawable/more_vertical_icon_black" />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:background="@drawable/rounded_10_white_v2_none_gray_v4"
-                android:layout_margin="20dp">
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_10_white_v2_none_gray_v4">
 
                 <ImageView
                     android:id="@+id/itemImgDetail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
-                    tools:ignore="ContentDescription"/>
+                    tools:ignore="ContentDescription" />
 
 
             </RelativeLayout>
@@ -78,9 +76,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -94,32 +92,32 @@
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            app:shapeAppearanceOverlay="@style/circleImageViewPost"
+                            android:layout_gravity="center_vertical"
                             android:src="@mipmap/ic_launcher"
-                            android:layout_gravity="center_vertical"/>
+                            app:shapeAppearanceOverlay="@style/circleImageViewPost" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp">
+                            android:layout_marginStart="10dp"
+                            android:orientation="vertical">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="20sp"
                                 style="@style/TextColor_v1"
-                                android:textStyle="bold"
-                                android:text="@string/winkel" />
-
-                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
+                                android:text="@string/winkel"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
                                 style="@style/TextColor_v2"
-                                android:textStyle="bold"
-                                android:text="\@Winkel" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="\@Winkel"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -129,60 +127,60 @@
                         android:id="@+id/btn_love"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/unlove_icon_black"
-                        android:padding="5dp"
-
-                        android:focusable="true"
-                        android:clickable="true"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentEnd="true"
-                        android:contentDescription="@string/love_button"/>
+                        android:layout_centerVertical="true"
+
+                        android:clickable="true"
+                        android:contentDescription="@string/love_button"
+                        android:focusable="true"
+                        android:padding="5dp"
+                        android:src="@drawable/unlove_icon_black" />
 
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/itemNameDetail"
+                        style="@style/TextColor_v1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textSize="25sp"
-                        style="@style/TextColor_v1"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/font_v3"
+                        android:layout_marginEnd="40dp"
                         android:layout_weight="1"
-                        android:layout_marginEnd="40dp" />
+                        android:fontFamily="@font/font_v3"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/itemPriceDetail"
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
                         android:fontFamily="@font/font_v3"
-                        style="@style/TextColor_v1"
-                        android:textStyle="bold"/>
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/font_v3"
                         android:text="@string/size"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/font_v3"
-                        style="@style/TextColor_v1"/>
+                        android:textStyle="bold" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerview_sizes"
@@ -194,36 +192,36 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="40dp"
+                    style="@style/background"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
                     android:orientation="vertical"
-                    style="@style/background"
                     android:paddingBottom="100dp">
 
 
                     <LinearLayout
                         android:id="@+id/description_btn"
+                        style="@style/rounded_white_v2_black_none_gray"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="20dp"
-                        style="@style/rounded_white_v2_black_none_gray">
+                        android:padding="20dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
                             <TextView
+                                style="@style/TextColor_v1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
                                 android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/font_v3"
                                 android:text="@string/description"
                                 android:textSize="24sp"
-                                android:textStyle="bold"
-                                android:layout_centerVertical="true"
-                                android:fontFamily="@font/font_v3"
-                                style="@style/TextColor_v1"/>
+                                android:textStyle="bold" />
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
@@ -231,22 +229,20 @@
 
                                 <ImageView
                                     android:id="@+id/up_arrow_description"
+                                    style="@style/up_arrow_icon"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
-                                    style="@style/up_arrow_icon"
-                                    android:padding="10dp"
                                     android:layout_alignParentEnd="true"
-                                    android:visibility="invisible"
-                                    />
+                                    android:padding="10dp"
+                                    android:visibility="invisible" />
 
                                 <ImageView
                                     android:id="@+id/down_arrow_description"
+                                    style="@style/down_arrow_icon"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
-                                    style="@style/down_arrow_icon"
-                                    android:padding="10dp"
                                     android:layout_alignParentEnd="true"
-                                    />
+                                    android:padding="10dp" />
 
                             </RelativeLayout>
 
@@ -255,42 +251,42 @@
 
                         <TextView
                             android:id="@+id/item_description"
+                            style="@style/TextColor_v2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/font_v1"
                             android:layout_marginTop="20dp"
-                            android:textStyle="bold"
+                            android:fontFamily="@font/font_v1"
+                            android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"
                             android:textSize="18sp"
-                            android:visibility="gone"
-                            style="@style/TextColor_v2"
-                            android:text="A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves"/>
+                            android:textStyle="bold"
+                            android:visibility="gone" />
 
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/review_btn"
+                        style="@style/rounded_white_v2_black_none_gray"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical"
-                        android:padding="20dp"
-                        style="@style/rounded_white_v2_black_none_gray"
-                        android:layout_marginTop="10dp">
+                        android:padding="20dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
                             <TextView
+                                style="@style/TextColor_v1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
                                 android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/font_v3"
                                 android:text="@string/reviews"
                                 android:textSize="24sp"
-                                android:layout_centerVertical="true"
-                                android:textStyle="bold"
-                                android:fontFamily="@font/font_v3"
-                                style="@style/TextColor_v1"/>
+                                android:textStyle="bold" />
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
@@ -298,22 +294,20 @@
 
                                 <ImageView
                                     android:id="@+id/up_arrow_reviews"
+                                    style="@style/up_arrow_icon"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
-                                    style="@style/up_arrow_icon"
-                                    android:padding="10dp"
                                     android:layout_alignParentEnd="true"
-                                    android:visibility="invisible"
-                                    />
+                                    android:padding="10dp"
+                                    android:visibility="invisible" />
 
                                 <ImageView
                                     android:id="@+id/down_arrow_reviews"
+                                    style="@style/down_arrow_icon"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
-                                    style="@style/down_arrow_icon"
-                                    android:padding="10dp"
                                     android:layout_alignParentEnd="true"
-                                    />
+                                    android:padding="10dp" />
 
                             </RelativeLayout>
 
@@ -324,11 +318,50 @@
                             android:id="@+id/recyclerview_reviews"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:listitem="@layout/item_reviews"
-                            android:visibility="gone"/>
+                            android:visibility="gone"
+                            tools:listitem="@layout/item_reviews" />
+
+                        <LinearLayout
+                            android:id="@+id/msgEmptyReviews"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/ic_box" />
+
+                            <TextView
+                                style="@style/TextColor_v1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="@string/oops"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/TextColor_v2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="1dp"
+                                android:text="@string/no_comments_on_this_item_yet"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
-
 
 
                 </LinearLayout>
@@ -342,56 +375,56 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="20dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/white_v1">
+        android:background="@color/white_v1"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
 
         <View
+            style="@style/line_v2"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            style="@style/line_v2"/>
+            android:layout_height="2dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_marginTop="10dp"
+            android:orientation="horizontal"
             android:paddingStart="20dp"
             android:paddingEnd="20dp">
 
             <LinearLayout
                 android:id="@+id/addToBasket"
+                style="@style/basket_background_btn"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:focusable="true"
+                android:layout_weight="1"
                 android:clickable="true"
-                style="@style/basket_background_btn">
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/addToBasketText"
+                    style="@style/TextColor_v3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:text="@string/add_to_basket"
                     android:textSize="15sp"
-                    style="@style/TextColor_v3"
-                    android:textStyle="bold"
-                    android:gravity="center"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/btn_basketD"
+                style="@style/basket_background_btn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                style="@style/basket_background_btn"
-                android:padding="12dp"
-                android:focusable="true"
-                android:clickable="true"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"/>
+                android:layout_marginStart="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp" />
 
         </LinearLayout>
 

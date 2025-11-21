@@ -1,4 +1,4 @@
-package com.eibrahim.winkel.addItem;
+package com.eibrahim.winkel.myItems;
 
 import android.content.Context;
 import android.content.Intent;

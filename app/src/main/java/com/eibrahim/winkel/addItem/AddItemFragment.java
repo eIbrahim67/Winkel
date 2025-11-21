@@ -183,16 +183,47 @@ public class AddItemFragment extends Fragment {
     private void uploadItem() {
         String price = binding.postPrice.getText().toString().trim();
         String title = binding.postTitle.getText().toString().trim();
-//        String details = binding.postDetails.getText().toString().trim();
+        String details = binding.postDetails.getText().toString().trim();
         String category = adapter.getSelected();
 
-        typeFor = binding.forMen.isChecked() ? "Mens" : binding.forKids.isChecked() ? "Kids" : binding.forWomen.isChecked() ? "Womens" : null;
-        if (price.isEmpty() || title.isEmpty() || category == null || selectedImage == null || typeFor == null) {
-            Toast.makeText(requireContext(), R.string.please_fill_all_fields, Toast.LENGTH_SHORT).show();
+        typeFor = binding.forMen.isChecked() ? "Mens" :
+                binding.forKids.isChecked() ? "Kids" :
+                        binding.forWomen.isChecked() ? "Womens" : null;
+
+// Validate each field individually
+        if (price.isEmpty()) {
+            Toast.makeText(requireContext(), R.string.error_enter_price, Toast.LENGTH_SHORT).show();
             return;
         }
 
+        if (title.isEmpty()) {
+            Toast.makeText(requireContext(), R.string.error_enter_title, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (details.isEmpty()) {
+            Toast.makeText(requireContext(), R.string.error_enter_details, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (category == null) {
+            Toast.makeText(requireContext(), R.string.error_select_category, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (typeFor == null) {
+            Toast.makeText(requireContext(), R.string.error_select_type_for, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (selectedImage == null) {
+            Toast.makeText(requireContext(), R.string.error_select_image, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         DataProductItem item = new DataProductItem(category, null, title, price, typeFor);
+        item.setDetails(details);
         addItemToShop(item, selectedImage);
     }
 
