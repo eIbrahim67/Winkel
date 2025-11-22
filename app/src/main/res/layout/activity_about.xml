@@ -32,7 +32,7 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
-                style="@style/textColorPrimary"
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -45,12 +45,12 @@
         </LinearLayout>
 
         <LinearLayout
+            style="@style/rounded_white_v2_black_none_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_white_v2_none_white_v1"
             android:orientation="horizontal"
             android:paddingStart="20dp"
             android:paddingTop="10dp"
@@ -63,10 +63,10 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:fontFamily="@font/font_v5"
-                android:textStyle="bold"
                 android:text="@string/about_our_e_shopping_app"
                 android:textColor="@color/primary_black"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -90,17 +90,17 @@
                 android:layout_width="20dp"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <TextView
-                style="@style/textColorPrimary"
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -117,19 +117,19 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
         </LinearLayout>
 
 
         <TextView
-            style="@style/textColorPrimary"
+            style="@style/TextColor_v1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -153,17 +153,17 @@
                 android:layout_width="20dp"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <TextView
-                style="@style/textColorPrimary"
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -180,18 +180,18 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground"/>
+                style="@style/linesColors"/>
 
         </LinearLayout>
 
         <TextView
-            style="@style/textColorPrimary"
+            style="@style/TextColor_v1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -215,17 +215,17 @@
                 android:layout_width="20dp"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <TextView
-                style="@style/textColorPrimary"
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -242,18 +242,18 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
         </LinearLayout>
 
         <TextView
-            style="@style/textColorPrimary"
+            style="@style/TextColor_v1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -277,17 +277,17 @@
                 android:layout_width="20dp"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <TextView
-                style="@style/textColorPrimary"
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -304,18 +304,18 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
         </LinearLayout>
 
         <TextView
-            style="@style/textColorPrimary"
+            style="@style/TextColor_v1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -339,17 +339,17 @@
                 android:layout_width="20dp"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <TextView
-                style="@style/textColorPrimary"
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -366,18 +366,18 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_gravity="center_vertical"
-                style="@style/primaryColorDiffBackground" />
+                style="@style/linesColors" />
 
         </LinearLayout>
 
         <TextView
-            style="@style/textColorPrimary"
+            style="@style/TextColor_v1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -390,11 +390,11 @@
             tools:ignore="RelativeOverlap" />
 
         <TextView
-            style="@style/textColorHint"
+            style="@style/TextColor_v2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:fontFamily="@font/work_sans"
+            android:fontFamily="@font/font_v1"
             android:gravity="center_horizontal"
             android:text="@string/thank_you_for_choosing_winkel__happy_shopping"
             android:textSize="18sp"

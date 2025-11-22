@@ -3,23 +3,16 @@ package com.eibrahim.winkel.auth;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.NavigationUI;
 
-import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.ActivityAuthBinding;
 import com.eibrahim.winkel.main.LocaleHelper;
 
 public class AuthActivity extends AppCompatActivity {
 
     private ActivityAuthBinding binding;
-
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -28,7 +21,6 @@ public class AuthActivity extends AppCompatActivity {
         Context context = LocaleHelper.setLocale(newBase, language);
         super.attachBaseContext(context);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +37,10 @@ public class AuthActivity extends AppCompatActivity {
 
         }
 
-
         super.onCreate(savedInstanceState);
 
         binding = ActivityAuthBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
     }
 
 }

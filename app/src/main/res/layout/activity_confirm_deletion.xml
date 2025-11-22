@@ -33,7 +33,7 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
-                style="@style/textColorPrimary"
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -59,12 +59,11 @@
             android:paddingBottom="10dp">
 
             <TextView
-                style="@style/textColorPrimary"
+                style="@style/TextColor_v1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:textStyle="bold"
                 android:fontFamily="@font/font_v5"
                 android:text="@string/we_re_really_sorry_to_see_you_go_are_you_sure_you_want_to_delete_your_account_once_you_confirm_your_data_will_gone"
                 android:textSize="17sp" />
@@ -80,7 +79,7 @@
         </LinearLayout>
 
         <TextView
-            style="@style/textColorPrimary"
+            style="@style/TextColor_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -93,26 +92,67 @@
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
-        <EditText
-            android:id="@+id/pass_signin_card"
-            style="@style/textColorPrimary"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_password_label"
+            style="@style/TextColor_v2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:autofillHints=""
-            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
+            android:fontFamily="@font/font_v1"
+            android:text="@string/pin"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email_signin"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pass_signin_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/work_sans"
-            android:hint="@string/pin"
-            android:inputType="textEmailAddress"
+            android:fontFamily="@font/font_v1"
             android:minHeight="50dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:textColorHint="@color/primary_black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:boxBackgroundColor="@color/primary_gray"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/primary_black"
+            app:boxStrokeWidth="1dp"
+            app:errorEnabled="true"
+            app:hintTextColor="@color/primary_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_password_label"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primary_black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/deleteAccountPin"
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:background="@color/white_v2"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v1"
+                android:inputType="textPassword"
+                android:textColorHint="@color/primary_gray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/btnDeleteAccountFinal"
@@ -120,7 +160,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:clickable="true"

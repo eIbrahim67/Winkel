@@ -1,92 +1,69 @@
 <resources>
 
     <style name="Base.Theme.Winkel" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/black_v3</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/primary_black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="bottomNavBackgroundTint">@color/primary_black</item>
     </style>
 
     <style name="background">
-
         <item name="android:background">@color/black_v3</item>
-
     </style>
 
     <style name="TextColor_v1">
-
         <item name="android:textColor">@color/white_v1</item>
         <item name="android:textColorHint">@color/white_v1</item>
-
     </style>
 
     <style name="TextColor_v2">
-
         <item name="android:textColor">@color/primary_gray</item>
         <item name="android:textColorHint">@color/primary_gray</item>
-
     </style>
 
     <style name="TextColor_v3">
-
         <item name="android:textColor">@color/primary_black</item>
         <item name="android:textColorHint">@color/primary_black</item>
-
     </style>
 
     <style name="TextColor_v4">
-
         <item name="android:textColor">@color/white_v1</item>
         <item name="android:textColorHint">@color/primary_gray</item>
-
     </style>
 
     <style name="options_background_btn">
-
         <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
         <item name="android:src">@drawable/options_icon_black</item>
-
     </style>
 
     <style name="trash_background_btn">
-
         <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
         <item name="android:src">@drawable/trash_icon_black</item>
-
     </style>
 
     <style name="circle_white_v2_black_none_gray">
-
         <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
-
     </style>
 
     <style name="search_icon">
-
         <item name="android:src">@drawable/search_icon_white</item>
-
     </style>
 
     <style name="basket_background_btn">
-
         <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
         <item name="android:src">@drawable/basket_icon_black</item>
-
     </style>
 
-
     <style name="back_arrow_background_btn">
-
         <item name="android:background">@drawable/rounded_gray_v12_none_gray_v4</item>
         <item name="android:src">@drawable/back_arrows_icon_black</item>
     </style>
 
     <style name="much_items_background_sub">
-
         <item name="android:background">@drawable/circle_none_white_v1_gray_v4</item>
         <item name="android:src">@drawable/sub_icon_white</item>
     </style>
 
     <style name="much_items_background_plus">
-
         <item name="android:background">@drawable/circle_none_black_v1_gray_v4</item>
         <item name="android:src">@drawable/plus_icon_white</item>
     </style>
@@ -94,281 +71,195 @@
     <style name="checkout_background_btn">
         <item name="android:background">@drawable/rounded_gray_v12_none_gray_v4</item>
         <item name="android:textColor">@color/primary_black</item>
-
     </style>
 
     <style name="edit_background_btn">
-
         <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
         <item name="android:src">@drawable/edit_icon_black</item>
     </style>
 
     <style name="basket_src">
-
         <item name="android:src">@drawable/basket_icon_white</item>
-
     </style>
 
     <style name="copy_icon">
-
         <item name="android:src">@drawable/copy_icon_white</item>
-
     </style>
 
     <style name="edit_icon">
-
         <item name="android:src">@drawable/edit_2_icon_white</item>
-
     </style>
 
     <style name="arrow_right_icon">
-
         <item name="android:src">@drawable/arrow_right_icon_white</item>
-
     </style>
 
     <style name="roundedImageViewPost" parent="">
-
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
         <item name="color">@color/primary_black</item>
-
     </style>
 
     <style name="delete_background_src">
-
         <item name="android:src">@drawable/delete_icon_black</item>
         <item name="android:background">@drawable/circle_white_v1_none_white_v4</item>
-
     </style>
 
     <style name="circle_black_v1_white_v1">
-
         <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
         <item name="android:textColor">@color/primary_black</item>
-
     </style>
 
     <style name="circle_line_gray_v2">
-
         <item name="android:background">@drawable/circle_none_gray_v2_gray_v4</item>
         <item name="android:textColor">@color/white_v1</item>
-
     </style>
 
     <style name="close_icon">
-
         <item name="android:src">@drawable/close_icon_white</item>
-
     </style>
 
     <style name="rounded_outline_solid_white_black">
-
         <item name="android:background">@drawable/rounded_gray_v10_white_v1_gray_v4</item>
         <item name="android:textColor">@color/white_v1</item>
         <item name="android:textColorHint">@color/white_v1</item>
-
     </style>
 
     <style name="sort_icon">
-
         <item name="android:src">@drawable/sort_icon_white</item>
-
     </style>
 
     <style name="filter_icon">
-
         <item name="android:src">@drawable/filter_icon_white</item>
-
     </style>
 
     <style name="view_grid_icon">
-
         <item name="android:src">@drawable/view_grid_icon_white</item>
-
     </style>
 
     <style name="az_sort_icon">
-
         <item name="android:src">@drawable/az_sort_icon_white</item>
-
     </style>
 
     <style name="za_sort_icon">
-
         <item name="android:src">@drawable/za_sort_icon_white</item>
-
     </style>
 
     <style name="sort_ascending_icon">
-
         <item name="android:src">@drawable/sort_ascending_icon_white</item>
-
     </style>
 
     <style name="sort_descending_icon">
-
         <item name="android:src">@drawable/sort_descending_icon_white</item>
-
     </style>
 
     <style name="radio_button_background">
-
         <item name="android:buttonTint">@color/white_v1</item>
-
     </style>
 
     <style name="sharp_gray_v4">
-
         <item name="android:background">@drawable/sharp_black_v2_none_gray_v4</item>
-
     </style>
 
     <style name="filter_none_icon">
-
         <item name="android:src">@drawable/filter_none_icon_white</item>
-
     </style>
 
     <style name="men_icon">
-
         <item name="android:src">@drawable/man_icon_white</item>
-
     </style>
 
     <style name="women_icon">
-
         <item name="android:src">@drawable/women_icon_white</item>
-
     </style>
 
     <style name="kids_icon">
-
         <item name="android:src">@drawable/kid_icon_white</item>
-
     </style>
 
     <style name="view_linear_horizontal_icon">
-
         <item name="android:src">@drawable/view_linear_horizontal_white</item>
-
     </style>
 
     <style name="view_linear_vertical_icon">
-
         <item name="android:src">@drawable/view_linear_vertical_white</item>
-
     </style>
 
     <style name="remove_icon">
-
         <item name="android:src">@drawable/remove_icon_white</item>
-
     </style>
 
     <style name="signout_icon">
-
         <item name="android:src">@drawable/signout_icon_white</item>
-
     </style>
 
     <style name="card_icon">
-
         <item name="android:src">@drawable/card_icon_white</item>
-
     </style>
 
     <style name="user_icon">
-
         <item name="android:src">@drawable/user_icon_white</item>
-
     </style>
 
     <style name="layers_icon">
-
         <item name="android:src">@drawable/layers_icon_white</item>
-
     </style>
 
     <style name="security_icon">
-
         <item name="android:src">@drawable/security_icon_white</item>
-
     </style>
 
     <style name="moon_icon">
-
         <item name="android:src">@drawable/moon_icon_white</item>
-
     </style>
 
     <style name="language_icon">
-
         <item name="android:src">@drawable/language_icon_white</item>
-
     </style>
 
     <style name="notification_icon">
-
         <item name="android:src">@drawable/notification_icon_white</item>
-
     </style>
 
     <style name="happy_icon">
-
         <item name="android:src">@drawable/happy_icon_white</item>
-
     </style>
 
     <style name="permission_icon">
-
         <item name="android:src">@drawable/permission_icon_white</item>
-
     </style>
 
     <style name="about_icon">
-
         <item name="android:src">@drawable/about_icon_white</item>
-
     </style>
 
     <style name="support_icon">
-
         <item name="android:src">@drawable/support_icon_white</item>
-
     </style>
 
     <style name="sound_icon">
-
         <item name="android:src">@drawable/sound_icon_white</item>
-
     </style>
 
     <style name="sad_icon">
-
         <item name="android:src">@drawable/sad_icon_white</item>
-
     </style>
 
     <style name="close_background_btn">
-
         <item name="android:src">@drawable/close_icon_black</item>
         <item name="android:background">@drawable/circle_none_white_v1_gray_v4</item>
-
-
     </style>
 
     <style name="up_arrow_icon">
-
         <item name="android:src">@drawable/up_arrow_icon_white</item>
-
     </style>
 
     <style name="down_arrow_icon">
-
         <item name="android:src">@drawable/down_arrow_icon_white</item>
-
     </style>
 
+    <style name="linesColors">
+        <item name="android:background">@color/primary_white</item>
+    </style>
 
 </resources>

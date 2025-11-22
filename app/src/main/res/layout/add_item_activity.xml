@@ -59,10 +59,10 @@
 
         <EditText
             android:id="@+id/post_title"
-            style="@style/TextColor_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:textColor="@color/primary_black"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_5_white_v2_none_gray_v4"
@@ -92,10 +92,10 @@
 
         <EditText
             android:id="@+id/post_details"
-            style="@style/TextColor_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:textColor="@color/primary_black"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_5_white_v2_none_gray_v4"
@@ -212,8 +212,7 @@
 
             <EditText
                 android:id="@+id/post_price"
-                style="@style/TextColor_v1"
-                android:layout_width="0dp"
+                android:textColor="@color/primary_black"                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="5dp"
@@ -414,13 +413,15 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
+            android:fontFamily="@font/font_v3"
             android:paddingStart="20dp"
             android:paddingTop="10dp"
+            android:textStyle="bold"
             android:paddingEnd="20dp"
             android:paddingBottom="10dp"
             android:text="@string/upload"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
     </LinearLayout>
 

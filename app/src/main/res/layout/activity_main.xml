@@ -23,7 +23,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:pointerIcon="handwriting"
-        app:backgroundTint="@color/primary_white"
+        app:backgroundTint="?attr/bottomNavBackgroundTint"
         app:itemIconTint="@color/primary_gray"
         app:itemTextColor="@color/primary_gray"
         app:layout_insetEdge="bottom"
@@ -31,6 +31,4 @@
 
     <!--            app:labelVisibilityMode="labeled"-->
     <!--        app:itemRippleColor="@color/blue_v3"-->
-
-
 </LinearLayout>

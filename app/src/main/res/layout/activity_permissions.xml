@@ -1,553 +1,562 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".permissions.PermissionsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/btnBack"
+            style="@style/back_arrow_background_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="@style/back_arrow_background_btn"
-            android:padding="9dp"
-            android:focusable="true"
             android:clickable="true"
-            android:contentDescription="@string/back"/>
+            android:contentDescription="@string/back"
+            android:focusable="true"
+            android:padding="9dp" />
 
         <TextView
+            style="@style/TextColor_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
-            style="@style/TextColor_v1"
-            android:text="@string/permissions"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
+            android:text="@string/permissions"
+            android:textSize="26sp"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:orientation="horizontal"
-            style="@style/rounded_white_v2_black_none_gray"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v5"
+                    android:text="@string/permissions_our_users_have"
+                    android:textColor="@color/primary_black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/permissions"
+                    android:src="@drawable/permissions_v1"
+
+                    app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
+
+            </LinearLayout>
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/permissions_our_users_have"
                 style="@style/TextColor_v1"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textSize="17sp"
-                android:fontFamily="@font/font_v5"/>
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:text="@string/customers"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
 
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                android:src="@drawable/permissions_v1"
-                
-                android:contentDescription="@string/permissions"/>
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/authentication_and_registration"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/customers_are_empowered_to_create_and_manage_their_accounts_securely_through_the_app_s_robust_email_and_password_authentication_system"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/they_have_the_autonomy_to_update_and_maintain_their_personal_information_such_as_name_email_address_and_phone_number_ensuring_accurate_and_up_to_date_account_details"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/shopping_experience"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/customers_enjoy_a_seamless_shopping_experience_beginning_with_the_ability_to_explore_a_diverse_range_of_products_showcased_on_the_home_page"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/they_have_the_freedom_to_add_desired_items_to_their_shopping_cart_remove_them_if_needed_and_seamlessly_navigate_through_the_shopping_process"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/our_intuitive_search_functionality_enables_customers_to_find_products_effortlessly_by_entering_their_names_ensuring_a_convenient_browsing_experience"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/with_the_option_to_filter_products_based_on_type_and_price_customers_can_tailor_their_search_to_meet_their_preferences_and_budget"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/by_curating_a_list_of_favorite_products_customers_can_easily_revisit_and_access_items_of_interest_at_any_time"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/before_finalizing_their_purchases_customers_have_the_opportunity_to_review_order_details_ensuring_accuracy_and_satisfaction"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/customers_contribute_to_the_community_by_providing_valuable_feedback_and_ratings_for_products_they_have_purchased_enhancing_the_overall_shopping_experience_for_all_users"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/account_management"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/to_prioritize_security_and_privacy_customers_can_securely_log_out_from_the_application_at_their_convenience_safeguarding_their_account_from_unauthorized_access"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:text="@string/vendors"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/sellers_license_and_permissions"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/vendors_must_obtain_a_valid_license_to_showcase_and_sell_their_products_on_the_platform_underscoring_our_commitment_to_quality_and_authenticity"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/upon_satisfying_quality_criteria_and_approval_from_the_admin_vendors_are_granted_permission_to_showcase_their_products_fostering_a_trusted_marketplace_environment"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/product_management"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/vendors_are_empowered_to_showcase_their_products_to_a_broad_audience_by_uploading_detailed_product_listings_including_descriptions_and_pricing_information"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/with_access_to_real_time_insights_into_product_stocks_vendors_can_effectively_manage_inventory_levels_and_ensure_seamless_fulfillment_of_orders"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/by_monitoring_sales_history_and_tracking_profits_vendors_gain_valuable_insights_into_product_performance_and_market_trends_enabling_informed_decision_making_and_strategic_planning"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:text="@string/admins"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/vendor_management"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/admins_oversee_the_vendor_onboarding_process_facilitating_communication_and_collaboration_to_ensure_a_seamless_integration_of_vendor_products_into_the_platform"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/through_rigorous_quality_testing_and_evaluation_admins_uphold_the_standards_of_the_platform_by_granting_permissions_to_vendors_safeguarding_the_integrity_of_the_marketplace"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/application_oversight"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/admins_have_full_visibility_into_the_inner_workings_of_the_application_enabling_them_to_monitor_and_manage_all_aspects_of_the_platform_efficiently"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/with_access_to_comprehensive_employee_details_admins_maintain_organizational_transparency_and_facilitate_effective_communication_and_coordination_among_team_members"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/by_exercising_administrative_control_over_the_application_admins_uphold_the_security_reliability_and_functionality_of_the_platform_ensuring_a_superior_user_experience_for_all_stakeholders"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:text="@string/reporting_security_concerns"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/users_of_all_types_are_encouraged_to_report_any_security_concerns_or_issues_they_encounter_while_using_the_app_your_security_is_our_priority_and_we_take_all_reports_seriously"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:text="@string/contact_us"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v5"
+                android:text="@string/for_any_questions_or_further_clarification_regarding_user_permissions_or_any_other_aspect_of_the_app_please_don_t_hesitate_to_reach_out_to_our_dedicated_customer_support_team_we_re_here_to_assist_you_every_step_of_the_way"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                style="@style/TextColor_v2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/font_v1"
+                android:gravity="center_horizontal"
+                android:text="@string/thank_you_for_choosing_winkel__your_security_and_peace_of_mind_are_our_utmost_priority"
+                android:textSize="18sp"
+                tools:ignore="RelativeOverlap" />
 
         </LinearLayout>
 
+    </ScrollView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            style="@style/TextColor_v1"
-            android:text="@string/customers"
-            android:paddingBottom="5dp"
-            android:gravity="center_vertical"
-            android:fontFamily="@font/font_v3"
-            android:layout_gravity="center_vertical"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/authentication_and_registration"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/customers_are_empowered_to_create_and_manage_their_accounts_securely_through_the_app_s_robust_email_and_password_authentication_system"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/they_have_the_autonomy_to_update_and_maintain_their_personal_information_such_as_name_email_address_and_phone_number_ensuring_accurate_and_up_to_date_account_details"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/shopping_experience"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/customers_enjoy_a_seamless_shopping_experience_beginning_with_the_ability_to_explore_a_diverse_range_of_products_showcased_on_the_home_page"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/they_have_the_freedom_to_add_desired_items_to_their_shopping_cart_remove_them_if_needed_and_seamlessly_navigate_through_the_shopping_process"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/our_intuitive_search_functionality_enables_customers_to_find_products_effortlessly_by_entering_their_names_ensuring_a_convenient_browsing_experience"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/with_the_option_to_filter_products_based_on_type_and_price_customers_can_tailor_their_search_to_meet_their_preferences_and_budget"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/by_curating_a_list_of_favorite_products_customers_can_easily_revisit_and_access_items_of_interest_at_any_time"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/before_finalizing_their_purchases_customers_have_the_opportunity_to_review_order_details_ensuring_accuracy_and_satisfaction"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/customers_contribute_to_the_community_by_providing_valuable_feedback_and_ratings_for_products_they_have_purchased_enhancing_the_overall_shopping_experience_for_all_users"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/account_management"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/to_prioritize_security_and_privacy_customers_can_securely_log_out_from_the_application_at_their_convenience_safeguarding_their_account_from_unauthorized_access"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            style="@style/TextColor_v1"
-            android:text="@string/vendors"
-            android:paddingBottom="5dp"
-            android:gravity="center_vertical"
-            android:fontFamily="@font/font_v3"
-            android:layout_gravity="center_vertical"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/sellers_license_and_permissions"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/vendors_must_obtain_a_valid_license_to_showcase_and_sell_their_products_on_the_platform_underscoring_our_commitment_to_quality_and_authenticity"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/upon_satisfying_quality_criteria_and_approval_from_the_admin_vendors_are_granted_permission_to_showcase_their_products_fostering_a_trusted_marketplace_environment"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/product_management"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/vendors_are_empowered_to_showcase_their_products_to_a_broad_audience_by_uploading_detailed_product_listings_including_descriptions_and_pricing_information"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/with_access_to_real_time_insights_into_product_stocks_vendors_can_effectively_manage_inventory_levels_and_ensure_seamless_fulfillment_of_orders"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/by_monitoring_sales_history_and_tracking_profits_vendors_gain_valuable_insights_into_product_performance_and_market_trends_enabling_informed_decision_making_and_strategic_planning"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            style="@style/TextColor_v1"
-            android:text="@string/admins"
-            android:paddingBottom="5dp"
-            android:gravity="center_vertical"
-            android:fontFamily="@font/font_v3"
-            android:layout_gravity="center_vertical"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/vendor_management"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/admins_oversee_the_vendor_onboarding_process_facilitating_communication_and_collaboration_to_ensure_a_seamless_integration_of_vendor_products_into_the_platform"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/through_rigorous_quality_testing_and_evaluation_admins_uphold_the_standards_of_the_platform_by_granting_permissions_to_vendors_safeguarding_the_integrity_of_the_marketplace"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/application_oversight"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/admins_have_full_visibility_into_the_inner_workings_of_the_application_enabling_them_to_monitor_and_manage_all_aspects_of_the_platform_efficiently"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/with_access_to_comprehensive_employee_details_admins_maintain_organizational_transparency_and_facilitate_effective_communication_and_coordination_among_team_members"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/by_exercising_administrative_control_over_the_application_admins_uphold_the_security_reliability_and_functionality_of_the_platform_ensuring_a_superior_user_experience_for_all_stakeholders"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            style="@style/TextColor_v1"
-            android:text="@string/reporting_security_concerns"
-            android:paddingBottom="5dp"
-            android:gravity="center_vertical"
-            android:fontFamily="@font/font_v3"
-            android:layout_gravity="center_vertical"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/users_of_all_types_are_encouraged_to_report_any_security_concerns_or_issues_they_encounter_while_using_the_app_your_security_is_our_priority_and_we_take_all_reports_seriously"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            style="@style/TextColor_v1"
-            android:text="@string/contact_us"
-            android:paddingBottom="5dp"
-            android:gravity="center_vertical"
-            android:fontFamily="@font/font_v3"
-            android:layout_gravity="center_vertical"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:text="@string/for_any_questions_or_further_clarification_regarding_user_permissions_or_any_other_aspect_of_the_app_please_don_t_hesitate_to_reach_out_to_our_dedicated_customer_support_team_we_re_here_to_assist_you_every_step_of_the_way"
-            android:fontFamily="@font/font_v5"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v2"
-            android:text= "@string/thank_you_for_choosing_winkel__your_security_and_peace_of_mind_are_our_utmost_priority"
-            android:fontFamily="@font/font_v1"
-            android:gravity="center_horizontal"
-            android:layout_margin="20dp"
-            tools:ignore="RelativeOverlap" />
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>
