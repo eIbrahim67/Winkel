@@ -8,16 +8,21 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.databinding.ActivityPaymentBinding;
 import com.eibrahim.winkel.main.LocaleHelper;
 import com.eibrahim.winkel.main.MainActivity;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -32,7 +37,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -57,6 +64,7 @@ public class PaymentActivity extends AppCompatActivity {
     private String totalData;
 
     private ProgressDialog progressDialog;
+    private long amountInPiasters;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -72,35 +80,19 @@ public class PaymentActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("ThemePrefs", MODE_PRIVATE);
         int isDarkMode = sharedPreferences.getInt("theme_state", -1);
         if (isDarkMode != -1) {
-            AppCompatDelegate.setDefaultNightMode(
-                    isDarkMode == 1 ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
-            );
+            AppCompatDelegate.setDefaultNightMode(isDarkMode == 1 ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         }
-
         super.onCreate(savedInstanceState);
-
         // Initialize Stripe
-        PaymentConfiguration.init(
-                getApplicationContext(),
-                "pk_test_51SVFRGFpTKioic1Y7QUBbLvSCsKYzOa5eIkMaTMHy7XBZ32qHUK2SlferifioQ1LBELzqOdOO26aovGefEYwONpn00WTwiPQmQ"
-        );
+        PaymentConfiguration.init(getApplicationContext(), "pk_test_51SVFRGFpTKioic1Y7QUBbLvSCsKYzOa5eIkMaTMHy7XBZ32qHUK2SlferifioQ1LBELzqOdOO26aovGefEYwONpn00WTwiPQmQ");
 
         binding = ActivityPaymentBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Stripe PaymentSheet init
         paymentSheet = new PaymentSheet(this, this::onPaymentResult);
-
-        totalData = getIntent().getStringExtra("Data");
-        String totalPrice = getIntent().getStringExtra("Total price");
-
-        double deliveryCost = 20.00;
-        double totalFinalPrice = Double.parseDouble(normalizeNumber(totalPrice)) + deliveryCost;
-        long amountInPiasters = (long) (totalFinalPrice * 100); // Stripe amount in cents
-
-        binding.subTotalPriceOfItemsPayment.setText(totalPrice + getString(R.string.le));
-        binding.deliveryCostPayment.setText(String.format("%.2f", deliveryCost) + getString(R.string.le));
-        binding.totalPriceOfItemsPayment.setText(String.format("%.2f", totalFinalPrice) + getString(R.string.le));
+        binding.deliveryCostPayment.setText(String.format("%.2f", 20.00) + getString(R.string.le));
+        loadBasket();
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Processing payment...");
@@ -108,8 +100,14 @@ public class PaymentActivity extends AppCompatActivity {
 
         // Address TextWatchers
         TextWatcher addressWatcher = new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override public void afterTextChanged(Editable s) {}
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 checkAddressFields();
@@ -119,19 +117,167 @@ public class PaymentActivity extends AppCompatActivity {
         binding.addressCity.addTextChangedListener(addressWatcher);
         binding.addressStreet.addTextChangedListener(addressWatcher);
 
-        binding.btnBackCheckout.setOnClickListener(v -> finish());
+        binding.btnBack.setOnClickListener(v -> finish());
 
         // Payment button click
         binding.btnPayment.setOnClickListener(v -> {
             if (!isAllAddressAdded) {
-                Snackbar.make(findViewById(android.R.id.content),
-                        "Please complete all address details before proceeding.",
-                        Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(findViewById(android.R.id.content), R.string.please_complete_all_address_details_before_proceeding, Snackbar.LENGTH_SHORT).show();
                 return;
             }
             createPaymentIntent(amountInPiasters);
         });
     }
+
+    // -----------------------------
+    // FETCH BASKET + PRODUCTS FAST
+    // -----------------------------
+    private void loadBasket() {
+        showLoading();
+
+        DocumentReference basketRef = firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument");
+
+        basketRef.get().addOnSuccessListener(snap -> {
+            List<String> basket = (List<String>) snap.get("BasketCollection");
+
+            fetchAllProducts(basket);
+
+        }).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
+    }
+
+    // -----------------------------
+    // UI HELPERS
+    // -----------------------------
+    private void showLoading() {
+        binding.loadingIndicator.setVisibility(View.VISIBLE);
+    }
+
+    private void hideLoading() {
+        binding.loadingIndicator.setVisibility(View.GONE);
+    }
+
+    private double totalPrice = 0.0;
+    private int items = 0;
+
+    // Fetch all product documents in parallel
+    private void fetchAllProducts(List<String> basket) {
+        List<Task<?>> tasks = new ArrayList<>();
+        List<DataRecyclerviewMyItem> result = new ArrayList<>();
+
+        // RESET totals
+        items = 0;
+        totalPrice = 0.0;
+        totalData = "";
+
+        for (String entry : basket) {
+            String[] parts = entry.split(",");
+
+            String itemId = parts[0].trim();
+            String itemType = parts[1].trim();
+            String much = parts[2].trim();
+            String size = parts[3].trim();
+
+            DocumentReference productRef = firestore.collection("Products").document(itemType).collection(itemType).document(itemId);
+
+            Task<?> task = productRef.get().continueWith(productTask -> {
+                if (!productTask.isSuccessful() || !productTask.getResult().exists()) return null;
+
+                Map<String, Object> data = productTask.getResult().getData();
+                if (data == null) return null;
+
+                String name = (String) data.get("name");
+                String category = (String) data.get("category");
+                String imageId = (String) data.get("imageId");
+                String priceStr = (String) data.get("price");
+
+                double price = priceStr == null ? 0 : Double.parseDouble(priceStr);
+                double total = price * Double.parseDouble(much);
+
+                DataRecyclerviewMyItem item = new DataRecyclerviewMyItem(category, imageId, name, priceStr, itemType, size);
+
+                item.setItemId(itemId);
+                item.setMuch(much);
+                item.setTotalPriceItem(total);
+
+                synchronized (result) {
+                    result.add(item);
+                    items++;
+                    totalPrice += total;
+                    totalData += itemId + "," + itemType + "," + much + "," + priceStr + "," + size + " & ";
+                }
+
+                return null;
+            });
+
+            tasks.add(task);
+        }
+
+        // When ALL product fetches complete
+        Tasks.whenAllComplete(tasks).addOnSuccessListener(done -> {
+            updateUI(result);
+
+        }).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
+    }
+
+    // -----------------------------
+    // UI UPDATE
+    // -----------------------------
+    private void updateUI(List<DataRecyclerviewMyItem> itemsList) {
+        hideLoading();
+
+        adapterRecyclerviewBasketPayment adapter = new adapterRecyclerviewBasketPayment(this, itemsList, this);
+
+        binding.rv3.setLayoutManager(new GridLayoutManager(this, 1));
+        binding.rv3.setAdapter(adapter);
+
+//        binding.noOfItems.setText(items + (items == 1 ? getString(R.string.item) : getString(R.string.items)));
+
+        double totalFinalPrice = Double.parseDouble(normalizeNumber(String.valueOf(getFormattedPrice()))) + 20.00;
+        amountInPiasters = (long) (totalFinalPrice * 100); // Stripe amount in cents
+        binding.subTotalPriceOfItemsPayment.setText(getFormattedPrice() + getString(R.string.le));
+        binding.totalPriceOfItemsPayment.setText(String.format("%.2f", totalFinalPrice) + getString(R.string.le));
+
+    }
+
+    private void showError(String msg) {
+        hideLoading();
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    // -----------------------------
+    // HELPERS
+    // -----------------------------
+    public String getFormattedPrice() {
+        return String.format("%.2f", totalPrice);
+    }
+
+    // Called when items change (remove or update)
+    public void updateAfterChange(double amount, char type) {
+        if (type == '+') totalPrice += amount;
+        else totalPrice -= amount;
+
+        updateSmallUI();
+    }
+
+    public void removeItem(double amount) {
+        items--;
+        totalPrice -= amount;
+        updateSmallUI();
+
+        if (items == 0)
+            binding.btnBack.performClick();
+
+    }
+
+    private void updateSmallUI() {
+//        binding.noOfItems.setText(items + (items == 1 ? getString(R.string.item) : getString(R.string.items)));
+        double totalFinalPrice = Double.parseDouble(normalizeNumber(String.valueOf(getFormattedPrice()))) + 20.00;
+        amountInPiasters = (long) (totalFinalPrice * 100); // Stripe amount in cents
+        binding.subTotalPriceOfItemsPayment.setText(getFormattedPrice() + getString(R.string.le));
+        binding.totalPriceOfItemsPayment.setText(String.format("%.2f", totalFinalPrice) + getString(R.string.le));
+
+    }
+
 
     private void createPaymentIntent(long amount) {
         progressDialog.show();
@@ -150,10 +296,7 @@ public class PaymentActivity extends AppCompatActivity {
         String url = "http://10.0.2.2:5000/create_payment_intent";
         //String url = "http://192.168.1.100:5000/create_payment_intent"; // real device
 
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .build();
+        Request request = new Request.Builder().url(url).post(body).build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -200,50 +343,38 @@ public class PaymentActivity extends AppCompatActivity {
         } else if (result instanceof PaymentSheetResult.Canceled) {
             Toast.makeText(this, "Payment canceled", Toast.LENGTH_SHORT).show();
         } else if (result instanceof PaymentSheetResult.Failed) {
-            Toast.makeText(this,
-                    "Payment failed: " + ((PaymentSheetResult.Failed) result).getError().getMessage(),
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Payment failed: " + ((PaymentSheetResult.Failed) result).getError().getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
     private void saveOrderToFirestore() {
-        DocumentReference basketRef = firestore.collection("UsersData")
-                .document(userId)
-                .collection("BasketCollection")
-                .document("BasketDocument");
+        DocumentReference basketRef = firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument");
 
         DocumentReference orderRef = firestore.collection("Orders").document(userId);
 
         Map<String, Object> updateData = new HashMap<>();
         updateData.put("OrderCollection", FieldValue.arrayUnion(totalData));
 
-        orderRef.set(updateData, SetOptions.merge())
-                .addOnSuccessListener(unused -> {
-                    basketRef.update("BasketCollection", FieldValue.delete());
-                    Toast.makeText(this, "Payment successful", Toast.LENGTH_SHORT).show();
+        orderRef.set(updateData, SetOptions.merge()).addOnSuccessListener(unused -> {
+            basketRef.update("BasketCollection", FieldValue.delete());
+            Toast.makeText(this, "Payment successful", Toast.LENGTH_SHORT).show();
 
-                    Intent home = new Intent(PaymentActivity.this, MainActivity.class);
-                    home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(home);
-                    finish();
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Order save failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+            Intent home = new Intent(PaymentActivity.this, MainActivity.class);
+            home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(home);
+            finish();
+        }).addOnFailureListener(e -> {
+            Toast.makeText(this, "Order save failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void checkAddressFields() {
-        isAllAddressAdded = !binding.addressState.getText().toString().trim().isEmpty()
-                && !binding.addressCity.getText().toString().trim().isEmpty()
-                && !binding.addressStreet.getText().toString().trim().isEmpty();
+        isAllAddressAdded = !binding.addressState.getText().toString().trim().isEmpty() && !binding.addressCity.getText().toString().trim().isEmpty() && !binding.addressStreet.getText().toString().trim().isEmpty();
     }
 
     private String normalizeNumber(String value) {
         if (value == null) return "0";
-        return value.replace("٠", "0").replace("١", "1").replace("٢", "2")
-                .replace("٣", "3").replace("٤", "4").replace("٥", "5")
-                .replace("٦", "6").replace("٧", "7").replace("٨", "8")
-                .replace("٩", "9").replace("٫", ".");
+        return value.replace("٠", "0").replace("١", "1").replace("٢", "2").replace("٣", "3").replace("٤", "4").replace("٥", "5").replace("٦", "6").replace("٧", "7").replace("٨", "8").replace("٩", "9").replace("٫", ".");
     }
 
     @Override

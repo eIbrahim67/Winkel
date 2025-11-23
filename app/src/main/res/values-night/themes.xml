@@ -4,6 +4,8 @@
         <item name="android:statusBarColor">@color/primary_black</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="bottomNavBackgroundTint">@color/primary_black</item>
+        <item name="indicatorColor">@color/primary_white</item>
+        <item name="passwordToggleTint">@color/primary_white</item>
     </style>
 
     <style name="background">
@@ -12,7 +14,7 @@
 
     <style name="TextColor_v1">
         <item name="android:textColor">@color/white_v1</item>
-        <item name="android:textColorHint">@color/white_v1</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
     </style>
 
     <style name="TextColor_v2">
@@ -31,8 +33,8 @@
     </style>
 
     <style name="options_background_btn">
-        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
-        <item name="android:src">@drawable/options_icon_black</item>
+        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+        <item name="android:src">@drawable/options_icon_white</item>
     </style>
 
     <style name="trash_background_btn">
@@ -42,6 +44,10 @@
 
     <style name="circle_white_v2_black_none_gray">
         <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+    </style>
+
+    <style name="rounded_white_v2_black_none_gray">
+        <item name="android:background">@drawable/rounded_white_v2_none_black_v2</item>
     </style>
 
     <style name="search_icon">
@@ -205,6 +211,10 @@
         <item name="android:src">@drawable/layers_icon_white</item>
     </style>
 
+    <style name="folder_add_icon">
+        <item name="android:src">@drawable/folder_add_icon_black_white</item>
+    </style>
+
     <style name="security_icon">
         <item name="android:src">@drawable/security_icon_white</item>
     </style>
@@ -260,6 +270,10 @@
 
     <style name="linesColors">
         <item name="android:background">@color/primary_white</item>
+    </style>
+
+    <style name="TextColor_v1_clickable">
+        <item name="android:textColor">@drawable/text_selector_white_blue</item>
     </style>
 
 </resources>

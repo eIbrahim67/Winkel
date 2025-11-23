@@ -358,4 +358,7 @@
     <string name="failed_to_upload_data">فشل تحميل البيانات</string>
     <string name="you_have_permanently_denied_this_permission_to_enable_it_go_to_settings_app_permissions"><![CDATA[لقد رفضت هذا الإذن بشكل دائم. لتمكينه، اذهب إلى الإعدادات > أذونات التطبيق.]]></string>
     <string name="open_settings">افتح الإعدادات</string>
+    <string name="please_complete_all_address_details_before_proceeding">يرجى استكمال جميع تفاصيل العنوان قبل المتابعة.</string>
+    <string name="your_feedback_has_been_send_successfully">تم إرسال ملاحظاتك بنجاح.</string>
+
 </resources>

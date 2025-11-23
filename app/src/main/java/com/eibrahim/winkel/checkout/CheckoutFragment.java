@@ -1,6 +1,5 @@
 package com.eibrahim.winkel.checkout;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -213,11 +212,7 @@ public class CheckoutFragment extends Fragment {
                 Toast.makeText(requireContext(), R.string.basket_empty_message, Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            Intent intent = new Intent(requireContext(), PaymentActivity.class);
-            intent.putExtra("Total price", getFormattedPrice());
-            intent.putExtra("Data", dataOfOrder);
-            startActivity(intent);
+            startActivity(new Intent(requireContext(), PaymentActivity.class));
         });
     }
 

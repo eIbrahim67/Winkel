@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".theme.ThemeFragment">
 
     <LinearLayout
@@ -15,417 +14,140 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="500dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/btnBack"
+                style="@style/back_arrow_background_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:contentDescription="Back"
+                android:focusable="true"
+                android:padding="9dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
-
-                <ImageView
-                    android:id="@+id/btnBack"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    style="@style/back_arrow_background_btn"
-                    android:padding="9dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:contentDescription="Back"
-                    tools:ignore="HardcodedText" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    style="@style/TextColor_v1"
-                    android:text="@string/dark_mode"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:textStyle="bold"
-                    tools:ignore="RelativeOverlap" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnLight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
-                style="@style/rounded_white_v2_black_none_gray"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/light_mode"
-                    android:textColor="@color/primary_black"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"/>
-
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                    android:src="@drawable/sun_v1"
-                    android:clickable="true" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnDark"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
-                style="@style/rounded_white_v2_black_none_gray"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dark_mode"
-                    android:textColor="@color/primary_black"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"/>
-
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                    android:src="@drawable/moon_v1"
-                    android:clickable="true" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnSystem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
-                style="@style/rounded_white_v2_black_none_gray"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/system_settings"
-                    android:textColor="@color/primary_black"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"/>
-
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                    android:src="@drawable/solar_system_v1"
-                    android:clickable="true" />
-
-            </LinearLayout>
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:text="@string/dark_mode"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnLight"
+            style="@style/rounded_white_v2_black_none_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="500dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp">
 
-            <LinearLayout
+            <TextView
+                style="@style/TextColor_v1_clickable"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
-
-                <ImageView
-
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    style="@style/back_arrow_background_btn"
-                    android:padding="9dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:contentDescription="Back"
-                    tools:ignore="HardcodedText" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    style="@style/TextColor_v1"
-                    android:text="@string/dark_mode"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:textStyle="bold"
-                    tools:ignore="RelativeOverlap" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="20dp"
-                android:baselineAligned="false">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerInParent="true"
-                        app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                        android:src="@drawable/sun_v1"
-                        android:clickable="true" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:paddingStart="20dp"
-                    android:layout_weight="1"
-                    android:paddingEnd="20dp">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerInParent="true"
-                        app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                        android:src="@drawable/moon_v1"
-                        android:clickable="true" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
-                style="@style/rounded_white_v2_black_none_gray"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/system_settings"
-                    style="@style/TextColor_v1"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"/>
+                android:layout_weight="1"
+                android:fontFamily="@font/font_v3"
+                android:text="@string/light_mode"
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                    android:src="@drawable/solar_system_v1"
-                    android:clickable="true" />
-
-            </LinearLayout>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:src="@drawable/sun_v1"
+                app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnDark"
+            style="@style/rounded_white_v2_black_none_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="500dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
-
-                <ImageView
-                    
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    style="@style/back_arrow_background_btn"
-                    android:padding="9dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:contentDescription="Back"
-                    tools:ignore="HardcodedText" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    style="@style/TextColor_v1"
-                    android:text="@string/dark_mode"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:textStyle="bold"
-                    tools:ignore="RelativeOverlap" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
-                style="@style/rounded_white_v2_black_none_gray"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
+            <TextView
+                style="@style/TextColor_v1_clickable"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:fontFamily="@font/font_v3"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Light Mode"
-                    style="@style/TextColor_v1"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"/>
+                android:text="@string/dark_mode"
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_vertical"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                    android:src="@drawable/sun_v1"
-                    android:clickable="true" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:src="@drawable/moon_v1"
+                app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
-            </LinearLayout>
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
-                style="@style/rounded_white_v2_black_none_gray"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
+        <LinearLayout
+            android:id="@+id/btnSystem"
+            style="@style/rounded_white_v2_black_none_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                style="@style/TextColor_v1_clickable"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Dark Mode"
-                    style="@style/TextColor_v1"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"/>
+                android:layout_weight="1"
+                android:fontFamily="@font/font_v3"
+                android:text="@string/system_settings"
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_vertical"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                    android:src="@drawable/moon_v1"
-                    android:clickable="true" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
-                style="@style/rounded_white_v2_black_none_gray"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="System Settings"
-                    style="@style/TextColor_v1"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font_v3"/>
-
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_vertical"
-                    app:shapeAppearanceOverlay="@style/roundedImageViewPost"
-                    android:src="@drawable/solar_system_v1"
-                    android:clickable="true" />
-
-            </LinearLayout>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:src="@drawable/solar_system_v1"
+                app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
         </LinearLayout>
 

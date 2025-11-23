@@ -68,7 +68,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/font_v5"
                     android:text="@string/permissions_our_users_have"
-                    android:textColor="@color/primary_black"
+                    style="@style/TextColor_v1"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 

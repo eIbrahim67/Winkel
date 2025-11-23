@@ -2,7 +2,6 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/profileFragment_layout"
-    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".profile.ProfileFragment">
@@ -21,12 +20,12 @@
 
             <LinearLayout
                 android:id="@+id/search_btn"
+                style="@style/circle_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/circle_white_v2_none_gray_v4"
                 android:clickable="false"
                 android:focusable="false"
                 android:orientation="horizontal"
@@ -34,6 +33,7 @@
                 android:paddingBottom="7dp">
 
                 <TextView
+                    style="@style/TextColor_v1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -41,8 +41,7 @@
                     android:fontFamily="@font/font_v3"
                     android:gravity="center"
                     android:text="@string/profile"
-                    android:textColor="@color/primary_black"
-                    android:textSize="26sp"
+                    android:textSize="22sp"
                     tools:ignore="RelativeOverlap" />
 
             </LinearLayout>
@@ -82,54 +81,7 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/user_icon_black" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/font_v3"
-                        android:text="@string/personal_data"
-                        android:textColor="@color/primary_black"
-                        android:textSize="18sp"
-                        tools:ignore="RelativeOverlap" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
-
-                </LinearLayout>
-
-                <View
-                    style="@style/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp" />
-
-                <LinearLayout
-                    android:id="@+id/btnPaymentMethods"
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:visibility="gone">
-
-                    <ImageView
-                        style="@style/card_icon"
+                        style="@style/user_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp" />
@@ -141,7 +93,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
-                        android:text="@string/payment_methods"
+                        android:text="@string/personal_data"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -151,10 +103,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -175,19 +127,19 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/layers_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/layers_icon_black" />
+                        android:layout_marginStart="10dp" />
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
                         android:text="@string/my_orders"
-                        android:textColor="@color/primary_black"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -197,10 +149,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -241,19 +193,19 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/folder_add_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/folder_add_icon_white_black" />
+                        android:layout_marginStart="10dp" />
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
                         android:text="@string/add_new_item"
-                        android:textColor="@color/primary_black"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -263,10 +215,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -287,19 +239,19 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/layers_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/layers_icon_black" />
+                        android:layout_marginStart="10dp" />
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
                         android:text="@string/my_items"
-                        android:textColor="@color/primary_black"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -309,14 +261,15 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
             </LinearLayout>
+
 
             <TextView
                 style="@style/TextColor_v1"
@@ -342,52 +295,6 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/btnLanguages"
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/language_icon_black" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/font_v3"
-                        android:text="@string/languages"
-                        android:textColor="@color/primary_black"
-                        android:textSize="18sp"
-                        tools:ignore="RelativeOverlap" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
-
-                </LinearLayout>
-
-                <View
-                    style="@style/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp" />
-
-                <LinearLayout
                     android:id="@+id/btnDarkMode"
                     style="@style/rounded_white_v2_black_none_gray"
                     android:layout_width="match_parent"
@@ -399,19 +306,19 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/moon_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/moon_icon_black" />
+                        android:layout_marginStart="10dp" />
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
                         android:text="@string/dark_mode"
-                        android:textColor="@color/primary_black"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -421,10 +328,56 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:id="@+id/btnLanguages"
+                    style="@style/rounded_white_v2_black_none_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
+
+                    <ImageView
+                        style="@style/language_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        style="@style/TextColor_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/font_v3"
+                        android:text="@string/languages"
+                        android:textSize="18sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        style="@style/arrow_right_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -445,196 +398,7 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/security_icon_black" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/font_v3"
-                        android:text="@string/security_policies"
-                        android:textColor="@color/primary_black"
-                        android:textSize="18sp"
-                        tools:ignore="RelativeOverlap" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/for_admin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    style="@style/TextColor_v1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/font_v3"
-                    android:text="@string/for_admins"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:ignore="RelativeOverlap" />
-
-                <LinearLayout
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:id="@+id/btnOrders"
-                        style="@style/rounded_white_v2_black_none_gray"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp">
-
-                        <ImageView
-                            style="@style/layers_icon"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginStart="10dp" />
-
-                        <TextView
-                            style="@style/TextColor_v1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/font_v3"
-                            android:text="@string/all_orders"
-                            android:textSize="18sp"
-                            tools:ignore="RelativeOverlap" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <ImageView
-                            style="@style/arrow_right_icon"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginEnd="10dp" />
-
-                    </LinearLayout>
-
-                    <View
-                        style="@style/line"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp" />
-
-                    <LinearLayout
-                        android:id="@+id/btnAllUsers"
-                        style="@style/rounded_white_v2_black_none_gray"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp">
-
-                        <ImageView
-                            style="@style/user_icon"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginStart="10dp" />
-
-                        <TextView
-                            style="@style/TextColor_v1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:fontFamily="@font/font_v3"
-                            android:text="@string/all_users"
-                            android:textSize="18sp"
-                            tools:ignore="RelativeOverlap" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <ImageView
-                            style="@style/arrow_right_icon"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginEnd="10dp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/font_v3"
-                android:text="@string/notifications"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:visibility="gone"
-                tools:ignore="RelativeOverlap" />
-
-            <LinearLayout
-                style="@style/rounded_white_v2_black_none_gray"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <LinearLayout
-                    android:id="@+id/btnNotifications"
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp">
-
-                    <ImageView
-                        style="@style/notification_icon"
+                        style="@style/security_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp" />
@@ -646,7 +410,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
-                        android:text="@string/notifications"
+                        android:text="@string/security_policies"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -656,57 +420,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
-
-                </LinearLayout>
-
-                <View
-                    style="@style/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp" />
-
-                <LinearLayout
-                    android:id="@+id/btnSound"
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp">
-
-                    <ImageView
-                        style="@style/sound_icon"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:contentDescription="@string/sound" />
-
-                    <TextView
-                        style="@style/TextColor_v1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/font_v3"
-                        android:text="@string/sound"
-                        android:textSize="18sp"
-                        tools:ignore="RelativeOverlap" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -747,19 +464,19 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/happy_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/happy_icon_black" />
+                        android:layout_marginStart="10dp" />
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
                         android:text="@string/help_feedback"
-                        android:textColor="@color/primary_black"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -769,10 +486,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -793,20 +510,20 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/permission_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
-                        android:contentDescription="@string/sound"
-                        android:src="@drawable/permission_icon_black" />
+                        android:contentDescription="@string/sound" />
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
                         android:text="@string/permissions"
-                        android:textColor="@color/primary_black"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -816,10 +533,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -840,58 +557,11 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/about_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
-                        android:contentDescription="@string/sound"
-                        android:src="@drawable/about_icon_black" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/font_v3"
-                        android:text="@string/about"
-                        android:textColor="@color/primary_black"
-                        android:textSize="18sp"
-                        tools:ignore="RelativeOverlap" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
-
-                </LinearLayout>
-
-                <View
-                    style="@style/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp" />
-
-                <LinearLayout
-                    android:id="@+id/btnSupport"
-                    style="@style/rounded_white_v2_black_none_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:visibility="gone">
-
-                    <ImageView
-                        style="@style/support_icon"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp" />
+                        android:contentDescription="@string/sound" />
 
                     <TextView
                         style="@style/TextColor_v1"
@@ -900,7 +570,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
-                        android:text="@string/support_us"
+                        android:text="@string/about"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -910,10 +580,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -954,19 +624,19 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/signout_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/signout_icon_black" />
+                        android:layout_marginStart="10dp" />
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
                         android:text="@string/log_out"
-                        android:textColor="@color/primary_black"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -976,10 +646,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 
@@ -1000,20 +670,20 @@
                     android:paddingBottom="15dp">
 
                     <ImageView
+                        style="@style/sad_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
-                        android:contentDescription="@string/sound"
-                        android:src="@drawable/sad_icon_black" />
+                        android:contentDescription="@string/sound" />
 
                     <TextView
+                        style="@style/TextColor_v1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/font_v3"
                         android:text="@string/delete_account"
-                        android:textColor="@color/primary_black"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -1023,10 +693,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
+                        style="@style/arrow_right_icon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/arrow_right_icon_black" />
+                        android:layout_marginEnd="10dp" />
 
                 </LinearLayout>
 

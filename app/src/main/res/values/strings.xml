@@ -360,4 +360,7 @@
     <string name="failed_to_upload_data">Failed to upload data</string>
     <string name="you_have_permanently_denied_this_permission_to_enable_it_go_to_settings_app_permissions"><![CDATA[You have permanently denied this permission. To enable it, go to Settings > App permissions.]]></string>
     <string name="open_settings">Open Settings</string>
+    <string name="please_complete_all_address_details_before_proceeding">Please complete all address details before proceeding.</string>
+    <string name="your_feedback_has_been_send_successfully">Your Feedback has been send successfully</string>
+    <string name="your_basket_items">Your basket items</string>
 </resources>

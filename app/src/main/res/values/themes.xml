@@ -3,6 +3,9 @@
         <item name="android:statusBarColor">@color/primary_white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="bottomNavBackgroundTint">@color/primary_white</item>
+        <item name="indicatorColor">@color/primary_black</item>
+        <item name="passwordToggleTint">@color/primary_black</item>
+
     </style>
 
     <style name="Theme.Winkel" parent="Base.Theme.Winkel" />
@@ -293,6 +296,10 @@
 
     <style name="linesColors">
         <item name="android:background">@color/primary_black</item>
+    </style>
+
+    <style name="TextColor_v1_clickable">
+        <item name="android:textColor">@drawable/text_selector_black_blue</item>
     </style>
 
 </resources>

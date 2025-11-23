@@ -58,13 +58,13 @@
             android:paddingBottom="10dp">
 
             <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:fontFamily="@font/font_v5"
                 android:text="@string/about_our_e_shopping_app"
-                android:textColor="@color/primary_black"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -87,17 +87,17 @@
             android:orientation="horizontal">
 
             <View
+                style="@style/linesColors"
                 android:layout_width="20dp"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="5dp"
-                style="@style/linesColors" />
+                android:layout_marginEnd="5dp" />
 
             <TextView
                 style="@style/TextColor_v1"
@@ -113,17 +113,17 @@
                 tools:ignore="RelativeOverlap" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                style="@style/linesColors" />
+                android:layout_marginStart="5dp" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
         </LinearLayout>
 
@@ -150,17 +150,17 @@
             android:orientation="horizontal">
 
             <View
+                style="@style/linesColors"
                 android:layout_width="20dp"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="5dp"
-                style="@style/linesColors" />
+                android:layout_marginEnd="5dp" />
 
             <TextView
                 style="@style/TextColor_v1"
@@ -176,17 +176,17 @@
                 tools:ignore="RelativeOverlap" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                style="@style/linesColors" />
+                android:layout_marginStart="5dp" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors"/>
+                android:layout_gravity="center_vertical" />
 
         </LinearLayout>
 
@@ -212,17 +212,17 @@
             android:orientation="horizontal">
 
             <View
+                style="@style/linesColors"
                 android:layout_width="20dp"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="5dp"
-                style="@style/linesColors" />
+                android:layout_marginEnd="5dp" />
 
             <TextView
                 style="@style/TextColor_v1"
@@ -238,17 +238,17 @@
                 tools:ignore="RelativeOverlap" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                style="@style/linesColors" />
+                android:layout_marginStart="5dp" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
         </LinearLayout>
 
@@ -274,17 +274,17 @@
             android:orientation="horizontal">
 
             <View
+                style="@style/linesColors"
                 android:layout_width="20dp"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="5dp"
-                style="@style/linesColors" />
+                android:layout_marginEnd="5dp" />
 
             <TextView
                 style="@style/TextColor_v1"
@@ -300,17 +300,17 @@
                 tools:ignore="RelativeOverlap" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                style="@style/linesColors" />
+                android:layout_marginStart="5dp" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
         </LinearLayout>
 
@@ -336,17 +336,17 @@
             android:orientation="horizontal">
 
             <View
+                style="@style/linesColors"
                 android:layout_width="20dp"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="5dp"
-                style="@style/linesColors" />
+                android:layout_marginEnd="5dp" />
 
             <TextView
                 style="@style/TextColor_v1"
@@ -362,17 +362,17 @@
                 tools:ignore="RelativeOverlap" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                style="@style/linesColors" />
+                android:layout_marginStart="5dp" />
 
             <View
+                style="@style/linesColors"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_gravity="center_vertical"
-                style="@style/linesColors" />
+                android:layout_gravity="center_vertical" />
 
         </LinearLayout>
 

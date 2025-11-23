@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="bottomNavBackgroundTint" format="color" />
+    <attr name="indicatorColor" format="color" />
+    <attr name="passwordToggleTint" format="color" />
 </resources>

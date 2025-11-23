@@ -65,6 +65,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:textSize="17sp"
+                android:textStyle="bold"
                 android:fontFamily="@font/font_v5"/>
 
 
@@ -287,10 +288,8 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="horizontal"
-
                 android:focusable="true"
                 android:clickable="true"
-
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
@@ -356,8 +355,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            style="@style/rounded_white_v2_black_none_gray"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_white_v2_black_v1_white_v1"
             android:layout_marginBottom="20dp">
 
             <EditText
