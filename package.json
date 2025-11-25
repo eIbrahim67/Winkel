@@ -1,0 +1,12 @@
+{
+  "name": "winkel",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">E-Shopping Mobile Application</h1>\r <h1 align=\"center\">Built with Java 🟨</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
