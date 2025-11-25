@@ -6,6 +6,7 @@
         <item name="bottomNavBackgroundTint">@color/primary_black</item>
         <item name="indicatorColor">@color/primary_white</item>
         <item name="passwordToggleTint">@color/primary_white</item>
+        <item name="tint">@color/primary_white</item>
     </style>
 
     <style name="background">

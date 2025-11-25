@@ -3,4 +3,5 @@
     <attr name="bottomNavBackgroundTint" format="color" />
     <attr name="indicatorColor" format="color" />
     <attr name="passwordToggleTint" format="color" />
+    <attr name="tint" format="color" />
 </resources>

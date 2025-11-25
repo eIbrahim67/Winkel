@@ -25,14 +25,14 @@
                 android:layout_marginEnd="20dp">
 
                 <ImageView
-                    android:id="@+id/btn_back_home"
+                    android:id="@+id/btnBack"
+                    style="@style/back_arrow_background_btn"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/circle_white_v2_none_gray_v4"
                     android:clickable="true"
+                    android:contentDescription="@string/back"
                     android:focusable="true"
-                    android:padding="15dp"
-                    android:src="@drawable/back_arrows_icon_black" />
+                    android:padding="15dp" />
 
                 <TextView
                     style="@style/TextColor_v1"
@@ -58,10 +58,10 @@
             </RelativeLayout>
 
             <RelativeLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/rounded_10_white_v2_none_gray_v4">
+                android:layout_margin="20dp">
 
                 <ImageView
                     android:id="@+id/itemImgDetail"
@@ -337,7 +337,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_gravity="center_horizontal"
-                                android:src="@drawable/ic_box" />
+                                android:src="@drawable/ic_box"
+                                app:tint="?attr/tint" />
 
                             <TextView
                                 style="@style/TextColor_v1"
@@ -373,17 +374,12 @@
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
+        style="@style/background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/white_v1"
         android:orientation="vertical"
         android:paddingBottom="20dp">
-
-        <View
-            style="@style/line_v2"
-            android:layout_width="match_parent"
-            android:layout_height="2dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
