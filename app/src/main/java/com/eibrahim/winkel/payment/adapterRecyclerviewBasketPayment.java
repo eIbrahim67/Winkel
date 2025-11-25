@@ -134,7 +134,7 @@ public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapt
 
         firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(item.getItemId() + "," + item.getItemType() + "," + item.getMuch() + "," + item.getItemSize()));
 
-        if (checkoutFragment != null) checkoutFragment.removeItem(item.getTotalPriceItem());
+        if (checkoutFragment != null) checkoutFragment.removeItem(item.getTotalPriceItem(), item.getItemId());
 
         itemList.remove(position);
         notifyItemRemoved(position);

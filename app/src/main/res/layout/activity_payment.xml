@@ -52,43 +52,66 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/TextColor_v1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center_vertical"
-                android:text="@string/your_basket_items"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:ignore="InefficientWeight" />
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp">
 
-                <!-- Loading Indicator -->
-                <com.google.android.material.loadingindicator.LoadingIndicator
-                    android:id="@+id/loadingIndicator"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:contentDescription="@string/loading"
-                    app:indicatorColor="?attr/indicatorColor"
-                    app:indicatorSize="100dp"
-                    app:minHideDelay="300"
-                    app:showDelay="200" />
+                <TextView
+                    android:id="@+id/text"
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/your_basket_items"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="InefficientWeight" />
+
+                <TextView
+                    android:id="@+id/noOfItems"
+                    style="@style/TextColor_v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_items"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="InefficientWeight" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv3"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text"
                     tools:itemCount="2"
                     tools:listitem="@layout/item_rv_basket_items" />
 
-            </RelativeLayout>
+                <com.google.android.material.loadingindicator.LoadingIndicator
+                    android:id="@+id/loadingIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/loading"
+                    app:indicatorColor="?attr/indicatorColor"
+                    app:indicatorSize="100dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text"
+                    app:minHideDelay="300"
+                    app:showDelay="200" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <TextView

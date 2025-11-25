@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
-    android:padding="3dp"
     android:orientation="horizontal"
-    style="@style/background">
+    android:padding="3dp">
 
     <RelativeLayout
+        style="@style/rounded_white_v2_black_none_gray"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_white_v2_none_white_v1"
         android:layout_marginStart="10dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/itemImgCheck"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:padding="10dp"
             android:adjustViewBounds="true"
-            app:shapeAppearanceOverlay="@style/roundedImageViewPost"
             android:clickable="true"
-            android:focusable="true" />
+            android:focusable="true"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/roundedImageViewPost" />
 
     </RelativeLayout>
 
@@ -40,28 +39,28 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/itemNameCheck"
+                    style="@style/TextColor_v1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/font_v1"
-                    android:textStyle="bold"
                     android:textSize="18sp"
-                    style="@style/TextColor_v1"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/itemCateCheck"
+                    style="@style/TextColor_v2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    style="@style/TextColor_v2"
-                    android:textStyle="bold"
                     android:layout_below="@+id/itemNameCheck"
-                    android:layout_marginTop="5dp"/>
+                    android:layout_marginTop="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -69,76 +68,76 @@
                 android:id="@+id/itemDeleteCheck"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/trash_icon_black"
-                android:background="@drawable/circle_white_v2_none_gray_v4"
-                android:padding="10dp"
-                android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:contentDescription="@string/remove" />
+                android:background="@drawable/circle_white_v2_none_gray_v4"
+                android:clickable="true"
+                android:contentDescription="@string/remove"
+                android:padding="10dp"
+                android:src="@drawable/trash_icon_black" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/itemPriceCheck"
+                style="@style/TextColor_v1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                style="@style/TextColor_v1"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <LinearLayout
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                style="@style/circle_white_v2_black_none_gray"
                 android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
                 android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/btn_sub"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:padding="5dp"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/circle_white_v1_none_gray_v4"
-                    android:src="@drawable/sub_icon_black"
-                    android:contentDescription="@string/decrement" />
+                    android:clickable="true"
+                    android:contentDescription="@string/decrement"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:src="@drawable/sub_icon_black" />
 
                 <TextView
                     android:id="@+id/itemMuchCounter"
+                    style="@style/TextColor_v1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/font_v1"
                     android:text="@string/_1"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/font_v1"
-                    style="@style/TextColor_v1"/>
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/btn_plus"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:padding="5dp"
                     android:layout_gravity="center_vertical"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:background="@drawable/circle_white_v1_none_gray_v4"
-                    android:src="@drawable/plus_icon_black"
-                    android:contentDescription="@string/increment" />
+                    android:clickable="true"
+                    android:contentDescription="@string/increment"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:src="@drawable/plus_icon_black" />
 
             </LinearLayout>
 

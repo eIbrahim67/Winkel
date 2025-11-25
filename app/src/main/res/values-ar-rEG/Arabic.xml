@@ -360,5 +360,6 @@
     <string name="open_settings">افتح الإعدادات</string>
     <string name="please_complete_all_address_details_before_proceeding">يرجى استكمال جميع تفاصيل العنوان قبل المتابعة.</string>
     <string name="your_feedback_has_been_send_successfully">تم إرسال ملاحظاتك بنجاح.</string>
-
+    <string name="your_basket_items">محتويات سلة تسوقك</string>
+    <string name="_0_items">0 عناصر</string>
 </resources>

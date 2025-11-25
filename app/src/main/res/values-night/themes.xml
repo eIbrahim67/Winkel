@@ -9,7 +9,7 @@
     </style>
 
     <style name="background">
-        <item name="android:background">@color/black_v3</item>
+        <item name="android:background">@color/primary_black</item>
     </style>
 
     <style name="TextColor_v1">

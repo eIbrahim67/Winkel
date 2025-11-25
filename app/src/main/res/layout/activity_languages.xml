@@ -103,7 +103,8 @@
                 style="@style/TextColor_v1"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:textSize="17sp"
+                android:textSize="22sp"
+                android:textStyle="bold"
                 android:fontFamily="@font/font_v5"/>
 
 
@@ -131,19 +132,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:focusable="true"
-                android:clickable="true"
+                android:focusable="false"
+                android:clickable="false"
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
-                    style="@style/TextColor_v1"
+                    style="@style/TextColor_v1_clickable"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:text="@string/arabic_ar"
                     android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="20dp"
+                    android:padding="20dp"
                     android:layout_weight="1"
                     tools:ignore="RelativeOverlap" />
 
@@ -165,11 +166,11 @@
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
-                    style="@style/TextColor_v1"
+                    style="@style/TextColor_v1_clickable"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:layout_margin="20dp"
+                    android:padding="20dp"
                     android:text="@string/english"
                     android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
@@ -195,14 +196,14 @@
                 style="@style/rounded_white_v2_black_none_gray">
 
                 <TextView
-                    style="@style/TextColor_v1"
+                    style="@style/TextColor_v1_clickable"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:text="@string/system_settings"
                     android:fontFamily="@font/font_v3"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="20dp"
+                    android:padding="20dp"
                     android:layout_weight="1"
                     tools:ignore="RelativeOverlap" />
 

@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:clickable="true"
     android:focusable="true"
-    style="@style/background">
+    android:orientation="horizontal">
 
     <RelativeLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_margin="10dp"
+        android:layout_weight="1"
         android:clickable="true"
         android:focusable="true"
-        style="@style/background">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,71 +21,66 @@
             android:orientation="vertical">
 
             <ImageView
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:padding="20dp"
-                android:background="@drawable/rounded_white_v2_none_white_v1"/>
+                android:padding="20dp" />
 
             <TextView
-
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextColor_v1"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/font_v1"
-                android:textStyle="bold"
+                android:gravity="center"
                 android:textSize="18sp"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:background="@drawable/rounded_white_v2_none_white_v1"/>
+                android:textStyle="bold" />
 
             <TextView
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextColor_v2"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/font_v1"
-                android:textStyle="bold"
-                android:textSize="15sp"
                 android:gravity="center"
-                android:background="@drawable/rounded_white_v2_none_white_v1"/>
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                style="@style/TextColor_v1"
-                android:fontFamily="@font/font_v1"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/rounded_white_v2_none_white_v1"/>
+                android:fontFamily="@font/font_v1"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/circle_black_v1_none_gray_v4"
-            android:src="@drawable/unlove_icon_white"
-            android:padding="10dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:background="@drawable/circle_black_v1_none_gray_v4"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:padding="10dp"
+            android:src="@drawable/unlove_icon_white" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_margin="10dp"
+        android:layout_weight="1"
         android:clickable="true"
         android:focusable="true"
-        style="@style/background">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,58 +88,55 @@
             android:orientation="vertical">
 
             <ImageView
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:padding="20dp"
-                android:background="@drawable/rounded_white_v2_none_white_v1"/>
+                android:padding="20dp" />
 
             <TextView
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextColor_v1"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/font_v1"
-                android:textStyle="bold"
+                android:gravity="center"
                 android:textSize="18sp"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:background="@drawable/rounded_white_v2_none_white_v1"/>
+                android:textStyle="bold" />
 
             <TextView
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextColor_v2"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/font_v1"
-                android:textStyle="bold"
-                android:textSize="15sp"
                 android:gravity="center"
-                android:background="@drawable/rounded_white_v2_none_white_v1"/>
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
+                style="@style/rounded_white_v2_black_none_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                style="@style/TextColor_v1"
-                android:fontFamily="@font/font_v1"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/rounded_white_v2_none_white_v1"/>
+                android:fontFamily="@font/font_v1"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/circle_black_v1_none_gray_v4"
-            android:src="@drawable/unlove_icon_white"
-            android:padding="10dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:background="@drawable/circle_black_v1_none_gray_v4"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:padding="10dp"
+            android:src="@drawable/unlove_icon_white" />
 
     </RelativeLayout>
 

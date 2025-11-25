@@ -363,4 +363,5 @@
     <string name="please_complete_all_address_details_before_proceeding">Please complete all address details before proceeding.</string>
     <string name="your_feedback_has_been_send_successfully">Your Feedback has been send successfully</string>
     <string name="your_basket_items">Your basket items</string>
+    <string name="_0_items">0 Items</string>
 </resources>

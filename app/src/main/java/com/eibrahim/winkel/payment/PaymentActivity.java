@@ -61,7 +61,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     private PaymentSheet paymentSheet;
     private String clientSecret;
-    private String totalData;
+    private Map<String, String> totalData = new HashMap<>();
 
     private ProgressDialog progressDialog;
     private long amountInPiasters;
@@ -167,7 +167,7 @@ public class PaymentActivity extends AppCompatActivity {
         // RESET totals
         items = 0;
         totalPrice = 0.0;
-        totalData = "";
+        totalData.clear();
 
         for (String entry : basket) {
             String[] parts = entry.split(",");
@@ -203,7 +203,8 @@ public class PaymentActivity extends AppCompatActivity {
                     result.add(item);
                     items++;
                     totalPrice += total;
-                    totalData += itemId + "," + itemType + "," + much + "," + priceStr + "," + size + " & ";
+                    totalData.put(itemId, itemId + "," + itemType + "," + much + "," + priceStr + "," + size);
+                    Toast.makeText(this, totalData.toString(), Toast.LENGTH_SHORT).show();
                 }
 
                 return null;
@@ -223,20 +224,19 @@ public class PaymentActivity extends AppCompatActivity {
     // UI UPDATE
     // -----------------------------
     private void updateUI(List<DataRecyclerviewMyItem> itemsList) {
-        hideLoading();
-
         adapterRecyclerviewBasketPayment adapter = new adapterRecyclerviewBasketPayment(this, itemsList, this);
 
         binding.rv3.setLayoutManager(new GridLayoutManager(this, 1));
         binding.rv3.setAdapter(adapter);
 
-//        binding.noOfItems.setText(items + (items == 1 ? getString(R.string.item) : getString(R.string.items)));
+        binding.noOfItems.setText(items + (items == 1 ? getString(R.string.item) : getString(R.string.items)));
 
         double totalFinalPrice = Double.parseDouble(normalizeNumber(String.valueOf(getFormattedPrice()))) + 20.00;
         amountInPiasters = (long) (totalFinalPrice * 100); // Stripe amount in cents
         binding.subTotalPriceOfItemsPayment.setText(getFormattedPrice() + getString(R.string.le));
         binding.totalPriceOfItemsPayment.setText(String.format("%.2f", totalFinalPrice) + getString(R.string.le));
 
+        hideLoading();
     }
 
     private void showError(String msg) {
@@ -259,25 +259,22 @@ public class PaymentActivity extends AppCompatActivity {
         updateSmallUI();
     }
 
-    public void removeItem(double amount) {
+    public void removeItem(double amount, String itemId) {
         items--;
         totalPrice -= amount;
         updateSmallUI();
-
-        if (items == 0)
-            binding.btnBack.performClick();
-
+        totalData.remove(itemId);
+        Toast.makeText(this, totalData.toString(), Toast.LENGTH_SHORT).show();
+        if (items == 0) binding.btnBack.performClick();
     }
 
     private void updateSmallUI() {
-//        binding.noOfItems.setText(items + (items == 1 ? getString(R.string.item) : getString(R.string.items)));
+        binding.noOfItems.setText(items + (items == 1 ? getString(R.string.item) : getString(R.string.items)));
         double totalFinalPrice = Double.parseDouble(normalizeNumber(String.valueOf(getFormattedPrice()))) + 20.00;
         amountInPiasters = (long) (totalFinalPrice * 100); // Stripe amount in cents
         binding.subTotalPriceOfItemsPayment.setText(getFormattedPrice() + getString(R.string.le));
         binding.totalPriceOfItemsPayment.setText(String.format("%.2f", totalFinalPrice) + getString(R.string.le));
-
     }
-
 
     private void createPaymentIntent(long amount) {
         progressDialog.show();

@@ -32,7 +32,6 @@ public class CheckoutFragment extends Fragment {
 
     private double totalPrice = 0.0;
     private int items = 0;
-    private String dataOfOrder = "";
 
     private long lastRefreshTime = 0;
     private final long refreshDelayMillis = 5000;
@@ -49,6 +48,14 @@ public class CheckoutFragment extends Fragment {
         loadBasket();
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        loadBasket();
+
     }
 
     // -----------------------------
@@ -83,7 +90,6 @@ public class CheckoutFragment extends Fragment {
         // RESET totals
         items = 0;
         totalPrice = 0.0;
-        dataOfOrder = "";
 
         for (String entry : basket) {
             String[] parts = entry.split(",");
@@ -125,7 +131,6 @@ public class CheckoutFragment extends Fragment {
                     result.add(item);
                     items++;
                     totalPrice += total;
-                    dataOfOrder += itemId + "," + itemType + "," + much + "," + priceStr + "," + size + " & ";
                 }
 
                 return null;

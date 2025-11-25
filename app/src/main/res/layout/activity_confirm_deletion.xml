@@ -111,7 +111,7 @@
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/pass_signin_card"
+            android:id="@+id/deleteAccountPinCard"
             style="@style/rounded_white_v2_black_none_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -144,8 +144,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
+        
         <Button
             android:id="@+id/btnDeleteAccountFinal"
             style="@style/checkout_background_btn"
