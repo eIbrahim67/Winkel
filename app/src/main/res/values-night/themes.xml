@@ -6,7 +6,13 @@
         <item name="bottomNavBackgroundTint">@color/primary_black</item>
         <item name="indicatorColor">@color/primary_white</item>
         <item name="passwordToggleTint">@color/primary_white</item>
+    </style>
+
+    <style name="icon_tint">
+
+
         <item name="tint">@color/primary_white</item>
+
     </style>
 
     <style name="background">
@@ -34,7 +40,7 @@
     </style>
 
     <style name="options_background_btn">
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_white_v2_none_black_v2</item>
         <item name="android:src">@drawable/options_icon_white</item>
     </style>
 
@@ -44,7 +50,7 @@
     </style>
 
     <style name="circle_white_v2_black_none_gray">
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_white_v2_none_black_v2</item>
     </style>
 
     <style name="rounded_white_v2_black_none_gray">
@@ -257,7 +263,7 @@
     </style>
 
     <style name="close_background_btn">
-        <item name="android:src">@drawable/close_icon_black</item>
+        <item name="android:src">@drawable/close_icon_white</item>
         <item name="android:background">@drawable/circle_none_white_v1_gray_v4</item>
     </style>
 

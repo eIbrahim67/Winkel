@@ -61,7 +61,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         setupReviewToggle();
         declareSizes();
         loadReviews();
-        binding.btnBackHome.setOnClickListener(v -> finish());
+        binding.btnBack.setOnClickListener(v -> finish());
     }
 
     private void applyTheme() {

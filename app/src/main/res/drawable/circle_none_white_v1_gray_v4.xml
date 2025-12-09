@@ -11,7 +11,7 @@
 
             <corners android:radius="1000dp"/>
             <stroke android:color="@color/white_v1"
-                android:width="2dp"/>
+                android:width="1dp"/>
 
         </shape>
 
