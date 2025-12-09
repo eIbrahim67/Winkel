@@ -50,14 +50,6 @@ public class CheckoutFragment extends Fragment {
         return binding.getRoot();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        loadBasket();
-
-    }
-
     // -----------------------------
     // FETCH BASKET + PRODUCTS FAST
     // -----------------------------
@@ -115,8 +107,8 @@ public class CheckoutFragment extends Fragment {
                 String category = (String) data.get("category");
                 String imageId = (String) data.get("imageId");
                 String priceStr = (String) data.get("price");
-
                 double price = priceStr == null ? 0 : Double.parseDouble(priceStr);
+
                 double total = price * Double.parseDouble(much);
 
                 DataRecyclerviewMyItem item = new DataRecyclerviewMyItem(
