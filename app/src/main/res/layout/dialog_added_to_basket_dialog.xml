@@ -1,77 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".item.dialogs.AddedToBasketDialog"
-    style="@style/background">
+    tools:context=".item.dialogs.AddedToBasketDialog">
 
     <TextView
+        style="@style/TextColor_v2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:text="@string/item_added_to_basket_successfully"
-        android:fontFamily="@font/font_v1"
-        android:textStyle="bold"
-        style="@style/TextColor_v2"
-        android:textSize="18sp"
-        android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/font_v1"
+        android:gravity="center"
+        android:text="@string/item_added_to_basket_successfully"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/online_shopping_v1"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:contentDescription="@string/item_added_success"/>
+        android:contentDescription="@string/item_added_success"
+        android:src="@drawable/online_shopping_v1" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
 
         <View
+            style="@style/line_v2"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            style="@style/line_v2"/>
+            android:layout_height="1dp" />
 
-        <TextView
-            android:id="@+id/view_basket_dialog_btn"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/sharp_gray_v4"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            style="@style/TextColor_v2"
-            android:gravity="center"
-            android:text="@string/view_basket"
-            android:textSize="18sp"
-            android:clickable="true"
-            android:focusable="true"
-            android:textStyle="bold"
-            android:background="@drawable/sharp_white_v1_none_gray_v4"/>
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/view_basket_dialog_btn"
+                style="@style/TextColor_v2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/view_basket"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <View
+            style="@style/line_v2"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            style="@style/line_v2"/>
+            android:layout_height="1dp" />
 
-        <TextView
-            android:id="@+id/done_dialog_btn"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/sharp_gray_v4"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/done"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/sharp_white_v1_none_gray_v4"/>
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/done_dialog_btn"
+                style="@style/TextColor_v1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/done"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

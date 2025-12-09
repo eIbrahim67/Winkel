@@ -49,6 +49,13 @@
         <item name="android:src">@drawable/trash_icon_black</item>
     </style>
 
+    <style name="TextColor_v1_with_background">
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
+        <item name="android:background">@drawable/rounded_white_v2_none_black_v2</item>
+
+    </style>
+
     <style name="circle_white_v2_black_none_gray">
         <item name="android:background">@drawable/rounded_white_v2_none_black_v2</item>
     </style>

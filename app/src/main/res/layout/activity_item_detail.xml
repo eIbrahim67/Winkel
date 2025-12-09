@@ -334,11 +334,11 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <ImageView
+                                style="@style/icon_tint"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_gravity="center_horizontal"
-                                android:src="@drawable/ic_box"
-                                app:tint="?attr/tint" />
+                                android:src="@drawable/ic_box" />
 
                             <TextView
                                 style="@style/TextColor_v1"

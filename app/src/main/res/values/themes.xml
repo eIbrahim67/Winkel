@@ -26,6 +26,13 @@
         <item name="android:textColorHint">@color/primary_gray</item>
     </style>
 
+    <style name="TextColor_v1_with_background">
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
+        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
+
+    </style>
+
     <style name="TextColor_v2">
         <item name="android:textColor">@color/primary_gray</item>
         <item name="android:textColorHint">@color/primary_gray</item>

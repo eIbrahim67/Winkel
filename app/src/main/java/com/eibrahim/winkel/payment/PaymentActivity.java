@@ -204,7 +204,6 @@ public class PaymentActivity extends AppCompatActivity {
                     items++;
                     totalPrice += total;
                     totalData.put(itemId, itemId + "," + itemType + "," + much + "," + priceStr + "," + size);
-                    Toast.makeText(this, totalData.toString(), Toast.LENGTH_SHORT).show();
                 }
 
                 return null;
@@ -264,7 +263,6 @@ public class PaymentActivity extends AppCompatActivity {
         totalPrice -= amount;
         updateSmallUI();
         totalData.remove(itemId);
-        Toast.makeText(this, totalData.toString(), Toast.LENGTH_SHORT).show();
         if (items == 0) binding.btnBack.performClick();
     }
 
@@ -354,7 +352,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         orderRef.set(updateData, SetOptions.merge()).addOnSuccessListener(unused -> {
             basketRef.update("BasketCollection", FieldValue.delete());
-            Toast.makeText(this, "Payment successful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.payment_successful), Toast.LENGTH_SHORT).show();
 
             Intent home = new Intent(PaymentActivity.this, MainActivity.class);
             home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
