@@ -90,4 +90,14 @@
 
     </LinearLayout>
 
+    <com.google.android.material.loadingindicator.LoadingIndicator
+        android:id="@+id/loadingIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/loading"
+        app:indicatorColor="?attr/indicatorColor"
+        app:indicatorSize="100dp"
+        app:minHideDelay="300"
+        app:showDelay="200" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

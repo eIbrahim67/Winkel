@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/layout"
+        style="@style/background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -41,10 +42,12 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnLayout"
         app:layout_constraintTop_toBottomOf="@id/layout">
 
         <LinearLayout
@@ -52,11 +55,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/text"
@@ -112,7 +113,6 @@
                     app:minHideDelay="300"
                     app:showDelay="200" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <TextView
                 style="@style/TextColor_v1"
@@ -289,24 +289,37 @@
 
                 </RelativeLayout>
 
-                <Button
-                    android:id="@+id/btnPayment"
-                    style="@style/checkout_background_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:text="@string/payment"
-                    android:textSize="20sp" />
-
             </LinearLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/btnLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnPayment"
+            style="@style/checkout_background_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/payment"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

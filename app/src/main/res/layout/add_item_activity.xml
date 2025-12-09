@@ -59,13 +59,12 @@
 
         <EditText
             android:id="@+id/post_title"
+            style="@style/TextColor_v1_with_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:textColor="@color/primary_black"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/font_v1"
@@ -92,13 +91,12 @@
 
         <EditText
             android:id="@+id/post_details"
+            style="@style/TextColor_v1_with_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:textColor="@color/primary_black"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_5_white_v2_none_gray_v4"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/font_v1"
@@ -137,8 +135,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:checked="true"
+                android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="@font/font_v1"
                 android:text="@string/men"
@@ -212,12 +210,12 @@
 
             <EditText
                 android:id="@+id/post_price"
-                android:textColor="@color/primary_black"                android:layout_width="0dp"
+                style="@style/TextColor_v1_with_background"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:layout_width="0dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounded_5_white_v2_none_gray_v4"
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="@font/font_v1"
@@ -227,8 +225,7 @@
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                android:textStyle="bold" />
 
             <TextView
                 style="@style/TextColor_v1"
@@ -412,16 +409,16 @@
             android:layout_marginBottom="20dp"
             android:clickable="true"
             android:focusable="true"
-            android:gravity="center"
             android:fontFamily="@font/font_v3"
+            android:gravity="center"
             android:paddingStart="20dp"
             android:paddingTop="10dp"
-            android:textStyle="bold"
             android:paddingEnd="20dp"
             android:paddingBottom="10dp"
             android:text="@string/upload"
             android:textAllCaps="false"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

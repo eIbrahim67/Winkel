@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Allows FileProvider to serve files created in getExternalFilesDir(Environment.DIRECTORY_PICTURES) -->
-    <external-files-path
-        name="images"
-        path="Pictures" />
+
+    <!-- This allows FileProvider to access files created by getExternalFilesDir() -->
+    <external-path
+        name="external_files"
+        path="." />
+
 </paths>

@@ -144,7 +144,6 @@
 
                 </RelativeLayout>
 
-
                 <Button
                     android:id="@+id/btn_checkout"
                     style="@style/checkout_background_btn"

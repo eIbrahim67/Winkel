@@ -130,6 +130,11 @@
         <item name="android:textColor">@color/primary_black</item>
     </style>
 
+    <style name="rounded_5_black_v1_white_v1">
+        <item name="android:background">@drawable/rounded_white_v2_none_black_v2</item>
+        <item name="android:textColor">@color/white_v1</item>
+    </style>
+
     <style name="circle_line_gray_v2">
         <item name="android:background">@drawable/circle_none_gray_v2_gray_v4</item>
         <item name="android:textColor">@color/white_v1</item>
