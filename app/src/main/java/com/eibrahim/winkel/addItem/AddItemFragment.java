@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -121,8 +122,11 @@ public class AddItemFragment extends Fragment {
                 List<?> data = (List<?>) doc.get("Categories");
                 for (Object item : data) categoriesList.add(item.toString());
             }
-            categoriesList.remove(0);
-            binding.recyclerviewType.setAdapter(adapter);
+            if (!categoriesList.isEmpty()) {
+                categoriesList.remove(0);
+                binding.recyclerviewType.setAdapter(adapter);
+            }
+
         });
     }
 
@@ -161,8 +165,10 @@ public class AddItemFragment extends Fragment {
 
     private void openGallery() {
         try {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            imageGalleryLauncher.launch(intent);
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.setType("image/*");
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+
         } catch (Exception e) {
             Toast.makeText(requireContext(), "Gallery error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -177,6 +183,7 @@ public class AddItemFragment extends Fragment {
             takePhotoLauncher.launch(intent);
         } catch (Exception e) {
             Toast.makeText(requireContext(), "Camera error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.e("error", e.getMessage().toString());
         }
     }
 
@@ -186,9 +193,7 @@ public class AddItemFragment extends Fragment {
         String details = binding.postDetails.getText().toString().trim();
         String category = adapter.getSelected();
 
-        typeFor = binding.forMen.isChecked() ? "Mens" :
-                binding.forKids.isChecked() ? "Kids" :
-                        binding.forWomen.isChecked() ? "Womens" : null;
+        typeFor = binding.forMen.isChecked() ? "Mens" : binding.forKids.isChecked() ? "Kids" : binding.forWomen.isChecked() ? "Womens" : null;
 
 // Validate each field individually
         if (price.isEmpty()) {
