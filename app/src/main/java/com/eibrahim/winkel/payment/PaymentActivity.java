@@ -1,6 +1,5 @@
 package com.eibrahim.winkel.payment;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -61,9 +60,8 @@ public class PaymentActivity extends AppCompatActivity {
 
     private PaymentSheet paymentSheet;
     private String clientSecret;
-    private Map<String, String> totalData = new HashMap<>();
+    private final Map<String, String> totalData = new HashMap<>();
 
-    private ProgressDialog progressDialog;
     private long amountInPiasters;
 
     @Override
@@ -93,10 +91,6 @@ public class PaymentActivity extends AppCompatActivity {
         paymentSheet = new PaymentSheet(this, this::onPaymentResult);
         binding.deliveryCostPayment.setText(String.format("%.2f", 20.00) + getString(R.string.le));
         loadBasket();
-
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Processing payment...");
-        progressDialog.setCancelable(false);
 
         // Address TextWatchers
         TextWatcher addressWatcher = new TextWatcher() {
@@ -275,7 +269,8 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void createPaymentIntent(long amount) {
-        progressDialog.show();
+        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.btnPayment.setVisibility(View.GONE);
 
         OkHttpClient client = new OkHttpClient();
         JSONObject json = new JSONObject();
@@ -297,7 +292,8 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 runOnUiThread(() -> {
-                    progressDialog.dismiss();
+                    binding.progressBar.setVisibility(View.GONE);
+                    binding.btnPayment.setVisibility(View.VISIBLE);
                     Toast.makeText(PaymentActivity.this, "Payment error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     Log.e("PaymentError", e.toString());
                 });
@@ -314,7 +310,8 @@ public class PaymentActivity extends AppCompatActivity {
                     } else {
                         String error = jsonResponse.optString("error", "Unknown error");
                         runOnUiThread(() -> {
-                            progressDialog.dismiss();
+                            binding.progressBar.setVisibility(View.GONE);
+                            binding.btnPayment.setVisibility(View.VISIBLE);
                             Toast.makeText(PaymentActivity.this, "Error: " + error, Toast.LENGTH_LONG).show();
                             Log.e("PaymentError", error);
                         });
@@ -327,7 +324,8 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void presentPaymentSheet() {
-        progressDialog.dismiss();
+        binding.progressBar.setVisibility(View.GONE);
+        binding.btnPayment.setVisibility(View.VISIBLE);
         PaymentSheet.Configuration config = new PaymentSheet.Configuration("Winkel App");
         paymentSheet.presentWithPaymentIntent(clientSecret, config);
     }

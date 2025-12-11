@@ -20,9 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
-    private NavController navController;
-
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -60,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupNavigation() {
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.main_nav_host_fragment);
         if (navHostFragment != null) {
-            navController = navHostFragment.getNavController();
+            NavController navController = navHostFragment.getNavController();
             NavigationUI.setupWithNavController(bottomNavigationView, navController);
             Log.d("MainActivity", "BottomNavigationView setup with NavController");
         } else {

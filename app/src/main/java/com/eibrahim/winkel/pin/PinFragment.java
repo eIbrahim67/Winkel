@@ -23,7 +23,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Objects;
 
 public class PinFragment extends Fragment {
-    private BottomNavigationView bottomNavigationView;
 
 
     private ActivityPinBinding binding;
@@ -45,7 +44,7 @@ public class PinFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         try {
 
@@ -149,17 +148,12 @@ public class PinFragment extends Fragment {
                     onPinFailure();
                 }
             } else {
-                Toast.makeText(requireContext(), "PIN not set for user.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), R.string.pin_not_set_for_user, Toast.LENGTH_SHORT).show();
             }
-        }).addOnFailureListener(e -> Toast.makeText(requireContext(), "Failed to fetch PIN", Toast.LENGTH_SHORT).show());
+        }).addOnFailureListener(e -> Toast.makeText(requireContext(), R.string.failed_to_fetch_pin, Toast.LENGTH_SHORT).show());
     }
 
-    NavOptions navOptionsRight = new NavOptions.Builder()
-            .setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right)
-            .setPopUpTo(R.id.pinFragment, true)
-            .setLaunchSingleTop(true)
-            .setRestoreState(true)
-            .build();
+    final NavOptions navOptionsRight = new NavOptions.Builder().setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right).setPopUpTo(R.id.pinFragment, true).setLaunchSingleTop(true).setRestoreState(true).build();
 
     private void onPinSuccess() {
         setAllIndicators(R.drawable.rounded_white_v1_green_v1_gray_v4, R.drawable.star_icon_green);
@@ -185,7 +179,7 @@ public class PinFragment extends Fragment {
     }
 
     private void onDelete() {
-        if (pin.length() > 0) {
+        if (!pin.isEmpty()) {
             setIndicatorState(pin.length() - 1, R.drawable.rounded_gray_v1_gray_v12_none, 0);
             pin = pin.substring(0, pin.length() - 1);
         }

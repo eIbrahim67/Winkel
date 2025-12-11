@@ -44,19 +44,19 @@
             android:layout_height="1dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/view_basket_dialog_btn"
             style="@style/sharp_gray_v4"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
             <TextView
-                android:id="@+id/view_basket_dialog_btn"
                 style="@style/TextColor_v2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="@string/view_basket"
+                android:text="@string/go_to_payment"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -73,12 +73,12 @@
             android:layout_height="1dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/done_dialog_btn"
             style="@style/sharp_gray_v4"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
             <TextView
-                android:id="@+id/done_dialog_btn"
                 style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

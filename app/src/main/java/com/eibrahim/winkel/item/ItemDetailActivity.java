@@ -115,9 +115,31 @@ public class ItemDetailActivity extends AppCompatActivity {
             }
 
             if (currentItem != null) {
+
+                // 1. Prepare UI before network call
+                binding.progressBar.setVisibility(View.VISIBLE);
+                binding.addToBasketText.setVisibility(View.GONE);
+
                 currentItem.setMuch("1");
-                basketRef.update("BasketCollection", FieldValue.arrayUnion(currentItem.getItemId() + "," + currentItem.getItemType() + "," + currentItem.getMuch() + "," + adapterRvSizes.getSize())).addOnSuccessListener(a -> addedToBasketDialog.show(getSupportFragmentManager(), "")).addOnFailureListener(e -> Toast.makeText(this, getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show());
+
+                basketRef.update("BasketCollection", FieldValue.arrayUnion(currentItem.getItemId() + "," + currentItem.getItemType() + "," + currentItem.getMuch() + "," + adapterRvSizes.getSize())).addOnSuccessListener(a -> {
+
+                    // 2. Restore UI
+                    binding.progressBar.setVisibility(View.GONE);
+                    binding.addToBasketText.setVisibility(View.VISIBLE);
+
+                    // 3. Show dialog AFTER UI is stable
+                    addedToBasketDialog.show(getSupportFragmentManager(), "");
+
+                }).addOnFailureListener(e -> {
+                    // 4. Restore UI on failure
+                    binding.progressBar.setVisibility(View.GONE);
+                    binding.addToBasketText.setVisibility(View.VISIBLE);
+
+                    Toast.makeText(this, getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
+                });
             }
+
         });
 
         binding.btnBasketD.setOnClickListener(v -> {
@@ -183,7 +205,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         binding.recyclerviewSizes.setAdapter(adapterRvSizes);
     }
 
-    private List<DataReviewItem> reviewsList = new ArrayList<>();
+    private final List<DataReviewItem> reviewsList = new ArrayList<>();
     private boolean reviewsLoaded = false;
     private boolean reviewsEmpty = false;
 

@@ -75,6 +75,10 @@
         <item name="android:src">@drawable/basket_icon_white</item>
     </style>
 
+    <style name="indeterminateTint">
+        <item name="android:indeterminateTint">@color/primary_white</item>
+    </style>
+
     <style name="back_arrow_background_btn">
         <item name="android:background">@drawable/rounded_black_v1_none_gray_v4</item>
         <item name="android:src">@drawable/back_arrows_icon_white</item>

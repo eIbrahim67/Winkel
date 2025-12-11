@@ -37,14 +37,7 @@ public class SignInFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private final NavOptions navOptionsRight = new NavOptions.Builder()
-            .setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left)
-            .setPopEnterAnim(R.anim.slide_in_left)
-            .setPopExitAnim(R.anim.slide_out_right)
-            .setLaunchSingleTop(true)
-            .setRestoreState(true)
-            .build();
+    private final NavOptions navOptionsRight = new NavOptions.Builder().setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right).setLaunchSingleTop(true).setRestoreState(true).build();
 
     private void setupListeners() {
         binding.btnSignin.setOnClickListener(v -> validateAndLogin());
@@ -61,11 +54,18 @@ public class SignInFragment extends Fragment {
     }
 
     private void validateAndLogin() {
+        binding.btnSignin.setEnabled(false);
+        binding.btnSignin.setText("");
+        binding.progressBar.setVisibility(View.VISIBLE);
+
         String email = binding.emailSignin.getText().toString().trim();
         String password = binding.passSignin.getText().toString();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(requireContext(), getString(R.string.check_from_your_data), Toast.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.btnSignin.setText(getString(R.string.sign_in));
+            binding.btnSignin.setEnabled(true);
         } else {
             viewModel.loginUser(email, password);
         }
@@ -76,17 +76,23 @@ public class SignInFragment extends Fragment {
             if (success) {
                 Toast.makeText(requireContext(), getString(R.string.authentication_successful), Toast.LENGTH_SHORT).show();
                 navigateToMain();
+            } else {
+                binding.progressBar.setVisibility(View.GONE);
+                binding.btnSignin.setText(getString(R.string.sign_in));
+                binding.btnSignin.setEnabled(true);
             }
         });
 
         viewModel.getErrorMessage().observe(getViewLifecycleOwner(), error -> {
-            Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show();
+            Toast.makeText(requireContext(), R.string.authentication_failed_check_your_credentials, Toast.LENGTH_LONG).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.btnSignin.setText(getString(R.string.sign_in));
+            binding.btnSignin.setEnabled(true);
         });
     }
 
     private void navigateToMain() {
-        requireActivity().startActivity(new android.content.Intent(requireContext(), MainActivity.class)
-                .setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        requireActivity().startActivity(new android.content.Intent(requireContext(), MainActivity.class).setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP));
         requireActivity().finish();
     }
 

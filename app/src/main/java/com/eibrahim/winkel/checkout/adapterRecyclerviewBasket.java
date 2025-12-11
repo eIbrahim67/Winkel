@@ -137,8 +137,6 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
 
         itemList.remove(position);
         notifyItemRemoved(position);
-
-        Toast.makeText(context, R.string.item_removed, Toast.LENGTH_SHORT).show();
     }
 
     @Override

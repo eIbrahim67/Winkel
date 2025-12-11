@@ -66,9 +66,9 @@
                 <TextView
                     android:id="@+id/noOfItems"
                     style="@style/TextColor_v1"
-                    android:text="@string/_0_items"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/_0_items"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:ignore="InefficientWeight" />

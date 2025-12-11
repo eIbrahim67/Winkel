@@ -211,9 +211,9 @@
             <EditText
                 android:id="@+id/post_price"
                 style="@style/TextColor_v1_with_background"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_width="0dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:clickable="true"
@@ -301,7 +301,6 @@
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_gray_v5_black_v1_none"
-
                 android:clickable="true"
                 android:focusable="true">
 
@@ -398,27 +397,43 @@
             app:shapeAppearanceOverlay="@style/roundedImageViewPost"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/upload_btn"
+        <RelativeLayout
             style="@style/checkout_background_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:fontFamily="@font/font_v3"
-            android:gravity="center"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
-            android:text="@string/upload"
-            android:textAllCaps="false"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/upload_btn"
+                style="@style/checkout_background_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v3"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:text="@string/upload"
+                android:textAllCaps="false"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/indeterminateTint"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:visibility="gone" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

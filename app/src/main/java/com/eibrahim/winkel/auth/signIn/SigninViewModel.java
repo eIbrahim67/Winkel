@@ -42,7 +42,7 @@ public class SigninViewModel extends AndroidViewModel {
                     if (task.isSuccessful()) {
                         loginSuccess.setValue(true);
                     } else {
-                        errorMessage.setValue("Authentication Failed: " + task.getException().getMessage());
+                        errorMessage.setValue("Authentication Failed");
                     }
                 });
     }

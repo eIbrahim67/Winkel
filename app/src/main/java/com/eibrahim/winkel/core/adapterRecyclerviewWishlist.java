@@ -27,7 +27,6 @@ public class adapterRecyclerviewWishlist extends RecyclerView.Adapter<adapterRec
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
 
-    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private final String userId = FirebaseAuth.getInstance().getUid();
     private DocumentReference wishlistRef;
 
@@ -36,6 +35,7 @@ public class adapterRecyclerviewWishlist extends RecyclerView.Adapter<adapterRec
         this.itemList = itemList;
 
         if (userId != null) {
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
             wishlistRef = firestore.collection("UsersData").document(userId).collection("Wishlist").document("Wishlist");
         }
     }

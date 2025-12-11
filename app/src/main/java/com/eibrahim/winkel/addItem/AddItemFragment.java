@@ -2,7 +2,6 @@ package com.eibrahim.winkel.addItem;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -46,7 +45,6 @@ public class AddItemFragment extends Fragment {
     private Uri selectedImage;
     private Uri photoUri;
     private String typeFor;
-    private ProgressDialog progressDialog;
     private adapterRecyclerviewCategoriesForAddItem adapter;
 
     private final List<String> categoriesList = new ArrayList<>();
@@ -188,6 +186,8 @@ public class AddItemFragment extends Fragment {
     }
 
     private void uploadItem() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.uploadBtn.setVisibility(View.GONE);
         String price = binding.postPrice.getText().toString().trim();
         String title = binding.postTitle.getText().toString().trim();
         String details = binding.postDetails.getText().toString().trim();
@@ -196,48 +196,56 @@ public class AddItemFragment extends Fragment {
         typeFor = binding.forMen.isChecked() ? "Mens" : binding.forKids.isChecked() ? "Kids" : binding.forWomen.isChecked() ? "Womens" : null;
 
 // Validate each field individually
-        if (price.isEmpty()) {
-            Toast.makeText(requireContext(), R.string.error_enter_price, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         if (title.isEmpty()) {
             Toast.makeText(requireContext(), R.string.error_enter_title, Toast.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
         if (details.isEmpty()) {
             Toast.makeText(requireContext(), R.string.error_enter_details, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (category == null) {
-            Toast.makeText(requireContext(), R.string.error_select_category, Toast.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
         if (typeFor == null) {
             Toast.makeText(requireContext(), R.string.error_select_type_for, Toast.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        if (category == null) {
+            Toast.makeText(requireContext(), R.string.error_select_category, Toast.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        if (price.isEmpty()) {
+            Toast.makeText(requireContext(), R.string.error_enter_price, Toast.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
         if (selectedImage == null) {
             Toast.makeText(requireContext(), R.string.error_select_image, Toast.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
-
         DataProductItem item = new DataProductItem(category, null, title, price, typeFor);
+        binding.progressBar.setVisibility(View.GONE);
+        binding.uploadBtn.setVisibility(View.VISIBLE);
         item.setDetails(details);
         addItemToShop(item, selectedImage);
     }
 
     private void addItemToShop(DataProductItem item, Uri imageUri) {
-        progressDialog = new ProgressDialog(requireContext());
-        progressDialog.setMessage("Uploading...");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         CollectionReference collection = firestore.collection("Products").document(typeFor).collection(typeFor);
         DocumentReference docRef = collection.document();
@@ -247,7 +255,8 @@ public class AddItemFragment extends Fragment {
         item.setUserId(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         collection.document(docId).set(item).addOnSuccessListener(aVoid -> uploadImageToFirebase(imageUri, docId)).addOnFailureListener(e -> {
-            progressDialog.dismiss();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
             Toast.makeText(requireContext(), R.string.failed_to_upload_data, Toast.LENGTH_SHORT).show();
         });
     }
@@ -257,19 +266,22 @@ public class AddItemFragment extends Fragment {
         StorageReference ref = storage.getReference().child("images of products/" + System.currentTimeMillis() + ".png");
 
         ref.putFile(uri).addOnSuccessListener(task -> ref.getDownloadUrl().addOnSuccessListener(url -> updateImageUrlInFirestore(url.toString(), docId))).addOnFailureListener(e -> {
-            progressDialog.dismiss();
-            Toast.makeText(requireContext(), "Image upload failed", Toast.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
+            Toast.makeText(requireContext(), R.string.image_upload_failed, Toast.LENGTH_SHORT).show();
         });
     }
 
     private void updateImageUrlInFirestore(String url, String docId) {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         firestore.collection("Products").document(typeFor).collection(typeFor).document(docId).update("imageId", url).addOnSuccessListener(aVoid -> {
-            progressDialog.dismiss();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
             Toast.makeText(requireContext(), R.string.item_uploaded_success, Toast.LENGTH_SHORT).show();
             requireActivity().onBackPressed();
         }).addOnFailureListener(e -> {
-            progressDialog.dismiss();
+            binding.progressBar.setVisibility(View.GONE);
+            binding.uploadBtn.setVisibility(View.VISIBLE);
             Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show();
         });
     }

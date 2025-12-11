@@ -364,4 +364,14 @@
     <string name="your_feedback_has_been_send_successfully">Your Feedback has been send successfully</string>
     <string name="your_basket_items">Your basket items</string>
     <string name="_0_items">0 Items</string>
+    <string name="go_to_payment">Go to Payment</string>
+    <string name="at___winkel">\@Winkel</string>
+    <string name="a_polo_collar_sweater_cut_to_a_straight_fit_and_detailed_with_an_embroidered_logo_by_hugo_menswear_for_our_responsible_products_we_always_use_at_least_60_more_sustainable_raw_materials_this_product_is_made_with_responsibly_sourced_and_certified_wool_for_us_responsibly_sourced_means_mulesing_free_and_meeting_the_standards_of_the_five_freedoms_of_animal_welfare_regular_fit_polo_collar_long_sleeves">A polo-collar sweater cut to a straight fit and detailed with an embroidered logo by HUGO Menswear. For our RESPONSIBLE products, we always use at least 60% more sustainable raw materials. This product is made with responsibly sourced and certified wool. For us, responsibly sourced means mulesing free, and meeting the standards of the Five Freedoms of animal welfare. Regular fit, Polo collar, Long sleeves</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="image_upload_failed">Image upload failed</string>
+    <string name="no_orders_found">No Orders Found</string>
+    <string name="error_occurred">Error occurred</string>
+    <string name="failed_to_fetch_pin">Failed to fetch PIN</string>
+    <string name="pin_not_set_for_user">PIN not set for user.</string>
+    <string name="authentication_failed_check_your_credentials">Authentication Failed: Check your credentials</string>
 </resources>

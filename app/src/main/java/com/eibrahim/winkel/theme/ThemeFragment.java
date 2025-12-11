@@ -21,7 +21,6 @@ public class ThemeFragment extends Fragment {
 
     private ActivityThemeBinding binding;
     private SharedPreferences sharedPreferences;
-    private BottomNavigationView bottomNavigationView;
 
     public ThemeFragment() {
         // Required empty public constructor
@@ -37,7 +36,7 @@ public class ThemeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         try {
             sharedPreferences = requireContext().getSharedPreferences("ThemePrefs", Context.MODE_PRIVATE);

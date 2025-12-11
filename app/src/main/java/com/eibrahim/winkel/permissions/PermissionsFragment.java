@@ -15,7 +15,6 @@ import com.eibrahim.winkel.databinding.ActivityPermissionsBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class PermissionsFragment extends Fragment {
-    private BottomNavigationView bottomNavigationView;
 
     private ActivityPermissionsBinding binding;
 
@@ -34,7 +33,7 @@ public class PermissionsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
         // Optional: replace with Navigation popBackStack if you're using Navigation Component

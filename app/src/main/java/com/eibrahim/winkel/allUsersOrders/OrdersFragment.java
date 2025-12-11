@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrdersFragment extends Fragment {
-    private BottomNavigationView bottomNavigationView;
 
     private ActivityOrdersBinding binding;
     private FirebaseFirestore firestore;
@@ -41,7 +40,7 @@ public class OrdersFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         binding.reOrders.setLayoutManager(new GridLayoutManager(requireContext(), 1));
         firestore = FirebaseFirestore.getInstance();
@@ -70,7 +69,7 @@ public class OrdersFragment extends Fragment {
             }
 
             if (allOrders.isEmpty()) {
-                Toast.makeText(requireContext(), "No Orders Found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), R.string.no_orders_found, Toast.LENGTH_SHORT).show();
             }
 
             AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(requireContext(), allOrders);

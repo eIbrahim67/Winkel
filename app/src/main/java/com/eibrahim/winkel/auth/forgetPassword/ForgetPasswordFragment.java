@@ -20,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgetPasswordFragment extends Fragment {
 
-    private ForegtPasswordViewModel mViewModel;
     private FragmentForgetPasswordBinding binding;
 
     public static ForgetPasswordFragment newInstance() {
@@ -64,7 +63,7 @@ public class ForgetPasswordFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ForegtPasswordViewModel.class);
+        ForegtPasswordViewModel mViewModel = new ViewModelProvider(this).get(ForegtPasswordViewModel.class);
         // TODO: Use the ViewModel
     }
 

@@ -12,8 +12,6 @@ import com.eibrahim.winkel.main.LocaleHelper;
 
 public class AuthActivity extends AppCompatActivity {
 
-    private ActivityAuthBinding binding;
-
     @Override
     protected void attachBaseContext(Context newBase) {
         SharedPreferences prefs = newBase.getSharedPreferences("Settings", MODE_PRIVATE);
@@ -39,7 +37,7 @@ public class AuthActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        binding = ActivityAuthBinding.inflate(getLayoutInflater());
+        com.eibrahim.winkel.databinding.ActivityAuthBinding binding = ActivityAuthBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
 

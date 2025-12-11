@@ -27,7 +27,6 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
     private final Context context;
     private final List<DataRecyclerviewMyItem> itemList;
 
-    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private final String userId = FirebaseAuth.getInstance().getUid();
     private DocumentReference wishlistRef;
 
@@ -36,6 +35,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
         this.itemList = itemList;
 
         if (userId != null) {
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
             wishlistRef = firestore.collection("UsersData").document(userId).collection("Wishlist").document("Wishlist");
         }
     }
@@ -98,7 +98,7 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
             // Update Firestore
             wishlistRef.update("Wishlist", item.getItemLoved() ? FieldValue.arrayUnion(value) : FieldValue.arrayRemove(value)).addOnSuccessListener(unused -> {
             }).addOnFailureListener(e -> {
-                Toast.makeText(context, "Error occurred", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.error_occurred, Toast.LENGTH_SHORT).show();
                 // rollback UI on failure
                 item.setItemLoved(isLoved);
                 holder.btnLoveH.setImageResource(isLoved ? R.drawable.loved_icon : R.drawable.unlove_icon_white);

@@ -24,8 +24,6 @@ import java.util.Map;
 
 public class PersonalDataFragment extends Fragment {
 
-    private BottomNavigationView bottomNavigationView;
-
     private ActivityPersonalDataBinding binding;
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
@@ -40,7 +38,7 @@ public class PersonalDataFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         NavController navController = NavHostFragment.findNavController(PersonalDataFragment.this);
         binding.btnBack.setOnClickListener(v -> navController.popBackStack(R.id.profileFragment, false));

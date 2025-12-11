@@ -25,7 +25,6 @@ import java.util.Objects;
 public class ConfirmDeletionFragment extends Fragment {
 
     private ActivityConfirmDeletionBinding binding;
-    private BottomNavigationView bottomNavigationView;
     private DocumentReference pinRef;
 
     public ConfirmDeletionFragment() {
@@ -41,7 +40,7 @@ public class ConfirmDeletionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
 
         try {

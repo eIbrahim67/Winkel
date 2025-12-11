@@ -28,7 +28,6 @@ import java.util.Objects;
 public class MyOrdersFragment extends Fragment {
 
     private ActivityMyOrdersBinding binding;
-    private BottomNavigationView bottomNavigationView;
 
     private FirebaseFirestore firestore;
     private String userId;
@@ -38,8 +37,7 @@ public class MyOrdersFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = ActivityMyOrdersBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -48,7 +46,7 @@ public class MyOrdersFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
         binding.reMyOrders.setLayoutManager(new GridLayoutManager(requireContext(), 1));
@@ -82,9 +80,7 @@ public class MyOrdersFragment extends Fragment {
             } else {
                 Toast.makeText(requireContext(), getText(R.string.there_are_currently_no_orders_to_display), Toast.LENGTH_SHORT).show();
             }
-        }).addOnFailureListener(e ->
-                Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show()
-        );
+        }).addOnFailureListener(e -> Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
     }
 
     private DataOrderItem parseOrder(String orderData) {
@@ -112,14 +108,7 @@ public class MyOrdersFragment extends Fragment {
                 double itemTotal = quantity * price;
                 totalOrderPrice += itemTotal;
 
-                items.add(new DataRecyclerviewItemOrderItemData(
-                        itemId,
-                        String.valueOf(price),
-                        String.valueOf(quantity),
-                        String.valueOf(itemTotal),
-                        size,
-                        itemType
-                ));
+                items.add(new DataRecyclerviewItemOrderItemData(itemId, String.valueOf(price), String.valueOf(quantity), String.valueOf(itemTotal), size, itemType));
             }
         } catch (Exception e) {
             Toast.makeText(requireContext(), getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();

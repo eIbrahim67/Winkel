@@ -27,7 +27,6 @@ import java.util.Map;
 
 public class MyItemsFragment extends Fragment {
 
-    private BottomNavigationView bottomNavigationView;
     private ActivityMyItemsBinding binding;
 
     private final List<DataRecyclerviewMyItem> userItems = new ArrayList<>();
@@ -48,7 +47,7 @@ public class MyItemsFragment extends Fragment {
     public void onViewCreated(@NonNull View view,
                               @Nullable Bundle savedInstanceState) {
 
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
 
         binding.btnBack.setOnClickListener(v ->

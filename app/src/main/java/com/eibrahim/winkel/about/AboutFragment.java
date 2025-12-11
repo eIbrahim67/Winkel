@@ -17,7 +17,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class AboutFragment extends Fragment {
 
     private ActivityAboutBinding binding;
-    private BottomNavigationView bottomNavigationView;
 
     public AboutFragment() {
         // Required empty public constructor
@@ -34,7 +33,7 @@ public class AboutFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
         // Or use Navigation component: NavHostFragment.findNavController(this).popBackStack();

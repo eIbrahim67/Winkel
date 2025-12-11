@@ -362,4 +362,20 @@
     <string name="your_feedback_has_been_send_successfully">تم إرسال ملاحظاتك بنجاح.</string>
     <string name="your_basket_items">محتويات سلة تسوقك</string>
     <string name="_0_items">0 عناصر</string>
+    <string name="go_to_payment">الانتقال إلى الدفع</string>
+    <string name="at___winkel">‏@Winkel</string>
+
+    <string name="a_polo_collar_sweater_cut_to_a_straight_fit_and_detailed_with_an_embroidered_logo_by_hugo_menswear_for_our_responsible_products_we_always_use_at_least_60_more_sustainable_raw_materials_this_product_is_made_with_responsibly_sourced_and_certified_wool_for_us_responsibly_sourced_means_mulesing_free_and_meeting_the_standards_of_the_five_freedoms_of_animal_welfare_regular_fit_polo_collar_long_sleeves">
+سترة بياقة بولو بقصّة مستقيمة مع شعار مطرّز من HUGO Menswear. في منتجاتنا المسؤولة، نستخدم دائمًا ما لا يقل عن 60٪ من المواد الخام المستدامة. هذه السترة مصنوعة من صوف معتمد ومصادر بشكل مسؤول. بالنسبة لنا، المصادر المسؤولة تعني خالٍ من تقنية الميولسينغ ويلتزم بمعايير "الحقوق الخمس" لرفاهية الحيوان.
+قصّة عادية، ياقة بولو، أكمام طويلة.
+</string>
+
+    <string name="reset_password">إعادة تعيين كلمة المرور</string>
+    <string name="image_upload_failed">فشل رفع الصورة</string>
+    <string name="no_orders_found">لا توجد طلبات</string>
+    <string name="error_occurred">حدث خطأ</string>
+    <string name="failed_to_fetch_pin">فشل في جلب رمز PIN</string>
+    <string name="pin_not_set_for_user">لم يتم تعيين رمز PIN للمستخدم</string>
+    <string name="authentication_failed_check_your_credentials">فشل تسجيل الدخول: يرجى التحقق من بياناتك</string>
+
 </resources>

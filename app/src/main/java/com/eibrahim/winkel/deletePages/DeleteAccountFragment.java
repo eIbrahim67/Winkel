@@ -17,7 +17,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class DeleteAccountFragment extends Fragment {
 
     private ActivityDeleteAccountBinding binding;
-    private BottomNavigationView bottomNavigationView;
 
     public DeleteAccountFragment() {
         // Required empty public constructor
@@ -30,12 +29,12 @@ public class DeleteAccountFragment extends Fragment {
         return binding.getRoot();
     }
 
-    NavOptions navOptionsRight = new NavOptions.Builder().setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right).setLaunchSingleTop(true).setRestoreState(true).build();
+    final NavOptions navOptionsRight = new NavOptions.Builder().setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right).setLaunchSingleTop(true).setRestoreState(true).build();
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
 
         NavController navController = NavHostFragment.findNavController(DeleteAccountFragment.this);
