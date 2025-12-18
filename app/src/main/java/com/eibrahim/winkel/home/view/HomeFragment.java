@@ -32,9 +32,10 @@ import java.util.List;
 import java.util.Map;
 
 public class HomeFragment extends Fragment {
-    private BottomNavigationView bottomNavigationView;
 
     private FragmentHomeBinding binding;
+    private BottomNavigationView bottomNavigationView;
+
     private DoFilter doFilter;
     private functionsBottomSheet functionsBottomSheet;
 
@@ -43,185 +44,215 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
 
-        try {
-            InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm =
+                (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 
-            PopupMenu popup = new PopupMenu(requireContext(), binding.topsBtn);
-            popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+        PopupMenu popup = new PopupMenu(requireContext(), binding.topsBtn);
+        popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 
-            RecyclerviewVisibility recyclerviewVisibility = new RecyclerviewVisibility(binding.mainHomeDesign, binding.topsView, binding.recyclerviewFilter);
+        RecyclerviewVisibility recyclerviewVisibility =
+                new RecyclerviewVisibility(
+                        binding.mainHomeDesign,
+                        binding.topsView,
+                        binding.recyclerviewFilter
+                );
 
-            doFilter = new DoFilter(binding.recyclerviewItems, recyclerviewVisibility, requireContext());
+        doFilter = new DoFilter(
+                binding.recyclerviewItems,
+                recyclerviewVisibility,
+                requireContext()
+        );
 
-            fetchData();
+        functionsBottomSheet =
+                new functionsBottomSheet(
+                        binding.recyclerviewFilter,
+                        binding.recyclerviewItems,
+                        recyclerviewVisibility,
+                        doFilter, binding.skeletonLayout
+                );
 
-            functionsBottomSheet = new functionsBottomSheet(binding.recyclerviewFilter, binding.recyclerviewItems, recyclerviewVisibility, doFilter);
-
-            // Top Menu Popup Click
-            binding.topsBtn.setOnClickListener(v -> popup.show());
-
-            popup.setOnMenuItemClickListener(item -> {
-                try {
-                    int id = item.getItemId();
-                    if (id == R.id.new_releases) {
-                        doFilter.doFilter("NewReleases", binding.skeletonLayout);
-                        binding.topsTitles.setText(getString(R.string.new_releases));
-                    } else if (id == R.id.recommended_item) {
-                        doFilter.doFilter("Recommended", binding.skeletonLayout);
-                        binding.topsTitles.setText(getString(R.string.recommended));
-                    } else if (id == R.id.trendy) {
-                        doFilter.doFilter("Trendy", binding.skeletonLayout);
-                        binding.topsTitles.setText(getString(R.string.trendy));
-                    } else if (id == R.id.top_sales_item) {
-                        doFilter.doFilter("TopSales", binding.skeletonLayout);
-                        binding.topsTitles.setText(getString(R.string.top_sales));
-                    } else if (id == R.id.top_rating_item) {
-                        doFilter.doFilter("TopRating", binding.skeletonLayout);
-                        binding.topsTitles.setText(getString(R.string.top_rating));
-                    }
-                } catch (Exception e) {
-
-                }
-                return true;
-            });
-
-            binding.searchBtn.setOnClickListener(v -> {
-                binding.searchPage.setVisibility(View.VISIBLE);
-                bottomNavigationView.setVisibility(View.GONE);
-                binding.searchText.requestFocus();
-                imm.showSoftInput(binding.searchText, InputMethodManager.SHOW_IMPLICIT);
-            });
-
-            setupCategoryButtons();
-
-            binding.searchText.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    try {
-                        String searchText = s.toString().trim();
-                        if (!searchText.isEmpty()) {
-                            search(requireContext(), searchText, binding.recyclerviewSearch);
-                        }
-                    } catch (Exception e) {
-
-                    }
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                }
-            });
-
-            binding.btnCloseSearch.setOnClickListener(v -> {
-                binding.searchPage.setVisibility(View.GONE);
-                bottomNavigationView.setVisibility(View.VISIBLE);
-                imm.hideSoftInputFromWindow(binding.searchText.getWindowToken(), 0);
-            });
-
-            binding.btnFunctions.setOnClickListener(v -> {
-                if (functionsBottomSheet.isVisible()) {
-                    functionsBottomSheet.dismiss();
-                } else {
-                    functionsBottomSheet.show(requireActivity().getSupportFragmentManager(), "");
-                }
-            });
-
-            binding.fragmentHome.setOnRefreshListener(() -> {
-                try {
-                    doFilter.lastAction();
-                } catch (Exception e) {
-
-                } finally {
-                    binding.fragmentHome.setRefreshing(false);
-                }
-            });
-
-        } catch (Exception e) {
-
-        }
+        loadHomeDefault();
+        setupTopMenu(popup);
+        setupSearch(imm);
+        setupCategoryButtons();
+        setupSwipeRefresh();
+        setupFunctionsSheet();
 
         return binding.getRoot();
     }
 
-    private void setupCategoryButtons() {
-        binding.btnItemsMens.setOnClickListener(v -> doFilter.doFilter("Mens", binding.recyclerviewFilter, binding.skeletonLayout));
-        binding.btnItemsWomen.setOnClickListener(v -> doFilter.doFilter("Womens", binding.recyclerviewFilter, binding.skeletonLayout));
-        binding.btnItemsBoys.setOnClickListener(v -> doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
-        binding.btnItemsGirls.setOnClickListener(v -> doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
-        binding.btnItemsBabies.setOnClickListener(v -> doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
+    /* -------------------- Setup Methods -------------------- */
+
+    private void loadHomeDefault() {
+        doFilter.doFilter("NewReleases", binding.skeletonLayout);
+        binding.topsTitles.setText(getString(R.string.new_releases));
     }
 
-    private void fetchData() {
-        try {
-            if (binding.skeletonLayout != null) {
+    private void setupTopMenu(PopupMenu popup) {
+
+        binding.topsBtn.setOnClickListener(v -> popup.show());
+
+        popup.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.new_releases) {
                 doFilter.doFilter("NewReleases", binding.skeletonLayout);
-            } else {
-                doFilter.doFilter("NewReleases");
+                binding.topsTitles.setText(getString(R.string.new_releases));
             }
-        } catch (Exception e) {
-
-        }
+            else if (item.getItemId() == R.id.recommended_item) {
+                doFilter.doFilter("Recommended", binding.skeletonLayout);
+                binding.topsTitles.setText(getString(R.string.recommended));
+            }
+            else if (item.getItemId() == R.id.trendy) {
+                doFilter.doFilter("Trendy", binding.skeletonLayout);
+                binding.topsTitles.setText(getString(R.string.trendy));
+            }
+            else if (item.getItemId() == R.id.top_sales_item) {
+                doFilter.doFilter("TopSales", binding.skeletonLayout);
+                binding.topsTitles.setText(getString(R.string.top_sales));
+            }
+            else if (item.getItemId() == R.id.top_rating_item) {
+                doFilter.doFilter("TopRating", binding.skeletonLayout);
+                binding.topsTitles.setText(getString(R.string.top_rating));
+            }
+            return false;
+        });
     }
+
+    private void setupSearch(InputMethodManager imm) {
+
+        binding.searchBtn.setOnClickListener(v -> {
+            binding.searchPage.setVisibility(View.VISIBLE);
+            bottomNavigationView.setVisibility(View.GONE);
+            binding.searchText.requestFocus();
+            imm.showSoftInput(binding.searchText, InputMethodManager.SHOW_IMPLICIT);
+        });
+
+        binding.btnCloseSearch.setOnClickListener(v -> {
+            binding.searchPage.setVisibility(View.GONE);
+            bottomNavigationView.setVisibility(View.VISIBLE);
+            imm.hideSoftInputFromWindow(binding.searchText.getWindowToken(), 0);
+        });
+
+        binding.searchText.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void afterTextChanged(Editable s) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String query = s.toString().trim();
+                if (!query.isEmpty()) {
+                    search(requireContext(), query, binding.recyclerviewSearch);
+                }
+            }
+        });
+    }
+
+    private void setupCategoryButtons() {
+        binding.btnItemsMens.setOnClickListener(v ->
+                doFilter.doFilter("Mens", binding.recyclerviewFilter, binding.skeletonLayout));
+
+        binding.btnItemsWomen.setOnClickListener(v ->
+                doFilter.doFilter("Womens", binding.recyclerviewFilter, binding.skeletonLayout));
+
+        binding.btnItemsBoys.setOnClickListener(v ->
+                doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
+
+        binding.btnItemsGirls.setOnClickListener(v ->
+                doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
+
+        binding.btnItemsBabies.setOnClickListener(v ->
+                doFilter.doFilter("Kids", binding.recyclerviewFilter, binding.skeletonLayout));
+    }
+
+    private void setupSwipeRefresh() {
+        binding.fragmentHome.setOnRefreshListener(() -> {
+            doFilter.lastAction();
+            binding.fragmentHome.setRefreshing(false);
+        });
+    }
+
+    private void setupFunctionsSheet() {
+        binding.btnFunctions.setOnClickListener(v -> {
+            if (functionsBottomSheet.isVisible()) {
+                functionsBottomSheet.dismiss();
+            } else {
+                functionsBottomSheet.show(
+                        requireActivity().getSupportFragmentManager(),
+                        "functions_sheet"
+                );
+            }
+        });
+    }
+
+    /* -------------------- Back Handling -------------------- */
 
     @Override
     public void onResume() {
         super.onResume();
-        try {
-            requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-                @Override
-                public void handleOnBackPressed() {
-                    if (binding.searchPage.getVisibility() == View.VISIBLE) {
-                        binding.searchPage.setVisibility(View.GONE);
-                        bottomNavigationView.setVisibility(View.VISIBLE);
-                    } else if (binding.mainHomeDesign.getVisibility() == View.GONE) {
-                        doFilter.doFilter("NewReleases");
-                    } else {
-                        requireActivity().moveTaskToBack(true);
-                    }
-                }
-            });
-        } catch (Exception e) {
 
-        }
+        requireActivity().getOnBackPressedDispatcher()
+                .addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        if (binding.searchPage.getVisibility() == View.VISIBLE) {
+                            binding.searchPage.setVisibility(View.GONE);
+                            bottomNavigationView.setVisibility(View.VISIBLE);
+                        } else if (binding.mainHomeDesign.getVisibility() == View.GONE) {
+                            doFilter.doFilter("NewReleases", binding.skeletonLayout);
+                        } else {
+                            requireActivity().moveTaskToBack(true);
+                        }
+                    }
+                });
     }
+
+    /* -------------------- Search -------------------- */
 
     public static void search(Context context, String searchText, RecyclerView recyclerView) {
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        CollectionReference collectionRef = firestore.collection("Products").document("Mens").collection("Mens");
+        CollectionReference collectionRef =
+                firestore.collection("Products")
+                        .document("Mens")
+                        .collection("Mens");
+
         collectionRef.get().addOnSuccessListener(querySnapshot -> {
-            List<DataRecyclerviewMyItem> dataOfRvItems = new ArrayList<>();
+
+            List<DataRecyclerviewMyItem> results = new ArrayList<>();
+
             for (DocumentSnapshot document : querySnapshot.getDocuments()) {
                 Map<String, Object> data = document.getData();
-                String itemName = (String) (data != null ? data.get("name") : null);
+                if (data == null) continue;
 
-                // Perform case-insensitive partial string match
-                if (itemName != null && itemName.toLowerCase().contains(searchText.toLowerCase())) {
-                    DataRecyclerviewMyItem dataObject = new DataRecyclerviewMyItem((String) data.get("category"), (String) data.get("imageId"), itemName, (String) data.get("price"), "Mens", "");
+                String name = (String) data.get("name");
 
-                    dataObject.setItemId((String) data.get("itemId"));
-                    dataObject.setItemLoved(false);
+                if (name != null && name.toLowerCase().contains(searchText.toLowerCase())) {
+                    DataRecyclerviewMyItem item =
+                            new DataRecyclerviewMyItem(
+                                    (String) data.get("category"),
+                                    (String) data.get("imageId"),
+                                    name,
+                                    (String) data.get("price"),
+                                    "Mens",
+                                    ""
+                            );
 
-                    dataOfRvItems.add(dataObject);
+                    item.setItemId((String) data.get("itemId"));
+                    item.setItemLoved(false);
+                    results.add(item);
                 }
             }
 
-            adapterRecyclerviewItems adapterRvItems = new adapterRecyclerviewItems(context, dataOfRvItems);
-            recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-            recyclerView.setAdapter(adapterRvItems);
+            recyclerView.setLayoutManager(
+                    new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
 
-        }).addOnFailureListener(e -> {
+            recyclerView.setAdapter(
+                    new adapterRecyclerviewItems(context, results));
         });
-
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null; // prevent memory leaks
+        binding = null;
     }
 }
