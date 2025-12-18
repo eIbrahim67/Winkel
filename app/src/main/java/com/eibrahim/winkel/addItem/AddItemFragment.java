@@ -23,8 +23,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.core.adapterRecyclerviewCategoriesForAddItem;
 import com.eibrahim.winkel.databinding.AddItemActivityBinding;
@@ -56,6 +60,7 @@ public class AddItemFragment extends Fragment {
         if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
             selectedImage = result.getData().getData();
             binding.loadingImage.setImageURI(selectedImage);
+            sendFileToOtherFragment(selectedImage);
         }
     });
 
@@ -63,8 +68,31 @@ public class AddItemFragment extends Fragment {
         if (result.getResultCode() == Activity.RESULT_OK) {
             selectedImage = photoUri;
             binding.loadingImage.setImageURI(selectedImage);
+            sendFileToOtherFragment(selectedImage);
         }
     });
+    private NavController navController;
+
+    private final NavOptions navOptionsRight = new NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right)
+            .setLaunchSingleTop(true)
+            .setRestoreState(true)
+            .build();
+
+
+    private void sendFileToOtherFragment(Uri image) {
+        if (image == null) return;
+
+        Bundle bundle = new Bundle();
+        bundle.putString("image_uri", image.toString());
+
+        navController.navigate(R.id.imagePreviewFragment, bundle, navOptionsRight);
+
+    }
+
 
     private final ActivityResultLauncher<String> permissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
         if (granted) {
@@ -89,13 +117,23 @@ public class AddItemFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         adapter = new adapterRecyclerviewCategoriesForAddItem(categoriesList);
         requireActivity().findViewById(R.id.bottom_navigation).setVisibility(View.GONE);
-
+        navController = NavHostFragment.findNavController(this);
         binding.recyclerviewType.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.takePhoto.setOnClickListener(v -> checkCameraPermission());
         binding.uploadPhoto.setOnClickListener(v -> checkGalleryPermission());
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
-
         binding.uploadBtn.setOnClickListener(v -> uploadItem());
+
+        // Listen for the result from ImagePreviewFragment
+        getParentFragmentManager().setFragmentResultListener("image_preview_result", this, (requestKey, bundle) -> {
+            String imagePath = bundle.getString("image_uri"); // path of the updated image
+            if (imagePath != null) {
+                Uri newUri = Uri.parse(imagePath);
+                // Do something with the new image, e.g., update an ImageView
+                Glide.with(this).load(newUri).into(binding.loadingImage);
+            }
+        });
+
 
         loadCategories("Mens");
 
@@ -162,15 +200,12 @@ public class AddItemFragment extends Fragment {
     }
 
     private void openGallery() {
-        try {
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.setType("image/*");
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-
-        } catch (Exception e) {
-            Toast.makeText(requireContext(), "Gallery error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        imageGalleryLauncher.launch(Intent.createChooser(intent, "Select Image"));
     }
+
 
     private void dispatchTakePictureIntent() {
         try {
@@ -285,6 +320,7 @@ public class AddItemFragment extends Fragment {
             Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show();
         });
     }
+
 
     @Override
     public void onDestroyView() {

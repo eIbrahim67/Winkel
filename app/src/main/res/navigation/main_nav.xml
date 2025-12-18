@@ -157,4 +157,9 @@
         android:name="com.eibrahim.winkel.deletePages.ConfirmDeletionFragment"
         android:label="ConfirmDeletion" />
 
+    <fragment
+        android:id="@+id/imagePreviewFragment"
+        android:name="com.eibrahim.winkel.imagePreview.ImagePreviewFragment"
+        android:label="ImagePreviewFragment" />
+
 </navigation>

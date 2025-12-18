@@ -374,4 +374,7 @@
     <string name="failed_to_fetch_pin">Failed to fetch PIN</string>
     <string name="pin_not_set_for_user">PIN not set for user.</string>
     <string name="authentication_failed_check_your_credentials">Authentication Failed: Check your credentials</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="remove_background">Remove Background</string>
 </resources>
