@@ -129,11 +129,13 @@ public class AddItemFragment extends Fragment {
             String imagePath = bundle.getString("image_uri"); // path of the updated image
             if (imagePath != null) {
                 Uri newUri = Uri.parse(imagePath);
-                // Do something with the new image, e.g., update an ImageView
+                selectedImage = newUri;
                 Glide.with(this).load(newUri).into(binding.loadingImage);
+            } else {
+                selectedImage = null;
+                Toast.makeText(requireContext(), R.string.something_wrong_please_try_again, Toast.LENGTH_SHORT).show();
             }
         });
-
 
         loadCategories("Mens");
 

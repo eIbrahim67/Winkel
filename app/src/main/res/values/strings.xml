@@ -377,4 +377,5 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="remove_background">Remove Background</string>
+    <string name="something_wrong_please_try_again">Something Wrong, Please try again!</string>
 </resources>
