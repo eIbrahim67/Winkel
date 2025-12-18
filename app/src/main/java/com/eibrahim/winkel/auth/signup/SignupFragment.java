@@ -38,6 +38,10 @@ public class SignupFragment extends Fragment {
     }
 
     private void validateAndSignup() {
+        binding.btnSignup.setEnabled(false);
+        binding.btnSignup.setText(R.string.sign_up);
+        binding.progressBar.setVisibility(View.VISIBLE);
+
         String username = binding.nameSignup.getText().toString().trim();
         String email = binding.emailSignup.getText().toString().trim();
         String password = binding.passSignup.getText().toString();
@@ -55,6 +59,9 @@ public class SignupFragment extends Fragment {
                 !binding.checkSignup.isChecked()) {
 
             Toast.makeText(requireContext(), getText(R.string.please_fill_valid_details), Toast.LENGTH_SHORT).show();
+            binding.btnSignup.setEnabled(true);
+            binding.btnSignup.setText(R.string.sign_up);
+            binding.progressBar.setVisibility(View.GONE);
             return;
         }
 
@@ -66,11 +73,17 @@ public class SignupFragment extends Fragment {
             if (success) {
                 Toast.makeText(requireContext(), getText(R.string.signup_successful), Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(binding.getRoot()).navigateUp(); // Go back to SignIn
+                binding.btnSignup.setEnabled(true);
+                binding.btnSignup.setText(R.string.sign_up);
+                binding.progressBar.setVisibility(View.GONE);
             }
         });
 
         viewModel.getErrorMessage().observe(getViewLifecycleOwner(), error -> {
             Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show();
+            binding.btnSignup.setEnabled(true);
+            binding.btnSignup.setText(R.string.sign_up);
+            binding.progressBar.setVisibility(View.GONE);
         });
     }
 

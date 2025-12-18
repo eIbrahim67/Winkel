@@ -77,6 +77,9 @@
         <item name="android:indeterminateTint">@color/primary_black</item>
     </style>
 
+    <style name="indeterminateTint2">
+        <item name="android:indeterminateTint">@color/primary_white</item>
+    </style>
 
     <style name="back_arrow_background_btn">
         <item name="android:background">@drawable/rounded_gray_v12_none_gray_v4</item>
