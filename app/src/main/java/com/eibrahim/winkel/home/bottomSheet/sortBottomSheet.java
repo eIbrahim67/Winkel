@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,13 +23,15 @@ public class sortBottomSheet extends BottomSheetDialogFragment {
     private final RecyclerView recyclerView_items;
     private final RecyclerviewVisibility recyclerviewVisibility;
     private final DoFilter doFilter;
+    private final LinearLayout skeletonLayout;
 
-    public sortBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility, DoFilter doFilter) {
+    public sortBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility, DoFilter doFilter, LinearLayout skeletonLayout) {
 
         this.recyclerView_filter = recyclerView_filter;
         this.recyclerView_items = recyclerView_items;
         this.recyclerviewVisibility = recyclerviewVisibility;
         this.doFilter = doFilter;
+        this.skeletonLayout = skeletonLayout;
     }
 
     @Nullable
@@ -43,7 +46,7 @@ public class sortBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            functionsBottomSheet bottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter);
+            functionsBottomSheet bottomSheet = new functionsBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter, skeletonLayout);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });

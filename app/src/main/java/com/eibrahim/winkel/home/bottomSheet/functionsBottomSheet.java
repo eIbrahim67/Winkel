@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -23,13 +24,14 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
     private final RecyclerView recyclerView_items;
     private final RecyclerviewVisibility recyclerviewVisibility;
     private final DoFilter doFilter;
-
-    public functionsBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility, DoFilter doFilter) {
+private final LinearLayout skeletonLayout;
+    public functionsBottomSheet(RecyclerView recyclerView_filter, RecyclerView recyclerView_items, RecyclerviewVisibility recyclerviewVisibility, DoFilter doFilter, LinearLayout skeletonLayout) {
 
         this.recyclerView_filter = recyclerView_filter;
         this.recyclerView_items = recyclerView_items;
         this.recyclerviewVisibility = recyclerviewVisibility;
         this.doFilter = doFilter;
+        this.skeletonLayout = skeletonLayout;
     }
 
     @Nullable
@@ -46,7 +48,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
         main_home_btn.setOnClickListener(v -> {
 
 
-            doFilter.doFilter("NewReleases");
+            doFilter.doFilter("NewReleases", skeletonLayout);
 
             dismiss();
         });
@@ -54,7 +56,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
         filter_btn.setOnClickListener(v -> {
             dismiss();
 
-            filterBottomSheet bottomSheet = new filterBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter);
+            filterBottomSheet bottomSheet = new filterBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter, skeletonLayout);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
@@ -63,7 +65,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            sortBottomSheet bottomSheet = new sortBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter);
+            sortBottomSheet bottomSheet = new sortBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter, skeletonLayout);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });
@@ -72,7 +74,7 @@ public class functionsBottomSheet extends BottomSheetDialogFragment {
 
             dismiss();
 
-            viewBottomSheet bottomSheet = new viewBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter);
+            viewBottomSheet bottomSheet = new viewBottomSheet(recyclerView_filter, recyclerView_items, recyclerviewVisibility, doFilter, skeletonLayout);
             bottomSheet.show(requireActivity().getSupportFragmentManager(), "");
 
         });

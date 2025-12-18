@@ -1,6 +1,7 @@
 package com.eibrahim.winkel.core;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,138 +19,159 @@ public class DoFilter {
     private final RecyclerView recyclerView;
     private final Context context;
     private final RecyclerviewVisibility recyclerviewVisibility;
-    private FetchDataFromFirebase fetchDataFromFirebase;
-    private int action = 0;
-    String type,  fPrice, tPrice;
-    RecyclerView recyclerView_filter;
-    private LinearLayout skeleton_layout;
 
-    public DoFilter(RecyclerView recyclerView, RecyclerviewVisibility recyclerviewVisibility, Context context) {
+    private FetchDataFromFirebase fetchDataFromFirebase;
+
+    private int action = 0;
+    private String type, fPrice, tPrice;
+    private RecyclerView recyclerViewFilter;
+    private LinearLayout skeletonLayout;
+
+    public DoFilter(RecyclerView recyclerView,
+                    RecyclerviewVisibility recyclerviewVisibility,
+                    Context context) {
+
         this.recyclerView = recyclerView;
         this.recyclerviewVisibility = recyclerviewVisibility;
         this.context = context;
     }
 
-    public void doFilter(String type, String fPrice, String tPrice, RecyclerView recyclerView_filter){
-        action = 1;
-        this.type = type;
-        this.fPrice = fPrice;
-        this.tPrice = tPrice;
-        this.recyclerView_filter = recyclerView_filter;
+    /* -------------------- Public API -------------------- */
 
-        recyclerviewVisibility.recyclerviewVisibility(type);
-        fetchDataFromFirebase = new FetchDataFromFirebase(
-                recyclerView,
-                context
-        );
+    public void doFilter(String type, String fPrice, String tPrice, RecyclerView filterRv, LinearLayout skeleton) {
+        action = 1;
+        saveState(type, fPrice, tPrice, filterRv, skeleton);
+        startFiltering();
 
         fetchDataFromFirebase.fetch(type, fPrice, tPrice);
-
-        fetchCategory(type, fPrice, tPrice, recyclerView_filter, recyclerView, context);
-
+        fetchCategory(type, fPrice, tPrice);
     }
 
-    public void doFilter(String type, RecyclerView recyclerView_filter){
+    public void doFilter(String type, RecyclerView filterRv, LinearLayout skeleton) {
         action = 2;
-        this.type = type;
-        this.recyclerView_filter = recyclerView_filter;
-
-        recyclerviewVisibility.recyclerviewVisibility(type);
-        fetchDataFromFirebase = new FetchDataFromFirebase(
-                recyclerView,
-                context
-        );
+        saveState(type, "0", "1000", filterRv, skeleton);
+        startFiltering();
 
         fetchDataFromFirebase.fetch(type);
-
-        fetchCategory(type, "0", "1000", recyclerView_filter, recyclerView, context);
-
+        fetchCategory(type, "0", "1000");
     }
 
-    public void doFilter(String type, RecyclerView recyclerView_filter, LinearLayout layout){
-        action = 2;
-        this.type = type;
-        this.recyclerView_filter = recyclerView_filter;
-        this.skeleton_layout = layout;
-        recyclerviewVisibility.recyclerviewVisibility(type);
-        fetchDataFromFirebase = new FetchDataFromFirebase(
-                recyclerView,
-                context,
-                layout
-        );
-
-        fetchDataFromFirebase.fetch(type);
-
-        fetchCategory(type, "0", "1000", recyclerView_filter, recyclerView, context);
-
-    }
-
-    public void doFilter(String type){
-
+    public void doFilter(String type, LinearLayout skeleton) {
         action = 0;
-        this.type = type;
-        recyclerviewVisibility.recyclerviewVisibility(type);
-        FetchDataFromFirebase fetchData = new FetchDataFromFirebase(recyclerView, context);
-        fetchData.fetchSpecific("Products", type, type);
+        saveState(type, null, null, null, skeleton);
+        startFiltering();
 
+        fetchDataFromFirebase.fetchSpecific("Products", type, type);
     }
 
-    public void doFilter(String type, LinearLayout layout){
-        action = 0;
-        this.type = type;
-        this.skeleton_layout = layout;
-        recyclerviewVisibility.recyclerviewVisibility(type);
-        FetchDataFromFirebase fetchData = new FetchDataFromFirebase(recyclerView, context, layout);
-        fetchData.fetchSpecific("Products", type, type);
-
-    }
-
-    public void lastAction(){
-
-        switch (action){
-            case 0:{
-                if (skeleton_layout != null)
-                    doFilter(type, skeleton_layout);
-                else
-                    doFilter(type);
+    public void lastAction() {
+        switch (action) {
+            case 0:
+                doFilter(type, skeletonLayout);
                 break;
-            }
-            case 1:{
-                doFilter(type, fPrice, tPrice, recyclerView_filter);
+
+            case 1:
+                doFilter(type, fPrice, tPrice, recyclerViewFilter, skeletonLayout);
                 break;
-            }
-            case 2:{
-                if (skeleton_layout != null)
-                    doFilter(type, recyclerView_filter, skeleton_layout);
-                else
-                    doFilter(type, recyclerView_filter);
+
+            case 2:
+                doFilter(type, recyclerViewFilter, skeletonLayout);
                 break;
-            }
         }
     }
 
-    public static void fetchCategory(String type, String fPrice, String tPrice, RecyclerView recyclerView_filter, RecyclerView recyclerView_items, Context context){
+    /* -------------------- Core Logic -------------------- */
 
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private void startFiltering() {
+        recyclerviewVisibility.recyclerviewVisibility(type);
+        clearRecyclerView();
+        showSkeleton();
 
-        List<String> dataOfRvFilter = new ArrayList<>();
-
-        DocumentReference docReference = firestore.collection("Data").document("Categories" + type);
-
-        recyclerView_filter.setAdapter(null);
-
-        docReference.get().addOnSuccessListener(documentSnapshot -> {
-            if (documentSnapshot.exists()) {
-                List<Object> data = (List<Object>) documentSnapshot.get("Categories");
-                for (Object item : Objects.requireNonNull(data)) {
-                    dataOfRvFilter.add(item.toString());
-                }
-            }
-            adapterRecyclerviewCategories adapterRvFilter = new adapterRecyclerviewCategories(dataOfRvFilter, recyclerView_items, type,fPrice, tPrice,context);
-            recyclerView_filter.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-            recyclerView_filter.setAdapter(adapterRvFilter);
-        }).addOnFailureListener(e -> {
-        });
+        fetchDataFromFirebase = new FetchDataFromFirebase(
+                recyclerView,
+                context,
+                skeletonLayout
+        );
     }
 
+    private void clearRecyclerView() {
+        recyclerView.setAdapter(null);
+    }
+
+    private void showSkeleton() {
+        if (skeletonLayout != null) {
+            skeletonLayout.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        }
+    }
+
+    private void hideSkeleton() {
+        if (skeletonLayout != null) {
+            skeletonLayout.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void saveState(String type,
+                           String fPrice,
+                           String tPrice,
+                           RecyclerView filterRv,
+                           LinearLayout skeleton) {
+
+        this.type = type;
+        this.fPrice = fPrice;
+        this.tPrice = tPrice;
+        this.recyclerViewFilter = filterRv;
+        this.skeletonLayout = skeleton;
+    }
+
+    /* -------------------- Category Fetch -------------------- */
+
+    private void fetchCategory(String type, String fPrice, String tPrice) {
+
+        if (recyclerViewFilter == null) {
+            hideSkeleton();
+            return;
+        }
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        List<String> categories = new ArrayList<>();
+
+        recyclerViewFilter.setAdapter(null);
+
+        DocumentReference ref =
+                firestore.collection("Data").document("Categories" + type);
+
+        ref.get()
+                .addOnSuccessListener(snapshot -> {
+                    if (snapshot.exists()) {
+                        List<Object> data =
+                                (List<Object>) snapshot.get("Categories");
+
+                        for (Object item : Objects.requireNonNull(data)) {
+                            categories.add(item.toString());
+                        }
+                    }
+
+                    adapterRecyclerviewCategories adapter =
+                            new adapterRecyclerviewCategories(
+                                    categories,
+                                    recyclerView,
+                                    type,
+                                    fPrice,
+                                    tPrice,
+                                    context, skeletonLayout
+                            );
+
+                    recyclerViewFilter.setLayoutManager(
+                            new LinearLayoutManager(context,
+                                    LinearLayoutManager.HORIZONTAL,
+                                    false)
+                    );
+
+                    recyclerViewFilter.setAdapter(adapter);
+                    hideSkeleton();
+                })
+                .addOnFailureListener(e -> hideSkeleton());
+    }
 }
