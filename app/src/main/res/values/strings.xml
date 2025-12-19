@@ -5,7 +5,6 @@
     <string name="full_name">Full name</string>
     <string name="email">Email</string>
     <string name="phone_no">Phone No:</string>
-    <string name="upload_a_photo">Upload a photo</string>
     <string name="pin">Pin</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
@@ -329,4 +328,5 @@
     <string name="something_wrong_please_try_again">Something Wrong, Please try again!</string>
     <string name="remove_image_background">Remove Image Background</string>
     <string name="it_looks_like_you_have_not_make_any_orders_yet_nstart_listing_your_products_now">It looks like you have not make any Orders yet\nStart listing your products now!</string>
+    <string name="upload_a_photo">Upload a photo</string>
 </resources>

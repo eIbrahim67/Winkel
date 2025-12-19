@@ -5,14 +5,6 @@
     <string name="full_name">الاسم الكامل</string>
     <string name="email">البريد الإلكتروني</string>
     <string name="phone_no">رقم الهاتف:</string>
-    <string name="create_account_for">إنشاء حساب ل:</string>
-    <string name="customer">العميل</string>
-    <string name="vendor">البائع</string>
-    <string name="admin">المسؤول</string>
-    <string name="code">الرمز</string>
-    <string name="license">الرخصة:</string>
-    <string name="upload_a_photo">تحميل صورة</string>
-    <string name="upload_a_pdf">تحميل ملف PDF</string>
     <string name="pin">الرقم السري</string>
     <string name="password">كلمة المرور</string>
     <string name="confirm_password">تأكيد كلمة المرور</string>
@@ -26,7 +18,6 @@
     <string name="women">النساء</string>
     <string name="kids">الأطفال</string>
     <string name="if_you_haven_t_found_your_latest_updates_please_refresh_the_page">إذا لم تجد أحدث التحديثات الخاصة بك\nيرجى تحديث الصفحة</string>
-    <string name="your_wishlist_is_empty">قائمة الرغبات الخاصة بك فارغة!</string>
     <string name="oops">عفواً!</string>
     <string name="it_looks_like_your_basket_is_empty__start_adding_items_to_your_basket_now">يبدو أن سلة التسوق الخاصة بك فارغة\nابدأ في إضافة العناصر إلى سلة التسوق الخاصة بك الآن!</string>
     <string name="checkout">الدفع</string>
@@ -36,17 +27,14 @@
     <string name="le">\u00A0ج.م</string>
     <string name="_0">0</string>
     <string name="personal_data">البيانات الشخصية</string>
-    <string name="payment_methods">طرق الدفع</string>
     <string name="my_orders">طلباتي</string>
     <string name="enter_your_current_pin">أدخل الرقم السري الحالي الخاص بك</string>
     <string name="shipping_address">عنوان الشحن</string>
-    <string name="payment_method">طريقة الدفع</string>
     <string name="subtotal">المجموع الفرعي:</string>
     <string name="standard_delivery">التوصيل القياسي:</string>
     <string name="payment">الدفع</string>
     <string name="size">الحجم</string>
     <string name="add_to_basket">إضافة إلى السلة</string>
-    <string name="review">\u00A0مراجعة</string>
     <string name="logged_out_successfully">تم تسجيل الخروج بنجاح</string>
     <string name="are_you_sure">هل أنت متأكد؟</string>
     <string name="log_out">تسجيل الخروج</string>
@@ -56,28 +44,11 @@
     <string name="basket_empty_message">سلة التسوق الخاصة بك فارغة! يرجى إضافة شيء لإتمام الشراء</string>
     <string name="check_from_your_data">تحقق من بياناتك</string>
     <string name="authentication_successful">تمت المصادقة بنجاح</string>
-    <string name="creation_successful_message">تم الإنشاء بنجاح!\nتم إنشاء حسابك</string>
-    <string name="creation_failed_message">فشلت عملية الإنشاء\nيرجى التحقق مرة أخرى من بياناتك والمحاولة مرة أخرى</string>
-    <string name="authentication_failed_message">فشلت عملية المصادقة\nيرجى التحقق مرة أخرى من معلوماتك والمحاولة مرة أخرى</string>
-    <string name="username_empty_error">يرجى إدخال اسم المستخدم</string>
-    <string name="email_empty_error">الرجاء إدخال عنوان بريد إلكتروني</string>
-    <string name="pin_empty_error">الرجاء إدخال الرقم السري</string>
-    <string name="repin_empty_error">الرجاء إعادة إدخال الرقم السري</string>
-    <string name="pins_not_match_error">الرقم السري غير متطابق</string>
-    <string name="password_empty_error">الرجاء إدخال كلمة مرور</string>
-    <string name="re_password_empty_error">الرجاء إعادة إدخال كلمة المرور</string>
-    <string name="passwords_not_match_error">كلمات المرور غير متطابقة</string>
-    <string name="invalid_phone_error">الرجاء إدخال رقم هاتف صحيح</string>
-    <string name="invalid_user_type_error">نوع مستخدم غير صالح</string>
-    <string name="terms_of_service_error">يرجى الموافقة على شروط الخدمة الخاصة بنا</string>
-    <string name="pin_length_error">يجب أن يحتوي الرقم السري على أربعة أرقام بالضبط</string>
     <string name="item_added_to_wishlist_success">تمت إضافة العنصر بنجاح إلى قائمة الرغبات الخاصة بك</string>
     <string name="unexpected_error_occurred">حدث خطأ غير متوقع\nيرجى المحاولة مرة أخرى لاحقًا</string>
     <string name="item_removed_from_wishlist_success">تمت إزالة العنصر بنجاح من قائمة الرغبات الخاصة بك</string>
     <string name="item_added_success">تمت إضافة العنصر بنجاح إلى سلة التسوق الخاصة بك</string>
     <string name="choose_size_prompt">الرجاء اختيار الحجم الخاص بك</string>
-    <string name="payment_added_success">تمت إضافة طريقة الدفع بنجاح</string>
-    <string name="payment_add_failed">فشلت عملية إضافة طريقة الدفع\nالرجاء المحاولة مرة أخرى</string>
     <string name="payment_successful">تم الدفع بنجاح</string>
     <string name="wrong_pin_message">رقم السري خاطئ</string>
     <string name="item_uploaded_success">تم تحميل العنصر الجديد بنجاح</string>
@@ -101,28 +72,15 @@
     <string name="from">من</string>
     <string name="to">إلى</string>
     <string name="_1000">1000</string>
-    <string name="add_new_method">إضافة طريقة جديدة</string>
-    <string name="visa">فيزا</string>
-    <string name="mastercard">ماستركارد</string>
-    <string name="add_new_payment_method">إضافة طريقة دفع جديدة</string>
-    <string name="card_holder_name">اسم صاحب البطاقة</string>
-    <string name="card_number">رقم البطاقة</string>
-    <string name="expiry_date">تاريخ انتهاء الصلاحية</string>
-    <string name="cvv">CVV</string>
-    <string name="add_method">إضافة الطريقة</string>
-    <string name="my_payment_methods">طرق الدفع الخاصة بي</string>
     <string name="all_orders">كل الطلبات</string>
     <string name="title">العنوان</string>
     <string name="_for">ل</string>
     <string name="take_a_photo">التقط صورة</string>
     <string name="upload">تحميل</string>
     <string name="search">بحث....</string>
-    <string name="total_price">السعر الإجمالي:</string>
     <string name="customer_id">هوية العميل:</string>
     <string name="total_price_of_order">السعر الإجمالي للطلب:</string>
     <string name="edit_personal_data">تعديل البيانات الشخصية</string>
-    <string name="account_type">نوع الحساب</string>
-    <string name="gender">النوع</string>
     <string name="your_admin_code">رمز المسؤول الخاص بك</string>
     <string name="your_vendor_code">رمز البائع الخاص بك</string>
     <string name="copy">نسخ</string>
@@ -130,7 +88,6 @@
     <string name="dark_mode">الوضع الداكن</string>
     <string name="security_policies">الأمان</string>
     <string name="languages">اللغات</string>
-    <string name="notifications">الإشعارات</string>
     <string name="sound">الصوت</string>
     <string name="accessibility_advanced"><![CDATA[الوصولية والمتقدمة]]></string>
     <string name="slogan_v1">اكتشف العروض\nافرح كل يوم</string>
@@ -146,8 +103,6 @@
     <string name="recommended">موصى به</string>
     <string name="boys">الأولاد</string>
     <string name="account">الحساب</string>
-    <string name="for_admins">للمسؤولين</string>
-    <string name="all_users">جميع المستخدمين</string>
     <string name="for_vendors">للبائعين</string>
     <string name="add_new_item">إضافة عنصر جديد</string>
     <string name="my_items">عناصري</string>
@@ -156,7 +111,6 @@
     <string name="help_feedback"><![CDATA[المساعدة والتغذية الراجعة]]></string>
     <string name="permissions">الأذونات</string>
     <string name="about">عن التطبيق</string>
-    <string name="support_us">دعمنا</string>
     <string name="thank_you_for_choosing_winkel__happy_shopping">شكرًا لاختيارك وينكل.\nتسوق سعيد!</string>
     <string name="about_winkel">حول وينكل</string>
     <string name="welcome_to_winkel_your_ultimate_destination_for_convenient_and_secure_online_shopping_at_winkel_we_re_dedicated_to_providing_you_with_a_seamless_shopping_experience_offering_a_wide_range_of_products_from_trusted_vendors_here_s_what_you_need_to_know_about_us">مرحبًا بك في وينكل، وجهتك النهائية للتسوق عبر الإنترنت بطريقة مريحة وآمنة. في وينكل، نحن ملتزمون بتوفير تجربة تسوق سلسة لك، حيث نقدم مجموعة واسعة من المنتجات من البائعين الموثوق بهم. إليك ما تحتاج إلى معرفته عنا:</string>
@@ -271,14 +225,12 @@
     <string name="wishlist">قائمة الرغبات</string>
     <string name="winkel">وينكل</string>
     <string name="item_detail">تفاصيل المنتج</string>
-    <string name="hello_blank_fragment">مرحبًا بالمقطع الفارغ</string>
     <string name="remove">إزالة</string>
     <string name="decrement">نقص</string>
     <string name="increment">زيادة</string>
     <string name="_1">١</string>
     <string name="love_button">زر الإعجاب</string>
     <string name="item_added_to_basket_successfully">تمت إضافة المنتج إلى السلة بنجاح</string>
-    <string name="view_basket">عرض السلة</string>
     <string name="description">الوصف</string>
     <string name="reviews">المراجعات</string>
     <string name="profile">الملف الشخصي</string>
@@ -289,14 +241,12 @@
     <string name="much_of_item">كمية المنتج:</string>
     <string name="total_price_of_this_item">السعر الإجمالي لهذا المنتج:</string>
     <string name="light_mode">الوضع الفاتح</string>
-    <string name="please_fill_all_fields">يرجى ملء جميع الحقول</string>
     <string name="are_you_sure_you_want_to_permanently_remove_this_item_from_your_shop">هل أنت متأكد أنك تريد إزالة هذا المنتج نهائيًا من متجرك؟</string>
     <string name="delete">حذف</string>
     <string name="item_successfully_deleted">تم حذف المنتج بنجاح.</string>
     <string name="cancel">إلغاء</string>
     <string name="signup_successful">تم التسجيل بنجاح</string>
     <string name="please_fill_valid_details">يرجى إدخال بيانات صحيحة</string>
-    <string name="update">تحديث</string>
     <string name="your_request_has_been_submitted_successfully">تم إرسال طلبك بنجاح</string>
     <string name="please_enter_your_admin_code">يرجى إدخال رمز المسؤول</string>
     <string name="phone_number">رقم الهاتف</string>
@@ -377,5 +327,18 @@
     <string name="failed_to_fetch_pin">فشل في جلب رمز PIN</string>
     <string name="pin_not_set_for_user">لم يتم تعيين رمز PIN للمستخدم</string>
     <string name="authentication_failed_check_your_credentials">فشل تسجيل الدخول: يرجى التحقق من بياناتك</string>
+    <string name="remove_background">إزالة الخلفية</string>
 
+    <string name="something_wrong_please_try_again">
+حدث خطأ ما، يرجى المحاولة مرة أخرى!
+</string>
+
+    <string name="remove_image_background">إزالة خلفية الصورة</string>
+
+    <string name="it_looks_like_you_have_not_make_any_orders_yet_nstart_listing_your_products_now">
+يبدو أنك لم تقم بأي طلبات حتى الآن
+ابدأ بإضافة منتجاتك الآن!
+</string>
+
+    <string name="upload_a_photo">رفع صورة</string>
 </resources>
