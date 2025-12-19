@@ -52,18 +52,25 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:orientation="horizontal"
+            android:paddingStart="20dp"
             android:paddingTop="10dp"
             android:paddingEnd="20dp"
             android:paddingBottom="10dp">
+
+            <RadioButton
+                android:id="@+id/RadBtnLight"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 style="@style/TextColor_v1_clickable"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:paddingStart="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
                 android:text="@string/light_mode"
                 android:textSize="26sp"
                 android:textStyle="bold" />
@@ -88,17 +95,26 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:orientation="horizontal"
+            android:paddingStart="20dp"
             android:paddingTop="10dp"
             android:paddingEnd="20dp"
             android:paddingBottom="10dp">
+
+
+            <RadioButton
+                android:id="@+id/RadBtnNight"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical" />
+
 
             <TextView
                 style="@style/TextColor_v1_clickable"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
                 android:paddingStart="20dp"
                 android:text="@string/dark_mode"
                 android:textSize="26sp"
@@ -124,18 +140,27 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:orientation="horizontal"
+            android:paddingStart="20dp"
             android:paddingTop="10dp"
             android:paddingEnd="20dp"
             android:paddingBottom="10dp">
+
+
+            <RadioButton
+                android:id="@+id/RadBtnSystem"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical" />
+
 
             <TextView
                 style="@style/TextColor_v1_clickable"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:paddingStart="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
                 android:text="@string/system_settings"
                 android:textSize="26sp"
                 android:textStyle="bold" />

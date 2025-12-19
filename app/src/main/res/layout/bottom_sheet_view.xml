@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    style="@style/background"
     android:paddingBottom="40dp">
 
     <RelativeLayout
@@ -16,14 +15,14 @@
 
         <ImageView
             android:id="@+id/back_view_btn"
+            style="@style/back_arrow_background_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            style="@style/back_arrow_background_btn"
-            android:padding="5dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
             android:clickable="true"
             android:focusable="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp" />
+            android:padding="5dp" />
 
         <TextView
             style="@style/TextColor_v1"
@@ -31,7 +30,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/font_v2"
             android:text="@string/view"
             android:textSize="32sp"
             android:textStyle="bold"
@@ -44,94 +42,94 @@
         android:layout_height="2dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/gray_v1"/>
+        android:background="@color/gray_v1" />
 
     <LinearLayout
+        style="@style/sharp_gray_v4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
         android:orientation="horizontal"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        style="@style/sharp_gray_v4"
-        android:clickable="true"
-        android:focusable="true">
+        android:paddingBottom="5dp">
 
         <ImageView
+            style="@style/view_grid_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            style="@style/view_grid_icon"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp" />
 
         <TextView
+            style="@style/TextColor_v1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/grid_view"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/font_v3"
             android:gravity="center_vertical"
+            android:text="@string/grid_view"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:fontFamily="@font/font_v1"
-            style="@style/TextColor_v1"
-            android:layout_marginStart="10dp"
-            tools:ignore="InefficientWeight"/>
+            tools:ignore="InefficientWeight" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
+                style="@style/radio_button_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                style="@style/radio_button_background"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
-                android:checked="true"/>
+                android:checked="true" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
     <LinearLayout
+        style="@style/sharp_gray_v4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        style="@style/sharp_gray_v4"
-
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        android:orientation="horizontal"
+
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
         <ImageView
+            style="@style/view_linear_horizontal_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            style="@style/view_linear_horizontal_icon"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp" />
 
         <TextView
+            style="@style/TextColor_v1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/linear_horizontal_view"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/font_v3"
             android:gravity="center_vertical"
+            android:text="@string/linear_horizontal_view"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:fontFamily="@font/font_v1"
-            style="@style/TextColor_v1"
-            android:layout_marginStart="10dp"
-            tools:ignore="InefficientWeight"/>
+            tools:ignore="InefficientWeight" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
+                style="@style/radio_button_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                style="@style/radio_button_background"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp" />
 
         </RelativeLayout>
@@ -139,45 +137,45 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/sharp_gray_v4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        style="@style/sharp_gray_v4"
+        android:clickable="true"
+        android:focusable="true"
         android:orientation="horizontal"
 
-        android:clickable="true"
-        android:focusable="true">
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
         <ImageView
+            style="@style/view_linear_vertical_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            style="@style/view_linear_vertical_icon"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp" />
 
         <TextView
+            style="@style/TextColor_v1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/linear_vertical_view"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/font_v3"
             android:gravity="center_vertical"
+            android:text="@string/linear_vertical_view"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:fontFamily="@font/font_v1"
-            style="@style/TextColor_v1"
-            android:layout_marginStart="10dp"
-            tools:ignore="InefficientWeight"/>
+            tools:ignore="InefficientWeight" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
+                style="@style/radio_button_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                style="@style/radio_button_background"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp" />
 
         </RelativeLayout>
@@ -186,19 +184,18 @@
 
 
     <Button
+        style="@style/checkout_background_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        style="@style/checkout_background_btn"
-        android:text="@string/done"
-        android:textSize="20sp"
-        android:textAllCaps="false"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"/>
-    
+        android:text="@string/done"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
 </LinearLayout>

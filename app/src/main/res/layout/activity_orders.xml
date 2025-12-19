@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="@string/all_orders"
             android:textSize="40sp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:textStyle="bold"
             android:clickable="true"
             android:focusable="true"

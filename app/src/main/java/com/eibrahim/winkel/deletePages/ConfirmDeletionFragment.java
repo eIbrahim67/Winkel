@@ -54,29 +54,26 @@ public class ConfirmDeletionFragment extends Fragment {
         }
 
         binding.btnDeleteAccountFinal.setOnClickListener(v -> {
-
-            String code = binding.deleteAccountPin.getText().toString().trim();
-
+            String code = Objects.requireNonNull(binding.deleteAccountPin.getText()).toString().trim();
             if (!code.isEmpty()) {
-
+                binding.btnDeleteAccountFinal.setEnabled(false);
+                binding.btnDeleteAccountFinal.setText("");
+                binding.progressBar.setVisibility(View.VISIBLE);
                 pinRef.get().addOnSuccessListener(snapshot -> {
                     if (snapshot.exists()) {
                         String correctPin = String.valueOf(snapshot.get("pin"));
                         if (code.equals(correctPin)) {
-
                             new AlertDialog.Builder(requireContext()).setTitle(R.string.delete_account).setMessage(R.string.are_you_sure_you_want_to_permanently_delete_your_account).setPositiveButton(R.string.yes, (dialog, which) -> deleteMyAccount()).setNegativeButton(R.string.cancel, null).show();
-
-
                         } else {
-                            Toast.makeText(requireContext(), getText(R.string.incorrect_pin_please_try_again), Toast.LENGTH_SHORT).show();
+                            Snackbar.make(requireView(), getText(R.string.incorrect_pin_please_try_again), Snackbar.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(requireContext(), getText(R.string.pin_not_found_please_contact_support), Toast.LENGTH_SHORT).show();
+                        Snackbar.make(requireView(), getText(R.string.pin_not_found_please_contact_support), Snackbar.LENGTH_SHORT).show();
                     }
-                }).addOnFailureListener(e -> Toast.makeText(requireContext(), getText(R.string.failed_to_verify_pin_please_check_your_connection), Toast.LENGTH_SHORT).show());
+                }).addOnFailureListener(e -> Snackbar.make(requireView(), getText(R.string.failed_to_verify_pin_please_check_your_connection), Snackbar.LENGTH_SHORT).show());
 
             } else {
-                Toast.makeText(requireContext(), getString(R.string.please_enter_your_admin_code), Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), getString(R.string.please_enter_your_admin_code), Snackbar.LENGTH_SHORT).show();
             }
 
         });
@@ -87,14 +84,13 @@ public class ConfirmDeletionFragment extends Fragment {
     private void logout() {
         try {
             FirebaseAuth.getInstance().signOut();
-            Toast.makeText(requireContext(), getString(R.string.logged_out_successfully), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), getString(R.string.logged_out_successfully), Snackbar.LENGTH_SHORT).show();
             Intent intent = new Intent(requireContext(), AuthActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             requireActivity().finish();
         } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(requireContext(), getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), getString(R.string.unexpected_error_occurred), Snackbar.LENGTH_SHORT).show();
         }
     }
 
@@ -109,19 +105,20 @@ public class ConfirmDeletionFragment extends Fragment {
         userDataRef.delete().addOnSuccessListener(aVoid -> {
             // 2. Try deleting Firebase Authentication account
             auth.getCurrentUser().delete().addOnSuccessListener(aVoid1 -> {
-                Toast.makeText(requireContext(), R.string.account_deleted_successfully, Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), R.string.account_deleted_successfully, Snackbar.LENGTH_SHORT).show();
+                binding.btnDeleteAccountFinal.setEnabled(true);
+                binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+                binding.progressBar.setVisibility(View.GONE);
                 logout(); // Redirect to AuthActivity
             }).addOnFailureListener(e -> {
                 if (e.getMessage() != null && e.getMessage().contains("recent login")) {
-                    Toast.makeText(requireContext(), R.string.please_re_login_before_deleting_your_account, Toast.LENGTH_LONG).show();
+                    Snackbar.make(requireView(), R.string.please_re_login_before_deleting_your_account, Snackbar.LENGTH_LONG).show();
                     logout(); // Optionally force logout so user logs in again
                 } else {
-                    Toast.makeText(requireContext(), "Auth deletion failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Snackbar.make(requireView(), "Auth deletion failed: " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
                 }
             });
-        }).addOnFailureListener(e -> {
-            Toast.makeText(requireContext(), "Failed to delete user data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        });
+        }).addOnFailureListener(e -> Snackbar.make(requireView(), "Failed to delete user data: " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
     }
 
 

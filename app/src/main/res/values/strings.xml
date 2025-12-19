@@ -327,4 +327,6 @@
     <string name="authentication_failed_check_your_credentials">Authentication Failed: Check your credentials</string>
     <string name="remove_background">Remove Background</string>
     <string name="something_wrong_please_try_again">Something Wrong, Please try again!</string>
+    <string name="remove_image_background">Remove Image Background</string>
+    <string name="it_looks_like_you_have_not_make_any_orders_yet_nstart_listing_your_products_now">It looks like you have not make any Orders yet\nStart listing your products now!</string>
 </resources>

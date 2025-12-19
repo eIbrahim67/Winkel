@@ -153,10 +153,9 @@
                     android:layout_marginBottom="20dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:text="@string/checkout"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

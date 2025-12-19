@@ -501,7 +501,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:gravity="center_horizontal"
             android:text="@string/thank_you_for_choosing_winkel__your_security_and_peace_of_mind_are_our_utmost_priority"
             android:textSize="18sp"

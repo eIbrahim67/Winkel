@@ -140,7 +140,7 @@
                     android:autofillHints="name"
                     android:clickable="true"
                     android:focusable="true"
-                    android:fontFamily="@font/font_v1"
+                    android:fontFamily="@font/font_v3"
                     android:hint="@string/state"
                     android:minHeight="50dp"
                     android:paddingStart="10dp"
@@ -160,7 +160,7 @@
                     android:autofillHints="name"
                     android:clickable="true"
                     android:focusable="true"
-                    android:fontFamily="@font/font_v1"
+                    android:fontFamily="@font/font_v3"
                     android:hint="@string/city"
                     android:minHeight="50dp"
                     android:paddingStart="10dp"
@@ -179,7 +179,7 @@
                     android:autofillHints="name"
                     android:clickable="true"
                     android:focusable="true"
-                    android:fontFamily="@font/font_v1"
+                    android:fontFamily="@font/font_v3"
                     android:hint="@string/rest_of_address_in_detail_e_g_street"
                     android:minHeight="50dp"
                     android:paddingStart="10dp"
@@ -316,10 +316,9 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
             android:text="@string/payment"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ProgressBar
             android:id="@+id/progressBar"

@@ -528,7 +528,7 @@
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:gravity="top"
                 android:hint="@string/describe_your_experience_here"
                 android:importantForAutofill="no"

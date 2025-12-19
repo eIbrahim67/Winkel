@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        
+
         android:layout_marginTop="10dp">
 
         <ImageView
@@ -22,7 +22,7 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_centerVertical="true"
-            
+
             android:layout_marginStart="10dp" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/font_v2"
+            android:fontFamily="@font/font_v3"
             android:text="@string/more_options"
             android:textSize="32sp"
             android:textStyle="bold"
@@ -72,7 +72,7 @@
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             style="@style/TextColor_v1"
             tools:ignore="InefficientWeight" />
 
@@ -110,7 +110,7 @@
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             style="@style/TextColor_v1"
             tools:ignore="InefficientWeight" />
 
@@ -150,7 +150,7 @@
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             style="@style/TextColor_v1"
             tools:ignore="InefficientWeight" />
 
@@ -191,7 +191,7 @@
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:textStyle="bold"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             style="@style/TextColor_v1"
             tools:ignore="InefficientWeight" />
 

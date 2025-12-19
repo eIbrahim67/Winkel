@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 style="@style/TextColor_v2"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"/>
 
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         style="@style/TextColor_v2"
-        android:fontFamily="@font/font_v1"
+        android:fontFamily="@font/font_v3"
         android:textStyle="bold"
         android:layout_marginTop="5dp"/>
 

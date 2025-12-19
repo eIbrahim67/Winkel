@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".personalData.PersonalDataFragment"
-    style="@style/background">
+    tools:context=".personalData.PersonalDataFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,60 +14,60 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/btnBack"
+                style="@style/back_arrow_background_btn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                style="@style/back_arrow_background_btn"
-                android:padding="9dp"
-                android:focusable="true"
                 android:clickable="true"
                 android:contentDescription="Back"
+                android:focusable="true"
+                android:padding="9dp"
                 tools:ignore="HardcodedText" />
 
             <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="26sp"
-                style="@style/TextColor_v1"
-                android:text="@string/edit_personal_data"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
+                android:text="@string/edit_personal_data"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
 
         </LinearLayout>
 
         <TextView
+            style="@style/TextColor_v1"
             android:layout_width="match_parent"
-            android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/full_name"
-            android:gravity="center_vertical"
-            android:layout_marginTop="40dp"
-            android:textSize="20sp"
-            android:fontFamily="@font/font_v1"
-            style="@style/TextColor_v1"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/font_v3"
+            android:gravity="center_vertical"
+            android:text="@string/full_name"
+            android:textSize="20sp"
             tools:ignore="InefficientWeight" />
 
         <LinearLayout
-            android:orientation="horizontal"
+            style="@style/rounded_outline_solid_white_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            style="@style/rounded_outline_solid_white_black"
+            android:layout_marginEnd="20dp"
+            android:autofillHints="name"
             android:inputType="textPersonName"
-            android:autofillHints="name">
+            android:orientation="horizontal"
+            android:textSize="20sp">
 
             <EditText
                 android:id="@+id/update_name"
@@ -146,97 +145,96 @@
                 style="@style/copy_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                style="@style/copy_icon"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="10dp"
-                android:focusable="true"
                 android:clickable="true"
-                android:contentDescription="@string/copy" />
+                android:contentDescription="@string/copy"
+                android:focusable="true" />
 
         </LinearLayout>
 
         <TextView
+            style="@style/TextColor_v1"
             android:layout_width="match_parent"
-            android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/phone_no"
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:fontFamily="@font/font_v1"
-            style="@style/TextColor_v1"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/font_v3"
+            android:gravity="center_vertical"
+            android:text="@string/phone_no"
+            android:textSize="20sp"
             tools:ignore="InefficientWeight" />
 
         <LinearLayout
-            android:orientation="horizontal"
+            style="@style/rounded_outline_solid_white_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            style="@style/rounded_outline_solid_white_black"
+            android:layout_marginEnd="20dp"
+            android:autofillHints="name"
             android:inputType="textPersonName"
-            android:autofillHints="name">
+            android:orientation="horizontal"
+            android:textSize="20sp">
 
             <EditText
                 android:id="@+id/newPhone"
                 style="@style/TextColor_v4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:focusable="true"
-                android:clickable="true"
-                android:paddingEnd="10dp"
-                android:minHeight="60dp"
-                android:fontFamily="@font/font_v1"
+                android:layout_weight="1"
                 android:autofillHints="name"
                 android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v3"
                 android:inputType="phone"
+                android:minHeight="60dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
                 android:textSize="18sp"
-                android:layout_weight="1"
                 tools:ignore="LabelFor" />
 
             <ImageView
                 android:id="@+id/saveMyNewPhone"
+                style="@style/edit_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                style="@style/edit_icon"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                
+
                 android:layout_marginEnd="10dp"
                 android:contentDescription="@string/copy" />
 
         </LinearLayout>
-        
+
         <TextView
+            style="@style/TextColor_v1"
             android:layout_width="match_parent"
-            android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/become_an_admin"
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:fontFamily="@font/font_v1"
-            style="@style/TextColor_v1"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/font_v3"
+            android:gravity="center_vertical"
+            android:text="@string/become_an_admin"
+            android:textSize="20sp"
             tools:ignore="InefficientWeight" />
 
         <RelativeLayout
+            style="@style/rounded_outline_solid_white_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            style="@style/rounded_outline_solid_white_black"
+            android:layout_marginEnd="20dp"
+            android:autofillHints="name"
             android:inputType="textPersonName"
-            android:autofillHints="name">
+            android:textSize="20sp">
 
             <EditText
                 android:id="@+id/codeToBeAdmin"
@@ -247,16 +245,13 @@
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:clickable="true"
+                android:fontFamily="@font/font_v3"
                 android:hint="@string/enter_your_admin_code"
-                android:paddingEnd="10dp"
-                android:minHeight="60dp"
-                android:fontFamily="@font/font_v1"
-                android:autofillHints="name"
-                android:background="@android:color/transparent"
                 android:inputType="phone"
+                android:minHeight="60dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
                 android:textSize="18sp"
-                android:layout_weight="1"
                 tools:ignore="LabelFor" />
         </RelativeLayout>
 
@@ -267,29 +262,29 @@
             android:visibility="gone">
 
             <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="match_parent"
-                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/your_admin_code"
-                android:gravity="center_vertical"
-                android:layout_marginTop="20dp"
-                android:textSize="20sp"
-                android:fontFamily="@font/font_v1"
-                style="@style/TextColor_v1"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:text="@string/your_admin_code"
+                android:textSize="20sp"
                 tools:ignore="InefficientWeight" />
 
             <LinearLayout
-                android:orientation="horizontal"
+                style="@style/rounded_outline_solid_white_black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                style="@style/rounded_outline_solid_white_black"
-                android:inputType="textPersonName">
+                android:layout_marginEnd="20dp"
+                android:inputType="textPersonName"
+                android:orientation="horizontal"
+                android:textSize="20sp">
 
                 <TextView
                     style="@style/TextColor_v4"
@@ -297,23 +292,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
-                    android:minHeight="60dp"
-                    android:fontFamily="@font/font_v1"
+                    android:layout_weight="1"
                     android:autofillHints="name"
                     android:background="@android:color/transparent"
-                    android:layout_weight="1"
+                    android:fontFamily="@font/font_v3"
+                    android:minHeight="60dp"
                     android:textSize="18sp" />
 
                 <ImageView
+                    style="@style/copy_icon"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    style="@style/copy_icon"
-                    android:focusable="true"
-                    android:clickable="true"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
-                    android:contentDescription="@string/copy" />
+                    android:clickable="true"
+                    android:contentDescription="@string/copy"
+                    android:focusable="true" />
 
             </LinearLayout>
 
@@ -326,31 +321,31 @@
             android:visibility="gone">
 
             <TextView
+                style="@style/TextColor_v1"
                 android:layout_width="match_parent"
-                android:layout_marginEnd="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/your_vendor_code"
-                android:gravity="center_vertical"
-                android:layout_marginTop="30dp"
-                android:textSize="20sp"
-                android:fontFamily="@font/font_v1"
-                style="@style/TextColor_v1"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:text="@string/your_vendor_code"
+                android:textSize="20sp"
                 tools:ignore="InefficientWeight" />
 
             <LinearLayout
-                android:orientation="horizontal"
-                tools:ignore="UseCompoundDrawables"
+                style="@style/rounded_outline_solid_white_black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                style="@style/rounded_outline_solid_white_black"
+                android:layout_marginEnd="20dp"
+                android:autofillHints="name"
                 android:inputType="textPersonName"
-                android:autofillHints="name">
+                android:orientation="horizontal"
+                android:textSize="20sp"
+                tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     style="@style/TextColor_v4"
@@ -358,23 +353,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
-                    android:minHeight="60dp"
-                    android:fontFamily="@font/font_v1"
+                    android:layout_weight="1"
                     android:autofillHints="name"
                     android:background="@android:color/transparent"
-                    android:textSize="18sp"
-                    android:layout_weight="1"/>
+                    android:fontFamily="@font/font_v3"
+                    android:minHeight="60dp"
+                    android:textSize="18sp" />
 
                 <ImageView
+                    style="@style/copy_icon"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    style="@style/copy_icon"
-                    android:focusable="true"
-                    android:clickable="true"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
-                    android:contentDescription="@string/copy" />
+                    android:clickable="true"
+                    android:contentDescription="@string/copy"
+                    android:focusable="true" />
 
             </LinearLayout>
 
@@ -382,19 +377,18 @@
 
         <Button
             android:id="@+id/sendToBeAnAdmin"
+            style="@style/checkout_background_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            style="@style/checkout_background_btn"
-            android:text="@string/request_to_become_an_admin"
-            android:textSize="20sp"
-            android:focusable="true"
-            android:clickable="true"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:textStyle="bold"
+            android:text="@string/request_to_become_an_admin"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

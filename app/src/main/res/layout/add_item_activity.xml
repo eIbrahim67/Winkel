@@ -51,7 +51,7 @@
             android:layout_marginTop="20dp"
 
 
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/title"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -424,18 +424,11 @@
                 android:id="@+id/upload_btn"
                 style="@style/checkout_background_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v3"
-                android:gravity="center"
-                android:paddingStart="20dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="10dp"
                 android:text="@string/upload"
-                android:textAllCaps="false"
-                android:textSize="26sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ProgressBar

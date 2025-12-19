@@ -20,7 +20,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/welcome__sign_up"
             android:textSize="50sp"
             android:textStyle="bold" />
@@ -32,7 +32,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/full_name"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -385,7 +385,7 @@
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:text="@string/sign_in"
                 android:textColor="@drawable/text_selector_red_blue"
                 android:textSize="18sp"

@@ -346,7 +346,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textStyle="bold"
-                    android:fontFamily="@font/font_v1"
+                    android:fontFamily="@font/font_v3"
                     android:textSize="20sp"
                     android:layout_weight="1"
                     android:layout_marginStart="10dp"

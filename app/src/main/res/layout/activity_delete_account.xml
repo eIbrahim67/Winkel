@@ -366,7 +366,7 @@
                 android:textSize="20sp"
                 style="@style/TextColor_v1"
                 android:background="@android:color/transparent"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:paddingTop="10dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"

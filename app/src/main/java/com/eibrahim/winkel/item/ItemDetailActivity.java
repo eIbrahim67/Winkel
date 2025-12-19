@@ -115,26 +115,25 @@ public class ItemDetailActivity extends AppCompatActivity {
             }
 
             if (currentItem != null) {
-
-                // 1. Prepare UI before network call
+                binding.addToBasket.setEnabled(false);
+                binding.addToBasket.setText("");
                 binding.progressBar.setVisibility(View.VISIBLE);
-                binding.addToBasketText.setVisibility(View.GONE);
 
                 currentItem.setMuch("1");
 
                 basketRef.update("BasketCollection", FieldValue.arrayUnion(currentItem.getItemId() + "," + currentItem.getItemType() + "," + currentItem.getMuch() + "," + adapterRvSizes.getSize())).addOnSuccessListener(a -> {
 
-                    // 2. Restore UI
+                    binding.addToBasket.setEnabled(true);
+                    binding.addToBasket.setText(R.string.add_to_basket);
                     binding.progressBar.setVisibility(View.GONE);
-                    binding.addToBasketText.setVisibility(View.VISIBLE);
 
                     // 3. Show dialog AFTER UI is stable
                     addedToBasketDialog.show(getSupportFragmentManager(), "");
 
                 }).addOnFailureListener(e -> {
-                    // 4. Restore UI on failure
+                    binding.addToBasket.setEnabled(true);
+                    binding.addToBasket.setText(R.string.add_to_basket);
                     binding.progressBar.setVisibility(View.GONE);
-                    binding.addToBasketText.setVisibility(View.VISIBLE);
 
                     Snackbar.make(binding.getRoot(), getString(R.string.unexpected_error_occurred), Snackbar.LENGTH_SHORT).show();
                 });
