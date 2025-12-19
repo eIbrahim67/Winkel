@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.databinding.FragmentCheckoutBinding;
@@ -19,6 +20,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +35,7 @@ public class CheckoutFragment extends Fragment {
     private double totalPrice = 0.0;
     private int items = 0;
     private long lastRefreshTime = 0;
+    private adapterRecyclerviewBasket adapter = null;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -144,8 +147,7 @@ public class CheckoutFragment extends Fragment {
             return;
         }
 
-        adapterRecyclerviewBasket adapter =
-                new adapterRecyclerviewBasket(itemsList, this);
+        adapter = new adapterRecyclerviewBasket(itemsList, this);
 
         binding.rv3.setLayoutManager(new GridLayoutManager(requireContext(), 1));
         binding.rv3.setAdapter(adapter);
@@ -182,6 +184,11 @@ public class CheckoutFragment extends Fragment {
     // -----------------------------
     private void setupSwipeRefresh() {
         binding.checkoutFragment.setOnRefreshListener(() -> {
+            binding.noOfItems.setText(R.string._0_items);
+            totalPrice = 0;
+            items = 0;
+            if (adapter != null)
+                adapter.clear();
             long now = System.currentTimeMillis();
 
             if (now - lastRefreshTime >= refreshDelayMillis) {

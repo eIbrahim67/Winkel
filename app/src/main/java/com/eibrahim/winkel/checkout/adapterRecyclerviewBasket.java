@@ -35,6 +35,13 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
         this.checkoutFragment = fragment;
     }
 
+    public void clear(){
+
+        itemList.clear();
+        notifyDataSetChanged();
+
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final ImageView itemImage, itemDeleteCheck, btn_sub, btn_plus;
         final TextView itemCateCheck, itemNameCheck, itemPriceCheck, itemMuchCounter;

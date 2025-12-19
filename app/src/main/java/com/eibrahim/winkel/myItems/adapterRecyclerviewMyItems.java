@@ -74,7 +74,6 @@ public class adapterRecyclerviewMyItems extends RecyclerView.Adapter<adapterRecy
                 .load(currentItem.getImageId())
                 .into(holder.itemImage);
 
-
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
             intent.putExtra("item", currentItem);
@@ -102,6 +101,7 @@ public class adapterRecyclerviewMyItems extends RecyclerView.Adapter<adapterRecy
                                     Snackbar.make(holder.itemView, context.getText(R.string.item_successfully_deleted), Snackbar.LENGTH_SHORT).show();
                                     itemList.remove(holder.getAdapterPosition());
                                     notifyItemRemoved(holder.getAdapterPosition());
+
                                 })
                                 .addOnFailureListener(e -> Snackbar.make(holder.itemView, R.string.failed_to_delete_the_item_please_try_again, Snackbar.LENGTH_SHORT).show());
                     })

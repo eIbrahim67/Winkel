@@ -153,7 +153,8 @@ public class AddItemFragment extends Fragment {
             categoriesList.clear();
             if (doc.exists() && doc.get("Categories") != null) {
                 List<?> data = (List<?>) doc.get("Categories");
-                for (Object item : Objects.requireNonNull(data)) categoriesList.add(item.toString());
+                for (Object item : Objects.requireNonNull(data))
+                    categoriesList.add(item.toString());
             }
             if (!categoriesList.isEmpty()) {
                 categoriesList.remove(0);
@@ -219,7 +220,9 @@ public class AddItemFragment extends Fragment {
 
     private void uploadItem() {
         binding.progressBar.setVisibility(View.VISIBLE);
-        binding.uploadBtn.setVisibility(View.GONE);
+        binding.uploadBtn.setEnabled(false);
+        binding.uploadBtn.setText("");
+
         String price = binding.postPrice.getText().toString().trim();
         String title = binding.postTitle.getText().toString().trim();
         String details = binding.postDetails.getText().toString().trim();
@@ -230,49 +233,54 @@ public class AddItemFragment extends Fragment {
 // Validate each field individually
         if (title.isEmpty()) {
             Snackbar.make(requireView(), R.string.error_enter_title, Snackbar.LENGTH_SHORT).show();
+
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             return;
         }
 
         if (details.isEmpty()) {
             Snackbar.make(requireView(), R.string.error_enter_details, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             return;
         }
 
         if (typeFor == null) {
             Snackbar.make(requireView(), R.string.error_select_type_for, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             return;
         }
 
         if (category == null) {
             Snackbar.make(requireView(), R.string.error_select_category, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             return;
         }
 
         if (price.isEmpty()) {
             Snackbar.make(requireView(), R.string.error_enter_price, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             return;
         }
 
         if (selectedImage == null) {
             Snackbar.make(requireView(), R.string.error_select_image, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             return;
         }
 
         DataProductItem item = new DataProductItem(category, null, title, price, typeFor);
-        binding.progressBar.setVisibility(View.GONE);
-        binding.uploadBtn.setVisibility(View.VISIBLE);
         item.setDetails(details);
         addItemToShop(item, selectedImage);
     }
@@ -288,7 +296,8 @@ public class AddItemFragment extends Fragment {
 
         collection.document(docId).set(item).addOnSuccessListener(aVoid -> uploadImageToFirebase(imageUri, docId)).addOnFailureListener(e -> {
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             Snackbar.make(requireView(), R.string.failed_to_upload_data, Snackbar.LENGTH_SHORT).show();
         });
     }
@@ -299,7 +308,8 @@ public class AddItemFragment extends Fragment {
 
         ref.putFile(uri).addOnSuccessListener(task -> ref.getDownloadUrl().addOnSuccessListener(url -> updateImageUrlInFirestore(url.toString(), docId))).addOnFailureListener(e -> {
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             Snackbar.make(requireView(), R.string.image_upload_failed, Snackbar.LENGTH_SHORT).show();
         });
     }
@@ -308,12 +318,14 @@ public class AddItemFragment extends Fragment {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         firestore.collection("Products").document(typeFor).collection(typeFor).document(docId).update("imageId", url).addOnSuccessListener(aVoid -> {
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             Snackbar.make(requireView(), R.string.item_uploaded_success, Snackbar.LENGTH_SHORT).show();
             requireActivity().onBackPressed();
         }).addOnFailureListener(e -> {
             binding.progressBar.setVisibility(View.GONE);
-            binding.uploadBtn.setVisibility(View.VISIBLE);
+            binding.uploadBtn.setEnabled(true);
+            binding.uploadBtn.setText(R.string.upload);
             Snackbar.make(requireView(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show();
         });
     }

@@ -50,7 +50,6 @@ public class MyOrdersFragment extends Fragment {
         bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
         binding.reMyOrders.setLayoutManager(new GridLayoutManager(requireContext(), 1));
-
         firestore = FirebaseFirestore.getInstance();
         userId = Objects.requireNonNull(FirebaseAuth.getInstance().getUid());
 
@@ -65,6 +64,7 @@ public class MyOrdersFragment extends Fragment {
                 List<String> ordersList = (List<String>) documentSnapshot.get("OrderCollection");
 
                 if (ordersList == null || ordersList.isEmpty()) {
+                    binding.msgEmptyMyOrders.setVisibility(View.VISIBLE);
                     Snackbar.make(requireView(), getText(R.string.there_are_currently_no_orders_to_display), Snackbar.LENGTH_SHORT).show();
                     return;
                 }
@@ -82,6 +82,7 @@ public class MyOrdersFragment extends Fragment {
                 AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(orderItems);
                 binding.reMyOrders.setAdapter(adapter);
             } else {
+                binding.msgEmptyMyOrders.setVisibility(View.VISIBLE);
                 Snackbar.make(requireView(), getText(R.string.there_are_currently_no_orders_to_display), Snackbar.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(e -> Snackbar.make(requireView(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show());
