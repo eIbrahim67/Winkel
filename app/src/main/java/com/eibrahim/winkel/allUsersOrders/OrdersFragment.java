@@ -72,7 +72,7 @@ public class OrdersFragment extends Fragment {
                 Snackbar.make(requireView(), R.string.no_orders_found, Snackbar.LENGTH_SHORT).show();
             }
 
-            AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(requireContext(), allOrders);
+            AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(allOrders);
             binding.reOrders.setAdapter(adapter);
         }).addOnFailureListener(e -> Snackbar.make(requireView(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show());
     }

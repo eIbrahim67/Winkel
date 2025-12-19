@@ -60,9 +60,7 @@ public class HomeFragment extends Fragment {
 
         doFilter = new DoFilter(
                 binding.recyclerviewItems,
-                recyclerviewVisibility,
-                requireContext()
-        );
+                recyclerviewVisibility);
 
         functionsBottomSheet =
                 new functionsBottomSheet(
@@ -97,20 +95,16 @@ public class HomeFragment extends Fragment {
             if (item.getItemId() == R.id.new_releases) {
                 doFilter.doFilter("NewReleases", binding.skeletonLayout);
                 binding.topsTitles.setText(getString(R.string.new_releases));
-            }
-            else if (item.getItemId() == R.id.recommended_item) {
+            } else if (item.getItemId() == R.id.recommended_item) {
                 doFilter.doFilter("Recommended", binding.skeletonLayout);
                 binding.topsTitles.setText(getString(R.string.recommended));
-            }
-            else if (item.getItemId() == R.id.trendy) {
+            } else if (item.getItemId() == R.id.trendy) {
                 doFilter.doFilter("Trendy", binding.skeletonLayout);
                 binding.topsTitles.setText(getString(R.string.trendy));
-            }
-            else if (item.getItemId() == R.id.top_sales_item) {
+            } else if (item.getItemId() == R.id.top_sales_item) {
                 doFilter.doFilter("TopSales", binding.skeletonLayout);
                 binding.topsTitles.setText(getString(R.string.top_sales));
-            }
-            else if (item.getItemId() == R.id.top_rating_item) {
+            } else if (item.getItemId() == R.id.top_rating_item) {
                 doFilter.doFilter("TopRating", binding.skeletonLayout);
                 binding.topsTitles.setText(getString(R.string.top_rating));
             }
@@ -134,8 +128,13 @@ public class HomeFragment extends Fragment {
         });
 
         binding.searchText.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override public void afterTextChanged(Editable s) {}
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -247,7 +246,7 @@ public class HomeFragment extends Fragment {
                     new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
 
             recyclerView.setAdapter(
-                    new adapterRecyclerviewItems(context, results));
+                    new adapterRecyclerviewItems(results));
         });
     }
 

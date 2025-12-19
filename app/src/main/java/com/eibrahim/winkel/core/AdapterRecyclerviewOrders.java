@@ -16,13 +16,12 @@ import java.util.List;
 
 public class AdapterRecyclerviewOrders extends RecyclerView.Adapter<AdapterRecyclerviewOrders.ViewHolder> {
 
-    private final Context context;
+    private Context context;
     private final List<DataOrderItem> itemList;
 
     private int counter = 1;
 
-    public AdapterRecyclerviewOrders(Context context, List<DataOrderItem> itemList) {
-        this.context = context;
+    public AdapterRecyclerviewOrders(List<DataOrderItem> itemList) {
         this.itemList = itemList;
     }
 
@@ -45,7 +44,8 @@ public class AdapterRecyclerviewOrders extends RecyclerView.Adapter<AdapterRecyc
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_rv_orders_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_orders_items, parent, false);
+        context = parent.getContext();
         return new ViewHolder(view);
     }
 
@@ -59,7 +59,6 @@ public class AdapterRecyclerviewOrders extends RecyclerView.Adapter<AdapterRecyc
         counter++;
 
         AdapterRecyclerviewOrderItemData adapterRecyclerviewOrderItemData = new AdapterRecyclerviewOrderItemData(
-                context,
                 currentItem.getListItemsData()
         );
 

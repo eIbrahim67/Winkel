@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
-import com.eibrahim.winkel.checkout.CheckoutFragment;
 import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,17 +23,16 @@ import java.util.Objects;
 
 public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapterRecyclerviewBasketPayment.ViewHolder> {
 
-    private final Context context;
+    private Context context;
     private final List<DataRecyclerviewMyItem> itemList;
-    private final PaymentActivity checkoutFragment;
+    private final PaymentActivity paymentActivity;
 
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private final String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
-    public adapterRecyclerviewBasketPayment(Context context, List<DataRecyclerviewMyItem> itemList, PaymentActivity fragment) {
-        this.context = context;
+    public adapterRecyclerviewBasketPayment(List<DataRecyclerviewMyItem> itemList, PaymentActivity paymentActivity) {
         this.itemList = itemList;
-        this.checkoutFragment = fragment;
+        this.paymentActivity = paymentActivity;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -57,7 +55,8 @@ public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapt
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_rv_basket_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_basket_items, parent, false);
+        context = parent.getContext();
         return new ViewHolder(view);
     }
 
@@ -107,8 +106,8 @@ public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapt
         holder.itemMuchCounter.setText(item.getMuch());
 
         // update totals in fragment
-        if (checkoutFragment != null)
-            checkoutFragment.updateAfterChange(price, diff > 0 ? '+' : '-');
+        if (paymentActivity != null)
+            paymentActivity.updateAfterChange(price, diff > 0 ? '+' : '-');
 
         // Firestore update
         updateFirestore(item, diff, holder.itemView);
@@ -133,7 +132,8 @@ public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapt
 
         firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(item.getItemId() + "," + item.getItemType() + "," + item.getMuch() + "," + item.getItemSize()));
 
-        if (checkoutFragment != null) checkoutFragment.removeItem(item.getTotalPriceItem(), item.getItemId());
+        if (paymentActivity != null)
+            paymentActivity.removeItem(item.getTotalPriceItem(), item.getItemId());
 
         itemList.remove(position);
         notifyItemRemoved(position);

@@ -24,14 +24,13 @@ import java.util.List;
 
 public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecyclerviewItems.ViewHolder> {
 
-    private final Context context;
+    private Context context;
     private final List<DataRecyclerviewMyItem> itemList;
 
     private final String userId = FirebaseAuth.getInstance().getUid();
     private DocumentReference wishlistRef;
 
-    public adapterRecyclerviewItems(Context context, List<DataRecyclerviewMyItem> itemList) {
-        this.context = context;
+    public adapterRecyclerviewItems(List<DataRecyclerviewMyItem> itemList) {
         this.itemList = itemList;
 
         if (userId != null) {
@@ -57,7 +56,8 @@ public class adapterRecyclerviewItems extends RecyclerView.Adapter<adapterRecycl
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_products, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_products, parent, false);
+        context = parent.getContext();
         return new ViewHolder(view);
     }
 

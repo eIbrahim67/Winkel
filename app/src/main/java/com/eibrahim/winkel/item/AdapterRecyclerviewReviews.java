@@ -18,12 +18,11 @@ import java.util.List;
 
 public class AdapterRecyclerviewReviews extends RecyclerView.Adapter<AdapterRecyclerviewReviews.ViewHolder> {
 
-    private final Context context;
+    private Context context;
     private final List<DataReviewItem> itemList;
 
 
-    public AdapterRecyclerviewReviews(Context context, List<DataReviewItem> itemList) {
-        this.context = context;
+    public AdapterRecyclerviewReviews(List<DataReviewItem> itemList) {
         this.itemList = itemList;
     }
 
@@ -45,7 +44,8 @@ public class AdapterRecyclerviewReviews extends RecyclerView.Adapter<AdapterRecy
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_reviews, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_reviews, parent, false);
+        context = parent.getContext();
         return new ViewHolder(view);
     }
 

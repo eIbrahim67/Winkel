@@ -213,7 +213,7 @@ public class PaymentActivity extends AppCompatActivity {
     // UI UPDATE
     // -----------------------------
     private void updateUI(List<DataRecyclerviewMyItem> itemsList) {
-        adapterRecyclerviewBasketPayment adapter = new adapterRecyclerviewBasketPayment(this, itemsList, this);
+        adapterRecyclerviewBasketPayment adapter = new adapterRecyclerviewBasketPayment(itemsList, this);
 
         binding.rv3.setLayoutManager(new GridLayoutManager(this, 1));
         binding.rv3.setAdapter(adapter);

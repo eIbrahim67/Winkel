@@ -1,6 +1,5 @@
 package com.eibrahim.winkel.core;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -23,7 +22,6 @@ import java.util.stream.Collectors;
 public class FetchDataFromFirebase {
 
     private final RecyclerView recyclerView;
-    private final Context context;
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final String userId;
 
@@ -33,13 +31,11 @@ public class FetchDataFromFirebase {
     private boolean useWishlistAdapter = false;
 
     public FetchDataFromFirebase(RecyclerView recyclerView,
-                                 Context context,
                                  LinearLayout skeletonLayout) {
         this.userId = Objects.requireNonNull(
                 FirebaseAuth.getInstance().getCurrentUser()
         ).getUid();
         this.recyclerView = recyclerView;
-        this.context = context;
         this.skeletonLayout = skeletonLayout;
     }
 
@@ -280,10 +276,10 @@ public class FetchDataFromFirebase {
 
         RecyclerView.Adapter<?> adapter =
                 useWishlistAdapter
-                        ? new adapterRecyclerviewWishlist(context, data)
-                        : new adapterRecyclerviewItems(context, data);
+                        ? new adapterRecyclerviewWishlist(data)
+                        : new adapterRecyclerviewItems(data);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 2));
         recyclerView.setAdapter(adapter);
     }
 

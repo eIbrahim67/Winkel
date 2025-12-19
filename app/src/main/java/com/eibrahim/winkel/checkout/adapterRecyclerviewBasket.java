@@ -23,15 +23,14 @@ import java.util.Objects;
 
 public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyclerviewBasket.ViewHolder> {
 
-    private final Context context;
+    private Context context;
     private final List<DataRecyclerviewMyItem> itemList;
     private final CheckoutFragment checkoutFragment;
 
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private final String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
-    public adapterRecyclerviewBasket(Context context, List<DataRecyclerviewMyItem> itemList, CheckoutFragment fragment) {
-        this.context = context;
+    public adapterRecyclerviewBasket(List<DataRecyclerviewMyItem> itemList, CheckoutFragment fragment) {
         this.itemList = itemList;
         this.checkoutFragment = fragment;
     }
@@ -56,7 +55,8 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_rv_basket_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_basket_items, parent, false);
+        context = view.getContext();
         return new ViewHolder(view);
     }
 

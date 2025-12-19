@@ -145,7 +145,7 @@ public class CheckoutFragment extends Fragment {
         }
 
         adapterRecyclerviewBasket adapter =
-                new adapterRecyclerviewBasket(requireContext(), itemsList, this);
+                new adapterRecyclerviewBasket(itemsList, this);
 
         binding.rv3.setLayoutManager(new GridLayoutManager(requireContext(), 1));
         binding.rv3.setAdapter(adapter);

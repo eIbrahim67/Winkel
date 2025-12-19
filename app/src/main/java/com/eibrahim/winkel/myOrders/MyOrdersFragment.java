@@ -79,7 +79,7 @@ public class MyOrdersFragment extends Fragment {
                     }
                 }
 
-                AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(requireContext(), orderItems);
+                AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(orderItems);
                 binding.reMyOrders.setAdapter(adapter);
             } else {
                 Snackbar.make(requireView(), getText(R.string.there_are_currently_no_orders_to_display), Snackbar.LENGTH_SHORT).show();

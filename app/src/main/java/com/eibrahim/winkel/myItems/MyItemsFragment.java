@@ -134,7 +134,7 @@ public class MyItemsFragment extends Fragment {
         binding.recyclerView.setVisibility(View.VISIBLE);
 
         adapterRecyclerviewMyItems adapter =
-                new adapterRecyclerviewMyItems(requireContext(), userItems);
+                new adapterRecyclerviewMyItems(userItems);
 
         binding.recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
         binding.recyclerView.setAdapter(adapter);

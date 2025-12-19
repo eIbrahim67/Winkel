@@ -1,6 +1,5 @@
 package com.eibrahim.winkel.core;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +14,10 @@ import java.util.List;
 
 public class AdapterRecyclerviewOrderItemData extends RecyclerView.Adapter<AdapterRecyclerviewOrderItemData.ViewHolder> {
 
-    private final Context context;
     private final List<DataRecyclerviewItemOrderItemData> itemList;
 
 
-    public AdapterRecyclerviewOrderItemData(Context context, List<DataRecyclerviewItemOrderItemData> itemList) {
-        this.context = context;
+    public AdapterRecyclerviewOrderItemData(List<DataRecyclerviewItemOrderItemData> itemList) {
         this.itemList = itemList;
     }
 
@@ -43,7 +40,7 @@ public class AdapterRecyclerviewOrderItemData extends RecyclerView.Adapter<Adapt
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_rv_orders_item_data, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_orders_item_data, parent, false);
         return new ViewHolder(view);
     }
 

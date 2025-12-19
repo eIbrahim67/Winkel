@@ -23,12 +23,11 @@ import java.util.List;
 
 public class adapterRecyclerviewMyItems extends RecyclerView.Adapter<adapterRecyclerviewMyItems.ViewHolder> {
 
-    private final Context context;
+    private Context context;
     private final List<DataRecyclerviewMyItem> itemList;
     FirebaseFirestore firestore;
 
-    public adapterRecyclerviewMyItems(Context context, List<DataRecyclerviewMyItem> itemList) {
-        this.context = context;
+    public adapterRecyclerviewMyItems(List<DataRecyclerviewMyItem> itemList) {
         this.itemList = itemList;
     }
 
@@ -54,7 +53,8 @@ public class adapterRecyclerviewMyItems extends RecyclerView.Adapter<adapterRecy
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_my_products, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_my_products, parent, false);
+        context = parent.getContext();
         return new ViewHolder(view);
     }
 

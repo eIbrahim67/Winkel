@@ -222,7 +222,7 @@ public class ItemDetailActivity extends AppCompatActivity {
             reviewsEmpty = reviewsList.isEmpty();
 
             // Prepare adapter but don't show yet
-            AdapterRecyclerviewReviews adapter = new AdapterRecyclerviewReviews(this, reviewsList);
+            AdapterRecyclerviewReviews adapter = new AdapterRecyclerviewReviews(reviewsList);
             binding.recyclerviewReviews.setLayoutManager(new LinearLayoutManager(this));
             binding.recyclerviewReviews.setAdapter(adapter);
 

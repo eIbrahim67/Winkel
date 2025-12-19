@@ -37,7 +37,7 @@ public class WishlistFragment extends Fragment {
 
         FetchDataFromFirebase fetchData = new FetchDataFromFirebase(
                 binding.recyclerviewWishlist,
-                requireContext(), binding.skeletonLayout
+                binding.skeletonLayout
         );
 
         loadWishlist(fetchData);

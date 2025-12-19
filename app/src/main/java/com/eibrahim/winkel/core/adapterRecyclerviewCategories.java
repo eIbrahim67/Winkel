@@ -31,12 +31,10 @@ public class adapterRecyclerviewCategories extends RecyclerView.Adapter<adapterR
             String type,
             String fPrice,
             String tPrice,
-            Context context,
             View skeletonLayout // optional skeleton view
     ) {
         this.itemList = itemList;
         this.recyclerViewItems = recyclerViewItems;
-        this.context = context;
         this.type = type;
         this.fPrice = fPrice;
         this.tPrice = tPrice;
@@ -79,7 +77,7 @@ public class adapterRecyclerviewCategories extends RecyclerView.Adapter<adapterR
             recyclerViewItems.setAdapter(null);
 
             // Fetch filtered data
-            FetchDataFromFirebase fetchDataFromFirebase = new FetchDataFromFirebase(recyclerViewItems, context, (LinearLayout) skeletonLayout);
+            FetchDataFromFirebase fetchDataFromFirebase = new FetchDataFromFirebase(recyclerViewItems, (LinearLayout) skeletonLayout);
             if (Objects.equals(filter, "All")) {
                 fetchDataFromFirebase.fetch(type, fPrice, tPrice);
             } else {

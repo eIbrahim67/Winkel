@@ -1,6 +1,5 @@
 package com.eibrahim.winkel.core;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -17,7 +16,6 @@ import java.util.Objects;
 public class DoFilter {
 
     private final RecyclerView recyclerView;
-    private final Context context;
     private final RecyclerviewVisibility recyclerviewVisibility;
 
     private FetchDataFromFirebase fetchDataFromFirebase;
@@ -28,12 +26,10 @@ public class DoFilter {
     private LinearLayout skeletonLayout;
 
     public DoFilter(RecyclerView recyclerView,
-                    RecyclerviewVisibility recyclerviewVisibility,
-                    Context context) {
+                    RecyclerviewVisibility recyclerviewVisibility) {
 
         this.recyclerView = recyclerView;
         this.recyclerviewVisibility = recyclerviewVisibility;
-        this.context = context;
     }
 
     /* -------------------- Public API -------------------- */
@@ -89,7 +85,6 @@ public class DoFilter {
 
         fetchDataFromFirebase = new FetchDataFromFirebase(
                 recyclerView,
-                context,
                 skeletonLayout
         );
     }
@@ -160,11 +155,11 @@ public class DoFilter {
                                     type,
                                     fPrice,
                                     tPrice,
-                                    context, skeletonLayout
+                                    skeletonLayout
                             );
 
                     recyclerViewFilter.setLayoutManager(
-                            new LinearLayoutManager(context,
+                            new LinearLayoutManager(recyclerView.getContext(),
                                     LinearLayoutManager.HORIZONTAL,
                                     false)
                     );
