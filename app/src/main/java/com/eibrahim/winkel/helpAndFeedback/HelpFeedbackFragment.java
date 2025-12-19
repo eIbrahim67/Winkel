@@ -42,11 +42,9 @@ public class HelpFeedbackFragment extends Fragment {
         }
 
         // Back button
-        binding.btnBack.setOnClickListener(v -> {
-            requireActivity()
-                    .getSupportFragmentManager()
-                    .popBackStack();
-        });
+        binding.btnBack.setOnClickListener(v -> requireActivity()
+                .getSupportFragmentManager()
+                .popBackStack());
 
         binding.btnSend.setOnClickListener(v -> {
             Snackbar.make(requireView(),

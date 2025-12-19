@@ -1,5 +1,6 @@
 package com.eibrahim.winkel.languages;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -42,16 +43,13 @@ public class LanguagesFragment extends Fragment {
         bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
 
-        binding.btnSystem.setOnClickListener(v -> {
+        binding.btnSystem.setOnClickListener(v -> new AlertDialog.Builder(requireContext()).setTitle(R.string.restart_required).setMessage(R.string.the_application_needs_to_restart_to_apply_the_changes).setPositiveButton(R.string.restart, (dialog, which) -> {
 
-            new AlertDialog.Builder(requireContext()).setTitle(R.string.restart_required).setMessage(R.string.the_application_needs_to_restart_to_apply_the_changes).setPositiveButton(R.string.restart, (dialog, which) -> {
+            SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", getContext().MODE_PRIVATE).edit();
+            editor.remove("My_Lang").apply();
 
-                SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", getContext().MODE_PRIVATE).edit();
-                editor.remove("My_Lang").apply();
-
-                restartApp();
-            }).setNegativeButton(R.string.cancel, null).show();
-        });
+            restartApp();
+        }).setNegativeButton(R.string.cancel, null).show());
 
         binding.btnEnglish.setOnClickListener(v -> setLocale("en"));
         binding.btnArabic.setOnClickListener(v -> setLocale("ar"));
@@ -67,7 +65,8 @@ public class LanguagesFragment extends Fragment {
             config.setLocale(locale);
             requireActivity().getResources().updateConfiguration(config, requireActivity().getResources().getDisplayMetrics());
 
-            SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", getContext().MODE_PRIVATE).edit();
+            getContext();
+            SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE).edit();
             editor.putString("My_Lang", languageCode);
             editor.apply();
 

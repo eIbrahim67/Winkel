@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -17,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.item.ItemDetailActivity;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
@@ -99,13 +99,11 @@ public class adapterRecyclerviewMyItems extends RecyclerView.Adapter<adapterRecy
                                 .document(itemId)
                                 .delete()
                                 .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(context, context.getText(R.string.item_successfully_deleted), Toast.LENGTH_SHORT).show();
+                                    Snackbar.make(holder.itemView, context.getText(R.string.item_successfully_deleted), Snackbar.LENGTH_SHORT).show();
                                     itemList.remove(holder.getAdapterPosition());
                                     notifyItemRemoved(holder.getAdapterPosition());
                                 })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(context, R.string.failed_to_delete_the_item_please_try_again, Toast.LENGTH_SHORT).show();
-                                });
+                                .addOnFailureListener(e -> Snackbar.make(holder.itemView, R.string.failed_to_delete_the_item_please_try_again, Snackbar.LENGTH_SHORT).show());
                     })
                     .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
                     .show();

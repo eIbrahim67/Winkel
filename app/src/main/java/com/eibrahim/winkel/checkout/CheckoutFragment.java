@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.eibrahim.winkel.R;
@@ -14,12 +15,14 @@ import com.eibrahim.winkel.databinding.FragmentCheckoutBinding;
 import com.eibrahim.winkel.payment.PaymentActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class CheckoutFragment extends Fragment {
 
@@ -32,10 +35,10 @@ public class CheckoutFragment extends Fragment {
     private long lastRefreshTime = 0;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentCheckoutBinding.inflate(inflater, container, false);
 
-        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
         setupSwipeRefresh();
         setupCheckoutButton();
@@ -127,10 +130,7 @@ public class CheckoutFragment extends Fragment {
         }
 
         // When ALL product fetches complete
-        Tasks.whenAllComplete(tasks).addOnSuccessListener(done -> {
-            updateUI(result);
-
-        }).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
+        Tasks.whenAllComplete(tasks).addOnSuccessListener(done -> updateUI(result)).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
     }
 
     // -----------------------------
@@ -174,7 +174,7 @@ public class CheckoutFragment extends Fragment {
 
     private void showError(String msg) {
         hideLoading();
-        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show();
+        Snackbar.make(requireView(), msg, Snackbar.LENGTH_SHORT).show();
     }
 
     // -----------------------------
@@ -188,7 +188,7 @@ public class CheckoutFragment extends Fragment {
                 loadBasket();
                 lastRefreshTime = now;
             } else {
-                Toast.makeText(requireContext(), getText(R.string.page_refreshed_message), Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), getText(R.string.page_refreshed_message), Snackbar.LENGTH_SHORT).show();
             }
 
             binding.checkoutFragment.setRefreshing(false);
@@ -201,7 +201,7 @@ public class CheckoutFragment extends Fragment {
     private void setupCheckoutButton() {
         binding.btnCheckout.setOnClickListener(v -> {
             if (items == 0) {
-                Toast.makeText(requireContext(), R.string.basket_empty_message, Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), R.string.basket_empty_message, Snackbar.LENGTH_SHORT).show();
                 return;
             }
             startActivity(new Intent(requireContext(), PaymentActivity.class));

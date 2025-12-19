@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.ActivityPinBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -53,7 +53,7 @@ public class PinFragment extends Fragment {
             setClickListeners();
 
         } catch (Exception e) {
-            Toast.makeText(requireContext(), "Initialization Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), "Initialization Error: " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
             requireActivity().onBackPressed();
         }
     }
@@ -91,7 +91,7 @@ public class PinFragment extends Fragment {
             if (pin.length() == 4) validatePin();
 
         } catch (Exception e) {
-            Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), "Error: " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
             pin = "";
             resetPinIndicators();
         }
@@ -148,9 +148,9 @@ public class PinFragment extends Fragment {
                     onPinFailure();
                 }
             } else {
-                Toast.makeText(requireContext(), R.string.pin_not_set_for_user, Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), R.string.pin_not_set_for_user, Snackbar.LENGTH_SHORT).show();
             }
-        }).addOnFailureListener(e -> Toast.makeText(requireContext(), R.string.failed_to_fetch_pin, Toast.LENGTH_SHORT).show());
+        }).addOnFailureListener(e -> Snackbar.make(requireView(), R.string.failed_to_fetch_pin, Snackbar.LENGTH_SHORT).show());
     }
 
     final NavOptions navOptionsRight = new NavOptions.Builder().setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right).setPopUpTo(R.id.pinFragment, true).setLaunchSingleTop(true).setRestoreState(true).build();
@@ -167,7 +167,7 @@ public class PinFragment extends Fragment {
     private void onPinFailure() {
         wrong = true;
         setAllIndicators(R.drawable.rounded_white_v1_red_v1_gray_v4, R.drawable.star_icon_red);
-        Toast.makeText(requireContext(), getString(R.string.wrong_pin_message), Toast.LENGTH_SHORT).show();
+        Snackbar.make(requireView(), getString(R.string.wrong_pin_message), Snackbar.LENGTH_SHORT).show();
         pin = "";
     }
 

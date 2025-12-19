@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.item.ItemDetailActivity;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -83,7 +83,7 @@ public class adapterRecyclerviewWishlist extends RecyclerView.Adapter<adapterRec
         holder.btnLoveH.setOnClickListener(v -> {
 
             if (userId == null) {
-                Toast.makeText(context, R.string.you_must_login_first, Toast.LENGTH_SHORT).show();
+                Snackbar.make(holder.itemView, R.string.you_must_login_first, Snackbar.LENGTH_SHORT).show();
                 return;
             }
 
@@ -104,7 +104,7 @@ public class adapterRecyclerviewWishlist extends RecyclerView.Adapter<adapterRec
                 }
 
             }).addOnFailureListener(e -> {
-                Toast.makeText(context, "Error occurred", Toast.LENGTH_SHORT).show();
+                Snackbar.make(holder.itemView, "Error occurred", Snackbar.LENGTH_SHORT).show();
                 // rollback UI on failure
                 item.setItemLoved(isLoved);
                 holder.btnLoveH.setImageResource(isLoved ? R.drawable.loved_icon : R.drawable.unlove_icon_white);

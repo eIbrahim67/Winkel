@@ -255,7 +255,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:fontFamily="@font/font_v1"
+                            android:fontFamily="@font/font_v3"
                             android:text="@string/a_polo_collar_sweater_cut_to_a_straight_fit_and_detailed_with_an_embroidered_logo_by_hugo_menswear_for_our_responsible_products_we_always_use_at_least_60_more_sustainable_raw_materials_this_product_is_made_with_responsibly_sourced_and_certified_wool_for_us_responsibly_sourced_means_mulesing_free_and_meeting_the_standards_of_the_five_freedoms_of_animal_welfare_regular_fit_polo_collar_long_sleeves"
                             android:textSize="18sp"
                             android:textStyle="bold"
@@ -364,7 +364,6 @@
 
                     </LinearLayout>
 
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -390,34 +389,30 @@
             android:paddingEnd="20dp">
 
             <RelativeLayout
-                android:id="@+id/addToBasket"
-                style="@style/basket_background_btn"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/addToBasket"
+                    style="@style/checkout_background_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:text="@string/add_to_basket"
+                    android:textSize="20sp" />
 
                 <ProgressBar
                     android:id="@+id/progressBar"
-                    android:layout_width="50dp"
-                    android:visibility="gone"
                     style="@style/indeterminateTint"
-                    android:gravity="center"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_centerInParent="true"
-                    android:layout_height="50dp"/>
-
-                <TextView
-                    android:id="@+id/addToBasketText"
-                    style="@style/TextColor_v3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/add_to_basket"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
+                    android:visibility="gone" />
             </RelativeLayout>
 
             <ImageView

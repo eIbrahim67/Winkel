@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupMenu;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +41,7 @@ public class HomeFragment extends Fragment {
     private functionsBottomSheet functionsBottomSheet;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
 

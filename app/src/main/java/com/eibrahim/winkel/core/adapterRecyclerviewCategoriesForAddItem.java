@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.eibrahim.winkel.R;
 
 import java.util.List;
-import java.util.Objects;
 
 public class adapterRecyclerviewCategoriesForAddItem extends RecyclerView.Adapter<adapterRecyclerviewCategoriesForAddItem.ViewHolder> {
 

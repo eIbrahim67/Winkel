@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -17,6 +17,7 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.auth.AuthActivity;
 import com.eibrahim.winkel.databinding.FragmentProfileBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class ProfileFragment extends Fragment {
             .build();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         navController = NavHostFragment.findNavController(this);
 
@@ -77,20 +78,18 @@ public class ProfileFragment extends Fragment {
     }
 
     private void setupLogout() {
-        binding.btnLogout.setOnClickListener(v -> {
-            new AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.log_out)
-                    .setMessage(R.string.are_you_sure)
-                    .setPositiveButton(R.string.yes, (dialog, which) -> logout())
-                    .setNegativeButton(R.string.no, null)
-                    .show();
-        });
+        binding.btnLogout.setOnClickListener(v -> new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.log_out)
+                .setMessage(R.string.are_you_sure)
+                .setPositiveButton(R.string.yes, (dialog, which) -> logout())
+                .setNegativeButton(R.string.no, null)
+                .show());
     }
 
     private void logout() {
         try {
             FirebaseAuth.getInstance().signOut();
-            Toast.makeText(requireContext(), R.string.logged_out_successfully, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.logged_out_successfully, Snackbar.LENGTH_SHORT).show();
 
             Intent intent = new Intent(requireContext(), AuthActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -98,7 +97,7 @@ public class ProfileFragment extends Fragment {
 
             requireActivity().finish();
         } catch (Exception e) {
-            Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show();
         }
     }
 

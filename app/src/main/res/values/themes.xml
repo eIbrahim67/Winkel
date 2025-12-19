@@ -79,33 +79,14 @@
         <item name="android:indeterminateTint">@color/primary_white</item>
     </style>
 
-    <style name="indeterminateTint2">
-        <item name="android:indeterminateTint">@color/primary_black</item>
-    </style>
-
     <style name="back_arrow_background_btn">
         <item name="android:background">@drawable/rounded_black_v1_none_gray_v4</item>
         <item name="android:src">@drawable/back_arrows_icon_white</item>
     </style>
 
-    <style name="much_items_background_sub">
-        <item name="android:background">@drawable/circle_none_black_v1_gray_v4</item>
-        <item name="android:src">@drawable/sub_icon_black</item>
-    </style>
-
-    <style name="much_items_background_plus">
-        <item name="android:background">@drawable/circle_none_black_v1_gray_v4</item>
-        <item name="android:src">@drawable/plus_icon_black</item>
-    </style>
-
     <style name="checkout_background_btn">
         <item name="android:background">@drawable/rounded_black_v1_none_gray_v4</item>
         <item name="android:textColor">@color/white_v1</item>
-    </style>
-
-    <style name="edit_background_btn">
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
-        <item name="android:src">@drawable/edit_icon_white</item>
     </style>
 
     <style name="basket_src">
@@ -139,11 +120,6 @@
     <style name="delete_background_src">
         <item name="android:src">@drawable/delete_icon_white</item>
         <item name="android:background">@drawable/user_img_background_dark</item>
-    </style>
-
-    <style name="circle_black_v1_white_v1">
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
-        <item name="android:textColor">@color/white_v1</item>
     </style>
 
     <style name="rounded_5_black_v1_white_v1">
@@ -234,10 +210,6 @@
         <item name="android:src">@drawable/signout_icon_black</item>
     </style>
 
-    <style name="card_icon">
-        <item name="android:src">@drawable/card_icon_black</item>
-    </style>
-
     <style name="user_icon">
         <item name="android:src">@drawable/user_icon_black</item>
     </style>
@@ -270,10 +242,6 @@
         <item name="android:src">@drawable/language_icon_black</item>
     </style>
 
-    <style name="notification_icon">
-        <item name="android:src">@drawable/notification_icon_black</item>
-    </style>
-
     <style name="happy_icon">
         <item name="android:src">@drawable/happy_icon_black</item>
     </style>
@@ -284,14 +252,6 @@
 
     <style name="about_icon">
         <item name="android:src">@drawable/about_icon_black</item>
-    </style>
-
-    <style name="support_icon">
-        <item name="android:src">@drawable/support_icon_black</item>
-    </style>
-
-    <style name="sound_icon">
-        <item name="android:src">@drawable/sound_icon_black</item>
     </style>
 
     <style name="sad_icon">
@@ -322,11 +282,6 @@
 
     <style name="TextColor_v1_clickable">
         <item name="android:textColor">@drawable/text_selector_black_blue</item>
-    </style>
-
-    <style name="ThemeOverlay.Winkel.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
-        <item name="fullscreenTextColor">@color/light_blue_A200</item>
     </style>
 
 </resources>

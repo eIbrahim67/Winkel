@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavOptions;
@@ -15,6 +15,9 @@ import androidx.navigation.Navigation;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.ActivitySigninBinding;
 import com.eibrahim.winkel.main.MainActivity;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
 
 public class SignInFragment extends Fragment {
 
@@ -22,7 +25,7 @@ public class SignInFragment extends Fragment {
     private SigninViewModel viewModel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = ActivitySigninBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(requireActivity()).get(SigninViewModel.class);
 
@@ -59,10 +62,10 @@ public class SignInFragment extends Fragment {
         binding.progressBar.setVisibility(View.VISIBLE);
 
         String email = binding.emailSignin.getText().toString().trim();
-        String password = binding.passSignin.getText().toString();
+        String password = Objects.requireNonNull(binding.passSignin.getText()).toString();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Toast.makeText(requireContext(), getString(R.string.check_from_your_data), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), getString(R.string.check_from_your_data), Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
             binding.btnSignin.setText(getString(R.string.sign_in));
             binding.btnSignin.setEnabled(true);
@@ -74,7 +77,7 @@ public class SignInFragment extends Fragment {
     private void observeViewModel() {
         viewModel.getLoginSuccess().observe(getViewLifecycleOwner(), success -> {
             if (success) {
-                Toast.makeText(requireContext(), getString(R.string.authentication_successful), Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), getString(R.string.authentication_successful), Snackbar.LENGTH_SHORT).show();
                 navigateToMain();
             } else {
                 binding.progressBar.setVisibility(View.GONE);
@@ -84,7 +87,7 @@ public class SignInFragment extends Fragment {
         });
 
         viewModel.getErrorMessage().observe(getViewLifecycleOwner(), error -> {
-            Toast.makeText(requireContext(), R.string.authentication_failed_check_your_credentials, Toast.LENGTH_LONG).show();
+            Snackbar.make(requireView(), R.string.authentication_failed_check_your_credentials, Snackbar.LENGTH_LONG).show();
             binding.progressBar.setVisibility(View.GONE);
             binding.btnSignin.setText(getString(R.string.sign_in));
             binding.btnSignin.setEnabled(true);

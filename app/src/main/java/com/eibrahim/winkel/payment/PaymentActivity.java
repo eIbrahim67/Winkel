@@ -8,7 +8,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -116,7 +115,7 @@ public class PaymentActivity extends AppCompatActivity {
         // Payment button click
         binding.btnPayment.setOnClickListener(v -> {
             if (!isAllAddressAdded) {
-                Snackbar.make(findViewById(android.R.id.content), R.string.please_complete_all_address_details_before_proceeding, Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(binding.getRoot(), R.string.please_complete_all_address_details_before_proceeding, Snackbar.LENGTH_SHORT).show();
                 return;
             }
             createPaymentIntent(amountInPiasters);
@@ -134,7 +133,7 @@ public class PaymentActivity extends AppCompatActivity {
         basketRef.get().addOnSuccessListener(snap -> {
             List<String> basket = (List<String>) snap.get("BasketCollection");
 
-            fetchAllProducts(basket);
+            fetchAllProducts(Objects.requireNonNull(basket));
 
         }).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
     }
@@ -207,10 +206,7 @@ public class PaymentActivity extends AppCompatActivity {
         }
 
         // When ALL product fetches complete
-        Tasks.whenAllComplete(tasks).addOnSuccessListener(done -> {
-            updateUI(result);
-
-        }).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
+        Tasks.whenAllComplete(tasks).addOnSuccessListener(done -> updateUI(result)).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
     }
 
     // -----------------------------
@@ -234,7 +230,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     private void showError(String msg) {
         hideLoading();
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Snackbar.make(binding.getRoot(), msg, Snackbar.LENGTH_SHORT).show();
     }
 
     // -----------------------------
@@ -277,7 +273,7 @@ public class PaymentActivity extends AppCompatActivity {
         try {
             json.put("amount", amount); // amount in piasters
         } catch (JSONException e) {
-            e.printStackTrace();
+            Snackbar.make(binding.getRoot(), Objects.requireNonNull(e.getMessage()), Snackbar.LENGTH_SHORT).show();
         }
 
         RequestBody body = RequestBody.create(MediaType.get("application/json; charset=utf-8"), json.toString());
@@ -294,14 +290,14 @@ public class PaymentActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     binding.progressBar.setVisibility(View.GONE);
                     binding.btnPayment.setVisibility(View.VISIBLE);
-                    Toast.makeText(PaymentActivity.this, "Payment error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Snackbar.make(binding.getRoot(), "Payment error: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
                     Log.e("PaymentError", e.toString());
                 });
             }
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                String res = response.body().string();
+                String res = Objects.requireNonNull(response.body()).string();
                 try {
                     JSONObject jsonResponse = new JSONObject(res);
                     if (jsonResponse.has("clientSecret")) {
@@ -312,12 +308,12 @@ public class PaymentActivity extends AppCompatActivity {
                         runOnUiThread(() -> {
                             binding.progressBar.setVisibility(View.GONE);
                             binding.btnPayment.setVisibility(View.VISIBLE);
-                            Toast.makeText(PaymentActivity.this, "Error: " + error, Toast.LENGTH_LONG).show();
+                            Snackbar.make(binding.getRoot(), "Error: " + error, Snackbar.LENGTH_LONG).show();
                             Log.e("PaymentError", error);
                         });
                     }
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    Snackbar.make(binding.getRoot(), Objects.requireNonNull(e.getMessage()), Snackbar.LENGTH_SHORT).show();
                 }
             }
         });
@@ -334,9 +330,9 @@ public class PaymentActivity extends AppCompatActivity {
         if (result instanceof PaymentSheetResult.Completed) {
             saveOrderToFirestore();
         } else if (result instanceof PaymentSheetResult.Canceled) {
-            Toast.makeText(this, "Payment canceled", Toast.LENGTH_SHORT).show();
+            Snackbar.make(binding.getRoot(), "Payment canceled", Snackbar.LENGTH_SHORT).show();
         } else if (result instanceof PaymentSheetResult.Failed) {
-            Toast.makeText(this, "Payment failed: " + ((PaymentSheetResult.Failed) result).getError().getMessage(), Toast.LENGTH_LONG).show();
+            Snackbar.make(binding.getRoot(), "Payment failed: " + ((PaymentSheetResult.Failed) result).getError().getMessage(), Snackbar.LENGTH_LONG).show();
         }
     }
 
@@ -346,19 +342,22 @@ public class PaymentActivity extends AppCompatActivity {
         DocumentReference orderRef = firestore.collection("Orders").document(userId);
 
         Map<String, Object> updateData = new HashMap<>();
-        updateData.put("OrderCollection", FieldValue.arrayUnion(totalData));
+        StringBuilder orderData = new StringBuilder();
+        for (String value : totalData.values()) {
+            orderData.append(value).append(" & ");
+        }
+
+        updateData.put("OrderCollection", FieldValue.arrayUnion(orderData.toString()));
 
         orderRef.set(updateData, SetOptions.merge()).addOnSuccessListener(unused -> {
             basketRef.update("BasketCollection", FieldValue.delete());
-            Toast.makeText(this, getString(R.string.payment_successful), Toast.LENGTH_SHORT).show();
+            Snackbar.make(binding.getRoot(), getString(R.string.payment_successful), Snackbar.LENGTH_SHORT).show();
 
             Intent home = new Intent(PaymentActivity.this, MainActivity.class);
             home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(home);
             finish();
-        }).addOnFailureListener(e -> {
-            Toast.makeText(this, "Order save failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        });
+        }).addOnFailureListener(e -> Snackbar.make(binding.getRoot(), "Order save failed: " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
     }
 
     private void checkAddressFields() {

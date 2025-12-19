@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -32,6 +31,7 @@ import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.core.adapterRecyclerviewCategoriesForAddItem;
 import com.eibrahim.winkel.databinding.AddItemActivityBinding;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -42,6 +42,7 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AddItemFragment extends Fragment {
 
@@ -101,7 +102,7 @@ public class AddItemFragment extends Fragment {
         } else if (!shouldShowRequestPermissionRationale(currentPermission)) {
             showPermissionDeniedDialog();
         } else {
-            Toast.makeText(requireContext(), R.string.permission_denied, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.permission_denied, Snackbar.LENGTH_SHORT).show();
         }
     });
 
@@ -133,23 +134,17 @@ public class AddItemFragment extends Fragment {
                 Glide.with(this).load(newUri).into(binding.loadingImage);
             } else {
                 selectedImage = null;
-                Toast.makeText(requireContext(), R.string.something_wrong_please_try_again, Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), R.string.something_wrong_please_try_again, Snackbar.LENGTH_SHORT).show();
             }
         });
 
         loadCategories("Mens");
 
-        binding.forMen.setOnClickListener(v -> {
-            loadCategories("Mens");
-        });
+        binding.forMen.setOnClickListener(v -> loadCategories("Mens"));
 
-        binding.forWomen.setOnClickListener(v -> {
-            loadCategories("Womens");
-        });
+        binding.forWomen.setOnClickListener(v -> loadCategories("Womens"));
 
-        binding.forKids.setOnClickListener(v -> {
-            loadCategories("Kids");
-        });
+        binding.forKids.setOnClickListener(v -> loadCategories("Kids"));
 
     }
 
@@ -158,7 +153,7 @@ public class AddItemFragment extends Fragment {
             categoriesList.clear();
             if (doc.exists() && doc.get("Categories") != null) {
                 List<?> data = (List<?>) doc.get("Categories");
-                for (Object item : data) categoriesList.add(item.toString());
+                for (Object item : Objects.requireNonNull(data)) categoriesList.add(item.toString());
             }
             if (!categoriesList.isEmpty()) {
                 categoriesList.remove(0);
@@ -183,7 +178,7 @@ public class AddItemFragment extends Fragment {
             if (Manifest.permission.CAMERA.equals(permission)) dispatchTakePictureIntent();
             else openGallery();
         } else if (shouldShowRequestPermissionRationale(permission)) {
-            new AlertDialog.Builder(requireContext()).setTitle(title).setMessage(message).setPositiveButton(R.string.grant, (d, w) -> permissionLauncher.launch(permission)).setNegativeButton(R.string.cancel, (d, w) -> Toast.makeText(requireContext(), R.string.permission_denied, Toast.LENGTH_SHORT).show()).setCancelable(false).show();
+            new AlertDialog.Builder(requireContext()).setTitle(title).setMessage(message).setPositiveButton(R.string.grant, (d, w) -> permissionLauncher.launch(permission)).setNegativeButton(R.string.cancel, (d, w) -> Snackbar.make(requireView(), R.string.permission_denied, Snackbar.LENGTH_SHORT).show()).setCancelable(false).show();
         } else {
             permissionLauncher.launch(permission);
         }
@@ -217,8 +212,8 @@ public class AddItemFragment extends Fragment {
             intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
             takePhotoLauncher.launch(intent);
         } catch (Exception e) {
-            Toast.makeText(requireContext(), "Camera error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-            Log.e("error", e.getMessage().toString());
+            Snackbar.make(requireView(), "Camera error: " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+            Log.e("error", Objects.requireNonNull(e.getMessage()));
         }
     }
 
@@ -234,42 +229,42 @@ public class AddItemFragment extends Fragment {
 
 // Validate each field individually
         if (title.isEmpty()) {
-            Toast.makeText(requireContext(), R.string.error_enter_title, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.error_enter_title, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
         if (details.isEmpty()) {
-            Toast.makeText(requireContext(), R.string.error_enter_details, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.error_enter_details, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
         if (typeFor == null) {
-            Toast.makeText(requireContext(), R.string.error_select_type_for, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.error_select_type_for, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
         if (category == null) {
-            Toast.makeText(requireContext(), R.string.error_select_category, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.error_select_category, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
         if (price.isEmpty()) {
-            Toast.makeText(requireContext(), R.string.error_enter_price, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.error_enter_price, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
         }
 
         if (selectedImage == null) {
-            Toast.makeText(requireContext(), R.string.error_select_image, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.error_select_image, Snackbar.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
             return;
@@ -289,12 +284,12 @@ public class AddItemFragment extends Fragment {
         String docId = docRef.getId();
 
         item.setItemId(docId);
-        item.setUserId(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        item.setUserId(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
 
         collection.document(docId).set(item).addOnSuccessListener(aVoid -> uploadImageToFirebase(imageUri, docId)).addOnFailureListener(e -> {
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
-            Toast.makeText(requireContext(), R.string.failed_to_upload_data, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.failed_to_upload_data, Snackbar.LENGTH_SHORT).show();
         });
     }
 
@@ -305,7 +300,7 @@ public class AddItemFragment extends Fragment {
         ref.putFile(uri).addOnSuccessListener(task -> ref.getDownloadUrl().addOnSuccessListener(url -> updateImageUrlInFirestore(url.toString(), docId))).addOnFailureListener(e -> {
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
-            Toast.makeText(requireContext(), R.string.image_upload_failed, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.image_upload_failed, Snackbar.LENGTH_SHORT).show();
         });
     }
 
@@ -314,12 +309,12 @@ public class AddItemFragment extends Fragment {
         firestore.collection("Products").document(typeFor).collection(typeFor).document(docId).update("imageId", url).addOnSuccessListener(aVoid -> {
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
-            Toast.makeText(requireContext(), R.string.item_uploaded_success, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.item_uploaded_success, Snackbar.LENGTH_SHORT).show();
             requireActivity().onBackPressed();
         }).addOnFailureListener(e -> {
             binding.progressBar.setVisibility(View.GONE);
             binding.uploadBtn.setVisibility(View.VISIBLE);
-            Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show();
         });
     }
 

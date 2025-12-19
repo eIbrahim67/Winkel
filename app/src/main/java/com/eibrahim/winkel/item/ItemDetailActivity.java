@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -19,6 +18,7 @@ import com.eibrahim.winkel.databinding.ActivityItemDetailBinding;
 import com.eibrahim.winkel.item.dialogs.AddedToBasketDialog;
 import com.eibrahim.winkel.main.LocaleHelper;
 import com.eibrahim.winkel.publicDataSender.publicData;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -94,11 +94,11 @@ public class ItemDetailActivity extends AppCompatActivity {
             if (currentItem.getItemLoved()) {
                 currentItem.setItemLoved(false);
                 binding.btnLove.setImageResource(R.drawable.unlove_icon_black);
-                wishlistRef.update("Wishlist", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType())).addOnSuccessListener(unused -> Toast.makeText(this, R.string.item_removed_from_wishlist_success, Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(this, R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
+                wishlistRef.update("Wishlist", FieldValue.arrayRemove(currentItem.getItemId() + "," + currentItem.getItemType())).addOnSuccessListener(unused -> Snackbar.make(binding.getRoot(), R.string.item_removed_from_wishlist_success, Snackbar.LENGTH_SHORT).show()).addOnFailureListener(e -> Snackbar.make(binding.getRoot(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show());
             } else {
                 currentItem.setItemLoved(true);
                 binding.btnLove.setImageResource(R.drawable.loved_icon);
-                wishlistRef.update("Wishlist", FieldValue.arrayUnion(currentItem.getItemId() + "," + currentItem.getItemType())).addOnSuccessListener(unused -> Toast.makeText(this, R.string.item_added_to_wishlist_success, Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(this, R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
+                wishlistRef.update("Wishlist", FieldValue.arrayUnion(currentItem.getItemId() + "," + currentItem.getItemType())).addOnSuccessListener(unused -> Snackbar.make(binding.getRoot(), R.string.item_added_to_wishlist_success, Snackbar.LENGTH_SHORT).show()).addOnFailureListener(e -> Snackbar.make(binding.getRoot(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show());
             }
         });
     }
@@ -110,7 +110,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         binding.addToBasket.setOnClickListener(v -> {
             if (adapterRvSizes == null || "null".equals(adapterRvSizes.getSize())) {
-                Toast.makeText(this, getString(R.string.choose_size_prompt), Toast.LENGTH_SHORT).show();
+                Snackbar.make(binding.getRoot(), getString(R.string.choose_size_prompt), Snackbar.LENGTH_SHORT).show();
                 return;
             }
 
@@ -136,7 +136,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                     binding.progressBar.setVisibility(View.GONE);
                     binding.addToBasketText.setVisibility(View.VISIBLE);
 
-                    Toast.makeText(this, getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
+                    Snackbar.make(binding.getRoot(), getString(R.string.unexpected_error_occurred), Snackbar.LENGTH_SHORT).show();
                 });
             }
 

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,11 +14,13 @@ import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.checkout.CheckoutFragment;
 import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
+import java.util.Objects;
 
 public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapterRecyclerviewBasketPayment.ViewHolder> {
 
@@ -28,7 +29,7 @@ public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapt
     private final PaymentActivity checkoutFragment;
 
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    private final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private final String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
     public adapterRecyclerviewBasketPayment(Context context, List<DataRecyclerviewMyItem> itemList, PaymentActivity fragment) {
         this.context = context;
@@ -85,14 +86,12 @@ public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapt
         // --------------------------
         // QUANTITY + (PLUS BUTTON)
         // --------------------------
-        holder.btn_plus.setOnClickListener(v -> {
-            updateQuantity(item, +1, holder);
-        });
+        holder.btn_plus.setOnClickListener(v -> updateQuantity(item, +1, holder));
 
         // --------------------------
         // DELETE ITEM
         // --------------------------
-        holder.itemDeleteCheck.setOnClickListener(v -> deleteItem(holder.getAdapterPosition(), item));
+        holder.itemDeleteCheck.setOnClickListener(v -> deleteItem(holder.getAdapterPosition(), item, holder.itemView));
     }
 
     // --------------------------
@@ -112,25 +111,25 @@ public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapt
             checkoutFragment.updateAfterChange(price, diff > 0 ? '+' : '-');
 
         // Firestore update
-        updateFirestore(item, diff);
+        updateFirestore(item, diff, holder.itemView);
     }
 
     // --------------------------
     // UPDATE FIRESTORE QUANTITIES
     // --------------------------
-    private void updateFirestore(DataRecyclerviewMyItem item, int diff) {
+    private void updateFirestore(DataRecyclerviewMyItem item, int diff, View view) {
 
         String base = item.getItemId() + "," + item.getItemType() + "," + item.getMuch() + "," + item.getItemSize();
 
         String oldBase = item.getItemId() + "," + item.getItemType() + "," + (Integer.parseInt(item.getMuch()) - diff) + "," + item.getItemSize();
 
-        firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(oldBase)).addOnSuccessListener(unused -> firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayUnion(base))).addOnFailureListener(e -> Toast.makeText(context, R.string.error_updating_basket, Toast.LENGTH_SHORT).show());
+        firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(oldBase)).addOnSuccessListener(unused -> firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayUnion(base))).addOnFailureListener(e -> Snackbar.make(view, R.string.error_updating_basket, Snackbar.LENGTH_SHORT).show());
     }
 
     // --------------------------
     // DELETE ITEM
     // --------------------------
-    private void deleteItem(int position, DataRecyclerviewMyItem item) {
+    private void deleteItem(int position, DataRecyclerviewMyItem item, View view) {
 
         firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(item.getItemId() + "," + item.getItemType() + "," + item.getMuch() + "," + item.getItemSize()));
 
@@ -139,7 +138,7 @@ public class adapterRecyclerviewBasketPayment extends RecyclerView.Adapter<adapt
         itemList.remove(position);
         notifyItemRemoved(position);
 
-        Toast.makeText(context, R.string.item_removed, Toast.LENGTH_SHORT).show();
+        Snackbar.make(view, R.string.item_removed, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

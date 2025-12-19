@@ -27,11 +27,7 @@ public class AddedToBasketDialog extends DialogFragment {
         ConstraintLayout view_basket_dialog_btn = root.findViewById(R.id.view_basket_dialog_btn);
 
 
-        done_dialog_btn.setOnClickListener(c -> {
-
-            dismiss();
-
-        });
+        done_dialog_btn.setOnClickListener(c -> dismiss());
         view_basket_dialog_btn.setOnClickListener(v -> {
 
             dismiss();

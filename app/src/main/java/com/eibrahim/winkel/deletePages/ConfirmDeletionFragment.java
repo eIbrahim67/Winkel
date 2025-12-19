@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +15,7 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.auth.AuthActivity;
 import com.eibrahim.winkel.databinding.ActivityConfirmDeletionBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -49,7 +49,7 @@ public class ConfirmDeletionFragment extends Fragment {
             pinRef = FirebaseFirestore.getInstance().collection("UsersData").document(userId).collection("UserPersonalData").document("UserPersonalData");
 
         } catch (Exception e) {
-            Toast.makeText(requireContext(), "Initialization Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), "Initialization Error: " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
             requireActivity().onBackPressed();
         }
 
@@ -101,7 +101,7 @@ public class ConfirmDeletionFragment extends Fragment {
     private void deleteMyAccount() {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        String uid = auth.getCurrentUser().getUid();
+        String uid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
 
         // 1. Delete Firestore data
         DocumentReference userDataRef = firestore.collection("UsersData").document(uid).collection("UserPersonalData").document("UserPersonalData");

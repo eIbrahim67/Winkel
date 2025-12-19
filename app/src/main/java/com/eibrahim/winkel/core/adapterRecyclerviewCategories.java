@@ -19,7 +19,6 @@ public class adapterRecyclerviewCategories extends RecyclerView.Adapter<adapterR
 
     private final List<String> itemList;
     private final RecyclerView recyclerViewItems;
-    private final Context context;
     private final String type;
     private final String tPrice;
     private final String fPrice;
@@ -48,6 +47,7 @@ public class adapterRecyclerviewCategories extends RecyclerView.Adapter<adapterR
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_filters, parent, false);
+        Context context = parent.getContext();
         return new ViewHolder(view);
     }
 

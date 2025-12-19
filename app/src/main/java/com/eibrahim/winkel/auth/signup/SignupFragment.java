@@ -5,14 +5,17 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.ActivitySignupBinding;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
 
 public class SignupFragment extends Fragment {
 
@@ -20,7 +23,7 @@ public class SignupFragment extends Fragment {
     private SignupViewModel viewModel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = ActivitySignupBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(requireActivity()).get(SignupViewModel.class);
 
@@ -32,9 +35,7 @@ public class SignupFragment extends Fragment {
 
     private void setupUI() {
         binding.btnSignup.setOnClickListener(v -> validateAndSignup());
-        binding.btnSignin2.setOnClickListener(v -> {
-            requireActivity().onBackPressed();
-        });
+        binding.btnSignin2.setOnClickListener(v -> requireActivity().onBackPressed());
     }
 
     private void validateAndSignup() {
@@ -44,8 +45,8 @@ public class SignupFragment extends Fragment {
 
         String username = binding.nameSignup.getText().toString().trim();
         String email = binding.emailSignup.getText().toString().trim();
-        String password = binding.passSignup.getText().toString();
-        String rePassword = binding.repassSignup.getText().toString();
+        String password = Objects.requireNonNull(binding.passSignup.getText()).toString();
+        String rePassword = Objects.requireNonNull(binding.repassSignup.getText()).toString();
         String pin = binding.pinSignup.getText().toString();
         String repin = binding.rePinSignup.getText().toString();
         String phone = binding.phoneSignup.getText().toString();
@@ -58,7 +59,7 @@ public class SignupFragment extends Fragment {
                 !pin.equals(repin) ||
                 !binding.checkSignup.isChecked()) {
 
-            Toast.makeText(requireContext(), getText(R.string.please_fill_valid_details), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), getText(R.string.please_fill_valid_details), Snackbar.LENGTH_SHORT).show();
             binding.btnSignup.setEnabled(true);
             binding.btnSignup.setText(R.string.sign_up);
             binding.progressBar.setVisibility(View.GONE);
@@ -71,7 +72,7 @@ public class SignupFragment extends Fragment {
     private void observeViewModel() {
         viewModel.getSignupSuccess().observe(getViewLifecycleOwner(), success -> {
             if (success) {
-                Toast.makeText(requireContext(), getText(R.string.signup_successful), Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), getText(R.string.signup_successful), Snackbar.LENGTH_SHORT).show();
                 Navigation.findNavController(binding.getRoot()).navigateUp(); // Go back to SignIn
                 binding.btnSignup.setEnabled(true);
                 binding.btnSignup.setText(R.string.sign_up);
@@ -80,7 +81,7 @@ public class SignupFragment extends Fragment {
         });
 
         viewModel.getErrorMessage().observe(getViewLifecycleOwner(), error -> {
-            Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show();
+            Snackbar.make(requireView(), error, Snackbar.LENGTH_LONG).show();
             binding.btnSignup.setEnabled(true);
             binding.btnSignup.setText(R.string.sign_up);
             binding.progressBar.setVisibility(View.GONE);

@@ -36,11 +36,9 @@ public class RemoveBgHelper {
                     if (response.isSuccessful() && response.body() != null) {
                         return response.body().bytes();
                     } else {
-                        Log.w("RemoveBg", "Failed: " + response.code() + " " + response.message());
                         return null;
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
                     return null;
                 }
             }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +16,7 @@ import com.eibrahim.winkel.core.DataOrderItem;
 import com.eibrahim.winkel.core.DataRecyclerviewItemOrderItemData;
 import com.eibrahim.winkel.databinding.ActivityMyOrdersBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -65,22 +65,26 @@ public class MyOrdersFragment extends Fragment {
                 List<String> ordersList = (List<String>) documentSnapshot.get("OrderCollection");
 
                 if (ordersList == null || ordersList.isEmpty()) {
-                    Toast.makeText(requireContext(), getText(R.string.there_are_currently_no_orders_to_display), Toast.LENGTH_SHORT).show();
+                    Snackbar.make(requireView(), getText(R.string.there_are_currently_no_orders_to_display), Snackbar.LENGTH_SHORT).show();
                     return;
                 }
 
                 List<DataOrderItem> orderItems = new ArrayList<>();
 
-                for (String orderData : ordersList) {
-                    orderItems.add(parseOrder(orderData));
+                if (ordersList.isEmpty()) {
+                    binding.msgEmptyMyOrders.setVisibility(View.VISIBLE);
+                } else {
+                    for (String orderData : ordersList) {
+                        orderItems.add(parseOrder(orderData));
+                    }
                 }
 
                 AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(requireContext(), orderItems);
                 binding.reMyOrders.setAdapter(adapter);
             } else {
-                Toast.makeText(requireContext(), getText(R.string.there_are_currently_no_orders_to_display), Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), getText(R.string.there_are_currently_no_orders_to_display), Snackbar.LENGTH_SHORT).show();
             }
-        }).addOnFailureListener(e -> Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
+        }).addOnFailureListener(e -> Snackbar.make(requireView(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show());
     }
 
     private DataOrderItem parseOrder(String orderData) {
@@ -111,7 +115,7 @@ public class MyOrdersFragment extends Fragment {
                 items.add(new DataRecyclerviewItemOrderItemData(itemId, String.valueOf(price), String.valueOf(quantity), String.valueOf(itemTotal), size, itemType));
             }
         } catch (Exception e) {
-            Toast.makeText(requireContext(), getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), getString(R.string.unexpected_error_occurred), Snackbar.LENGTH_SHORT).show();
         }
 
         return new DataOrderItem(userId, items, String.format("%.2f", totalOrderPrice));

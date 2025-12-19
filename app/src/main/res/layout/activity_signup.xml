@@ -57,7 +57,7 @@
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:inputType="textPersonName"
                 android:minHeight="50dp"
                 android:paddingStart="10dp"
@@ -73,7 +73,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/email"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -98,7 +98,7 @@
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:inputType="textEmailAddress"
                 android:minHeight="50dp"
                 android:paddingStart="10dp"
@@ -114,7 +114,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/phone_no"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -139,7 +139,7 @@
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:inputType="phone"
                 android:minHeight="50dp"
                 android:paddingStart="10dp"
@@ -155,7 +155,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/pin"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -163,6 +163,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -186,7 +187,7 @@
                     android:background="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:fontFamily="@font/font_v1"
+                    android:fontFamily="@font/font_v3"
                     android:inputType="textPassword"
                     android:minHeight="50dp"
                     android:paddingStart="10dp"
@@ -216,7 +217,7 @@
                     android:background="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:fontFamily="@font/font_v1"
+                    android:fontFamily="@font/font_v3"
                     android:inputType="textPassword"
                     android:minHeight="50dp"
                     android:paddingStart="10dp"
@@ -234,7 +235,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/password"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -266,7 +267,7 @@
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
@@ -281,7 +282,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/confirm_password"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -313,7 +314,7 @@
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
@@ -329,7 +330,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/i_agree_with_the_terms_of_services"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -346,17 +347,16 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
                 android:text="@string/sign_up"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
                 style="@style/indeterminateTint"
                 android:layout_width="40dp"
-                android:layout_centerInParent="true"
                 android:layout_height="40dp"
+                android:layout_centerInParent="true"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -371,7 +371,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:text="@string/don_t_have_an_account"
                 android:textSize="18sp"
                 android:textStyle="bold" />

@@ -67,7 +67,7 @@
             android:layout_marginEnd="20dp"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:minHeight="48dp"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/post_details"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -99,7 +99,7 @@
             android:layout_marginEnd="20dp"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:importantForAutofill="no"
             android:minHeight="48dp"
             android:minLines="4"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/_for"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -138,7 +138,7 @@
                 android:checked="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:text="@string/men"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -151,7 +151,7 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:text="@string/women"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -164,7 +164,7 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:text="@string/kids"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -177,7 +177,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/type"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -196,7 +196,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/font_v1"
+            android:fontFamily="@font/font_v3"
             android:text="@string/item_price"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -218,7 +218,7 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
@@ -231,7 +231,7 @@
                 style="@style/TextColor_v1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/font_v1"
+                android:fontFamily="@font/font_v3"
                 android:gravity="bottom"
                 android:text="@string/le"
                 android:textSize="22sp"
@@ -326,7 +326,7 @@
                         android:layout_gravity="center"
 
 
-                        android:fontFamily="@font/font_v1"
+                        android:fontFamily="@font/font_v3"
                         android:text="@string/upload_a_photo"
                         android:textColor="@color/gray_v7"
                         android:textSize="15sp"
@@ -369,7 +369,7 @@
                         android:layout_gravity="center"
 
 
-                        android:fontFamily="@font/font_v1"
+                        android:fontFamily="@font/font_v3"
                         android:text="@string/take_a_photo"
                         android:textColor="@color/gray_v7"
                         android:textSize="15sp"
@@ -410,13 +410,17 @@
         <RelativeLayout
             style="@style/checkout_background_btn"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
+            <Button
                 android:id="@+id/upload_btn"
                 style="@style/checkout_background_btn"
                 android:layout_width="match_parent"

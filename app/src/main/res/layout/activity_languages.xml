@@ -50,8 +50,7 @@
             style="@style/circle_white_v2_black_none_gray"
             android:paddingTop="7dp"
             android:paddingBottom="7dp"
-            
-            android:id="@+id/search_btn"
+
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp">

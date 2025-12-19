@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +16,7 @@ import com.eibrahim.winkel.core.DataOrderItem;
 import com.eibrahim.winkel.core.DataRecyclerviewItemOrderItemData;
 import com.eibrahim.winkel.databinding.ActivityOrdersBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -69,12 +69,12 @@ public class OrdersFragment extends Fragment {
             }
 
             if (allOrders.isEmpty()) {
-                Toast.makeText(requireContext(), R.string.no_orders_found, Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), R.string.no_orders_found, Snackbar.LENGTH_SHORT).show();
             }
 
             AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(requireContext(), allOrders);
             binding.reOrders.setAdapter(adapter);
-        }).addOnFailureListener(e -> Toast.makeText(requireContext(), R.string.unexpected_error_occurred, Toast.LENGTH_SHORT).show());
+        }).addOnFailureListener(e -> Snackbar.make(requireView(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show());
     }
 
     private DataOrderItem parseOrder(String userId, String orderString) {
@@ -108,7 +108,7 @@ public class OrdersFragment extends Fragment {
             return new DataOrderItem(userId, items, String.format("%.2f", totalOrderPrice));
 
         } catch (Exception e) {
-            Toast.makeText(requireContext(), getString(R.string.unexpected_error_occurred), Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), getString(R.string.unexpected_error_occurred), Snackbar.LENGTH_SHORT).show();
             return null;
         }
     }

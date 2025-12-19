@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,12 +14,14 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.ActivityPersonalDataBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class PersonalDataFragment extends Fragment {
 
@@ -52,10 +53,10 @@ public class PersonalDataFragment extends Fragment {
             String code = binding.codeToBeAdmin.getText().toString().trim();
 
             if (!code.isEmpty()) {
-                Toast.makeText(requireContext(), getString(R.string.your_request_has_been_submitted_successfully), Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), getString(R.string.your_request_has_been_submitted_successfully), Snackbar.LENGTH_SHORT).show();
                 // Optional: Save the request to Firestore or notify the administrator
             } else {
-                Toast.makeText(requireContext(), getString(R.string.please_enter_your_admin_code), Toast.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), getString(R.string.please_enter_your_admin_code), Snackbar.LENGTH_SHORT).show();
             }
 
         });
@@ -63,7 +64,7 @@ public class PersonalDataFragment extends Fragment {
     }
 
     private void loadUserData() {
-        String uid = auth.getCurrentUser().getUid();
+        String uid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
         DocumentReference userRef = firestore.collection("UsersData").document(uid).collection("UserPersonalData").document("UserPersonalData");
 
         userRef.get().addOnSuccessListener(snapshot -> {
@@ -79,25 +80,25 @@ public class PersonalDataFragment extends Fragment {
 
 
                 if ("Admin".equalsIgnoreCase(userType)) {
-                    Toast.makeText(getContext(), "You are Admin", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(requireView(), "You are Admin", Snackbar.LENGTH_SHORT).show();
                 }
             }
-        }).addOnFailureListener(e -> Toast.makeText(getContext(), "Failed to load user data: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+        }).addOnFailureListener(e -> Snackbar.make(requireView(), "Failed to load user data: " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
     }
 
     private void updateField(String fieldName, String value) {
         if (value.isEmpty()) {
-            Toast.makeText(getContext(), "Please enter valid " + fieldName, Toast.LENGTH_SHORT).show();
+            Snackbar.make(requireView(), "Please enter valid " + fieldName, Snackbar.LENGTH_SHORT).show();
             return;
         }
 
-        String uid = auth.getCurrentUser().getUid();
+        String uid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
         DocumentReference userRef = firestore.collection("UsersData").document(uid).collection("UserPersonalData").document("UserPersonalData");
 
         Map<String, Object> updates = new HashMap<>();
         updates.put(fieldName, value);
 
-        userRef.update(updates).addOnSuccessListener(aVoid -> Toast.makeText(getContext(), fieldName + getString(R.string.updated), Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(getContext(), "Update failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+        userRef.update(updates).addOnSuccessListener(aVoid -> Snackbar.make(requireView(), fieldName + getString(R.string.updated), Snackbar.LENGTH_SHORT).show()).addOnFailureListener(e -> Snackbar.make(requireView(), "Update failed: " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
     }
 
     @Override

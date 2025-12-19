@@ -64,6 +64,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
+            style="@style/icon_tint"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/ic_money" />
 

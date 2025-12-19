@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +15,7 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.databinding.ActivityMyItemsBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class MyItemsFragment extends Fragment {
 
@@ -66,7 +67,7 @@ public class MyItemsFragment extends Fragment {
         userItems.clear();
         completedFetches = 0;
 
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         for (String type : types) {
@@ -103,9 +104,9 @@ public class MyItemsFragment extends Fragment {
                         if (!isAdded() || binding == null) return;
 
                         Log.e("FetchMyUploads", "Error fetching from " + type, e);
-                        Toast.makeText(requireContext(),
+                        Snackbar.make(requireView(),
                                 R.string.an_error_occurred_while_loading_your_uploads,
-                                Toast.LENGTH_SHORT).show();
+                                Snackbar.LENGTH_SHORT).show();
 
                         handleFetchCompletion();
                     });

@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +16,12 @@ import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.FragmentImagePreviewBinding;
 import com.eibrahim.winkel.helper.RemoveBgHelper;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -93,7 +94,6 @@ public class ImagePreviewFragment extends Fragment {
                             });
 
                         } catch (Exception e) {
-                            e.printStackTrace();
                             showError("Error: " + e.getMessage());
                         }
                     });
@@ -110,14 +110,14 @@ public class ImagePreviewFragment extends Fragment {
             }
             return tempFile;
         } catch (Exception e) {
-            e.printStackTrace();
+            Snackbar.make(binding.getRoot(), Objects.requireNonNull(e.getMessage()), Snackbar.LENGTH_SHORT).show();
             return null;
         }
     }
 
 
     private void showError(String message) {
-        Log.e("ImagePreview", message);
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_SHORT).show();
         requireActivity().runOnUiThread(this::resetButton);
     }
 
@@ -141,7 +141,7 @@ public class ImagePreviewFragment extends Fragment {
             }
             return tempFile;
         } catch (Exception e) {
-            e.printStackTrace();
+            Snackbar.make(binding.getRoot(), Objects.requireNonNull(e.getMessage()), Snackbar.LENGTH_SHORT).show();
             return null;
         }
     }

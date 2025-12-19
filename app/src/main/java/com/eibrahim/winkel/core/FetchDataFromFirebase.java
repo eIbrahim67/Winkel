@@ -27,7 +27,7 @@ public class FetchDataFromFirebase {
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final String userId;
 
-    private LinearLayout skeletonLayout;
+    private final LinearLayout skeletonLayout;
     private LinearLayout emptyLayout;
 
     private boolean useWishlistAdapter = false;

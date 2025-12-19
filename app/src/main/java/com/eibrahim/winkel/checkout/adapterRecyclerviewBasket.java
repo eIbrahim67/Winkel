@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,11 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
+import java.util.Objects;
 
 public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyclerviewBasket.ViewHolder> {
 
@@ -27,7 +28,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
     private final CheckoutFragment checkoutFragment;
 
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    private final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private final String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
     public adapterRecyclerviewBasket(Context context, List<DataRecyclerviewMyItem> itemList, CheckoutFragment fragment) {
         this.context = context;
@@ -84,9 +85,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
         // --------------------------
         // QUANTITY + (PLUS BUTTON)
         // --------------------------
-        holder.btn_plus.setOnClickListener(v -> {
-            updateQuantity(item, +1, holder);
-        });
+        holder.btn_plus.setOnClickListener(v -> updateQuantity(item, +1, holder));
 
         // --------------------------
         // DELETE ITEM
@@ -123,7 +122,7 @@ public class adapterRecyclerviewBasket extends RecyclerView.Adapter<adapterRecyc
 
         String oldBase = item.getItemId() + "," + item.getItemType() + "," + (Integer.parseInt(item.getMuch()) - diff) + "," + item.getItemSize();
 
-        firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(oldBase)).addOnSuccessListener(unused -> firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayUnion(base))).addOnFailureListener(e -> Toast.makeText(context, R.string.error_updating_basket, Toast.LENGTH_SHORT).show());
+        firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayRemove(oldBase)).addOnSuccessListener(unused -> firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument").update("BasketCollection", FieldValue.arrayUnion(base))).addOnFailureListener(e -> Snackbar.make(checkoutFragment.requireView(), R.string.error_updating_basket, Snackbar.LENGTH_SHORT).show());
     }
 
     // --------------------------

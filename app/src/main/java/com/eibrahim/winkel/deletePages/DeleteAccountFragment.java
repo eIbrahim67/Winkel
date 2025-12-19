@@ -38,11 +38,7 @@ public class DeleteAccountFragment extends Fragment {
         bottomNavigationView.setVisibility(View.GONE);
 
         NavController navController = NavHostFragment.findNavController(DeleteAccountFragment.this);
-        binding.btnDeleteAccountConfirm.setOnClickListener(v -> {
-
-            navController.navigate(R.id.action_deleteAccountFragment_to_ConfirmDeletion, null, navOptionsRight);
-
-        });
+        binding.btnDeleteAccountConfirm.setOnClickListener(v -> navController.navigate(R.id.action_deleteAccountFragment_to_ConfirmDeletion, null, navOptionsRight));
 
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
     }

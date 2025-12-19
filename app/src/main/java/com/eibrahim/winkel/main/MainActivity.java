@@ -14,7 +14,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.auth.AuthActivity;
-import com.eibrahim.winkel.auth.signIn.SignInFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 

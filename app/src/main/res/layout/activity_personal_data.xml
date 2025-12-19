@@ -75,74 +75,75 @@
                 style="@style/TextColor_v4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints="name"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/font_v3"
+                android:inputType="textPersonName"
+                android:minHeight="60dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
-                android:focusable="true"
-                android:clickable="true"
-                android:minHeight="60dp"
-                android:fontFamily="@font/font_v1"
-                android:autofillHints="name"
-                android:inputType="textPersonName"
-                android:background="@android:color/transparent"
-                android:textSize="18sp"
-                android:layout_weight="1"/>
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/saveMyNewName"
+                style="@style/edit_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                style="@style/edit_icon"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"/>
+                android:layout_marginEnd="10dp" />
 
         </LinearLayout>
 
         <TextView
+            style="@style/TextColor_v1"
             android:layout_width="match_parent"
-            android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/email"
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:fontFamily="@font/font_v1"
-            style="@style/TextColor_v1"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/font_v3"
+            android:gravity="center_vertical"
+            android:text="@string/email"
+            android:textSize="20sp"
             tools:ignore="InefficientWeight" />
 
         <LinearLayout
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables"
+            style="@style/rounded_outline_solid_white_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            style="@style/rounded_outline_solid_white_black"
+            android:layout_marginEnd="20dp"
+            android:autofillHints="name"
             android:inputType="textPersonName"
-            android:autofillHints="name">
+            android:orientation="horizontal"
+            android:textSize="20sp"
+            tools:ignore="UseCompoundDrawables">
 
             <TextView
                 android:id="@+id/emailText"
                 style="@style/TextColor_v4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:minHeight="60dp"
                 android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="10dp"
-                android:fontFamily="@font/font_v1"
+                android:layout_weight="1"
                 android:autofillHints="name"
                 android:background="@android:color/transparent"
-                android:textSize="18sp"
-                android:layout_weight="1"/>
+                android:fontFamily="@font/font_v3"
+                android:gravity="center_vertical"
+                android:minHeight="60dp"
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/copyMyEmail"
+                style="@style/copy_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 style="@style/copy_icon"
@@ -242,7 +243,9 @@
                 style="@style/TextColor_v4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
+                android:autofillHints="name"
+                android:background="@android:color/transparent"
+                android:clickable="true"
                 android:focusable="true"
                 android:clickable="true"
                 android:hint="@string/enter_your_admin_code"
