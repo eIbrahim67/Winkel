@@ -29,6 +29,4 @@
         app:layout_insetEdge="bottom"
         app:menu="@menu/menu_home" />
 
-    <!--            app:labelVisibilityMode="labeled"-->
-    <!--        app:itemRippleColor="@color/blue_v3"-->
 </LinearLayout>

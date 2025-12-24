@@ -16,6 +16,7 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.databinding.ActivitySigninBinding;
 import com.eibrahim.winkel.main.MainActivity;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
@@ -64,13 +65,28 @@ public class SignInFragment extends Fragment {
         String email = binding.emailSignin.getText().toString().trim();
         String password = Objects.requireNonNull(binding.passSignin.getText()).toString();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Snackbar.make(requireView(), getString(R.string.check_from_your_data), Snackbar.LENGTH_SHORT).show();
-            binding.progressBar.setVisibility(View.GONE);
-            binding.btnSignin.setText(getString(R.string.sign_in));
-            binding.btnSignin.setEnabled(true);
+        if (TextUtils.isEmpty(email)) {
+            showError(R.string.email_address_is_required_to_sign_in, binding.emailSignin);
+        } else if (TextUtils.isEmpty(password)) {
+            showError(R.string.password_is_required_to_sign_in, binding.passSignin);
         } else {
             viewModel.loginUser(email, password);
+        }
+    }
+
+    private void showError(int messageRes, View focusView) {
+        Snackbar.make(requireView(), getString(messageRes), Snackbar.LENGTH_SHORT).show();
+
+        binding.btnSignin.setEnabled(true);
+        binding.btnSignin.setText(R.string.sign_up);
+        binding.progressBar.setVisibility(View.GONE);
+
+        focusView.requestFocus();
+
+        if (focusView instanceof TextInputEditText) {
+            ((TextInputEditText) focusView).setSelection(
+                    ((TextInputEditText) focusView).getText().length()
+            );
         }
     }
 

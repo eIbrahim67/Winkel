@@ -14,16 +14,13 @@ import com.eibrahim.winkel.R;
 import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.databinding.FragmentCheckoutBinding;
 import com.eibrahim.winkel.payment.PaymentActivity;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class CheckoutFragment extends Fragment {
@@ -54,86 +51,95 @@ public class CheckoutFragment extends Fragment {
     // -----------------------------
     // FETCH BASKET + PRODUCTS FAST
     // -----------------------------
+
     private void loadBasket() {
+
         showLoading();
 
-        DocumentReference basketRef = firestore.collection("UsersData")
+        firestore.collection("UsersData")
                 .document(userId)
-                .collection("BasketCollection")
-                .document("BasketDocument");
+                .collection("Basket")
+                .get()
+                .addOnSuccessListener(query -> {
 
-        basketRef.get().addOnSuccessListener(snap -> {
-            List<String> basket = (List<String>) snap.get("BasketCollection");
+                    if (query.isEmpty()) {
+                        showEmptyBasket();
+                        return;
+                    }
 
-            if (basket == null || basket.isEmpty()) {
-                showEmptyBasket();
-                return;
-            }
+                    List<DataRecyclerviewMyItem> result = new ArrayList<>();
 
-            fetchAllProducts(basket);
+                    items = 0;
+                    totalPrice = 0.0;
 
-        }).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
+                    for (DocumentSnapshot doc : query) {
+
+                        String itemId = doc.getString("itemId");
+                        String itemType = doc.getString("itemType");
+                        String size = doc.getString("size");
+
+                        long quantity = doc.getLong("quantity") != null
+                                ? doc.getLong("quantity") : 1;
+
+                        double price = doc.getDouble("price") != null
+                                ? doc.getDouble("price") : 0;
+
+                        double itemTotal = price * quantity;
+
+                        // fetch product info
+                        fetchProduct(itemId, itemType, size,
+                                quantity, price, itemTotal, result);
+                    }
+
+                })
+                .addOnFailureListener(e ->
+                        showError(getString(R.string.error_loading)));
     }
 
-    // Fetch all product documents in parallel
-    private void fetchAllProducts(List<String> basket) {
-        List<Task<?>> tasks = new ArrayList<>();
-        List<DataRecyclerviewMyItem> result = new ArrayList<>();
 
-        // RESET totals
-        items = 0;
-        totalPrice = 0.0;
+    private void fetchProduct(
+            String itemId,
+            String itemType,
+            String size,
+            long quantity,
+            double price,
+            double itemTotal,
+            List<DataRecyclerviewMyItem> result) {
 
-        for (String entry : basket) {
-            String[] parts = entry.split(",");
+        firestore.collection("Products")
+                .document(itemType)
+                .collection(itemType)
+                .document(itemId)
+                .get()
+                .addOnSuccessListener(snap -> {
 
-            String itemId = parts[0].trim();
-            String itemType = parts[1].trim();
-            String much = parts[2].trim();
-            String size = parts[3].trim();
+                    if (!snap.exists()) return;
 
-            DocumentReference productRef = firestore.collection("Products")
-                    .document(itemType)
-                    .collection(itemType)
-                    .document(itemId);
+                    String name = snap.getString("name");
+                    String category = snap.getString("category");
+                    String imageId = snap.getString("imageId");
 
-            Task<?> task = productRef.get().continueWith(productTask -> {
-                if (!productTask.isSuccessful() || !productTask.getResult().exists())
-                    return null;
+                    DataRecyclerviewMyItem item =
+                            new DataRecyclerviewMyItem(
+                                    category,
+                                    imageId,
+                                    name,
+                                    String.valueOf(price),
+                                    itemType,
+                                    size
+                            );
 
-                Map<String, Object> data = productTask.getResult().getData();
-                if (data == null) return null;
+                    item.setItemId(itemId);
+                    item.setMuch(String.valueOf(quantity));
+                    item.setTotalPriceItem(itemTotal);
 
-                String name = (String) data.get("name");
-                String category = (String) data.get("category");
-                String imageId = (String) data.get("imageId");
-                String priceStr = (String) data.get("price");
-                double price = priceStr == null ? 0 : Double.parseDouble(priceStr);
-
-                double total = price * Double.parseDouble(much);
-
-                DataRecyclerviewMyItem item = new DataRecyclerviewMyItem(
-                        category, imageId, name, priceStr, itemType, size
-                );
-
-                item.setItemId(itemId);
-                item.setMuch(much);
-                item.setTotalPriceItem(total);
-
-                synchronized (result) {
                     result.add(item);
+
                     items++;
-                    totalPrice += total;
-                }
+                    totalPrice += itemTotal;
 
-                return null;
-            });
-
-            tasks.add(task);
-        }
-
-        // When ALL product fetches complete
-        Tasks.whenAllComplete(tasks).addOnSuccessListener(done -> updateUI(result)).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
+                    updateUI(result);
+                });
     }
 
     // -----------------------------

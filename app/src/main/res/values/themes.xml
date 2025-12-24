@@ -1,24 +1,25 @@
 <resources>    <!-- Base application theme. -->
-    <style name="Base.Theme.Winkel" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Base.Theme.Winkel" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/primary_white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="bottomNavBackgroundTint">@color/primary_white</item>
         <item name="indicatorColor">@color/primary_black</item>
         <item name="passwordToggleTint">@color/primary_black</item>
-
+        <item name="colorPrimary">@color/blue_v3</item>
     </style>
 
     <style name="icon_tint">
-
-
         <item name="tint">@color/primary_black</item>
-
     </style>
 
     <style name="Theme.Winkel" parent="Base.Theme.Winkel" />
 
     <style name="background">
         <item name="android:background">@color/primary_white</item>
+    </style>
+
+    <style name="cardBackgroundColor">
+        <item name="cardBackgroundColor">@color/primary_white</item>
     </style>
 
     <style name="TextColor_v1">
@@ -29,8 +30,13 @@
     <style name="TextColor_v1_with_background">
         <item name="android:textColor">@color/primary_black</item>
         <item name="android:textColorHint">@color/primary_gray</item>
-        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_background_white</item>
+    </style>
 
+    <style name="TextColor_v1_with_background_2">
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:textColorHint">@color/primary_gray</item>
+        <item name="android:background">@drawable/rounded_background_black</item>
     </style>
 
     <style name="TextColor_v2">
@@ -49,21 +55,25 @@
     </style>
 
     <style name="options_background_btn">
-        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_background_white</item>
         <item name="android:src">@drawable/options_icon_black</item>
     </style>
 
     <style name="trash_background_btn">
-        <item name="android:background">@drawable/circle_black_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_background_black</item>
         <item name="android:src">@drawable/trash_icon_white</item>
     </style>
 
     <style name="circle_white_v2_black_none_gray">
-        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_background_white</item>
     </style>
 
     <style name="rounded_white_v2_black_none_gray">
-        <item name="android:background">@drawable/rounded_white_v2_none_white_v1</item>
+        <item name="android:background">@drawable/rounded_background_white</item>
+    </style>
+
+    <style name="bg_theme_option_selector">
+        <item name="android:background">@drawable/bg_theme_option_selector</item>
     </style>
 
     <style name="search_icon">
@@ -71,7 +81,7 @@
     </style>
 
     <style name="basket_background_btn">
-        <item name="android:background">@drawable/rounded_5_black_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_background_black</item>
         <item name="android:src">@drawable/basket_icon_white</item>
     </style>
 
@@ -79,14 +89,14 @@
         <item name="android:indeterminateTint">@color/primary_white</item>
     </style>
 
-    <style name="back_arrow_background_btn">
-        <item name="android:background">@drawable/rounded_black_v1_none_gray_v4</item>
+    <style name="main_back_btn_style">
+        <item name="android:background">@drawable/rounded_background_black</item>
         <item name="android:src">@drawable/back_arrows_icon_white</item>
     </style>
 
-    <style name="checkout_background_btn">
-        <item name="android:background">@drawable/rounded_black_v1_none_gray_v4</item>
-        <item name="android:textColor">@color/white_v1</item>
+    <style name="main_button_style">
+        <item name="android:background">@drawable/rounded_background_black</item>
+        <item name="android:textColor">@color/primary_white</item>
     </style>
 
     <style name="basket_src">
@@ -119,11 +129,11 @@
 
     <style name="delete_background_src">
         <item name="android:src">@drawable/delete_icon_white</item>
-        <item name="android:background">@drawable/user_img_background_dark</item>
+        <item name="android:background">@drawable/rounded_background_black</item>
     </style>
 
     <style name="rounded_5_black_v1_white_v1">
-        <item name="android:background">@drawable/rounded_5_black_v1_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_background_black</item>
         <item name="android:textColor">@color/white_v1</item>
     </style>
 
@@ -137,7 +147,7 @@
     </style>
 
     <style name="rounded_outline_solid_white_black">
-        <item name="android:background">@drawable/rounded_gray_v1_gray_v12_none</item>
+        <item name="android:background">@drawable/rounded_background_white</item>
         <item name="android:textColor">@color/primary_black</item>
         <item name="android:textColorHint">@color/black_v2</item>
     </style>
@@ -260,12 +270,12 @@
 
     <style name="close_background_btn">
         <item name="android:src">@drawable/close_icon_black</item>
-        <item name="android:background">@drawable/circle_white_v2_none_gray_v4</item>
+        <item name="android:background">@drawable/rounded_background_white</item>
     </style>
 
     <style name="more_background_btn">
         <item name="android:src">@drawable/more_grid_icon_black</item>
-        <item name="android:background">@drawable/rounded_white_v2_none_white_v1</item>
+        <item name="android:background">@drawable/rounded_background_white</item>
     </style>
 
     <style name="up_arrow_icon">

@@ -26,7 +26,7 @@
 
                 <ImageView
                     android:id="@+id/btnBack"
-                    style="@style/back_arrow_background_btn"
+                    style="@style/main_back_btn_style"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:clickable="true"
@@ -396,7 +396,7 @@
 
                 <Button
                     android:id="@+id/addToBasket"
-                    style="@style/checkout_background_btn"
+                    style="@style/main_button_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"

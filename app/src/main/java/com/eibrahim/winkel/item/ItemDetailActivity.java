@@ -21,11 +21,14 @@ import com.eibrahim.winkel.publicDataSender.publicData;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class ItemDetailActivity extends AppCompatActivity {
@@ -56,11 +59,90 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         setupIntentData();
         setupWishlistButton();
-        setupAddToBasket();
         setupDescriptionToggle();
         setupReviewToggle();
         declareSizes();
         loadReviews();
+
+        AddedToBasketDialog dialog = new AddedToBasketDialog();
+
+        binding.addToBasket.setOnClickListener(v -> {
+
+            // 1️⃣ Check size selection
+            if (adapterRvSizes == null || "null".equals(adapterRvSizes.getSize())) {
+                Snackbar.make(binding.getRoot(), getString(R.string.choose_size_prompt), Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (currentItem == null) return;
+
+            // 2️⃣ Lock UI
+            binding.addToBasket.setEnabled(false);
+            binding.addToBasket.setText("");
+            binding.progressBar.setVisibility(View.VISIBLE);
+
+            String uid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+            String itemId = currentItem.getItemId();
+            String size = adapterRvSizes.getSize().trim();
+
+            // 3️⃣ Composite document ID: itemId + size
+            String docId = itemId + "_" + size;
+            DocumentReference itemRef = firestore.collection("UsersData")
+                    .document(uid)
+                    .collection("Basket")
+                    .document(docId);
+
+            // 4️⃣ Transaction: increment if exists, create if not
+            firestore.runTransaction(transaction -> {
+
+                DocumentSnapshot snap = transaction.get(itemRef);
+
+                if (snap.exists()) {
+                    // Increment quantity
+                    transaction.update(itemRef, "quantity", FieldValue.increment(1));
+                } else {
+                    double price = 0.0;
+                    try {
+                        price = Double.parseDouble(currentItem.getPrice());
+                    } catch (NumberFormatException ignored) {}
+
+                    Map<String, Object> data = new HashMap<>();
+                    data.put("itemId", itemId);
+                    data.put("itemType", currentItem.getItemType());
+                    data.put("size", size);
+                    data.put("quantity", 1L);
+                    data.put("price", price);
+                    data.put("addedAt", FieldValue.serverTimestamp());
+
+                    transaction.set(itemRef, data);
+                }
+
+                return null;
+
+            }).addOnSuccessListener(a -> {
+                // 5️⃣ Unlock UI
+                binding.addToBasket.setEnabled(true);
+                binding.addToBasket.setText(R.string.add_to_basket);
+                binding.progressBar.setVisibility(View.GONE);
+
+                // 6️⃣ Show success dialog
+                dialog.show(getSupportFragmentManager(), "");
+            }).addOnFailureListener(e -> {
+                // 7️⃣ Unlock UI on error
+                binding.addToBasket.setEnabled(true);
+                binding.addToBasket.setText(R.string.add_to_basket);
+                binding.progressBar.setVisibility(View.GONE);
+
+                Snackbar.make(binding.getRoot(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show();
+            });
+        });
+
+        // Optional: navigate to basket
+        binding.btnBasketD.setOnClickListener(v -> {
+            publicData.basketClicked = true;
+            finish();
+        });
+
         binding.btnBack.setOnClickListener(v -> finish());
     }
 
@@ -103,49 +185,6 @@ public class ItemDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void setupAddToBasket() {
-        AddedToBasketDialog addedToBasketDialog = new AddedToBasketDialog();
-
-        DocumentReference basketRef = firestore.collection("UsersData").document(Objects.requireNonNull(auth.getCurrentUser()).getUid()).collection("BasketCollection").document("BasketDocument");
-
-        binding.addToBasket.setOnClickListener(v -> {
-            if (adapterRvSizes == null || "null".equals(adapterRvSizes.getSize())) {
-                Snackbar.make(binding.getRoot(), getString(R.string.choose_size_prompt), Snackbar.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (currentItem != null) {
-                binding.addToBasket.setEnabled(false);
-                binding.addToBasket.setText("");
-                binding.progressBar.setVisibility(View.VISIBLE);
-
-                currentItem.setMuch("1");
-
-                basketRef.update("BasketCollection", FieldValue.arrayUnion(currentItem.getItemId() + "," + currentItem.getItemType() + "," + currentItem.getMuch() + "," + adapterRvSizes.getSize())).addOnSuccessListener(a -> {
-
-                    binding.addToBasket.setEnabled(true);
-                    binding.addToBasket.setText(R.string.add_to_basket);
-                    binding.progressBar.setVisibility(View.GONE);
-
-                    // 3. Show dialog AFTER UI is stable
-                    addedToBasketDialog.show(getSupportFragmentManager(), "");
-
-                }).addOnFailureListener(e -> {
-                    binding.addToBasket.setEnabled(true);
-                    binding.addToBasket.setText(R.string.add_to_basket);
-                    binding.progressBar.setVisibility(View.GONE);
-
-                    Snackbar.make(binding.getRoot(), getString(R.string.unexpected_error_occurred), Snackbar.LENGTH_SHORT).show();
-                });
-            }
-
-        });
-
-        binding.btnBasketD.setOnClickListener(v -> {
-            publicData.basketClicked = true;
-            finish();
-        });
-    }
 
     private void setupDescriptionToggle() {
         binding.descriptionBtn.setOnClickListener(v -> {
@@ -197,7 +236,8 @@ public class ItemDetailActivity extends AppCompatActivity {
         sizes.add("M");
         sizes.add("L");
         sizes.add("XL");
-        sizes.add(getString(R.string.special_size));
+        sizes.add("XXL");
+        sizes.add("XXXL");
 
         adapterRvSizes = new adapterRecyclerviewSizes(sizes);
         binding.recyclerviewSizes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));

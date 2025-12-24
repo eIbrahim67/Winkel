@@ -41,7 +41,7 @@
     <!-- Remove Background Button -->
     <Button
         android:id="@+id/removeBackground"
-        style="@style/checkout_background_btn"
+        style="@style/main_button_style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -70,7 +70,7 @@
     <!-- Done Button -->
     <Button
         android:id="@+id/done"
-        style="@style/checkout_background_btn"
+        style="@style/main_button_style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

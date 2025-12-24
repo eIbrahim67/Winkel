@@ -1,173 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    style="@style/background">
+    android:layout_marginVertical="5dp"
+    app:cardCornerRadius="5dp"
+    style="@style/cardBackgroundColor"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
-        <TextView
+        <!-- Guideline -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/labelGuideline"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <!-- Item ID -->
+        <TextView
+            android:id="@+id/label_id"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/item_id"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"
-            android:layout_marginEnd="10dp"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintEnd_toStartOf="@id/labelGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/ItemId"
-            android:layout_width="wrap_content"
+            android:id="@+id/itemId"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"/>
+            android:layout_marginStart="5dp"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelGuideline" />
 
-    </LinearLayout>
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_id" />
 
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
+        <!-- Category -->
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/label_category"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/category_of_item"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"
-            android:layout_marginEnd="10dp"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintEnd_toStartOf="@id/labelGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
 
         <TextView
             android:id="@+id/itemCategory"
-            android:layout_width="wrap_content"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"/>
+            android:layout_marginStart="5dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelGuideline" />
 
-    </LinearLayout>
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_category" />
 
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
+        <!-- Size -->
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/label_size"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/size_of_item"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"
-            android:layout_marginEnd="10dp"
-            tools:ignore="HardcodedText" />
+            android:text="@string/size"
+            app:layout_constraintEnd_toStartOf="@id/labelGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
 
         <TextView
             android:id="@+id/itemSize"
-            android:layout_width="wrap_content"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"/>
+            android:layout_marginStart="5dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelGuideline" />
 
-    </LinearLayout>
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_size" />
 
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        <!-- Quantity -->
+        <TextView
+            android:id="@+id/label_quantity"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/quantity"
+            app:layout_constraintEnd_toStartOf="@id/labelGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider3" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/itemQuantity"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/price_of_item"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"
-            android:layout_marginEnd="10dp"
-            tools:ignore="HardcodedText" />
+            android:layout_marginStart="5dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_quantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelGuideline" />
 
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_quantity" />
+
+        <!-- Total Price -->
         <TextView
-            android:id="@+id/itemPrice"
-            android:layout_width="wrap_content"
+            android:id="@+id/label_total_price"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/much_of_item"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"
-            android:layout_marginEnd="10dp"
-            tools:ignore="HardcodedText" />
-
-        <TextView
-            android:id="@+id/itemMuch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/total_price_of_this_item"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"
-            android:layout_marginEnd="10dp"
-            tools:ignore="HardcodedText" />
+            android:text="@string/total_price"
+            app:layout_constraintEnd_toStartOf="@id/labelGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider4" />
 
         <TextView
             android:id="@+id/itemTotalPrice"
-            android:layout_width="wrap_content"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            style="@style/TextColor_v1"
-            android:textStyle="bold"/>
+            android:layout_marginStart="5dp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/label_total_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelGuideline" />
 
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/gray_v2"/>
-
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

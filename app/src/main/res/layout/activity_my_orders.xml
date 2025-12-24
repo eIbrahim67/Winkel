@@ -7,6 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".myOrders.MyOrdersFragment">
 
+    <com.google.android.material.loadingindicator.LoadingIndicator
+        android:id="@+id/loadingIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/loading"
+        app:indicatorColor="?attr/indicatorColor"
+        app:indicatorSize="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:minHideDelay="300"
+        app:showDelay="200" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +43,7 @@
 
                 <ImageView
                     android:id="@+id/btnBack"
-                    style="@style/back_arrow_background_btn"
+                    style="@style/main_back_btn_style"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:clickable="true"

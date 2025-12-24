@@ -18,7 +18,7 @@
 
         <ImageView
             android:id="@+id/btnBack"
-            style="@style/back_arrow_background_btn"
+            style="@style/main_back_btn_style"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:clickable="true"

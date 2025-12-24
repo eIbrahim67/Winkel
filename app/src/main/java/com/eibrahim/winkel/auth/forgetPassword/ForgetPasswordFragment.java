@@ -58,6 +58,5 @@ public class ForgetPasswordFragment extends Fragment {
                 binding.progressBar.setVisibility(View.GONE);
             }
         });
-
     }
 }

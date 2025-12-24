@@ -63,14 +63,34 @@ public class ConfirmDeletionFragment extends Fragment {
                     if (snapshot.exists()) {
                         String correctPin = String.valueOf(snapshot.get("pin"));
                         if (code.equals(correctPin)) {
-                            new AlertDialog.Builder(requireContext()).setTitle(R.string.delete_account).setMessage(R.string.are_you_sure_you_want_to_permanently_delete_your_account).setPositiveButton(R.string.yes, (dialog, which) -> deleteMyAccount()).setNegativeButton(R.string.cancel, null).show();
+                            new AlertDialog.Builder(requireContext())
+                                    .setTitle(R.string.delete_account)
+                                    .setMessage(R.string.are_you_sure_you_want_to_permanently_delete_your_account)
+                                    .setPositiveButton(R.string.yes, (dialog, which) -> {
+                                        deleteMyAccount();
+                                    }).setNegativeButton(R.string.cancel, ((dialog, which) -> {
+                                        binding.btnDeleteAccountFinal.setEnabled(true);
+                                        binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+                                        binding.progressBar.setVisibility(View.GONE);
+                                    })).show();
                         } else {
+                            binding.btnDeleteAccountFinal.setEnabled(true);
+                            binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+                            binding.progressBar.setVisibility(View.GONE);
                             Snackbar.make(requireView(), getText(R.string.incorrect_pin_please_try_again), Snackbar.LENGTH_SHORT).show();
                         }
                     } else {
+                        binding.btnDeleteAccountFinal.setEnabled(true);
+                        binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+                        binding.progressBar.setVisibility(View.GONE);
                         Snackbar.make(requireView(), getText(R.string.pin_not_found_please_contact_support), Snackbar.LENGTH_SHORT).show();
                     }
-                }).addOnFailureListener(e -> Snackbar.make(requireView(), getText(R.string.failed_to_verify_pin_please_check_your_connection), Snackbar.LENGTH_SHORT).show());
+                }).addOnFailureListener(e -> {
+                    binding.btnDeleteAccountFinal.setEnabled(true);
+                    binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+                    binding.progressBar.setVisibility(View.GONE);
+                    Snackbar.make(requireView(), getText(R.string.failed_to_verify_pin_please_check_your_connection), Snackbar.LENGTH_SHORT).show();
+                });
 
             } else {
                 Snackbar.make(requireView(), getString(R.string.please_enter_your_admin_code), Snackbar.LENGTH_SHORT).show();
@@ -90,6 +110,9 @@ public class ConfirmDeletionFragment extends Fragment {
             startActivity(intent);
             requireActivity().finish();
         } catch (Exception e) {
+            binding.btnDeleteAccountFinal.setEnabled(true);
+            binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+            binding.progressBar.setVisibility(View.GONE);
             Snackbar.make(requireView(), getString(R.string.unexpected_error_occurred), Snackbar.LENGTH_SHORT).show();
         }
     }
@@ -114,11 +137,22 @@ public class ConfirmDeletionFragment extends Fragment {
                 if (e.getMessage() != null && e.getMessage().contains("recent login")) {
                     Snackbar.make(requireView(), R.string.please_re_login_before_deleting_your_account, Snackbar.LENGTH_LONG).show();
                     logout(); // Optionally force logout so user logs in again
+                    binding.btnDeleteAccountFinal.setEnabled(true);
+                    binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+                    binding.progressBar.setVisibility(View.GONE);
                 } else {
                     Snackbar.make(requireView(), "Auth deletion failed: " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                    binding.btnDeleteAccountFinal.setEnabled(true);
+                    binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+                    binding.progressBar.setVisibility(View.GONE);
                 }
             });
-        }).addOnFailureListener(e -> Snackbar.make(requireView(), "Failed to delete user data: " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
+        }).addOnFailureListener(e -> {
+            binding.btnDeleteAccountFinal.setEnabled(true);
+            binding.btnDeleteAccountFinal.setText(R.string.confirm_deletion);
+            binding.progressBar.setVisibility(View.GONE);
+            Snackbar.make(requireView(), "Failed to delete user data: " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+        });
     }
 
 

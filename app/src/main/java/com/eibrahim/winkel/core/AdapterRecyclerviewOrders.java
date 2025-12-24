@@ -1,71 +1,93 @@
 package com.eibrahim.winkel.core;
 
-import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eibrahim.winkel.R;
+import com.eibrahim.winkel.databinding.ItemRvOrdersItemsBinding;
 
 import java.util.List;
 
 public class AdapterRecyclerviewOrders extends RecyclerView.Adapter<AdapterRecyclerviewOrders.ViewHolder> {
 
-    private Context context;
     private final List<DataOrderItem> itemList;
-
-    private int counter = 1;
 
     public AdapterRecyclerviewOrders(List<DataOrderItem> itemList) {
         this.itemList = itemList;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView orderCustId;
-        final RecyclerView rv_orders_item_data;
-        final TextView orderTotalPrice;
-        final TextView orderCounter;
+        private final ItemRvOrdersItemsBinding binding;
+        private final AdapterRecyclerviewOrderItemData itemAdapter;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
+        public ViewHolder(ItemRvOrdersItemsBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
 
-            orderCustId = itemView.findViewById(R.id.orderCustId);
-            orderTotalPrice = itemView.findViewById(R.id.orderTotalPrice);
-            orderCounter = itemView.findViewById(R.id.orderCounter);
-            rv_orders_item_data = itemView.findViewById(R.id.rv_orders_item_data);
+            // Initialize inner RecyclerView once
+            binding.rvOrdersItemData.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
+            itemAdapter = new AdapterRecyclerviewOrderItemData();
+            binding.rvOrdersItemData.setAdapter(itemAdapter);
         }
+
+        public static String toRoman(int number) {
+            int[] values = {
+                    1000, 900, 500, 400,
+                    100, 90, 50, 40,
+                    10, 9, 5, 4, 1
+            };
+
+            String[] symbols = {
+                    "M", "CM", "D", "CD",
+                    "C", "XC", "L", "XL",
+                    "X", "IX", "V", "IV", "I"
+            };
+
+            StringBuilder roman = new StringBuilder();
+
+            for (int i = 0; i < values.length; i++) {
+                while (number >= values[i]) {
+                    number -= values[i];
+                    roman.append(symbols[i]);
+                }
+            }
+            return roman.toString();
+        }
+
+        public void bind(DataOrderItem orderItem, int position) {
+            binding.orderCounter.setText(toRoman(position + 1));
+
+            // Correct way to get string from resources
+            String orderNumber = binding.getRoot().getContext().getString(R.string.order_number, position + 1);
+            binding.orderCustId.setText(orderNumber);
+
+            // Update inner adapter
+            itemAdapter.submitList(orderItem.getListItemsData());
+
+            String totalPriceText = binding.getRoot().getContext()
+                    .getString(R.string.total_price_le, orderItem.getTotalPrice());
+            binding.orderTotalPrice.setText(totalPriceText);
+
+        }
+
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_orders_items, parent, false);
-        context = parent.getContext();
-        return new ViewHolder(view);
+        ItemRvOrdersItemsBinding binding = ItemRvOrdersItemsBinding.inflate(
+                LayoutInflater.from(parent.getContext()), parent, false
+        );
+        return new ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DataOrderItem currentItem = itemList.get(position);
-
-        holder.orderCustId.setText(currentItem.getCustId());
-        holder.orderTotalPrice.setText(currentItem.getTotalPrice());
-        holder.orderCounter.setText(String.valueOf(counter));
-        counter++;
-
-        AdapterRecyclerviewOrderItemData adapterRecyclerviewOrderItemData = new AdapterRecyclerviewOrderItemData(
-                currentItem.getListItemsData()
-        );
-
-        holder.rv_orders_item_data.setLayoutManager(new LinearLayoutManager(context));
-
-        holder.rv_orders_item_data.setAdapter(adapterRecyclerviewOrderItemData);
-
+        holder.bind(itemList.get(position), position);
     }
 
     @Override

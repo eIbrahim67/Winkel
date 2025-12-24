@@ -79,7 +79,6 @@
     <string name="upload">Upload</string>
     <string name="search">Search....</string>
     <string name="customer_id">Customer ID:</string>
-    <string name="total_price_of_order">Total price of order:</string>
     <string name="edit_personal_data">Edit Personal Data</string>
     <string name="your_admin_code">Your admin code</string>
     <string name="your_vendor_code">Your vendor code</string>
@@ -329,4 +328,25 @@
     <string name="remove_image_background">Remove Image Background</string>
     <string name="it_looks_like_you_have_not_make_any_orders_yet_nstart_listing_your_products_now">It looks like you have not make any Orders yet\nStart listing your products now!</string>
     <string name="upload_a_photo">Upload a photo</string>
+    <string name="password_is_required_to_sign_in">Password is required to sign in.</string>
+    <string name="email_address_is_required_to_sign_in">Email address is required to sign in.</string>
+
+    <string name="error_username_required">Please enter your full name.</string>
+    <string name="error_email_required">Please enter a valid email address.</string>
+    <string name="error_password_required">Please enter a password.</string>
+    <string name="error_confirm_password_required">Please confirm your password.</string>
+    <string name="error_passwords_not_match">Passwords do not match.</string>
+    <string name="error_pin_required">Please enter your PIN.</string>
+    <string name="error_confirm_pin_required">Please confirm your PIN.</string>
+    <string name="error_pins_not_match">PIN codes do not match.</string>
+    <string name="error_phone_invalid">Please enter a valid 11-digit phone number.</string>
+    <string name="error_terms_required">You must agree to the terms and conditions.</string>
+    <string name="reset_password_hint">
+    Enter your email to receive a password reset link
+</string>
+    <string name="total_price">Total price</string>
+    <string name="order_number">Order #%d</string>
+    <string name="__le">%s LE</string>
+    <string name="total_price_le">Total price: %1$s LE</string>
+    <string name="quantity">Quantity</string>
 </resources>

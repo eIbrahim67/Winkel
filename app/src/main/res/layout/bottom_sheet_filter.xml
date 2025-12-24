@@ -33,7 +33,7 @@
 
             <ImageView
                 android:id="@+id/back_filter_btn"
-                style="@style/back_arrow_background_btn"
+                style="@style/main_back_btn_style"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
@@ -362,7 +362,7 @@
 
         <Button
             android:id="@+id/btnFilter"
-            style="@style/checkout_background_btn"
+            style="@style/main_button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"

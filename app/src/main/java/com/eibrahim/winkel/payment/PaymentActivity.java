@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -19,14 +18,13 @@ import com.eibrahim.winkel.core.DataRecyclerviewMyItem;
 import com.eibrahim.winkel.databinding.ActivityPaymentBinding;
 import com.eibrahim.winkel.main.LocaleHelper;
 import com.eibrahim.winkel.main.MainActivity;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.firestore.WriteBatch;
 import com.stripe.android.PaymentConfiguration;
 import com.stripe.android.paymentsheet.PaymentSheet;
 import com.stripe.android.paymentsheet.PaymentSheetResult;
@@ -51,17 +49,17 @@ import okhttp3.Response;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    private ActivityPaymentBinding binding;
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
     private final String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+    private final Map<String, String> totalData = new HashMap<>();
+    private ActivityPaymentBinding binding;
     private boolean isAllAddressAdded = false;
-
     private PaymentSheet paymentSheet;
     private String clientSecret;
-    private final Map<String, String> totalData = new HashMap<>();
-
     private long amountInPiasters;
+    private double totalPrice = 0.0;
+    private int items = 0;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -114,7 +112,13 @@ public class PaymentActivity extends AppCompatActivity {
 
         // Payment button click
         binding.btnPayment.setOnClickListener(v -> {
+            binding.btnPayment.setEnabled(false);
+            binding.btnPayment.setText("");
+            binding.progressBar.setVisibility(View.VISIBLE);
             if (!isAllAddressAdded) {
+                binding.btnPayment.setEnabled(true);
+                binding.btnPayment.setText(R.string.payment);
+                binding.progressBar.setVisibility(View.GONE);
                 Snackbar.make(binding.getRoot(), R.string.please_complete_all_address_details_before_proceeding, Snackbar.LENGTH_SHORT).show();
                 return;
             }
@@ -126,16 +130,49 @@ public class PaymentActivity extends AppCompatActivity {
     // FETCH BASKET + PRODUCTS FAST
     // -----------------------------
     private void loadBasket() {
+
         showLoading();
 
-        DocumentReference basketRef = firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument");
+        firestore.collection("UsersData")
+                .document(userId)
+                .collection("Basket")
+                .get()
+                .addOnSuccessListener(query -> {
 
-        basketRef.get().addOnSuccessListener(snap -> {
-            List<String> basket = (List<String>) snap.get("BasketCollection");
+                    if (query.isEmpty()) {
+//                        showEmptyBasket();
+                        finish();
+                        return;
+                    }
 
-            fetchAllProducts(Objects.requireNonNull(basket));
+                    List<DataRecyclerviewMyItem> result = new ArrayList<>();
 
-        }).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
+                    items = 0;
+                    totalPrice = 0.0;
+                    totalData.clear();
+
+                    for (DocumentSnapshot doc : query) {
+
+                        String itemId = doc.getString("itemId");
+                        String itemType = doc.getString("itemType");
+                        String size = doc.getString("size");
+
+                        long quantity = doc.getLong("quantity") != null
+                                ? doc.getLong("quantity") : 1;
+
+                        double price = doc.getDouble("price") != null
+                                ? doc.getDouble("price") : 0;
+
+                        double itemTotal = price * quantity;
+
+                        // fetch product info
+                        fetchProduct(itemId, itemType, size,
+                                quantity, price, itemTotal, result);
+                    }
+
+                })
+                .addOnFailureListener(e ->
+                        showError(getString(R.string.error_loading)));
     }
 
     // -----------------------------
@@ -149,67 +186,55 @@ public class PaymentActivity extends AppCompatActivity {
         binding.loadingIndicator.setVisibility(View.GONE);
     }
 
-    private double totalPrice = 0.0;
-    private int items = 0;
+    private void fetchProduct(
+            String itemId,
+            String itemType,
+            String size,
+            long quantity,
+            double price,
+            double itemTotal,
+            List<DataRecyclerviewMyItem> result) {
 
-    // Fetch all product documents in parallel
-    private void fetchAllProducts(List<String> basket) {
-        List<Task<?>> tasks = new ArrayList<>();
-        List<DataRecyclerviewMyItem> result = new ArrayList<>();
+        firestore.collection("Products")
+                .document(itemType)
+                .collection(itemType)
+                .document(itemId)
+                .get()
+                .addOnSuccessListener(snap -> {
+                    if (!snap.exists()) return;
 
-        // RESET totals
-        items = 0;
-        totalPrice = 0.0;
-        totalData.clear();
+                    String name = snap.getString("name");
+                    String category = snap.getString("category");
+                    String imageId = snap.getString("imageId");
 
-        for (String entry : basket) {
-            String[] parts = entry.split(",");
+                    DataRecyclerviewMyItem item =
+                            new DataRecyclerviewMyItem(
+                                    category,
+                                    imageId,
+                                    name,
+                                    String.valueOf(price),
+                                    itemType,
+                                    size
+                            );
 
-            String itemId = parts[0].trim();
-            String itemType = parts[1].trim();
-            String much = parts[2].trim();
-            String size = parts[3].trim();
+                    item.setItemId(itemId);
+                    item.setMuch(String.valueOf(quantity));
+                    item.setTotalPriceItem(itemTotal);
 
-            DocumentReference productRef = firestore.collection("Products").document(itemType).collection(itemType).document(itemId);
-
-            Task<?> task = productRef.get().continueWith(productTask -> {
-                if (!productTask.isSuccessful() || !productTask.getResult().exists()) return null;
-
-                Map<String, Object> data = productTask.getResult().getData();
-                if (data == null) return null;
-
-                String name = (String) data.get("name");
-                String category = (String) data.get("category");
-                String imageId = (String) data.get("imageId");
-                String priceStr = (String) data.get("price");
-
-                double price = priceStr == null ? 0 : Double.parseDouble(priceStr);
-                double total = price * Double.parseDouble(much);
-
-                DataRecyclerviewMyItem item = new DataRecyclerviewMyItem(category, imageId, name, priceStr, itemType, size);
-
-                item.setItemId(itemId);
-                item.setMuch(much);
-                item.setTotalPriceItem(total);
-
-                synchronized (result) {
                     result.add(item);
+
                     items++;
-                    totalPrice += total;
-                    totalData.put(itemId, itemId + "," + itemType + "," + much + "," + priceStr + "," + size);
-                }
+                    totalPrice += itemTotal;
 
-                return null;
-            });
+                    totalData.put(itemId,
+                            itemId + "," + itemType + "," +
+                                    quantity + "," + price + "," + size);
 
-            tasks.add(task);
-        }
-
-        // When ALL product fetches complete
-        Tasks.whenAllComplete(tasks).addOnSuccessListener(done -> updateUI(result)).addOnFailureListener(e -> showError(getString(R.string.error_loading)));
+                    updateUI(result);
+                });
     }
 
-    // -----------------------------
+
     // UI UPDATE
     // -----------------------------
     private void updateUI(List<DataRecyclerviewMyItem> itemsList) {
@@ -248,13 +273,16 @@ public class PaymentActivity extends AppCompatActivity {
         updateSmallUI();
     }
 
-    public void removeItem(double amount, String itemId) {
+    public void removeItem(double amount, String docId) {
         items--;
         totalPrice -= amount;
         updateSmallUI();
-        totalData.remove(itemId);
-        if (items == 0) binding.btnBack.performClick();
+        totalData.remove(docId);
+
+        if (items == 0)
+            binding.btnBack.performClick();
     }
+
 
     private void updateSmallUI() {
         binding.noOfItems.setText(items + (items == 1 ? getString(R.string.item) : getString(R.string.items)));
@@ -265,22 +293,21 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void createPaymentIntent(long amount) {
-        binding.progressBar.setVisibility(View.VISIBLE);
-        binding.btnPayment.setVisibility(View.GONE);
-
         OkHttpClient client = new OkHttpClient();
         JSONObject json = new JSONObject();
         try {
             json.put("amount", amount); // amount in piasters
         } catch (JSONException e) {
+            binding.btnPayment.setEnabled(true);
+            binding.btnPayment.setText(R.string.payment);
+            binding.progressBar.setVisibility(View.GONE);
             Snackbar.make(binding.getRoot(), Objects.requireNonNull(e.getMessage()), Snackbar.LENGTH_SHORT).show();
         }
 
         RequestBody body = RequestBody.create(MediaType.get("application/json; charset=utf-8"), json.toString());
 
-        // Use emulator IP for localhost or your PC IP for device
-        String url = "http://10.0.2.2:5000/create_payment_intent";
-        //String url = "http://192.168.1.100:5000/create_payment_intent"; // real device
+//        String url = "http://10.0.2.2:5000/create_payment_intent"; // emulator device
+        String url = "http://192.168.1.100:5000/create_payment_intent"; // real device
 
         Request request = new Request.Builder().url(url).post(body).build();
 
@@ -288,10 +315,10 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 runOnUiThread(() -> {
+                    binding.btnPayment.setEnabled(true);
+                    binding.btnPayment.setText(R.string.payment);
                     binding.progressBar.setVisibility(View.GONE);
-                    binding.btnPayment.setVisibility(View.VISIBLE);
                     Snackbar.make(binding.getRoot(), "Payment error: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                    Log.e("PaymentError", e.toString());
                 });
             }
 
@@ -306,13 +333,16 @@ public class PaymentActivity extends AppCompatActivity {
                     } else {
                         String error = jsonResponse.optString("error", "Unknown error");
                         runOnUiThread(() -> {
+                            binding.btnPayment.setEnabled(true);
+                            binding.btnPayment.setText(R.string.payment);
                             binding.progressBar.setVisibility(View.GONE);
-                            binding.btnPayment.setVisibility(View.VISIBLE);
                             Snackbar.make(binding.getRoot(), "Error: " + error, Snackbar.LENGTH_LONG).show();
-                            Log.e("PaymentError", error);
                         });
                     }
                 } catch (JSONException e) {
+                    binding.btnPayment.setEnabled(true);
+                    binding.btnPayment.setText(R.string.payment);
+                    binding.progressBar.setVisibility(View.GONE);
                     Snackbar.make(binding.getRoot(), Objects.requireNonNull(e.getMessage()), Snackbar.LENGTH_SHORT).show();
                 }
             }
@@ -320,8 +350,6 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void presentPaymentSheet() {
-        binding.progressBar.setVisibility(View.GONE);
-        binding.btnPayment.setVisibility(View.VISIBLE);
         PaymentSheet.Configuration config = new PaymentSheet.Configuration("Winkel App");
         paymentSheet.presentWithPaymentIntent(clientSecret, config);
     }
@@ -330,35 +358,77 @@ public class PaymentActivity extends AppCompatActivity {
         if (result instanceof PaymentSheetResult.Completed) {
             saveOrderToFirestore();
         } else if (result instanceof PaymentSheetResult.Canceled) {
+            binding.btnPayment.setEnabled(true);
+            binding.btnPayment.setText(R.string.payment);
+            binding.progressBar.setVisibility(View.GONE);
             Snackbar.make(binding.getRoot(), "Payment canceled", Snackbar.LENGTH_SHORT).show();
         } else if (result instanceof PaymentSheetResult.Failed) {
+            binding.btnPayment.setEnabled(true);
+            binding.btnPayment.setText(R.string.payment);
+            binding.progressBar.setVisibility(View.GONE);
             Snackbar.make(binding.getRoot(), "Payment failed: " + ((PaymentSheetResult.Failed) result).getError().getMessage(), Snackbar.LENGTH_LONG).show();
         }
     }
 
     private void saveOrderToFirestore() {
-        DocumentReference basketRef = firestore.collection("UsersData").document(userId).collection("BasketCollection").document("BasketDocument");
 
-        DocumentReference orderRef = firestore.collection("Orders").document(userId);
+        String orderId = firestore.collection("Orders").document().getId();
 
-        Map<String, Object> updateData = new HashMap<>();
-        StringBuilder orderData = new StringBuilder();
-        for (String value : totalData.values()) {
-            orderData.append(value).append(" & ");
+        DocumentReference orderRef =
+                firestore.collection("Orders").document(orderId);
+
+        Map<String, Object> order = new HashMap<>();
+        order.put("userId", userId);
+        order.put("totalPrice", totalPrice);
+        order.put("deliveryFee", 20.0);
+        order.put("status", "PAID");
+        order.put("createdAt", FieldValue.serverTimestamp());
+
+        Map<String, Object> address = new HashMap<>();
+        address.put("state", binding.addressState.getText().toString());
+        address.put("city", binding.addressCity.getText().toString());
+        address.put("street", binding.addressStreet.getText().toString());
+        order.put("address", address);
+
+        WriteBatch batch = firestore.batch();
+        batch.set(orderRef, order);
+
+        for (String itemId : totalData.keySet()) {
+            String[] p = totalData.get(itemId).split(",");
+
+            Map<String, Object> item = new HashMap<>();
+            item.put("itemId", itemId);
+            item.put("itemType", p[1]);
+            item.put("quantity", Long.parseLong(p[2]));
+            item.put("price", Double.parseDouble(p[3]));
+            item.put("size", p[4]);
+
+            batch.set(orderRef.collection("items").document(itemId), item);
         }
 
-        updateData.put("OrderCollection", FieldValue.arrayUnion(orderData.toString()));
+        // CLEAR NEW BASKET
+        firestore.collection("UsersData")
+                .document(userId)
+                .collection("Basket")
+                .get()
+                .addOnSuccessListener(query -> {
+                    for (DocumentSnapshot d : query) {
+                        batch.delete(d.getReference());
+                    }
 
-        orderRef.set(updateData, SetOptions.merge()).addOnSuccessListener(unused -> {
-            basketRef.update("BasketCollection", FieldValue.delete());
-            Snackbar.make(binding.getRoot(), getString(R.string.payment_successful), Snackbar.LENGTH_SHORT).show();
+                    batch.commit().addOnSuccessListener(a -> {
+                        Snackbar.make(binding.getRoot(),
+                                R.string.payment_successful,
+                                Snackbar.LENGTH_SHORT).show();
 
-            Intent home = new Intent(PaymentActivity.this, MainActivity.class);
-            home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(home);
-            finish();
-        }).addOnFailureListener(e -> Snackbar.make(binding.getRoot(), "Order save failed: " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
+                        Intent home = new Intent(this, MainActivity.class);
+                        home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(home);
+                        finish();
+                    });
+                });
     }
+
 
     private void checkAddressFields() {
         isAllAddressAdded = !binding.addressState.getText().toString().trim().isEmpty() && !binding.addressCity.getText().toString().trim().isEmpty() && !binding.addressStreet.getText().toString().trim().isEmpty();

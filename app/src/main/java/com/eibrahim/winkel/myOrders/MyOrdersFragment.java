@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -66,6 +67,7 @@ public class MyOrdersFragment extends Fragment {
                 if (ordersList == null || ordersList.isEmpty()) {
                     binding.msgEmptyMyOrders.setVisibility(View.VISIBLE);
                     Snackbar.make(requireView(), getText(R.string.there_are_currently_no_orders_to_display), Snackbar.LENGTH_SHORT).show();
+                    binding.loadingIndicator.setVisibility(View.GONE);
                     return;
                 }
 
@@ -73,6 +75,7 @@ public class MyOrdersFragment extends Fragment {
 
                 if (ordersList.isEmpty()) {
                     binding.msgEmptyMyOrders.setVisibility(View.VISIBLE);
+                    binding.loadingIndicator.setVisibility(View.GONE);
                 } else {
                     for (String orderData : ordersList) {
                         orderItems.add(parseOrder(orderData));
@@ -81,8 +84,10 @@ public class MyOrdersFragment extends Fragment {
 
                 AdapterRecyclerviewOrders adapter = new AdapterRecyclerviewOrders(orderItems);
                 binding.reMyOrders.setAdapter(adapter);
+                binding.loadingIndicator.setVisibility(View.GONE);
             } else {
                 binding.msgEmptyMyOrders.setVisibility(View.VISIBLE);
+                binding.loadingIndicator.setVisibility(View.GONE);
                 Snackbar.make(requireView(), getText(R.string.there_are_currently_no_orders_to_display), Snackbar.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(e -> Snackbar.make(requireView(), R.string.unexpected_error_occurred, Snackbar.LENGTH_SHORT).show());

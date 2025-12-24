@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -48,26 +49,60 @@ public class SignupFragment extends Fragment {
         String password = Objects.requireNonNull(binding.passSignup.getText()).toString();
         String rePassword = Objects.requireNonNull(binding.repassSignup.getText()).toString();
         String pin = binding.pinSignup.getText().toString();
-        String repin = binding.rePinSignup.getText().toString();
+        String rePin = binding.rePinSignup.getText().toString();
         String phone = binding.phoneSignup.getText().toString();
 
-        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(email) ||
-                TextUtils.isEmpty(password) || TextUtils.isEmpty(rePassword) ||
-                TextUtils.isEmpty(pin) || TextUtils.isEmpty(repin) ||
-                phone.length() != 11 ||
-                !password.equals(rePassword) ||
-                !pin.equals(repin) ||
-                !binding.checkSignup.isChecked()) {
+        if (TextUtils.isEmpty(username)) {
+            showError(R.string.error_username_required, binding.nameSignup);
 
-            Snackbar.make(requireView(), getText(R.string.please_fill_valid_details), Snackbar.LENGTH_SHORT).show();
-            binding.btnSignup.setEnabled(true);
-            binding.btnSignup.setText(R.string.sign_up);
-            binding.progressBar.setVisibility(View.GONE);
-            return;
+        } else if (TextUtils.isEmpty(email)) {
+            showError(R.string.error_email_required, binding.emailSignup);
+
+        } else if (TextUtils.isEmpty(password)) {
+            showError(R.string.error_password_required, binding.passSignup);
+
+        } else if (TextUtils.isEmpty(rePassword)) {
+            showError(R.string.error_confirm_password_required, binding.repassSignup);
+
+        } else if (!password.equals(rePassword)) {
+            showError(R.string.error_passwords_not_match, binding.repassSignup);
+
+        } else if (TextUtils.isEmpty(pin)) {
+            showError(R.string.error_pin_required, binding.pinSignup);
+
+        } else if (TextUtils.isEmpty(rePin)) {
+            showError(R.string.error_confirm_pin_required, binding.rePinSignup);
+
+        } else if (!pin.equals(rePin)) {
+            showError(R.string.error_pins_not_match, binding.rePinSignup);
+
+        } else if (phone.length() != 11) {
+            showError(R.string.error_phone_invalid, binding.phoneSignup);
+
+        } else if (!binding.checkSignup.isChecked()) {
+            showError(R.string.error_terms_required, binding.checkSignup);
+
+        } else {
+            viewModel.createAccount(email, password, username, phone, pin);
         }
-
-        viewModel.createAccount(email, password, username, phone, pin);
     }
+
+    private void showError(int messageRes, View focusView) {
+        Snackbar.make(requireView(), getString(messageRes), Snackbar.LENGTH_SHORT).show();
+
+        binding.btnSignup.setEnabled(true);
+        binding.btnSignup.setText(R.string.sign_up);
+        binding.progressBar.setVisibility(View.GONE);
+
+        focusView.requestFocus();
+
+        if (focusView instanceof EditText) {
+            ((EditText) focusView).setSelection(
+                    ((EditText) focusView).getText().length()
+            );
+        }
+    }
+
 
     private void observeViewModel() {
         viewModel.getSignupSuccess().observe(getViewLifecycleOwner(), success -> {

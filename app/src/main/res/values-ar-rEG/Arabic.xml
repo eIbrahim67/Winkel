@@ -79,7 +79,6 @@
     <string name="upload">تحميل</string>
     <string name="search">بحث....</string>
     <string name="customer_id">هوية العميل:</string>
-    <string name="total_price_of_order">السعر الإجمالي للطلب:</string>
     <string name="edit_personal_data">تعديل البيانات الشخصية</string>
     <string name="your_admin_code">رمز المسؤول الخاص بك</string>
     <string name="your_vendor_code">رمز البائع الخاص بك</string>
@@ -319,7 +318,6 @@
 سترة بياقة بولو بقصّة مستقيمة مع شعار مطرّز من HUGO Menswear. في منتجاتنا المسؤولة، نستخدم دائمًا ما لا يقل عن 60٪ من المواد الخام المستدامة. هذه السترة مصنوعة من صوف معتمد ومصادر بشكل مسؤول. بالنسبة لنا، المصادر المسؤولة تعني خالٍ من تقنية الميولسينغ ويلتزم بمعايير "الحقوق الخمس" لرفاهية الحيوان.
 قصّة عادية، ياقة بولو، أكمام طويلة.
 </string>
-
     <string name="reset_password">إعادة تعيين كلمة المرور</string>
     <string name="image_upload_failed">فشل رفع الصورة</string>
     <string name="no_orders_found">لا توجد طلبات</string>
@@ -328,17 +326,39 @@
     <string name="pin_not_set_for_user">لم يتم تعيين رمز PIN للمستخدم</string>
     <string name="authentication_failed_check_your_credentials">فشل تسجيل الدخول: يرجى التحقق من بياناتك</string>
     <string name="remove_background">إزالة الخلفية</string>
-
     <string name="something_wrong_please_try_again">
 حدث خطأ ما، يرجى المحاولة مرة أخرى!
 </string>
-
     <string name="remove_image_background">إزالة خلفية الصورة</string>
-
     <string name="it_looks_like_you_have_not_make_any_orders_yet_nstart_listing_your_products_now">
 يبدو أنك لم تقم بأي طلبات حتى الآن
 ابدأ بإضافة منتجاتك الآن!
 </string>
-
     <string name="upload_a_photo">رفع صورة</string>
+
+    <string name="password_is_required_to_sign_in">كلمة المرور مطلوبة لتسجيل الدخول.</string>
+    <string name="email_address_is_required_to_sign_in">عنوان البريد الإلكتروني مطلوب لتسجيل الدخول.</string>
+
+    <string name="error_username_required">يرجى إدخال الاسم الكامل.</string>
+    <string name="error_email_required">يرجى إدخال عنوان بريد إلكتروني صالح.</string>
+    <string name="error_password_required">يرجى إدخال كلمة المرور.</string>
+    <string name="error_confirm_password_required">يرجى تأكيد كلمة المرور.</string>
+    <string name="error_passwords_not_match">كلمتا المرور غير متطابقتين.</string>
+    <string name="error_pin_required">يرجى إدخال رمز PIN.</string>
+    <string name="error_confirm_pin_required">يرجى تأكيد رمز PIN.</string>
+    <string name="error_pins_not_match">رموز PIN غير متطابقة.</string>
+    <string name="error_phone_invalid">يرجى إدخال رقم هاتف صالح مكون من 11 رقمًا.</string>
+    <string name="error_terms_required">يجب الموافقة على الشروط والأحكام.</string>
+
+    <string name="reset_password_hint">
+أدخل بريدك الإلكتروني لتلقي رابط إعادة تعيين كلمة المرور
+</string>
+
+    <string name="total_price">إجمالي السعر</string>
+    <string name="order_number">طلب رقم #%d</string>
+    <string name="__le">%s جنيه</string>
+    <string name="total_price_le">إجمالي السعر: %1$s جنيه</string>
+    <string name="quantity">الكمية</string>
+
+
 </resources>

@@ -12,7 +12,7 @@
         android:id="@+id/btn_back_pin"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        style="@style/back_arrow_background_btn"
+        style="@style/main_back_btn_style"
         android:padding="7dp"
         android:clickable="true"
         android:focusable="true"

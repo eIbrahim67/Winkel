@@ -21,7 +21,7 @@
 
         <ImageView
             android:id="@+id/btnBack"
-            style="@style/back_arrow_background_btn"
+            style="@style/main_back_btn_style"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:clickable="true"
@@ -142,6 +142,8 @@
                     android:focusable="true"
                     android:fontFamily="@font/font_v3"
                     android:hint="@string/state"
+                    android:inputType="textPostalAddress"
+                    android:maxLength="30"
                     android:minHeight="50dp"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
@@ -157,11 +159,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:autofillHints="name"
                     android:clickable="true"
                     android:focusable="true"
                     android:fontFamily="@font/font_v3"
                     android:hint="@string/city"
+                    android:inputType="textPostalAddress"
+                    android:maxLength="30"
                     android:minHeight="50dp"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
@@ -176,11 +179,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:autofillHints="name"
                     android:clickable="true"
                     android:focusable="true"
                     android:fontFamily="@font/font_v3"
                     android:hint="@string/rest_of_address_in_detail_e_g_street"
+                    android:maxLines="3"
                     android:minHeight="50dp"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
@@ -297,7 +300,6 @@
 
     <RelativeLayout
         android:id="@+id/btnLayout"
-        style="@style/checkout_background_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -311,7 +313,7 @@
 
         <Button
             android:id="@+id/btnPayment"
-            style="@style/checkout_background_btn"
+            style="@style/main_button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"

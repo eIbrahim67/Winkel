@@ -44,18 +44,22 @@ public class ThemeFragment extends Fragment {
         try {
             sharedPreferences = requireContext().getSharedPreferences("ThemePrefs", Context.MODE_PRIVATE);
             int isDarkMode = sharedPreferences.getInt("theme_state", -1);
-            if (isDarkMode != -1) {
-                if (isDarkMode == 1) {
-                    binding.RadBtnNight.performClick();
-                } else {
-                    binding.RadBtnLight.performClick();
-                }
-            } else {
-                binding.RadBtnSystem.performClick();
-            }
-            binding.btnLight.setOnClickListener(v -> setThemeMode(AppCompatDelegate.MODE_NIGHT_NO, 2));
-            binding.btnDark.setOnClickListener(v -> setThemeMode(AppCompatDelegate.MODE_NIGHT_YES, 1));
-            binding.btnSystem.setOnClickListener(v -> setThemeMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM, -1));
+            updateSelection(isDarkMode);
+
+            binding.btnLight.setOnClickListener(v -> {
+                updateSelection(2);
+                setThemeMode(AppCompatDelegate.MODE_NIGHT_NO, 2);
+            });
+
+            binding.btnDark.setOnClickListener(v -> {
+                updateSelection(1);
+                setThemeMode(AppCompatDelegate.MODE_NIGHT_YES, 1);
+            });
+
+            binding.btnSystem.setOnClickListener(v -> {
+                updateSelection(-1);
+                setThemeMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM, -1);
+            });
 
             binding.btnBack.setOnClickListener(v -> NavHostFragment.findNavController(this).popBackStack());
 
@@ -72,6 +76,12 @@ public class ThemeFragment extends Fragment {
         } catch (Exception e) {
             Snackbar.make(binding.getRoot(), Objects.requireNonNull(e.getMessage()), Snackbar.LENGTH_SHORT).show();
         }
+    }
+
+    private void updateSelection(int state) {
+        binding.btnLight.setSelected(state == 2);
+        binding.btnDark.setSelected(state == 1);
+        binding.btnSystem.setSelected(state == -1);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.eibrahim.winkel.languages;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,19 +40,14 @@ public class LanguagesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        SharedPreferences prefs = requireContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        String language = prefs.getString("My_Lang", "en");
+        updateSelection(language);
+
 
         BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
         binding.btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
-
-        binding.btnSystem.setOnClickListener(v -> new AlertDialog.Builder(requireContext()).setTitle(R.string.restart_required).setMessage(R.string.the_application_needs_to_restart_to_apply_the_changes).setPositiveButton(R.string.restart, (dialog, which) -> {
-
-            SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", getContext().MODE_PRIVATE).edit();
-            editor.remove("My_Lang").apply();
-
-            restartApp();
-        }).setNegativeButton(R.string.cancel, null).show());
-
         binding.btnEnglish.setOnClickListener(v -> setLocale("en"));
         binding.btnArabic.setOnClickListener(v -> setLocale("ar"));
     }
@@ -66,7 +63,7 @@ public class LanguagesFragment extends Fragment {
             requireActivity().getResources().updateConfiguration(config, requireActivity().getResources().getDisplayMetrics());
 
             getContext();
-            SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE).edit();
+            SharedPreferences.Editor editor = requireActivity().getSharedPreferences("Settings", MODE_PRIVATE).edit();
             editor.putString("My_Lang", languageCode);
             editor.apply();
 
@@ -80,6 +77,14 @@ public class LanguagesFragment extends Fragment {
         startActivity(intent);
         requireActivity().finishAffinity();  // Close all previous activities
     }
+
+    private void updateSelection(String state) {
+        if (state != null) {
+            binding.btnEnglish.setSelected(state.equals("en"));
+            binding.btnArabic.setSelected(state.equals("ar"));
+        }
+    }
+
 
     @Override
     public void onDestroyView() {
